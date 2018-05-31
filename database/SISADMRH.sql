@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3306
--- Tiempo de generación: 31-05-2018 a las 01:00:44
+-- Tiempo de generación: 31-05-2018 a las 03:32:35
 -- Versión del servidor: 10.1.26-MariaDB-0+deb9u1
 -- Versión de PHP: 7.0.27-0+deb9u1
 
@@ -741,6 +741,18 @@ CREATE TABLE `ROL` (
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `rol`
+--
+
+CREATE TABLE `rol` (
+  `codigorol` varchar(10) NOT NULL,
+  `codigogrupousuario` varchar(10) NOT NULL,
+  `nombrerol` varchar(100) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `UBICACIONFISICA`
 --
 
@@ -769,13 +781,48 @@ CREATE TABLE `USUARIO` (
   `FECHABAJA` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Volcado de datos para la tabla `USUARIO`
+--
+
+INSERT INTO `USUARIO` (`CODIGOUSUARIO`, `NOMBREUSUARIO`, `CONTRASENIAUSUARIO`, `CONTROLCONTRASENIA`, `ESTADOUSUARIO`, `FECHAINGRESO`, `FECHACADUCIDAD`, `FECHABAJA`) VALUES
+('1', 'dialv', 'avasacreer', 1, 1, '2018-05-01', '2018-05-16', '2018-05-01');
+
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `USUARIOGRUPOUSUARIO`
+-- Estructura de tabla para la tabla `usuario`
 --
 
-CREATE TABLE `USUARIOGRUPOUSUARIO` (
+CREATE TABLE `usuario` (
+  `codigousuario` varchar(10) NOT NULL,
+  `contraseniausuario` varchar(100) DEFAULT NULL,
+  `controlcontrasenia` int(11) DEFAULT NULL,
+  `estadousuario` int(11) DEFAULT NULL,
+  `fechabaja` date DEFAULT NULL,
+  `fechacaducidad` date DEFAULT NULL,
+  `fechaingreso` date DEFAULT NULL,
+  `nombreusuario` varchar(50) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usuariorol`
+--
+
+CREATE TABLE `usuariorol` (
+  `codigorol` varchar(255) NOT NULL,
+  `codigousuario` varchar(255) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `USUARIOROL`
+--
+
+CREATE TABLE `USUARIOROL` (
   `CODIGOUSUARIO` varchar(10) NOT NULL,
   `CODIGOROL` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -1080,6 +1127,12 @@ ALTER TABLE `ROL`
   ADD KEY `FK_SE_ASINGA` (`CODIGOGRUPOUSUARIO`);
 
 --
+-- Indices de la tabla `rol`
+--
+ALTER TABLE `rol`
+  ADD PRIMARY KEY (`codigorol`);
+
+--
 -- Indices de la tabla `UBICACIONFISICA`
 --
 ALTER TABLE `UBICACIONFISICA`
@@ -1092,9 +1145,15 @@ ALTER TABLE `USUARIO`
   ADD PRIMARY KEY (`CODIGOUSUARIO`);
 
 --
--- Indices de la tabla `USUARIOGRUPOUSUARIO`
+-- Indices de la tabla `usuario`
 --
-ALTER TABLE `USUARIOGRUPOUSUARIO`
+ALTER TABLE `usuario`
+  ADD PRIMARY KEY (`codigousuario`);
+
+--
+-- Indices de la tabla `USUARIOROL`
+--
+ALTER TABLE `USUARIOROL`
   ADD PRIMARY KEY (`CODIGOUSUARIO`,`CODIGOROL`),
   ADD KEY `FK_ROL` (`CODIGOROL`);
 
@@ -1265,16 +1324,10 @@ ALTER TABLE `PROGRAMAHIJODISCAPACIDAD`
   ADD CONSTRAINT `FK_RECIBE_UN2` FOREIGN KEY (`CODIGOPROGRAMA`) REFERENCES `PROGRAMA` (`CODIGOPROGRAMA`);
 
 --
--- Filtros para la tabla `ROL`
+-- Filtros para la tabla `USUARIOROL`
 --
-ALTER TABLE `ROL`
-  ADD CONSTRAINT `FK_SE_ASINGA` FOREIGN KEY (`CODIGOGRUPOUSUARIO`) REFERENCES `GRUPOUSUARIO` (`CODIGOGRUPOUSUARIO`);
-
---
--- Filtros para la tabla `USUARIOGRUPOUSUARIO`
---
-ALTER TABLE `USUARIOGRUPOUSUARIO`
-  ADD CONSTRAINT `FK_ROL` FOREIGN KEY (`CODIGOROL`) REFERENCES `GRUPOUSUARIO` (`CODIGOGRUPOUSUARIO`),
+ALTER TABLE `USUARIOROL`
+  ADD CONSTRAINT `FK_ROL` FOREIGN KEY (`CODIGOROL`) REFERENCES `ROL` (`CODIGOROL`),
   ADD CONSTRAINT `FK_USUARIO` FOREIGN KEY (`CODIGOUSUARIO`) REFERENCES `USUARIO` (`CODIGOUSUARIO`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
