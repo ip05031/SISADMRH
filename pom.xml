@@ -3,13 +3,13 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.sisadmrh</groupId>
+	<groupId>mj.gob</groupId>
 	<artifactId>sisadmrh</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 
-	<name>mjsp</name>
-	<description>Demo project for Spring Boot</description>
+	<name>sisadmrh</name>
+	<description>proyecto de administracion de recursos humanos ministerio de justicia</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -28,10 +28,6 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-jdbc</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
