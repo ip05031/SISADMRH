@@ -8,12 +8,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @author dialv
  */
 @Controller
-public class IndexController {
-
-    @RequestMapping("/")
+public class HomeController {
+   @RequestMapping("/")
     public String index() {
-
         return "index";
     }
-
 }

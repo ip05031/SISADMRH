@@ -1,5 +1,5 @@
 mj/gob/sisadmrh/repository/UsuarioRepository.class
-mj/gob/sisadmrh/controller/IndexController.class
+mj/gob/sisadmrh/controller/HomeController.class
 mj/gob/sisadmrh/SisadmrhApplication.class
 mj/gob/sisadmrh/controller/UsuarioController.class
 mj/gob/sisadmrh/ServletInitializer.class
