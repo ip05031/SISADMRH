@@ -1,5 +1,7 @@
-/home/dialv/Documentos/sourcecode/SISADMRH2/src/main/java/mj/gob/sisadmrh/controller/UsuarioController.java
 /home/dialv/Documentos/sourcecode/SISADMRH2/src/main/java/mj/gob/sisadmrh/SisadmrhApplication.java
+/home/dialv/Documentos/sourcecode/SISADMRH2/src/main/java/mj/gob/sisadmrh/controller/usuario/UsuarioController.java
+/home/dialv/Documentos/sourcecode/SISADMRH2/src/main/java/mj/gob/sisadmrh/service/UsuarioServiceImpl.java
+/home/dialv/Documentos/sourcecode/SISADMRH2/src/main/java/mj/gob/sisadmrh/service/UsuarioService.java
 /home/dialv/Documentos/sourcecode/SISADMRH2/src/main/java/mj/gob/sisadmrh/ServletInitializer.java
 /home/dialv/Documentos/sourcecode/SISADMRH2/src/main/java/mj/gob/sisadmrh/model/Usuario.java
 /home/dialv/Documentos/sourcecode/SISADMRH2/src/main/java/mj/gob/sisadmrh/model/Rol.java

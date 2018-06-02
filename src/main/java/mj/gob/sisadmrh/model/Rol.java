@@ -6,7 +6,7 @@
 package mj.gob.sisadmrh.model;
 
 import java.io.Serializable;
-import java.util.Collection;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -35,9 +35,8 @@ public class Rol implements Serializable {
     @Id
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 10)
     @Column(name = "CODIGOROL")
-    private String codigorol;
+    private Integer codigorol;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 10)
@@ -50,25 +49,25 @@ public class Rol implements Serializable {
         @JoinColumn(name = "CODIGOROL", referencedColumnName = "CODIGOROL")}, inverseJoinColumns = {
         @JoinColumn(name = "CODIGOUSUARIO", referencedColumnName = "CODIGOUSUARIO")})
     @ManyToMany(fetch = FetchType.LAZY)
-    private Collection<Usuario> usuarioCollection;
+    private List<Usuario> usuarioList;
 
     public Rol() {
     }
 
-    public Rol(String codigorol) {
+    public Rol(Integer codigorol) {
         this.codigorol = codigorol;
     }
 
-    public Rol(String codigorol, String codigogrupousuario) {
+    public Rol(Integer codigorol, String codigogrupousuario) {
         this.codigorol = codigorol;
         this.codigogrupousuario = codigogrupousuario;
     }
 
-    public String getCodigorol() {
+    public Integer getCodigorol() {
         return codigorol;
     }
 
-    public void setCodigorol(String codigorol) {
+    public void setCodigorol(Integer codigorol) {
         this.codigorol = codigorol;
     }
 
@@ -88,12 +87,12 @@ public class Rol implements Serializable {
         this.nombrerol = nombrerol;
     }
 
-    public Collection<Usuario> getUsuarioCollection() {
-        return usuarioCollection;
+    public List<Usuario> getUsuarioList() {
+        return usuarioList;
     }
 
-    public void setUsuarioCollection(Collection<Usuario> usuarioCollection) {
-        this.usuarioCollection = usuarioCollection;
+    public void setUsuarioList(List<Usuario> usuarioList) {
+        this.usuarioList = usuarioList;
     }
 
     @Override

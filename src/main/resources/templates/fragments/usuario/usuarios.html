@@ -2,10 +2,11 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head lang="en">
     <title>Usuarios</title>
-    <th:block th:include="layout/header"></th:block>
+    <!--<th:block th:include="layout/header"></th:block>-->
 </head>
 <body>
 <div class="container">
+    e aqui
     <div th:if="${not #lists.isEmpty(usuarios)}">
         <h2>Todos los Usuarios</h2>
         <table class="table table-striped">
@@ -28,8 +29,8 @@
                 <td th:text="${usuario.fechaingreso}">fecha ingreso</td>
                 <td th:text="${usuario.fechacaducidad}">fecha caducidad</td>
                 <td th:text="${usuario.fechabaja}">fecha baja</td>
-                <td><a th:href="${'/usuarios/edit/' + usuario.id}" class="btn btn-default">Edit</a></td>
-                <td><a th:href="${'/usuarios/delete/' + usuario.id}" class="btn btn-danger">Delete</a></td>
+<!--                <td><a th:href="${'/usuarios/edit/' + usuario.id}" class="btn btn-default">Edit</a></td>
+                <td><a th:href="${'/usuarios/delete/' + usuario.id}" class="btn btn-danger">Delete</a></td>-->
             </tr>
         </table>
     </div>

@@ -1,19 +1,16 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package mj.gob.sisadmrh.model;
 
 import java.io.Serializable;
-import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -26,15 +23,16 @@ import javax.validation.constraints.Size;
  */
 @Entity
 @Table(name = "USUARIO")
+@NamedQueries({
+    @NamedQuery(name = "Usuario.findAll", query = "SELECT u FROM Usuario u")})
 public class Usuario implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 10)
     @Column(name = "CODIGOUSUARIO")
-    private String codigousuario;
+    private Integer codigousuario;
     @Size(max = 50)
     @Column(name = "NOMBREUSUARIO")
     private String nombreusuario;
@@ -54,21 +52,21 @@ public class Usuario implements Serializable {
     @Column(name = "FECHABAJA")
     @Temporal(TemporalType.DATE)
     private Date fechabaja;
-    @ManyToMany(mappedBy = "usuarioCollection", fetch = FetchType.LAZY)
-    private Collection<Rol> rolCollection;
+    @ManyToMany(mappedBy = "usuarioList", fetch = FetchType.LAZY)
+    private List<Rol> rolList;
 
     public Usuario() {
     }
 
-    public Usuario(String codigousuario) {
+    public Usuario(Integer codigousuario) {
         this.codigousuario = codigousuario;
     }
 
-    public String getCodigousuario() {
+    public Integer getCodigousuario() {
         return codigousuario;
     }
 
-    public void setCodigousuario(String codigousuario) {
+    public void setCodigousuario(Integer codigousuario) {
         this.codigousuario = codigousuario;
     }
 
@@ -128,12 +126,12 @@ public class Usuario implements Serializable {
         this.fechabaja = fechabaja;
     }
 
-    public Collection<Rol> getRolCollection() {
-        return rolCollection;
+    public List<Rol> getRolList() {
+        return rolList;
     }
 
-    public void setRolCollection(Collection<Rol> rolCollection) {
-        this.rolCollection = rolCollection;
+    public void setRolList(List<Rol> rolList) {
+        this.rolList = rolList;
     }
 
     @Override
