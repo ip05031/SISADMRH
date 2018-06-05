@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+
+    <title>SISADMRH</title>
+
+  
+</head>
+<body>
+<div class="container">
+    <th:block th:include="header :: header"></th:block> 
+    <h2>Modificar Datos de Usuario</h2>
+        <div>
+            <form class="form-horizontal">
+                
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Usuario Id:</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static" th:text="${usuario.codigousuario}">Usuario Id</p></div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Nombre:</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static" th:text="${usuario.nombreusuario}">NOmbre</p>
+                    </div>
+                </div>
+            </form>
+    </div>
+</div>
+
+</body>
+</html>
