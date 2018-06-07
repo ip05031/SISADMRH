@@ -2,10 +2,10 @@
 -- version 4.6.6deb4
 -- https://www.phpmyadmin.net/
 --
--- Servidor: localhost:3306
--- Tiempo de generación: 31-05-2018 a las 03:32:35
--- Versión del servidor: 10.1.26-MariaDB-0+deb9u1
--- Versión de PHP: 7.0.27-0+deb9u1
+-- Host: localhost:3306
+-- Generation Time: Jun 06, 2018 at 09:58 PM
+-- Server version: 10.1.26-MariaDB-0+deb9u1
+-- PHP Version: 7.0.27-0+deb9u1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,13 +17,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `SISADMRH`
+-- Database: `SISADMRH`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `ASISTENCIACAPACIATION`
+-- Table structure for table `ASISTENCIACAPACIATION`
 --
 
 CREATE TABLE `ASISTENCIACAPACIATION` (
@@ -36,7 +36,7 @@ CREATE TABLE `ASISTENCIACAPACIATION` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `BENEFICIO`
+-- Table structure for table `BENEFICIO`
 --
 
 CREATE TABLE `BENEFICIO` (
@@ -50,7 +50,7 @@ CREATE TABLE `BENEFICIO` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `BITACORA`
+-- Table structure for table `BITACORA`
 --
 
 CREATE TABLE `BITACORA` (
@@ -65,7 +65,7 @@ CREATE TABLE `BITACORA` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `CAPACITACION`
+-- Table structure for table `CAPACITACION`
 --
 
 CREATE TABLE `CAPACITACION` (
@@ -90,7 +90,7 @@ CREATE TABLE `CAPACITACION` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `CAPACITADOR`
+-- Table structure for table `CAPACITADOR`
 --
 
 CREATE TABLE `CAPACITADOR` (
@@ -110,7 +110,7 @@ CREATE TABLE `CAPACITADOR` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `COMISION`
+-- Table structure for table `COMISION`
 --
 
 CREATE TABLE `COMISION` (
@@ -125,7 +125,7 @@ CREATE TABLE `COMISION` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `COMITE`
+-- Table structure for table `COMITE`
 --
 
 CREATE TABLE `COMITE` (
@@ -142,7 +142,7 @@ CREATE TABLE `COMITE` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `CONTACTO`
+-- Table structure for table `CONTACTO`
 --
 
 CREATE TABLE `CONTACTO` (
@@ -157,7 +157,7 @@ CREATE TABLE `CONTACTO` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `CONTRATO`
+-- Table structure for table `CONTRATO`
 --
 
 CREATE TABLE `CONTRATO` (
@@ -174,7 +174,7 @@ CREATE TABLE `CONTRATO` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `COSTOCAPACITACION`
+-- Table structure for table `COSTOCAPACITACION`
 --
 
 CREATE TABLE `COSTOCAPACITACION` (
@@ -188,7 +188,7 @@ CREATE TABLE `COSTOCAPACITACION` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `CUADRODIRECTIVO`
+-- Table structure for table `CUADRODIRECTIVO`
 --
 
 CREATE TABLE `CUADRODIRECTIVO` (
@@ -202,7 +202,7 @@ CREATE TABLE `CUADRODIRECTIVO` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `DEPENDIENTEEMPLEADO`
+-- Table structure for table `DEPENDIENTEEMPLEADO`
 --
 
 CREATE TABLE `DEPENDIENTEEMPLEADO` (
@@ -219,7 +219,7 @@ CREATE TABLE `DEPENDIENTEEMPLEADO` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `DESCUENTO`
+-- Table structure for table `DESCUENTO`
 --
 
 CREATE TABLE `DESCUENTO` (
@@ -236,7 +236,7 @@ CREATE TABLE `DESCUENTO` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `DIAGNOSTICOCAPACITACION`
+-- Table structure for table `DIAGNOSTICOCAPACITACION`
 --
 
 CREATE TABLE `DIAGNOSTICOCAPACITACION` (
@@ -253,7 +253,7 @@ CREATE TABLE `DIAGNOSTICOCAPACITACION` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `DISCAPACIDAD`
+-- Table structure for table `DISCAPACIDAD`
 --
 
 CREATE TABLE `DISCAPACIDAD` (
@@ -265,7 +265,7 @@ CREATE TABLE `DISCAPACIDAD` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `EMPLEADO`
+-- Table structure for table `EMPLEADO`
 --
 
 CREATE TABLE `EMPLEADO` (
@@ -309,7 +309,7 @@ CREATE TABLE `EMPLEADO` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `EMPLEADOASISTENCIACAPACITACION`
+-- Table structure for table `EMPLEADOASISTENCIACAPACITACION`
 --
 
 CREATE TABLE `EMPLEADOASISTENCIACAPACITACION` (
@@ -320,7 +320,7 @@ CREATE TABLE `EMPLEADOASISTENCIACAPACITACION` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `EMPLEADOBENEFICIO`
+-- Table structure for table `EMPLEADOBENEFICIO`
 --
 
 CREATE TABLE `EMPLEADOBENEFICIO` (
@@ -331,7 +331,7 @@ CREATE TABLE `EMPLEADOBENEFICIO` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `EMPLEADOCAPACITACION`
+-- Table structure for table `EMPLEADOCAPACITACION`
 --
 
 CREATE TABLE `EMPLEADOCAPACITACION` (
@@ -342,7 +342,7 @@ CREATE TABLE `EMPLEADOCAPACITACION` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `EMPLEADOCONTACTO`
+-- Table structure for table `EMPLEADOCONTACTO`
 --
 
 CREATE TABLE `EMPLEADOCONTACTO` (
@@ -353,7 +353,7 @@ CREATE TABLE `EMPLEADOCONTACTO` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `EMPLEADODESCUENTO`
+-- Table structure for table `EMPLEADODESCUENTO`
 --
 
 CREATE TABLE `EMPLEADODESCUENTO` (
@@ -364,7 +364,7 @@ CREATE TABLE `EMPLEADODESCUENTO` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `EMPLEADODISCAPACIDAD`
+-- Table structure for table `EMPLEADODISCAPACIDAD`
 --
 
 CREATE TABLE `EMPLEADODISCAPACIDAD` (
@@ -375,7 +375,7 @@ CREATE TABLE `EMPLEADODISCAPACIDAD` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `EMPLEADOEXPERIENCIALABORAL`
+-- Table structure for table `EMPLEADOEXPERIENCIALABORAL`
 --
 
 CREATE TABLE `EMPLEADOEXPERIENCIALABORAL` (
@@ -386,7 +386,7 @@ CREATE TABLE `EMPLEADOEXPERIENCIALABORAL` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `EMPLEADOIDIOMA`
+-- Table structure for table `EMPLEADOIDIOMA`
 --
 
 CREATE TABLE `EMPLEADOIDIOMA` (
@@ -397,7 +397,7 @@ CREATE TABLE `EMPLEADOIDIOMA` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `EMPLEADOMISION`
+-- Table structure for table `EMPLEADOMISION`
 --
 
 CREATE TABLE `EMPLEADOMISION` (
@@ -408,7 +408,7 @@ CREATE TABLE `EMPLEADOMISION` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `EMPLEADONIVELESCOLARIDAD`
+-- Table structure for table `EMPLEADONIVELESCOLARIDAD`
 --
 
 CREATE TABLE `EMPLEADONIVELESCOLARIDAD` (
@@ -419,7 +419,7 @@ CREATE TABLE `EMPLEADONIVELESCOLARIDAD` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `EMPLEADOPROGRAMA`
+-- Table structure for table `EMPLEADOPROGRAMA`
 --
 
 CREATE TABLE `EMPLEADOPROGRAMA` (
@@ -430,7 +430,7 @@ CREATE TABLE `EMPLEADOPROGRAMA` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `ESTADO`
+-- Table structure for table `ESTADO`
 --
 
 CREATE TABLE `ESTADO` (
@@ -442,7 +442,7 @@ CREATE TABLE `ESTADO` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `EVENTO`
+-- Table structure for table `EVENTO`
 --
 
 CREATE TABLE `EVENTO` (
@@ -454,7 +454,7 @@ CREATE TABLE `EVENTO` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `EVUALUACIONCAPACITACION`
+-- Table structure for table `EVUALUACIONCAPACITACION`
 --
 
 CREATE TABLE `EVUALUACIONCAPACITACION` (
@@ -486,7 +486,7 @@ CREATE TABLE `EVUALUACIONCAPACITACION` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `EXPEDIENTEEMPLEADO`
+-- Table structure for table `EXPEDIENTEEMPLEADO`
 --
 
 CREATE TABLE `EXPEDIENTEEMPLEADO` (
@@ -516,7 +516,7 @@ CREATE TABLE `EXPEDIENTEEMPLEADO` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `EXPERIENCIALABORAL`
+-- Table structure for table `EXPERIENCIALABORAL`
 --
 
 CREATE TABLE `EXPERIENCIALABORAL` (
@@ -533,7 +533,7 @@ CREATE TABLE `EXPERIENCIALABORAL` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `GRUPOUSUARIO`
+-- Table structure for table `GRUPOUSUARIO`
 --
 
 CREATE TABLE `GRUPOUSUARIO` (
@@ -545,7 +545,7 @@ CREATE TABLE `GRUPOUSUARIO` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `HABILIDAD`
+-- Table structure for table `HABILIDAD`
 --
 
 CREATE TABLE `HABILIDAD` (
@@ -557,7 +557,7 @@ CREATE TABLE `HABILIDAD` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `HIJODISCAPACIDAD`
+-- Table structure for table `HIJODISCAPACIDAD`
 --
 
 CREATE TABLE `HIJODISCAPACIDAD` (
@@ -572,7 +572,7 @@ CREATE TABLE `HIJODISCAPACIDAD` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `IDIOMA`
+-- Table structure for table `IDIOMA`
 --
 
 CREATE TABLE `IDIOMA` (
@@ -587,7 +587,7 @@ CREATE TABLE `IDIOMA` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `INASISTENCIA`
+-- Table structure for table `INASISTENCIA`
 --
 
 CREATE TABLE `INASISTENCIA` (
@@ -602,7 +602,7 @@ CREATE TABLE `INASISTENCIA` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `INCAPACIDAD`
+-- Table structure for table `INCAPACIDAD`
 --
 
 CREATE TABLE `INCAPACIDAD` (
@@ -624,7 +624,7 @@ CREATE TABLE `INCAPACIDAD` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `MISION`
+-- Table structure for table `MISION`
 --
 
 CREATE TABLE `MISION` (
@@ -650,7 +650,7 @@ CREATE TABLE `MISION` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `NIVELESCOLARIDAD`
+-- Table structure for table `NIVELESCOLARIDAD`
 --
 
 CREATE TABLE `NIVELESCOLARIDAD` (
@@ -668,7 +668,7 @@ CREATE TABLE `NIVELESCOLARIDAD` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `PROGRAMA`
+-- Table structure for table `PROGRAMA`
 --
 
 CREATE TABLE `PROGRAMA` (
@@ -682,7 +682,7 @@ CREATE TABLE `PROGRAMA` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `PROGRAMAHIJODISCAPACIDAD`
+-- Table structure for table `PROGRAMAHIJODISCAPACIDAD`
 --
 
 CREATE TABLE `PROGRAMAHIJODISCAPACIDAD` (
@@ -693,7 +693,7 @@ CREATE TABLE `PROGRAMAHIJODISCAPACIDAD` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `PUESTO`
+-- Table structure for table `PUESTO`
 --
 
 CREATE TABLE `PUESTO` (
@@ -729,11 +729,11 @@ CREATE TABLE `PUESTO` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `ROL`
+-- Table structure for table `rol`
 --
 
-CREATE TABLE `ROL` (
-  `CODIGOROL` varchar(10) NOT NULL,
+CREATE TABLE `rol` (
+  `CODIGOROL` int(11) NOT NULL,
   `CODIGOGRUPOUSUARIO` varchar(10) NOT NULL,
   `NOMBREROL` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -741,19 +741,7 @@ CREATE TABLE `ROL` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `rol`
---
-
-CREATE TABLE `rol` (
-  `codigorol` varchar(10) NOT NULL,
-  `codigogrupousuario` varchar(10) NOT NULL,
-  `nombrerol` varchar(100) DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `UBICACIONFISICA`
+-- Table structure for table `UBICACIONFISICA`
 --
 
 CREATE TABLE `UBICACIONFISICA` (
@@ -767,11 +755,11 @@ CREATE TABLE `UBICACIONFISICA` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `USUARIO`
+-- Table structure for table `usuario`
 --
 
-CREATE TABLE `USUARIO` (
-  `CODIGOUSUARIO` varchar(10) NOT NULL,
+CREATE TABLE `usuario` (
+  `CODIGOUSUARIO` int(11) NOT NULL,
   `NOMBREUSUARIO` varchar(50) DEFAULT NULL,
   `CONTRASENIAUSUARIO` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
   `CONTROLCONTRASENIA` int(11) DEFAULT NULL,
@@ -782,153 +770,125 @@ CREATE TABLE `USUARIO` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `USUARIO`
+-- Dumping data for table `usuario`
 --
 
-INSERT INTO `USUARIO` (`CODIGOUSUARIO`, `NOMBREUSUARIO`, `CONTRASENIAUSUARIO`, `CONTROLCONTRASENIA`, `ESTADOUSUARIO`, `FECHAINGRESO`, `FECHACADUCIDAD`, `FECHABAJA`) VALUES
-('1', 'dialv', 'avasacreer', 1, 1, '2018-05-01', '2018-05-16', '2018-05-01');
+INSERT INTO `usuario` (`CODIGOUSUARIO`, `NOMBREUSUARIO`, `CONTRASENIAUSUARIO`, `CONTROLCONTRASENIA`, `ESTADOUSUARIO`, `FECHAINGRESO`, `FECHACADUCIDAD`, `FECHABAJA`) VALUES
+(1, 'dialv', 'nohay', 1, 1, '2018-06-07', '2018-06-16', '2018-06-20');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `usuario`
---
-
-CREATE TABLE `usuario` (
-  `codigousuario` varchar(10) NOT NULL,
-  `contraseniausuario` varchar(100) DEFAULT NULL,
-  `controlcontrasenia` int(11) DEFAULT NULL,
-  `estadousuario` int(11) DEFAULT NULL,
-  `fechabaja` date DEFAULT NULL,
-  `fechacaducidad` date DEFAULT NULL,
-  `fechaingreso` date DEFAULT NULL,
-  `nombreusuario` varchar(50) DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `usuariorol`
+-- Table structure for table `usuariorol`
 --
 
 CREATE TABLE `usuariorol` (
-  `codigorol` varchar(255) NOT NULL,
-  `codigousuario` varchar(255) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `USUARIOROL`
---
-
-CREATE TABLE `USUARIOROL` (
-  `CODIGOUSUARIO` varchar(10) NOT NULL,
-  `CODIGOROL` varchar(10) NOT NULL
+  `CODIGOUSUARIO` int(11) NOT NULL,
+  `CODIGOROL` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Índices para tablas volcadas
+-- Indexes for dumped tables
 --
 
 --
--- Indices de la tabla `ASISTENCIACAPACIATION`
+-- Indexes for table `ASISTENCIACAPACIATION`
 --
 ALTER TABLE `ASISTENCIACAPACIATION`
   ADD PRIMARY KEY (`CODIGOASISTENCIACAPACITACION`),
   ADD KEY `FK_LLEVA` (`CODIGOCAPACITACION`);
 
 --
--- Indices de la tabla `BENEFICIO`
+-- Indexes for table `BENEFICIO`
 --
 ALTER TABLE `BENEFICIO`
   ADD PRIMARY KEY (`CODIGOBENEFICIO`);
 
 --
--- Indices de la tabla `BITACORA`
+-- Indexes for table `BITACORA`
 --
 ALTER TABLE `BITACORA`
   ADD PRIMARY KEY (`CODIGOBITACORA`);
 
 --
--- Indices de la tabla `CAPACITACION`
+-- Indexes for table `CAPACITACION`
 --
 ALTER TABLE `CAPACITACION`
   ADD PRIMARY KEY (`CODIGOCAPACITACION`),
   ADD KEY `FK_IMPARTE` (`CODIGOCAPACITADOR`);
 
 --
--- Indices de la tabla `CAPACITADOR`
+-- Indexes for table `CAPACITADOR`
 --
 ALTER TABLE `CAPACITADOR`
   ADD PRIMARY KEY (`CODIGOCAPACITADOR`),
   ADD KEY `FK_PUEDE_SER` (`CODIGOEMPLEADO`);
 
 --
--- Indices de la tabla `COMISION`
+-- Indexes for table `COMISION`
 --
 ALTER TABLE `COMISION`
   ADD PRIMARY KEY (`CODIGOCOMISION`);
 
 --
--- Indices de la tabla `COMITE`
+-- Indexes for table `COMITE`
 --
 ALTER TABLE `COMITE`
   ADD PRIMARY KEY (`CODIGOCOMITE`);
 
 --
--- Indices de la tabla `CONTACTO`
+-- Indexes for table `CONTACTO`
 --
 ALTER TABLE `CONTACTO`
   ADD PRIMARY KEY (`CODIGOCONTACTO`);
 
 --
--- Indices de la tabla `CONTRATO`
+-- Indexes for table `CONTRATO`
 --
 ALTER TABLE `CONTRATO`
   ADD PRIMARY KEY (`CODIGOCONTRATO`);
 
 --
--- Indices de la tabla `COSTOCAPACITACION`
+-- Indexes for table `COSTOCAPACITACION`
 --
 ALTER TABLE `COSTOCAPACITACION`
   ADD PRIMARY KEY (`CODIGOCOSTOCAPACITACION`),
   ADD KEY `FK_GENERA` (`CODIGOCAPACITACION`);
 
 --
--- Indices de la tabla `CUADRODIRECTIVO`
+-- Indexes for table `CUADRODIRECTIVO`
 --
 ALTER TABLE `CUADRODIRECTIVO`
   ADD PRIMARY KEY (`CODIGOCUADRODIRECTIVO`);
 
 --
--- Indices de la tabla `DEPENDIENTEEMPLEADO`
+-- Indexes for table `DEPENDIENTEEMPLEADO`
 --
 ALTER TABLE `DEPENDIENTEEMPLEADO`
   ADD PRIMARY KEY (`CODIGODEPENDIENTEEMPLEADO`),
   ADD KEY `FK_SE_ENCARGA_DE` (`CODIGOEMPLEADO`);
 
 --
--- Indices de la tabla `DESCUENTO`
+-- Indexes for table `DESCUENTO`
 --
 ALTER TABLE `DESCUENTO`
   ADD PRIMARY KEY (`CODIGODESCUENTO`);
 
 --
--- Indices de la tabla `DIAGNOSTICOCAPACITACION`
+-- Indexes for table `DIAGNOSTICOCAPACITACION`
 --
 ALTER TABLE `DIAGNOSTICOCAPACITACION`
   ADD PRIMARY KEY (`CODIGODIAGNOSTICOCAPACITACION`),
   ADD KEY `FK_SE_HACE` (`CODIGOCAPACITACION`);
 
 --
--- Indices de la tabla `DISCAPACIDAD`
+-- Indexes for table `DISCAPACIDAD`
 --
 ALTER TABLE `DISCAPACIDAD`
   ADD PRIMARY KEY (`CODIGODISCAPACIDAD`);
 
 --
--- Indices de la tabla `EMPLEADO`
+-- Indexes for table `EMPLEADO`
 --
 ALTER TABLE `EMPLEADO`
   ADD PRIMARY KEY (`CODIGOEMPLEADO`),
@@ -941,264 +901,252 @@ ALTER TABLE `EMPLEADO`
   ADD KEY `FK_POSEE_UN` (`CODIGOCONTRATO`);
 
 --
--- Indices de la tabla `EMPLEADOASISTENCIACAPACITACION`
+-- Indexes for table `EMPLEADOASISTENCIACAPACITACION`
 --
 ALTER TABLE `EMPLEADOASISTENCIACAPACITACION`
   ADD PRIMARY KEY (`CODIGOEMPLEADO`,`CODIGOASISTENCIACAPACITACION`),
   ADD KEY `FK_LLEVA_UNA2` (`CODIGOASISTENCIACAPACITACION`);
 
 --
--- Indices de la tabla `EMPLEADOBENEFICIO`
+-- Indexes for table `EMPLEADOBENEFICIO`
 --
 ALTER TABLE `EMPLEADOBENEFICIO`
   ADD PRIMARY KEY (`CODIGOBENEFICIO`,`CODIGOEMPLEADO`),
   ADD KEY `FK_GOZA_DE2` (`CODIGOEMPLEADO`);
 
 --
--- Indices de la tabla `EMPLEADOCAPACITACION`
+-- Indexes for table `EMPLEADOCAPACITACION`
 --
 ALTER TABLE `EMPLEADOCAPACITACION`
   ADD PRIMARY KEY (`CODIGOEMPLEADO`,`CODIGOCAPACITACION`),
   ADD KEY `FK_RECIBE2` (`CODIGOCAPACITACION`);
 
 --
--- Indices de la tabla `EMPLEADOCONTACTO`
+-- Indexes for table `EMPLEADOCONTACTO`
 --
 ALTER TABLE `EMPLEADOCONTACTO`
   ADD PRIMARY KEY (`CODIGOEMPLEADO`,`CODIGOCONTACTO`),
   ADD KEY `FK_NECESITA2` (`CODIGOCONTACTO`);
 
 --
--- Indices de la tabla `EMPLEADODESCUENTO`
+-- Indexes for table `EMPLEADODESCUENTO`
 --
 ALTER TABLE `EMPLEADODESCUENTO`
   ADD PRIMARY KEY (`CODIGOEMPLEADO`,`CODIGODESCUENTO`),
   ADD KEY `FK_SE_REALIZA2` (`CODIGODESCUENTO`);
 
 --
--- Indices de la tabla `EMPLEADODISCAPACIDAD`
+-- Indexes for table `EMPLEADODISCAPACIDAD`
 --
 ALTER TABLE `EMPLEADODISCAPACIDAD`
   ADD PRIMARY KEY (`CODIGOEMPLEADO`,`CODIGODISCAPACIDAD`),
   ADD KEY `FK_PADECE_DE2` (`CODIGODISCAPACIDAD`);
 
 --
--- Indices de la tabla `EMPLEADOEXPERIENCIALABORAL`
+-- Indexes for table `EMPLEADOEXPERIENCIALABORAL`
 --
 ALTER TABLE `EMPLEADOEXPERIENCIALABORAL`
   ADD PRIMARY KEY (`CODIGOEMPLEADO`,`CODIGOEXPERIENCIALABORAL`),
   ADD KEY `FK_ADQUIERE2` (`CODIGOEXPERIENCIALABORAL`);
 
 --
--- Indices de la tabla `EMPLEADOIDIOMA`
+-- Indexes for table `EMPLEADOIDIOMA`
 --
 ALTER TABLE `EMPLEADOIDIOMA`
   ADD PRIMARY KEY (`CODIGOEMPLEADO`,`CODIGOIDIOMA`),
   ADD KEY `FK_HABLA2` (`CODIGOIDIOMA`);
 
 --
--- Indices de la tabla `EMPLEADOMISION`
+-- Indexes for table `EMPLEADOMISION`
 --
 ALTER TABLE `EMPLEADOMISION`
   ADD PRIMARY KEY (`CODIGOEMPLEADO`,`CODIGOMISION`),
   ADD KEY `FK_ENVIADO_A2` (`CODIGOMISION`);
 
 --
--- Indices de la tabla `EMPLEADONIVELESCOLARIDAD`
+-- Indexes for table `EMPLEADONIVELESCOLARIDAD`
 --
 ALTER TABLE `EMPLEADONIVELESCOLARIDAD`
   ADD PRIMARY KEY (`CODIGOEMPLEADO`,`CODIGONIVELNIVELESCOLARIDAD`),
   ADD KEY `FK_TIENE2` (`CODIGONIVELNIVELESCOLARIDAD`);
 
 --
--- Indices de la tabla `EMPLEADOPROGRAMA`
+-- Indexes for table `EMPLEADOPROGRAMA`
 --
 ALTER TABLE `EMPLEADOPROGRAMA`
   ADD PRIMARY KEY (`CODIGOEMPLEADO`,`CODIGOPROGRAMA`),
   ADD KEY `FK_SE_BENEFICIA2` (`CODIGOPROGRAMA`);
 
 --
--- Indices de la tabla `ESTADO`
+-- Indexes for table `ESTADO`
 --
 ALTER TABLE `ESTADO`
   ADD PRIMARY KEY (`CODIGOESTADO`);
 
 --
--- Indices de la tabla `EVENTO`
+-- Indexes for table `EVENTO`
 --
 ALTER TABLE `EVENTO`
   ADD PRIMARY KEY (`CODIGOEVENTOBITACORA`);
 
 --
--- Indices de la tabla `EVUALUACIONCAPACITACION`
+-- Indexes for table `EVUALUACIONCAPACITACION`
 --
 ALTER TABLE `EVUALUACIONCAPACITACION`
   ADD PRIMARY KEY (`CODIGOEVALUACIONCAPACITACION`),
   ADD KEY `FK_SE_REALIZAN` (`CODIGOCAPACITACION`);
 
 --
--- Indices de la tabla `EXPEDIENTEEMPLEADO`
+-- Indexes for table `EXPEDIENTEEMPLEADO`
 --
 ALTER TABLE `EXPEDIENTEEMPLEADO`
   ADD PRIMARY KEY (`CODIGOEXPEDIENTEEMPLEADO`),
   ADD KEY `FK_SE_CREA` (`CODIGOEMPLEADO`);
 
 --
--- Indices de la tabla `EXPERIENCIALABORAL`
+-- Indexes for table `EXPERIENCIALABORAL`
 --
 ALTER TABLE `EXPERIENCIALABORAL`
   ADD PRIMARY KEY (`CODIGOEXPERIENCIALABORAL`);
 
 --
--- Indices de la tabla `GRUPOUSUARIO`
+-- Indexes for table `GRUPOUSUARIO`
 --
 ALTER TABLE `GRUPOUSUARIO`
   ADD PRIMARY KEY (`CODIGOGRUPOUSUARIO`);
 
 --
--- Indices de la tabla `HABILIDAD`
+-- Indexes for table `HABILIDAD`
 --
 ALTER TABLE `HABILIDAD`
   ADD PRIMARY KEY (`CODIGOHABILIDAD`),
   ADD KEY `FK_DESARROLLA` (`CODIGOEMPLEADO`);
 
 --
--- Indices de la tabla `HIJODISCAPACIDAD`
+-- Indexes for table `HIJODISCAPACIDAD`
 --
 ALTER TABLE `HIJODISCAPACIDAD`
   ADD PRIMARY KEY (`CODIGOHIJODISCAPACIDAD`);
 
 --
--- Indices de la tabla `IDIOMA`
+-- Indexes for table `IDIOMA`
 --
 ALTER TABLE `IDIOMA`
   ADD PRIMARY KEY (`CODIGOIDIOMA`);
 
 --
--- Indices de la tabla `INASISTENCIA`
+-- Indexes for table `INASISTENCIA`
 --
 ALTER TABLE `INASISTENCIA`
   ADD PRIMARY KEY (`CODIGOINASISTENCIA`),
   ADD KEY `FK_POSEE` (`CODIGOEMPLEADO`);
 
 --
--- Indices de la tabla `INCAPACIDAD`
+-- Indexes for table `INCAPACIDAD`
 --
 ALTER TABLE `INCAPACIDAD`
   ADD PRIMARY KEY (`CODIGOINCAPACIDAD`),
   ADD KEY `FK_SE_OTORGA` (`CODIGOEMPLEADO`);
 
 --
--- Indices de la tabla `MISION`
+-- Indexes for table `MISION`
 --
 ALTER TABLE `MISION`
   ADD PRIMARY KEY (`CODIGOMISION`);
 
 --
--- Indices de la tabla `NIVELESCOLARIDAD`
+-- Indexes for table `NIVELESCOLARIDAD`
 --
 ALTER TABLE `NIVELESCOLARIDAD`
   ADD PRIMARY KEY (`CODIGONIVELNIVELESCOLARIDAD`);
 
 --
--- Indices de la tabla `PROGRAMA`
+-- Indexes for table `PROGRAMA`
 --
 ALTER TABLE `PROGRAMA`
   ADD PRIMARY KEY (`CODIGOPROGRAMA`);
 
 --
--- Indices de la tabla `PROGRAMAHIJODISCAPACIDAD`
+-- Indexes for table `PROGRAMAHIJODISCAPACIDAD`
 --
 ALTER TABLE `PROGRAMAHIJODISCAPACIDAD`
   ADD PRIMARY KEY (`CODIGOHIJODISCAPACIDAD`,`CODIGOPROGRAMA`),
   ADD KEY `FK_RECIBE_UN2` (`CODIGOPROGRAMA`);
 
 --
--- Indices de la tabla `PUESTO`
+-- Indexes for table `PUESTO`
 --
 ALTER TABLE `PUESTO`
   ADD PRIMARY KEY (`CODIGOPUESTO`);
 
 --
--- Indices de la tabla `ROL`
+-- Indexes for table `rol`
 --
-ALTER TABLE `ROL`
+ALTER TABLE `rol`
   ADD PRIMARY KEY (`CODIGOROL`),
   ADD KEY `FK_SE_ASINGA` (`CODIGOGRUPOUSUARIO`);
 
 --
--- Indices de la tabla `rol`
---
-ALTER TABLE `rol`
-  ADD PRIMARY KEY (`codigorol`);
-
---
--- Indices de la tabla `UBICACIONFISICA`
+-- Indexes for table `UBICACIONFISICA`
 --
 ALTER TABLE `UBICACIONFISICA`
   ADD PRIMARY KEY (`CODIGOUBICACION`);
 
 --
--- Indices de la tabla `USUARIO`
+-- Indexes for table `usuario`
 --
-ALTER TABLE `USUARIO`
+ALTER TABLE `usuario`
   ADD PRIMARY KEY (`CODIGOUSUARIO`);
 
 --
--- Indices de la tabla `usuario`
+-- Indexes for table `usuariorol`
 --
-ALTER TABLE `usuario`
-  ADD PRIMARY KEY (`codigousuario`);
-
---
--- Indices de la tabla `USUARIOROL`
---
-ALTER TABLE `USUARIOROL`
+ALTER TABLE `usuariorol`
   ADD PRIMARY KEY (`CODIGOUSUARIO`,`CODIGOROL`),
-  ADD KEY `FK_ROL` (`CODIGOROL`);
+  ADD KEY `FKj26dpntfenk31hnhnnynyhr89` (`CODIGOROL`);
 
 --
--- Restricciones para tablas volcadas
+-- Constraints for dumped tables
 --
 
 --
--- Filtros para la tabla `ASISTENCIACAPACIATION`
+-- Constraints for table `ASISTENCIACAPACIATION`
 --
 ALTER TABLE `ASISTENCIACAPACIATION`
   ADD CONSTRAINT `FK_LLEVA` FOREIGN KEY (`CODIGOCAPACITACION`) REFERENCES `CAPACITACION` (`CODIGOCAPACITACION`);
 
 --
--- Filtros para la tabla `CAPACITACION`
+-- Constraints for table `CAPACITACION`
 --
 ALTER TABLE `CAPACITACION`
   ADD CONSTRAINT `FK_IMPARTE` FOREIGN KEY (`CODIGOCAPACITADOR`) REFERENCES `CAPACITADOR` (`CODIGOCAPACITADOR`);
 
 --
--- Filtros para la tabla `CAPACITADOR`
+-- Constraints for table `CAPACITADOR`
 --
 ALTER TABLE `CAPACITADOR`
   ADD CONSTRAINT `FK_PUEDE_SER` FOREIGN KEY (`CODIGOEMPLEADO`) REFERENCES `EMPLEADO` (`CODIGOEMPLEADO`);
 
 --
--- Filtros para la tabla `COSTOCAPACITACION`
+-- Constraints for table `COSTOCAPACITACION`
 --
 ALTER TABLE `COSTOCAPACITACION`
   ADD CONSTRAINT `FK_GENERA` FOREIGN KEY (`CODIGOCAPACITACION`) REFERENCES `CAPACITACION` (`CODIGOCAPACITACION`);
 
 --
--- Filtros para la tabla `DEPENDIENTEEMPLEADO`
+-- Constraints for table `DEPENDIENTEEMPLEADO`
 --
 ALTER TABLE `DEPENDIENTEEMPLEADO`
   ADD CONSTRAINT `FK_SE_ENCARGA_DE` FOREIGN KEY (`CODIGOEMPLEADO`) REFERENCES `EMPLEADO` (`CODIGOEMPLEADO`);
 
 --
--- Filtros para la tabla `DIAGNOSTICOCAPACITACION`
+-- Constraints for table `DIAGNOSTICOCAPACITACION`
 --
 ALTER TABLE `DIAGNOSTICOCAPACITACION`
   ADD CONSTRAINT `FK_SE_HACE` FOREIGN KEY (`CODIGOCAPACITACION`) REFERENCES `CAPACITACION` (`CODIGOCAPACITACION`);
 
 --
--- Filtros para la tabla `EMPLEADO`
+-- Constraints for table `EMPLEADO`
 --
 ALTER TABLE `EMPLEADO`
   ADD CONSTRAINT `FK_DESEMPENIA` FOREIGN KEY (`CODIGOPUESTO`) REFERENCES `PUESTO` (`CODIGOPUESTO`),
@@ -1210,125 +1158,127 @@ ALTER TABLE `EMPLEADO`
   ADD CONSTRAINT `FK_POSEE_UN` FOREIGN KEY (`CODIGOCONTRATO`) REFERENCES `CONTRATO` (`CODIGOCONTRATO`);
 
 --
--- Filtros para la tabla `EMPLEADOASISTENCIACAPACITACION`
+-- Constraints for table `EMPLEADOASISTENCIACAPACITACION`
 --
 ALTER TABLE `EMPLEADOASISTENCIACAPACITACION`
   ADD CONSTRAINT `FK_LLEVA_UNA` FOREIGN KEY (`CODIGOEMPLEADO`) REFERENCES `EMPLEADO` (`CODIGOEMPLEADO`),
   ADD CONSTRAINT `FK_LLEVA_UNA2` FOREIGN KEY (`CODIGOASISTENCIACAPACITACION`) REFERENCES `ASISTENCIACAPACIATION` (`CODIGOASISTENCIACAPACITACION`);
 
 --
--- Filtros para la tabla `EMPLEADOBENEFICIO`
+-- Constraints for table `EMPLEADOBENEFICIO`
 --
 ALTER TABLE `EMPLEADOBENEFICIO`
   ADD CONSTRAINT `FK_GOZA_DE` FOREIGN KEY (`CODIGOBENEFICIO`) REFERENCES `BENEFICIO` (`CODIGOBENEFICIO`),
   ADD CONSTRAINT `FK_GOZA_DE2` FOREIGN KEY (`CODIGOEMPLEADO`) REFERENCES `EMPLEADO` (`CODIGOEMPLEADO`);
 
 --
--- Filtros para la tabla `EMPLEADOCAPACITACION`
+-- Constraints for table `EMPLEADOCAPACITACION`
 --
 ALTER TABLE `EMPLEADOCAPACITACION`
   ADD CONSTRAINT `FK_RECIBE` FOREIGN KEY (`CODIGOEMPLEADO`) REFERENCES `EMPLEADO` (`CODIGOEMPLEADO`),
   ADD CONSTRAINT `FK_RECIBE2` FOREIGN KEY (`CODIGOCAPACITACION`) REFERENCES `CAPACITACION` (`CODIGOCAPACITACION`);
 
 --
--- Filtros para la tabla `EMPLEADOCONTACTO`
+-- Constraints for table `EMPLEADOCONTACTO`
 --
 ALTER TABLE `EMPLEADOCONTACTO`
   ADD CONSTRAINT `FK_NECESITA` FOREIGN KEY (`CODIGOEMPLEADO`) REFERENCES `EMPLEADO` (`CODIGOEMPLEADO`),
   ADD CONSTRAINT `FK_NECESITA2` FOREIGN KEY (`CODIGOCONTACTO`) REFERENCES `CONTACTO` (`CODIGOCONTACTO`);
 
 --
--- Filtros para la tabla `EMPLEADODESCUENTO`
+-- Constraints for table `EMPLEADODESCUENTO`
 --
 ALTER TABLE `EMPLEADODESCUENTO`
   ADD CONSTRAINT `FK_SE_REALIZA` FOREIGN KEY (`CODIGOEMPLEADO`) REFERENCES `EMPLEADO` (`CODIGOEMPLEADO`),
   ADD CONSTRAINT `FK_SE_REALIZA2` FOREIGN KEY (`CODIGODESCUENTO`) REFERENCES `DESCUENTO` (`CODIGODESCUENTO`);
 
 --
--- Filtros para la tabla `EMPLEADODISCAPACIDAD`
+-- Constraints for table `EMPLEADODISCAPACIDAD`
 --
 ALTER TABLE `EMPLEADODISCAPACIDAD`
   ADD CONSTRAINT `FK_PADECE_DE` FOREIGN KEY (`CODIGOEMPLEADO`) REFERENCES `EMPLEADO` (`CODIGOEMPLEADO`),
   ADD CONSTRAINT `FK_PADECE_DE2` FOREIGN KEY (`CODIGODISCAPACIDAD`) REFERENCES `DISCAPACIDAD` (`CODIGODISCAPACIDAD`);
 
 --
--- Filtros para la tabla `EMPLEADOEXPERIENCIALABORAL`
+-- Constraints for table `EMPLEADOEXPERIENCIALABORAL`
 --
 ALTER TABLE `EMPLEADOEXPERIENCIALABORAL`
   ADD CONSTRAINT `FK_ADQUIERE` FOREIGN KEY (`CODIGOEMPLEADO`) REFERENCES `EMPLEADO` (`CODIGOEMPLEADO`),
   ADD CONSTRAINT `FK_ADQUIERE2` FOREIGN KEY (`CODIGOEXPERIENCIALABORAL`) REFERENCES `EXPERIENCIALABORAL` (`CODIGOEXPERIENCIALABORAL`);
 
 --
--- Filtros para la tabla `EMPLEADOIDIOMA`
+-- Constraints for table `EMPLEADOIDIOMA`
 --
 ALTER TABLE `EMPLEADOIDIOMA`
   ADD CONSTRAINT `FK_HABLA` FOREIGN KEY (`CODIGOEMPLEADO`) REFERENCES `EMPLEADO` (`CODIGOEMPLEADO`),
   ADD CONSTRAINT `FK_HABLA2` FOREIGN KEY (`CODIGOIDIOMA`) REFERENCES `IDIOMA` (`CODIGOIDIOMA`);
 
 --
--- Filtros para la tabla `EMPLEADOMISION`
+-- Constraints for table `EMPLEADOMISION`
 --
 ALTER TABLE `EMPLEADOMISION`
   ADD CONSTRAINT `FK_ENVIADO_A` FOREIGN KEY (`CODIGOEMPLEADO`) REFERENCES `EMPLEADO` (`CODIGOEMPLEADO`),
   ADD CONSTRAINT `FK_ENVIADO_A2` FOREIGN KEY (`CODIGOMISION`) REFERENCES `MISION` (`CODIGOMISION`);
 
 --
--- Filtros para la tabla `EMPLEADONIVELESCOLARIDAD`
+-- Constraints for table `EMPLEADONIVELESCOLARIDAD`
 --
 ALTER TABLE `EMPLEADONIVELESCOLARIDAD`
   ADD CONSTRAINT `FK_TIENE` FOREIGN KEY (`CODIGOEMPLEADO`) REFERENCES `EMPLEADO` (`CODIGOEMPLEADO`),
   ADD CONSTRAINT `FK_TIENE2` FOREIGN KEY (`CODIGONIVELNIVELESCOLARIDAD`) REFERENCES `NIVELESCOLARIDAD` (`CODIGONIVELNIVELESCOLARIDAD`);
 
 --
--- Filtros para la tabla `EMPLEADOPROGRAMA`
+-- Constraints for table `EMPLEADOPROGRAMA`
 --
 ALTER TABLE `EMPLEADOPROGRAMA`
   ADD CONSTRAINT `FK_SE_BENEFICIA` FOREIGN KEY (`CODIGOEMPLEADO`) REFERENCES `EMPLEADO` (`CODIGOEMPLEADO`),
   ADD CONSTRAINT `FK_SE_BENEFICIA2` FOREIGN KEY (`CODIGOPROGRAMA`) REFERENCES `PROGRAMA` (`CODIGOPROGRAMA`);
 
 --
--- Filtros para la tabla `EVUALUACIONCAPACITACION`
+-- Constraints for table `EVUALUACIONCAPACITACION`
 --
 ALTER TABLE `EVUALUACIONCAPACITACION`
   ADD CONSTRAINT `FK_SE_REALIZAN` FOREIGN KEY (`CODIGOCAPACITACION`) REFERENCES `CAPACITACION` (`CODIGOCAPACITACION`);
 
 --
--- Filtros para la tabla `EXPEDIENTEEMPLEADO`
+-- Constraints for table `EXPEDIENTEEMPLEADO`
 --
 ALTER TABLE `EXPEDIENTEEMPLEADO`
   ADD CONSTRAINT `FK_SE_CREA` FOREIGN KEY (`CODIGOEMPLEADO`) REFERENCES `EMPLEADO` (`CODIGOEMPLEADO`);
 
 --
--- Filtros para la tabla `HABILIDAD`
+-- Constraints for table `HABILIDAD`
 --
 ALTER TABLE `HABILIDAD`
   ADD CONSTRAINT `FK_DESARROLLA` FOREIGN KEY (`CODIGOEMPLEADO`) REFERENCES `EMPLEADO` (`CODIGOEMPLEADO`);
 
 --
--- Filtros para la tabla `INASISTENCIA`
+-- Constraints for table `INASISTENCIA`
 --
 ALTER TABLE `INASISTENCIA`
   ADD CONSTRAINT `FK_POSEE` FOREIGN KEY (`CODIGOEMPLEADO`) REFERENCES `EMPLEADO` (`CODIGOEMPLEADO`);
 
 --
--- Filtros para la tabla `INCAPACIDAD`
+-- Constraints for table `INCAPACIDAD`
 --
 ALTER TABLE `INCAPACIDAD`
   ADD CONSTRAINT `FK_SE_OTORGA` FOREIGN KEY (`CODIGOEMPLEADO`) REFERENCES `EMPLEADO` (`CODIGOEMPLEADO`);
 
 --
--- Filtros para la tabla `PROGRAMAHIJODISCAPACIDAD`
+-- Constraints for table `PROGRAMAHIJODISCAPACIDAD`
 --
 ALTER TABLE `PROGRAMAHIJODISCAPACIDAD`
   ADD CONSTRAINT `FK_RECIBE_UN` FOREIGN KEY (`CODIGOHIJODISCAPACIDAD`) REFERENCES `HIJODISCAPACIDAD` (`CODIGOHIJODISCAPACIDAD`),
   ADD CONSTRAINT `FK_RECIBE_UN2` FOREIGN KEY (`CODIGOPROGRAMA`) REFERENCES `PROGRAMA` (`CODIGOPROGRAMA`);
 
 --
--- Filtros para la tabla `USUARIOROL`
+-- Constraints for table `usuariorol`
 --
-ALTER TABLE `USUARIOROL`
-  ADD CONSTRAINT `FK_ROL` FOREIGN KEY (`CODIGOROL`) REFERENCES `ROL` (`CODIGOROL`),
-  ADD CONSTRAINT `FK_USUARIO` FOREIGN KEY (`CODIGOUSUARIO`) REFERENCES `USUARIO` (`CODIGOUSUARIO`);
+ALTER TABLE `usuariorol`
+  ADD CONSTRAINT `FK_ROL` FOREIGN KEY (`CODIGOROL`) REFERENCES `rol` (`CODIGOROL`),
+  ADD CONSTRAINT `FK_USUARIO` FOREIGN KEY (`CODIGOUSUARIO`) REFERENCES `usuario` (`CODIGOUSUARIO`),
+  ADD CONSTRAINT `FKj26dpntfenk31hnhnnynyhr89` FOREIGN KEY (`CODIGOROL`) REFERENCES `rol` (`CODIGOROL`),
+  ADD CONSTRAINT `FKklqrgnqnwq9pjwf2yk101cqvo` FOREIGN KEY (`CODIGOUSUARIO`) REFERENCES `usuario` (`CODIGOUSUARIO`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
