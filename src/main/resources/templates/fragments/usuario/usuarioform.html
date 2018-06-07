@@ -9,61 +9,60 @@
 <div class="container">
     <h2>Usuario Details</h2>
     <div>
-        <th:block th:include="header :: header"></th:block> 
-        <form class="form-horizontal" th:object="${usuario}" th:action="@{/usuarios/}" method="post">
+        <form class="form-horizontal" th:object="${usuario}" th:action="@{./usuario}" method="post">
             <input type="hidden" th:field="*{codigousuario}"/>
             <input type="hidden" th:field="*{nombreusuario}"/>
             <div class="form-group">
-                <label class="col-sm-2 control-label">Usuario Id:</label>
+                <label class="col-sm-2 control-label">COdigo de Usuario:</label>
                 <div class="col-sm-10">
                     <input type="text" class="form-control" th:field="*{codigousuario}"/>
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-2 control-label">Usuario Id:</label>
+                <label class="col-sm-2 control-label">Nombre de Usuario:</label>
                 <div class="col-sm-10">
                     <input type="text" class="form-control" th:field="*{nombreusuario}"/>
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-2 control-label">Usuario Id:</label>
+                <label class="col-sm-2 control-label">Contraseña de usuario:</label>
                 <div class="col-sm-10">
                     <input type="text" class="form-control" th:field="*{contraseniausuario}"/>
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-2 control-label">Usuario Id:</label>
+                <label class="col-sm-2 control-label">contorl contraseña:</label>
                 <div class="col-sm-10">
                     <input type="text" class="form-control" th:field="*{controlcontrasenia}"/>
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-2 control-label">Name:</label>
+                <label class="col-sm-2 control-label">estado:</label>
                 <div class="col-sm-10">
                     <input type="text" class="form-control" th:field="*{estadousuario}"/>
                 </div>
             </div>
-            <div class="form-group">
-                <label class="col-sm-2 control-label">Name:</label>
+<!--            <div class="form-group">
+                <label class="col-sm-2 control-label">Fecha ingreso:</label>
                 <div class="col-sm-10">
                     <input type="text" class="form-control" th:field="*{fechaingreso}"/>
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-2 control-label">Name:</label>
+                <label class="col-sm-2 control-label">fecha de caducidad:</label>
                 <div class="col-sm-10">
                     <input type="text" class="form-control" th:field="*{fechacaducidad}"/>
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-2 control-label">Name:</label>
+                <label class="col-sm-2 control-label">fecha de baja:</label>
                 <div class="col-sm-10">
                     <input type="text" class="form-control" th:field="*{fechabaja}"/>
                 </div>
-            </div>
+            </div>-->
 
             <div class="row">
-                <button type="submit" class="btn btn-default">Submit</button>
+                <button type="submit" class="btn btn-default">Agregar</button>
             </div>
         </form>
     </div>

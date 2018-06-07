@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jun 06, 2018 at 09:58 PM
+-- Generation Time: Jun 07, 2018 at 03:43 AM
 -- Server version: 10.1.26-MariaDB-0+deb9u1
 -- PHP Version: 7.0.27-0+deb9u1
 
@@ -557,6 +557,23 @@ CREATE TABLE `HABILIDAD` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `hibernate_sequence`
+--
+
+CREATE TABLE `hibernate_sequence` (
+  `next_val` bigint(20) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `hibernate_sequence`
+--
+
+INSERT INTO `hibernate_sequence` (`next_val`) VALUES
+(7);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `HIJODISCAPACIDAD`
 --
 
@@ -734,9 +751,17 @@ CREATE TABLE `PUESTO` (
 
 CREATE TABLE `rol` (
   `CODIGOROL` int(11) NOT NULL,
-  `CODIGOGRUPOUSUARIO` varchar(10) NOT NULL,
-  `NOMBREROL` varchar(100) DEFAULT NULL
+  `NOMBREROL` varchar(100) DEFAULT NULL,
+  `descripcionrol` varchar(30) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `rol`
+--
+
+INSERT INTO `rol` (`CODIGOROL`, `NOMBREROL`, `descripcionrol`) VALUES
+(5, ',R1', 'rol de prueba 1'),
+(6, ',R2', 'rol de prueba 2');
 
 -- --------------------------------------------------------
 
@@ -774,7 +799,10 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`CODIGOUSUARIO`, `NOMBREUSUARIO`, `CONTRASENIAUSUARIO`, `CONTROLCONTRASENIA`, `ESTADOUSUARIO`, `FECHAINGRESO`, `FECHACADUCIDAD`, `FECHABAJA`) VALUES
-(1, 'dialv', 'nohay', 1, 1, '2018-06-07', '2018-06-16', '2018-06-20');
+(1, 'dialv', 'nohay', 1, 1, '2018-06-07', '2018-06-16', '2018-06-20'),
+(2, ',q,erwr,lol', 'eq', 1, 1, NULL, NULL, NULL),
+(3, ',1312', '1232', 1, 1, NULL, NULL, NULL),
+(4, ',asdf', 'RAQW', 1, 1, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1083,8 +1111,7 @@ ALTER TABLE `PUESTO`
 -- Indexes for table `rol`
 --
 ALTER TABLE `rol`
-  ADD PRIMARY KEY (`CODIGOROL`),
-  ADD KEY `FK_SE_ASINGA` (`CODIGOGRUPOUSUARIO`);
+  ADD PRIMARY KEY (`CODIGOROL`);
 
 --
 -- Indexes for table `UBICACIONFISICA`

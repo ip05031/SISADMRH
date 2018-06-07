@@ -4,7 +4,7 @@
     <head lang="en">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <link href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" rel="stylesheet" media="screen"/>
-        <link href="../../static/css/style.css" th:href="@{css/style.css}" rel="stylesheet" media="screen"/>
+        <link href="../static/css/style.css" th:href="@{css/style.css}" rel="stylesheet" media="screen"/>
     </head>
 
     <body>
@@ -26,8 +26,12 @@
                         <div class="navbar-header">
                             <a class="navbar-brand" href="#" th:href="@{/}">Home</a>
                             <ul class="nav navbar-nav">
-                                <li><a href="#" th:href="@{/usuarios/}">Usuario</a></li>
-                                <li><a href="#" th:href="@{/usuario/new}">Crear Usuario</a></li>
+                                <li><a href="#" th:href="@{/usuarios/}">Usuarios</a></li>
+                                <li><a href="#" th:href="@{/usuarios/new}">Crear Usuario</a></li>
+                            </ul>
+                            <ul class="nav navbar-nav">
+                                <li><a href="#" th:href="@{/roles/}">ROLES</a></li>
+                                <li><a href="#" th:href="@{/roles/new}">Crear Rol</a></li>
                             </ul>
 
                         </div>

@@ -1,22 +1,18 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package mj.gob.sisadmrh.model;
 
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -26,7 +22,7 @@ import javax.validation.constraints.Size;
  * @author root
  */
 @Entity
-@Table(name = "ROL")
+@Table(name = "rol")
 @NamedQueries({
     @NamedQuery(name = "Rol.findAll", query = "SELECT r FROM Rol r")})
 public class Rol implements Serializable {
@@ -35,32 +31,23 @@ public class Rol implements Serializable {
     @Id
     @Basic(optional = false)
     @NotNull
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "CODIGOROL")
     private Integer codigorol;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 10)
-    @Column(name = "CODIGOGRUPOUSUARIO")
-    private String codigogrupousuario;
     @Size(max = 100)
     @Column(name = "NOMBREROL")
     private String nombrerol;
-    @JoinTable(name = "USUARIOROL", joinColumns = {
-        @JoinColumn(name = "CODIGOROL", referencedColumnName = "CODIGOROL")}, inverseJoinColumns = {
-        @JoinColumn(name = "CODIGOUSUARIO", referencedColumnName = "CODIGOUSUARIO")})
-    @ManyToMany(fetch = FetchType.LAZY)
-    private List<Usuario> usuarioList;
+    @Size(max = 30)
+    @Column(name = "descripcionrol")
+    private String descripcionrol;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "rol", fetch = FetchType.LAZY)
+    private List<Usuariorol> usuariorolList;
 
     public Rol() {
     }
 
     public Rol(Integer codigorol) {
         this.codigorol = codigorol;
-    }
-
-    public Rol(Integer codigorol, String codigogrupousuario) {
-        this.codigorol = codigorol;
-        this.codigogrupousuario = codigogrupousuario;
     }
 
     public Integer getCodigorol() {
@@ -71,14 +58,6 @@ public class Rol implements Serializable {
         this.codigorol = codigorol;
     }
 
-    public String getCodigogrupousuario() {
-        return codigogrupousuario;
-    }
-
-    public void setCodigogrupousuario(String codigogrupousuario) {
-        this.codigogrupousuario = codigogrupousuario;
-    }
-
     public String getNombrerol() {
         return nombrerol;
     }
@@ -87,12 +66,20 @@ public class Rol implements Serializable {
         this.nombrerol = nombrerol;
     }
 
-    public List<Usuario> getUsuarioList() {
-        return usuarioList;
+    public String getDescripcionrol() {
+        return descripcionrol;
     }
 
-    public void setUsuarioList(List<Usuario> usuarioList) {
-        this.usuarioList = usuarioList;
+    public void setDescripcionrol(String descripcionrol) {
+        this.descripcionrol = descripcionrol;
+    }
+
+    public List<Usuariorol> getUsuariorolList() {
+        return usuariorolList;
+    }
+
+    public void setUsuariorolList(List<Usuariorol> usuariorolList) {
+        this.usuariorolList = usuariorolList;
     }
 
     @Override

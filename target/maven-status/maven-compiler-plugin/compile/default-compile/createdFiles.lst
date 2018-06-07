@@ -1,9 +1,15 @@
+mj/gob/sisadmrh/controller/usuario/UsuarioController.class
+mj/gob/sisadmrh/repository/RolRepository.class
+mj/gob/sisadmrh/service/RolServiceImpl.class
+mj/gob/sisadmrh/controller/rol/RolController.class
+mj/gob/sisadmrh/service/RolService.class
+mj/gob/sisadmrh/model/Rol.class
 mj/gob/sisadmrh/service/UsuarioServiceImpl.class
 mj/gob/sisadmrh/repository/UsuarioRepository.class
 mj/gob/sisadmrh/service/UsuarioService.class
-mj/gob/sisadmrh/controller/usuario/UsuarioController.class
+mj/gob/sisadmrh/model/Usuariorol.class
 mj/gob/sisadmrh/controller/HomeController.class
 mj/gob/sisadmrh/SisadmrhApplication.class
+mj/gob/sisadmrh/model/UsuariorolPK.class
 mj/gob/sisadmrh/ServletInitializer.class
-mj/gob/sisadmrh/model/Rol.class
 mj/gob/sisadmrh/model/Usuario.class

@@ -1,16 +1,24 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package mj.gob.sisadmrh.model;
 
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -22,7 +30,7 @@ import javax.validation.constraints.Size;
  * @author root
  */
 @Entity
-@Table(name = "USUARIO")
+@Table(name = "usuario")
 @NamedQueries({
     @NamedQuery(name = "Usuario.findAll", query = "SELECT u FROM Usuario u")})
 public class Usuario implements Serializable {
@@ -31,6 +39,7 @@ public class Usuario implements Serializable {
     @Id
     @Basic(optional = false)
     @NotNull
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "CODIGOUSUARIO")
     private Integer codigousuario;
     @Size(max = 50)
@@ -52,8 +61,8 @@ public class Usuario implements Serializable {
     @Column(name = "FECHABAJA")
     @Temporal(TemporalType.DATE)
     private Date fechabaja;
-    @ManyToMany(mappedBy = "usuarioList", fetch = FetchType.LAZY)
-    private List<Rol> rolList;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "usuario", fetch = FetchType.LAZY)
+    private List<Usuariorol> usuariorolList;
 
     public Usuario() {
     }
@@ -126,12 +135,12 @@ public class Usuario implements Serializable {
         this.fechabaja = fechabaja;
     }
 
-    public List<Rol> getRolList() {
-        return rolList;
+    public List<Usuariorol> getUsuariorolList() {
+        return usuariorolList;
     }
 
-    public void setRolList(List<Rol> rolList) {
-        this.rolList = rolList;
+    public void setUsuariorolList(List<Usuariorol> usuariorolList) {
+        this.usuariorolList = usuariorolList;
     }
 
     @Override

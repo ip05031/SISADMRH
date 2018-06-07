@@ -33,12 +33,6 @@ public class UsuarioController {
         return PREFIX + "usuarios";
     }
     
-     @RequestMapping("show/{id}")
-    public String showUsuario(@PathVariable Integer id, Model model) {
-        model.addAttribute("usuario", usuarioService.getUsuarioById(id).get());
-        return PREFIX + "usuarioshow";
-    }
-
     @RequestMapping("edit/{id}")
     public String edit(@PathVariable Integer id, Model model) {
         model.addAttribute("usuario", usuarioService.getUsuarioById(id));
@@ -51,10 +45,16 @@ public class UsuarioController {
         return PREFIX + "usuarioform";
     }
 
-    @RequestMapping(value = "save", method = RequestMethod.POST)
+    @RequestMapping(value = "usuario")
     public String saveUsuario(Usuario usuario) {
         usuarioService.saveUsuario(usuario);
-        return "redirect:/usuarios";
+        return "redirect:./show/" + usuario.getCodigousuario();
+    }
+    
+    @RequestMapping("show/{id}")
+    public String showUsuario(@PathVariable Integer id, Model model) {
+        model.addAttribute("usuario", usuarioService.getUsuarioById(id).get());
+        return PREFIX +"usuarioshow";
     }
 
     @RequestMapping("delete/{id}")
