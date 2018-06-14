@@ -1,5 +1,6 @@
 mj/gob/sisadmrh/controller/usuario/UsuarioController.class
 mj/gob/sisadmrh/repository/RolRepository.class
+mj/gob/sisadmrh/controller/usuariorol/UsuarioRolController.class
 mj/gob/sisadmrh/service/RolServiceImpl.class
 mj/gob/sisadmrh/controller/rol/RolController.class
 mj/gob/sisadmrh/service/RolService.class

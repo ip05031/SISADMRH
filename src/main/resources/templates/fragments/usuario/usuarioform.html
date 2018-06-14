@@ -9,7 +9,7 @@
 <div class="container">
     <h2>Usuario Details</h2>
     <div>
-        <form class="form-horizontal" th:object="${usuario}" th:action="@{./usuario}" method="post">
+        <form class="form-horizontal" th:object="${usuario}" th:action="@{../usuario}" method="post">
             <input type="hidden" th:field="*{codigousuario}"/>
             <input type="hidden" th:field="*{nombreusuario}"/>
             <div class="form-group">

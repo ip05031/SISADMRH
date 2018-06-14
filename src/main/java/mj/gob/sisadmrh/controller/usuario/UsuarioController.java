@@ -39,7 +39,7 @@ public class UsuarioController {
         return PREFIX + "usuarioform";
     }
 
-    @RequestMapping("new")
+    @RequestMapping("new/usuario")
     public String newUsuario(Model model) {
         model.addAttribute("usuario", new Usuario());
         return PREFIX + "usuarioform";
