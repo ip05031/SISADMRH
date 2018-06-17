@@ -39,7 +39,7 @@ public class RolController {
         return PREFIX + "rolform";
     }
 
-    @RequestMapping("new")
+    @RequestMapping("new/rol")
     public String newRol(Model model) {
         model.addAttribute("rol", new Rol());
         return PREFIX + "rolform";
