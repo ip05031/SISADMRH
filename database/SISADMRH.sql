@@ -1,932 +1,1357 @@
-/*==============================================================*/
-/* DBMS name:      MySQL 5.0                                    */
-/* Created on:     14/06/2018 21:46:42                          */
-/*==============================================================*/
-
-
-drop table if exists ASISTENCIACAPACIATION;
-
-drop table if exists BENEFICIO;
-
-drop table if exists BITACORA;
-
-drop table if exists CAPACITACION;
-
-drop table if exists CAPACITADOR;
-
-drop table if exists COMISION;
-
-drop table if exists COMITE;
-
-drop table if exists CONTACTO;
-
-drop table if exists CONTRATO;
-
-drop table if exists COSTOCAPACITACION;
-
-drop table if exists CUADRODIRECTIVO;
-
-drop table if exists DEPENDIENTEEMPLEADO;
-
-drop table if exists DESCUENTO;
-
-drop table if exists DIAGNOSTICOCAPACITACION;
-
-drop table if exists DISCAPACIDAD;
-
-drop table if exists EMPLEADO;
-
-drop table if exists EMPLEADOASISTENCIACAPACITACION;
-
-drop table if exists EMPLEADOBENEFICIO;
-
-drop table if exists EMPLEADOCAPACITACION;
-
-drop table if exists EMPLEADOCONTACTO;
-
-drop table if exists EMPLEADODESCUENTO;
-
-drop table if exists EMPLEADODISCAPACIDAD;
-
-drop table if exists EMPLEADOEXPERIENCIALABORAL;
-
-drop table if exists EMPLEADOIDIOMA;
-
-drop table if exists EMPLEADOMISION;
-
-drop table if exists EMPLEADONIVELESCOLARIDAD;
-
-drop table if exists EMPLEADOPROGRAMA;
-
-drop table if exists ESTADO;
-
-drop table if exists EVENTO;
-
-drop table if exists EVUALUACIONCAPACITACION;
-
-drop table if exists EXPEDIENTEEMPLEADO;
-
-drop table if exists EXPERIENCIALABORAL;
-
-drop table if exists HABILIDAD;
-
-drop table if exists HIJOSDISCAPACIDAD;
-
-drop table if exists IDIOMA;
-
-drop table if exists INASISTENCIA;
-
-drop table if exists INCAPACIDAD;
-
-drop table if exists MISION;
-
-drop table if exists NIVELESCOLARIDAD;
-
-drop table if exists PROGRAMA;
-
-drop table if exists PROGRAMAHIJOSDISCAPACIDAD;
-
-drop table if exists PUESTO;
-
-drop table if exists ROL;
-
-drop table if exists UBICACIONFISICA;
-
-drop table if exists USUARIO;
-
-drop table if exists USUARIOROL;
-
-/*==============================================================*/
-/* Table: ASISTENCIACAPACIATION                                 */
-/*==============================================================*/
-create table ASISTENCIACAPACIATION
-(
-   CODIGOASISTENCIACAPACITACION varchar(10) not null,
-   CODIGOCAPACITACION   varchar(10) not null,
-   HORASRECIBIDAS       int,
-   UBICACIONASISTENCIACAPACITACION varchar(50),
-   primary key (CODIGOASISTENCIACAPACITACION)
-);
-
-/*==============================================================*/
-/* Table: BENEFICIO                                             */
-/*==============================================================*/
-create table BENEFICIO
-(
-   CODIGOBENEFICIO      varchar(10) not null,
-   NOMBREBENEFICIO      varchar(30),
-   DESCRIPCIONBENEFICIO varchar(100),
-   FECHAINICIOBENEFICIO date,
-   FECHAFINALIZARBENEFICIO date,
-   primary key (CODIGOBENEFICIO)
-);
-
-/*==============================================================*/
-/* Table: BITACORA                                              */
-/*==============================================================*/
-create table BITACORA
-(
-   CODIGOBITACORA       int not null,
-   CODIGOEVENTOBITACORA int,
-   NOMBREEVENTOBITACORA varchar(50),
-   FECHABITACORA        date,
-   IP                   varchar(18),
-   CODIGOUSUARIOBITACORA varchar(10),
-   primary key (CODIGOBITACORA)
-);
-
-/*==============================================================*/
-/* Table: CAPACITACION                                          */
-/*==============================================================*/
-create table CAPACITACION
-(
-   CODIGOCAPACITACION   varchar(10) not null,
-   CODIGOCAPACITADOR    varchar(100) not null,
-   NOMBRECAPACITACION   varchar(50),
-   DESCRIPCIONCAPACITACION varchar(500),
-   CATEGORIACAPACITACION varchar(30),
-   DESCRIPCIONCATEGORIA varchar(500),
-   DEPARTAMENTORESPONSABLE varchar(100),
-   DURACIONHORACAPACITACION int,
-   DURACIONDIACAPACITACION int,
-   ORGANISMOPATROCINADOR varchar(200),
-   TIPOEVENTO           varchar(200),
-   ESPECIALIDADEVENTO   varchar(200),
-   PAISCAPACITACION     varchar(50),
-   FECHACAPACITACION    date,
-   TIPOCAPACITACION     varchar(20),
-   ESTADOCAPACITACION   int,
-   primary key (CODIGOCAPACITACION)
-);
-
-/*==============================================================*/
-/* Table: CAPACITADOR                                           */
-/*==============================================================*/
-create table CAPACITADOR
-(
-   CODIGOCAPACITADOR    varchar(100) not null,
-   CODIGOEMPLEADO       varchar(10) not null,
-   TEMADOMINIO          varchar(200),
-   TIPOCAPACITADOR      varchar(100),
-   DUICAPACITADOR       varchar(10),
-   NITCAPACITADOR       varchar(17),
-   CARNETRESIDENCIA     int,
-   TELEFONOCAPACITADOR  varchar(11),
-   TELEFONOMOVILCAPACITADOR varchar(11),
-   EMAILCAPACITADOR     varchar(50),
-   NOMBRECAPACITADOR    varchar(100),
-   primary key (CODIGOCAPACITADOR)
-);
-
-/*==============================================================*/
-/* Table: COMISION                                              */
-/*==============================================================*/
-create table COMISION
-(
-   CODIGOCOMISION       varchar(10) not null,
-   NOMBRECOMISION       varchar(50),
-   NUMEROACUERDOCOMISION int,
-   FECHADESDECOMISION   date,
-   FECHAHASTACOMISION   date,
-   NIVELCOMISION        int,
-   primary key (CODIGOCOMISION)
-);
-
-/*==============================================================*/
-/* Table: COMITE                                                */
-/*==============================================================*/
-create table COMITE
-(
-   CODIGOCOMITE         varchar(10) not null,
-   NOMBRECOMITE         varchar(50),
-   RESPONSABLECOMITE    varchar(30),
-   DESRIPCIONCOMITE     varchar(100),
-   NUMEROACUERDOCOMITE  int,
-   MIEMBROMAXIMO        int,
-   FECHADESDECOMITE     date,
-   FECHAHASTACOMITE     date,
-   primary key (CODIGOCOMITE)
-);
-
-/*==============================================================*/
-/* Table: CONTACTO                                              */
-/*==============================================================*/
-create table CONTACTO
-(
-   CODIGOCONTACTO       varchar(10) not null,
-   NOMBRECONTACTO       varchar(50),
-   APELLIDOCONTACTO     varchar(50),
-   DIRECCION            varchar(100),
-   TELEFONOFIJOCONTACTO varchar(11),
-   TELEFONOMOVILCONTACTO varchar(11),
-   primary key (CODIGOCONTACTO)
-);
-
-/*==============================================================*/
-/* Table: CONTRATO                                              */
-/*==============================================================*/
-create table CONTRATO
-(
-   CODIGOCONTRATO       varchar(10) not null,
-   SALARIOACTUAL        float,
-   UNIDADPRECIDE        varchar(100),
-   LINEATRABAJO         varchar(100),
-   PARTIDACONTRATO      varchar(9),
-   SUBPARTIDACONTRATO   varchar(100),
-   FECHAINICIOCONTRATO  date,
-   FECHAFINCONTRATO     date,
-   primary key (CODIGOCONTRATO)
-);
-
-/*==============================================================*/
-/* Table: COSTOCAPACITACION                                     */
-/*==============================================================*/
-create table COSTOCAPACITACION
-(
-   CODIGOCOSTOCAPACITACION varchar(10) not null,
-   CODIGOCAPACITACION   varchar(10) not null,
-   COSTOPERSONA         float,
-   NUMEROPERSONA        int,
-   COSTOCAPACITADOR     float,
-   primary key (CODIGOCOSTOCAPACITACION)
-);
-
-/*==============================================================*/
-/* Table: CUADRODIRECTIVO                                       */
-/*==============================================================*/
-create table CUADRODIRECTIVO
-(
-   CODIGOCUADRODIRECTIVO varchar(10) not null,
-   RESPONSABLECUADRODIRECTIVO varchar(30),
-   AREA                 varchar(30),
-   DESRIPCIONCUADRODIRECTIVO varchar(100),
-   FECHAPRESENTACION    datetime,
-   primary key (CODIGOCUADRODIRECTIVO)
-);
-
-/*==============================================================*/
-/* Table: DEPENDIENTEEMPLEADO                                   */
-/*==============================================================*/
-create table DEPENDIENTEEMPLEADO
-(
-   CODIGODEPENDIENTEEMPLEADO varchar(10) not null,
-   CODIGOEMPLEADO       varchar(10) not null,
-   NOMBREDEPENDIENTEEMPLEADO varchar(50),
-   APELLIDODEPENDIENTEEMPLEADO varchar(50),
-   PARENTESCO           varchar(50),
-   FECHANACIMIENTODEPENDIENTEEMPLEADO date,
-   DEPENDIENTE          varchar(9),
-   SEXODEPENDIENTEEMPLEADO varchar(10),
-   primary key (CODIGODEPENDIENTEEMPLEADO)
-);
-
-/*==============================================================*/
-/* Table: DESCUENTO                                             */
-/*==============================================================*/
-create table DESCUENTO
-(
-   CODIGODESCUENTO      varchar(10) not null,
-   NOMBREDESCUENTO      varchar(50),
-   TIPODESCUENTO        varchar(50),
-   MONTODESCUENTO       float,
-   TIPOBANCO            varchar(100),
-   CLASE                varchar(100),
-   MONTOPAGO            float,
-   SALARIO              float,
-   primary key (CODIGODESCUENTO)
-);
-
-/*==============================================================*/
-/* Table: DIAGNOSTICOCAPACITACION                               */
-/*==============================================================*/
-create table DIAGNOSTICOCAPACITACION
-(
-   CODIGODIAGNOSTICOCAPACITACION varchar(10) not null,
-   CODIGOCAPACITACION   varchar(10) not null,
-   NECESIDADCAPACITACION varchar(500),
-   MESCAPACITACION      varchar(20),
-   RESULTADOOBTENER     varchar(500),
-   NOMBREAUTORIZADIAGNOSTICOCAPACITACION varchar(150),
-   DIRECCION            varchar(100),
-   CARGOAUTORIZADIAGNOSTICOCAPACITACION varchar(100),
-   primary key (CODIGODIAGNOSTICOCAPACITACION)
-);
-
-/*==============================================================*/
-/* Table: DISCAPACIDAD                                          */
-/*==============================================================*/
-create table DISCAPACIDAD
-(
-   CODIGODISCAPACIDAD   varchar(10) not null,
-   NOMBREDISCAPACIDAD   varchar(50),
-   DESCRIPCIONDISCAPACIDAD varchar(200),
-   primary key (CODIGODISCAPACIDAD)
-);
-
-/*==============================================================*/
-/* Table: EMPLEADO                                              */
-/*==============================================================*/
-create table EMPLEADO
-(
-   CODIGOEMPLEADO       varchar(10) not null,
-   CODIGOCONTRATO       varchar(10),
-   CODIGOCOMITE         varchar(10),
-   CODIGOCUADRODIRECTIVO varchar(10),
-   CODIGOCOMISION       varchar(10),
-   CODIGOPUESTO         varchar(10),
-   CODIGOUBICACION      varchar(10),
-   NOMBREEMPLEADO       varchar(50),
-   APELLIDOEMPLEADO     varchar(50),
-   FECHANACIMIENTOEMPLEADO date,
-   NACIONALIDAD         varchar(50),
-   TIPONACIONALIDAD     varchar(50),
-   DEPARTAMENTONACIMIENTO varchar(50),
-   MUNICIPIONACIMIENTO  varchar(50),
-   GRUPOSANQUINEO       varchar(20),
-   TELEFONOMOVILEMPLEADO varchar(11),
-   TELEFONOFIJOEMPLEADO varchar(11),
-   RECIDENCIAPERMANENTE varchar(50),
-   ESTADOFAMILIAR       varchar(50),
-   DEPARTAMENTORECIDENCIA varchar(50),
-   MUNICIPIORESIDENCIA  varchar(50),
-   DUIEMPLEADO          varchar(10),
-   NITEMPLEADOR         varchar(17),
-   ISSSEMPLEADO         varchar(9),
-   FECHAINGRESOSECPUB   date,
-   FECHAINGRESOSECPRIV  date,
-   FECHAINGRESOMINISTERIO date,
-   AFILIACIONPENSION    varchar(6),
-   NUMEROAFILIACION     varchar(12),
-   TIPOCUENTA           varchar(2),
-   NOMBREINSTIUCIONDEPOSITAR varchar(50),
-   EMAILEMPLEADO        varchar(50),
-   ESTADOEMPLEADO       int,
-   SEXOEMPLEADO         varchar(1),
-   primary key (CODIGOEMPLEADO)
-);
-
-/*==============================================================*/
-/* Table: EMPLEADOASISTENCIACAPACITACION                        */
-/*==============================================================*/
-create table EMPLEADOASISTENCIACAPACITACION
-(
-   CODIGOEMPLEADO       varchar(10) not null,
-   CODIGOASISTENCIACAPACITACION varchar(10) not null,
-   primary key (CODIGOEMPLEADO, CODIGOASISTENCIACAPACITACION)
-);
-
-/*==============================================================*/
-/* Table: EMPLEADOBENEFICIO                                     */
-/*==============================================================*/
-create table EMPLEADOBENEFICIO
-(
-   CODIGOBENEFICIO      varchar(10) not null,
-   CODIGOEMPLEADO       varchar(10) not null,
-   primary key (CODIGOBENEFICIO, CODIGOEMPLEADO)
-);
-
-/*==============================================================*/
-/* Table: EMPLEADOCAPACITACION                                  */
-/*==============================================================*/
-create table EMPLEADOCAPACITACION
-(
-   CODIGOEMPLEADO       varchar(10) not null,
-   CODIGOCAPACITACION   varchar(10) not null,
-   primary key (CODIGOEMPLEADO, CODIGOCAPACITACION)
-);
-
-/*==============================================================*/
-/* Table: EMPLEADOCONTACTO                                      */
-/*==============================================================*/
-create table EMPLEADOCONTACTO
-(
-   CODIGOEMPLEADO       varchar(10) not null,
-   CODIGOCONTACTO       varchar(10) not null,
-   primary key (CODIGOEMPLEADO, CODIGOCONTACTO)
-);
-
-/*==============================================================*/
-/* Table: EMPLEADODESCUENTO                                     */
-/*==============================================================*/
-create table EMPLEADODESCUENTO
-(
-   CODIGOEMPLEADO       varchar(10) not null,
-   CODIGODESCUENTO      varchar(10) not null,
-   primary key (CODIGOEMPLEADO, CODIGODESCUENTO)
-);
-
-/*==============================================================*/
-/* Table: EMPLEADODISCAPACIDAD                                  */
-/*==============================================================*/
-create table EMPLEADODISCAPACIDAD
-(
-   CODIGOEMPLEADO       varchar(10) not null,
-   CODIGODISCAPACIDAD   varchar(10) not null,
-   primary key (CODIGOEMPLEADO, CODIGODISCAPACIDAD)
-);
-
-/*==============================================================*/
-/* Table: EMPLEADOEXPERIENCIALABORAL                            */
-/*==============================================================*/
-create table EMPLEADOEXPERIENCIALABORAL
-(
-   CODIGOEMPLEADO       varchar(10) not null,
-   CODIGOEXPERIENCIALABORAL varchar(10) not null,
-   primary key (CODIGOEMPLEADO, CODIGOEXPERIENCIALABORAL)
-);
-
-/*==============================================================*/
-/* Table: EMPLEADOIDIOMA                                        */
-/*==============================================================*/
-create table EMPLEADOIDIOMA
-(
-   CODIGOEMPLEADO       varchar(10) not null,
-   CODIGOIDIOMA         varchar(10) not null,
-   primary key (CODIGOEMPLEADO, CODIGOIDIOMA)
-);
-
-/*==============================================================*/
-/* Table: EMPLEADOMISION                                        */
-/*==============================================================*/
-create table EMPLEADOMISION
-(
-   CODIGOEMPLEADO       varchar(10) not null,
-   CODIGOMISION         varchar(10) not null,
-   primary key (CODIGOEMPLEADO, CODIGOMISION)
-);
-
-/*==============================================================*/
-/* Table: EMPLEADONIVELESCOLARIDAD                              */
-/*==============================================================*/
-create table EMPLEADONIVELESCOLARIDAD
-(
-   CODIGOEMPLEADO       varchar(10) not null,
-   CODIGONIVELNIVELESCOLARIDAD varchar(10) not null,
-   primary key (CODIGOEMPLEADO, CODIGONIVELNIVELESCOLARIDAD)
-);
-
-/*==============================================================*/
-/* Table: EMPLEADOPROGRAMA                                      */
-/*==============================================================*/
-create table EMPLEADOPROGRAMA
-(
-   CODIGOEMPLEADO       varchar(10) not null,
-   CODIGOPROGRAMA       varchar(10) not null,
-   primary key (CODIGOEMPLEADO, CODIGOPROGRAMA)
-);
-
-/*==============================================================*/
-/* Table: ESTADO                                                */
-/*==============================================================*/
-create table ESTADO
-(
-   CODIGOESTADO         varchar(10) not null,
-   NOMBREESTADO         varchar(50),
-   VALORESTADO          varchar(100),
-   primary key (CODIGOESTADO)
-);
-
-/*==============================================================*/
-/* Table: EVENTO                                                */
-/*==============================================================*/
-create table EVENTO
-(
-   CODIGOEVENTOBITACORA int not null,
-   NOMBREEVENTOBITACORA varchar(50),
-   DESCRIPCIONEVENTO    varchar(300),
-   primary key (CODIGOEVENTOBITACORA)
-);
-
-/*==============================================================*/
-/* Table: EVUALUACIONCAPACITACION                               */
-/*==============================================================*/
-create table EVUALUACIONCAPACITACION
-(
-   CODIGOEVALUACIONCAPACITACION varchar(10) not null,
-   CODIGOCAPACITACION   varchar(10) not null,
-   LUGARCAPACITACION    varchar(100),
-   HORAEVUALUACIONCAPACITACION datetime,
-   DOMINIOTEMA          varchar(4),
-   HABILIDADCOMUNICACION varchar(2),
-   ESPECTATIVA          varchar(2),
-   CLARIDADTEMA         varchar(2),
-   ALCLARADUDAS         varchar(2),
-   INTERESTEMA          varchar(2),
-   SATIFACCIONDETEMA    varchar(2),
-   COMPRENCIONDETEMA    varchar(2),
-   PLANEACIONTIEMPO     varchar(4),
-   DISTRIBUCIONTIEMPO   varchar(4),
-   CONTENIDOCLARO       varchar(4),
-   CONTENIDOAPLICADOTRABAJO varchar(4),
-   SATISFECHOCONTENIDO  varchar(2),
-   NECESARIOCAPACITACION varchar(2),
-   EQUIPOTECNOLOGICO    varchar(2),
-   MATERIALUTILIZADO    varchar(2),
-   TIEMPOCAPACITACIONOPTIMO varchar(2),
-   COMENTARIO           varchar(100),
-   PUNTUALIDAD          varchar(2),
-   primary key (CODIGOEVALUACIONCAPACITACION)
-);
-
-/*==============================================================*/
-/* Table: EXPEDIENTEEMPLEADO                                    */
-/*==============================================================*/
-create table EXPEDIENTEEMPLEADO
-(
-   CODIGOEXPEDIENTEEMPLEADO varchar(10) not null,
-   CODIGOEMPLEADO       varchar(10) not null,
-   LLAMADAATENCION      varchar(50),
-   FECHADESPIDO         date,
-   JUBILADO             varchar(2),
-   PENCIONADO           varchar(2),
-   SANCIONES            varchar(200),
-   SALARIOINICIAL       float,
-   SALARIOFINAL         float,
-   LOGROS               varchar(200),
-   FECHAINICIOCONTRATO  date,
-   FECHAFINCONTRATO     date,
-   NOMBRECARGO          varchar(50),
-   NOMBREPLAZA          varchar(50),
-   DESCRIPCIONPLAZA     varchar(200),
-   NUP                  varchar(20),
-   LICENCIA             varchar(20),
-   DISCAPCIDAD          varchar(100),
-   TRABAJOPRIVADO       varchar(2),
-   TRABAJOPUBLICO       varchar(2),
-   MOTIVODESPIDO        varchar(300),
-   primary key (CODIGOEXPEDIENTEEMPLEADO)
-);
-
-/*==============================================================*/
-/* Table: EXPERIENCIALABORAL                                    */
-/*==============================================================*/
-create table EXPERIENCIALABORAL
-(
-   CODIGOEXPERIENCIALABORAL varchar(10) not null,
-   NOMBREINSTITUCION    varchar(50),
-   FECHADESDEEXPERIENCIALABORAL date,
-   FECHAHASTAEXPERIENCIALABORAL date,
-   SALARIOINICIAL       float,
-   SALARIOFINAL         float,
-   MOTIVORETIRO         varchar(200),
-   SECTOREXPERIENCIALABORAL varchar(20),
-   primary key (CODIGOEXPERIENCIALABORAL)
-);
-
-/*==============================================================*/
-/* Table: HABILIDAD                                             */
-/*==============================================================*/
-create table HABILIDAD
-(
-   CODIGOHABILIDAD      varchar(10) not null,
-   CODIGOEMPLEADO       varchar(10),
-   NOMBREHABLIDAD       varchar(50),
-   primary key (CODIGOHABILIDAD)
-);
-
-/*==============================================================*/
-/* Table: HIJOSDISCAPACIDAD                                     */
-/*==============================================================*/
-create table HIJOSDISCAPACIDAD
-(
-   CODIGOHIJODISCAPACIDAD varchar(10) not null,
-   CODIGOEMPLEADO       varchar(10),
-   NOMBREHIJODISCAPACIDAD varchar(50),
-   APELLIDOHIJODISCAPACIDAD varchar(50),
-   NOMBREDISCAPACIDAD   varchar(50),
-   PARENTESCO           varchar(50),
-   FECHANAMIMIENTOHIJOSDISCAPACIDAD date,
-   primary key (CODIGOHIJODISCAPACIDAD)
-);
-
-/*==============================================================*/
-/* Table: IDIOMA                                                */
-/*==============================================================*/
-create table IDIOMA
-(
-   CODIGOIDIOMA         varchar(10) not null,
-   NOMBREIDIOMA         varchar(50),
-   ESCRIBE              varchar(2),
-   HABLA                varchar(2),
-   TRADUCE              varchar(2),
-   NIVEL                varchar(2),
-   primary key (CODIGOIDIOMA)
-);
-
-/*==============================================================*/
-/* Table: INASISTENCIA                                          */
-/*==============================================================*/
-create table INASISTENCIA
-(
-   CODIGOINASISTENCIA   varchar(8) not null,
-   CODIGOEMPLEADO       varchar(10) not null,
-   MOTIVOINASISTENCIA   varchar(200),
-   CONSTANCIAINASISTENCIA varchar(200),
-   FECHADESDEINASISTENCIA date,
-   FECHAHASTAINASISTENCIA date,
-   primary key (CODIGOINASISTENCIA)
-);
-
-/*==============================================================*/
-/* Table: INCAPACIDAD                                           */
-/*==============================================================*/
-create table INCAPACIDAD
-(
-   CODIGOINCAPACIDAD    varchar(10) not null,
-   CODIGOEMPLEADO       varchar(10) not null,
-   NUMEROFICHAISSS      varchar(12),
-   SUBSIDIO             float,
-   FORMAINCAPACIDAD     varchar(100),
-   FONDOINCAPACIDAD     varchar(200),
-   OBSERVACION          varchar(500),
-   DOCUMENTO1           varchar(100),
-   DOCUMENTO2           varchar(100),
-   FECHADESDEINCAPACIDAD date,
-   FECHAHASTAINCAPACIDAD date,
-   FECHAEMISION         date,
-   TIPOINCAPACIDAD      varchar(30),
-   primary key (CODIGOINCAPACIDAD)
-);
-
-/*==============================================================*/
-/* Table: MISION                                                */
-/*==============================================================*/
-create table MISION
-(
-   CODIGOMISION         varchar(10) not null,
-   NOMBREMISION         varchar(50),
-   OBJETIVOMISION       varchar(100),
-   RESPONSABLEGASTO     varchar(50),
-   DEPARTAMENTOMISION   varchar(100),
-   PAISDESTINO          varchar(50),
-   CANTIDADDIA          int,
-   FECHAACUERDOMISION   date,
-   GASTOVIAJE           float,
-   TIPOTRANSPORTE       varchar(30),
-   GASTOTERMINALES      float,
-   GASTOSTOTALES        float,
-   CANTIDADMESES        int,
-   DOCUMENTO            varchar(50),
-   TIPOMISION           int,
-   FECHASALIDAMISION    date,
-   FECHAREGRESOMISION   date,
-   primary key (CODIGOMISION)
-);
-
-/*==============================================================*/
-/* Table: NIVELESCOLARIDAD                                      */
-/*==============================================================*/
-create table NIVELESCOLARIDAD
-(
-   CODIGONIVELNIVELESCOLARIDAD varchar(10) not null,
-   CENTROEDUCATIVO      varchar(50),
-   ANIOSAPROBADOS       int,
-   ESTUDIOREALIZADO     varchar(300),
-   FINALIZADO           varchar(2),
-   TITULOOBTENIDO       varchar(50),
-   PAISCAPACITACION     varchar(50),
-   FECHADESDENIVELESCOLARIDAD date,
-   FECHAHASTANIVELESCOLARIDAD date,
-   primary key (CODIGONIVELNIVELESCOLARIDAD)
-);
-
-/*==============================================================*/
-/* Table: PROGRAMA                                              */
-/*==============================================================*/
-create table PROGRAMA
-(
-   CODIGOPROGRAMA       varchar(10) not null,
-   NOMBREPROGRAMA       varchar(50),
-   FECHAPROGRAMA        date,
-   DESCRIPCIONPROGRAMA  varchar(10),
-   RANGOEDAD            varchar(10),
-   primary key (CODIGOPROGRAMA)
-);
-
-/*==============================================================*/
-/* Table: PROGRAMAHIJOSDISCAPACIDAD                             */
-/*==============================================================*/
-create table PROGRAMAHIJOSDISCAPACIDAD
-(
-   CODIGOHIJODISCAPACIDAD varchar(10) not null,
-   CODIGOPROGRAMA       varchar(10) not null,
-   primary key (CODIGOHIJODISCAPACIDAD, CODIGOPROGRAMA)
-);
-
-/*==============================================================*/
-/* Table: PUESTO                                                */
-/*==============================================================*/
-create table PUESTO
-(
-   CODIGOPUESTO         varchar(10) not null,
-   CATEGORIAPUESTO      varchar(50),
-   SUELDOBASE           float,
-   NOMBREPUESTO         varchar(50),
-   NOMBREJERARQUIA      varchar(50),
-   ESTADOPLANILLA       varchar(10),
-   FECHAAUTORIZACIONPUESTO date,
-   FECHABAJA            date,
-   FECHACONTRATACIONDESDE date,
-   FECHACONTRATACIONHASTA date,
-   FECHANOMBRAMIENTO    date,
-   FECHAMODIFICACION    date,
-   NIVELPUESTO          varchar(25),
-   SUBLINEA             varchar(75),
-   TIPOFINANZA          varchar(50),
-   UBICACIONPUESTO      varchar(50),
-   FORMAPAGO            varchar(20),
-   CATEGORIASUELDO      varchar(50),
-   FECHAVACANTE         date,
-   ULTIMOEMPLEADO       varchar(50),
-   NUMEROPARTIDAPUESTO  varchar(10),
-   NUMEROSUBPARTIDAPUESTO varchar(10),
-   SUELDOTOPEPUESTO     float,
-   CODIGOCARGOPUESTO    varchar(10),
-   FECHAAPROBACION      date,
-   FECHACREACION        date,
-   ESTADOPUESTO         int,
-   primary key (CODIGOPUESTO)
-);
-
-/*==============================================================*/
-/* Table: ROL                                                   */
-/*==============================================================*/
-create table ROL
-(
-   CODIGOROL            varchar(10) not null,
-   NOMBREROL            varchar(100),
-   primary key (CODIGOROL)
-);
-
-/*==============================================================*/
-/* Table: UBICACIONFISICA                                       */
-/*==============================================================*/
-create table UBICACIONFISICA
-(
-   CODIGOUBICACION      varchar(10) not null,
-   NOMBREUBICACION      varchar(50),
-   JEFEINMEDIATO        varchar(50),
-   CARGOFUNCIONAL       varchar(50),
-   TEAREADESEMPENIA     varchar(500),
-   primary key (CODIGOUBICACION)
-);
-
-/*==============================================================*/
-/* Table: USUARIO                                               */
-/*==============================================================*/
-create table USUARIO
-(
-   CODIGOUSUARIO        varchar(10) not null,
-   CODIGOEMPLEADO       varchar(10) not null,
-   NOMBREUSUARIO        varchar(50),
-   CONTRASENIAUSUARIO   VBIN100,
-   CONTROLCONTRASENIA   int,
-   ESTADOUSUARIO        int,
-   primary key (CODIGOUSUARIO)
-);
-
-/*==============================================================*/
-/* Table: USUARIOROL                                            */
-/*==============================================================*/
-create table USUARIOROL
-(
-   CODIGOUSUARIO        varchar(10) not null,
-   CODIGOROL            varchar(10) not null,
-   primary key (CODIGOUSUARIO, CODIGOROL)
-);
-
-alter table ASISTENCIACAPACIATION add constraint FK_LLEVA foreign key (CODIGOCAPACITACION)
-      references CAPACITACION (CODIGOCAPACITACION) on delete restrict on update restrict;
-
-alter table CAPACITACION add constraint FK_IMPARTE foreign key (CODIGOCAPACITADOR)
-      references CAPACITADOR (CODIGOCAPACITADOR) on delete restrict on update restrict;
-
-alter table CAPACITADOR add constraint FK_PUEDE_SER foreign key (CODIGOEMPLEADO)
-      references EMPLEADO (CODIGOEMPLEADO) on delete restrict on update restrict;
-
-alter table COSTOCAPACITACION add constraint FK_GENERA foreign key (CODIGOCAPACITACION)
-      references CAPACITACION (CODIGOCAPACITACION) on delete restrict on update restrict;
-
-alter table DEPENDIENTEEMPLEADO add constraint FK_SE_ENCARGA_DE foreign key (CODIGOEMPLEADO)
-      references EMPLEADO (CODIGOEMPLEADO) on delete restrict on update restrict;
-
-alter table DIAGNOSTICOCAPACITACION add constraint FK_SE_HACE foreign key (CODIGOCAPACITACION)
-      references CAPACITACION (CODIGOCAPACITACION) on delete restrict on update restrict;
-
-alter table EMPLEADO add constraint FK_DESEMPENIA foreign key (CODIGOPUESTO)
-      references PUESTO (CODIGOPUESTO) on delete restrict on update restrict;
-
-alter table EMPLEADO add constraint FK_ES_MIENBRO_DE foreign key (CODIGOCOMITE)
-      references COMITE (CODIGOCOMITE) on delete restrict on update restrict;
-
-alter table EMPLEADO add constraint FK_ES_PARTE_DE foreign key (CODIGOCUADRODIRECTIVO)
-      references CUADRODIRECTIVO (CODIGOCUADRODIRECTIVO) on delete restrict on update restrict;
-
-alter table EMPLEADO add constraint FK_PERTENECE foreign key (CODIGOCOMISION)
-      references COMISION (CODIGOCOMISION) on delete restrict on update restrict;
-
-alter table EMPLEADO add constraint FK_PERTENECE_A foreign key (CODIGOUBICACION)
-      references UBICACIONFISICA (CODIGOUBICACION) on delete restrict on update restrict;
-
-alter table EMPLEADO add constraint FK_POSEE_UN foreign key (CODIGOCONTRATO)
-      references CONTRATO (CODIGOCONTRATO) on delete restrict on update restrict;
-
-alter table EMPLEADOASISTENCIACAPACITACION add constraint FK_LLEVA_UNA foreign key (CODIGOEMPLEADO)
-      references EMPLEADO (CODIGOEMPLEADO) on delete restrict on update restrict;
-
-alter table EMPLEADOASISTENCIACAPACITACION add constraint FK_LLEVA_UNA2 foreign key (CODIGOASISTENCIACAPACITACION)
-      references ASISTENCIACAPACIATION (CODIGOASISTENCIACAPACITACION) on delete restrict on update restrict;
-
-alter table EMPLEADOBENEFICIO add constraint FK_GOZA_DE foreign key (CODIGOBENEFICIO)
-      references BENEFICIO (CODIGOBENEFICIO) on delete restrict on update restrict;
-
-alter table EMPLEADOBENEFICIO add constraint FK_GOZA_DE2 foreign key (CODIGOEMPLEADO)
-      references EMPLEADO (CODIGOEMPLEADO) on delete restrict on update restrict;
-
-alter table EMPLEADOCAPACITACION add constraint FK_RECIBE foreign key (CODIGOEMPLEADO)
-      references EMPLEADO (CODIGOEMPLEADO) on delete restrict on update restrict;
-
-alter table EMPLEADOCAPACITACION add constraint FK_RECIBE2 foreign key (CODIGOCAPACITACION)
-      references CAPACITACION (CODIGOCAPACITACION) on delete restrict on update restrict;
-
-alter table EMPLEADOCONTACTO add constraint FK_NECESITA foreign key (CODIGOEMPLEADO)
-      references EMPLEADO (CODIGOEMPLEADO) on delete restrict on update restrict;
-
-alter table EMPLEADOCONTACTO add constraint FK_NECESITA2 foreign key (CODIGOCONTACTO)
-      references CONTACTO (CODIGOCONTACTO) on delete restrict on update restrict;
-
-alter table EMPLEADODESCUENTO add constraint FK_SE_REALIZA foreign key (CODIGOEMPLEADO)
-      references EMPLEADO (CODIGOEMPLEADO) on delete restrict on update restrict;
-
-alter table EMPLEADODESCUENTO add constraint FK_SE_REALIZA2 foreign key (CODIGODESCUENTO)
-      references DESCUENTO (CODIGODESCUENTO) on delete restrict on update restrict;
-
-alter table EMPLEADODISCAPACIDAD add constraint FK_PADECE_DE foreign key (CODIGOEMPLEADO)
-      references EMPLEADO (CODIGOEMPLEADO) on delete restrict on update restrict;
-
-alter table EMPLEADODISCAPACIDAD add constraint FK_PADECE_DE2 foreign key (CODIGODISCAPACIDAD)
-      references DISCAPACIDAD (CODIGODISCAPACIDAD) on delete restrict on update restrict;
-
-alter table EMPLEADOEXPERIENCIALABORAL add constraint FK_ADQUIERE foreign key (CODIGOEMPLEADO)
-      references EMPLEADO (CODIGOEMPLEADO) on delete restrict on update restrict;
-
-alter table EMPLEADOEXPERIENCIALABORAL add constraint FK_ADQUIERE2 foreign key (CODIGOEXPERIENCIALABORAL)
-      references EXPERIENCIALABORAL (CODIGOEXPERIENCIALABORAL) on delete restrict on update restrict;
-
-alter table EMPLEADOIDIOMA add constraint FK_HABLA foreign key (CODIGOEMPLEADO)
-      references EMPLEADO (CODIGOEMPLEADO) on delete restrict on update restrict;
-
-alter table EMPLEADOIDIOMA add constraint FK_HABLA2 foreign key (CODIGOIDIOMA)
-      references IDIOMA (CODIGOIDIOMA) on delete restrict on update restrict;
-
-alter table EMPLEADOMISION add constraint FK_ENVIADO_A foreign key (CODIGOEMPLEADO)
-      references EMPLEADO (CODIGOEMPLEADO) on delete restrict on update restrict;
-
-alter table EMPLEADOMISION add constraint FK_ENVIADO_A2 foreign key (CODIGOMISION)
-      references MISION (CODIGOMISION) on delete restrict on update restrict;
-
-alter table EMPLEADONIVELESCOLARIDAD add constraint FK_TIENE foreign key (CODIGOEMPLEADO)
-      references EMPLEADO (CODIGOEMPLEADO) on delete restrict on update restrict;
-
-alter table EMPLEADONIVELESCOLARIDAD add constraint FK_TIENE2 foreign key (CODIGONIVELNIVELESCOLARIDAD)
-      references NIVELESCOLARIDAD (CODIGONIVELNIVELESCOLARIDAD) on delete restrict on update restrict;
-
-alter table EMPLEADOPROGRAMA add constraint FK_SE_BENEFICIA foreign key (CODIGOEMPLEADO)
-      references EMPLEADO (CODIGOEMPLEADO) on delete restrict on update restrict;
-
-alter table EMPLEADOPROGRAMA add constraint FK_SE_BENEFICIA2 foreign key (CODIGOPROGRAMA)
-      references PROGRAMA (CODIGOPROGRAMA) on delete restrict on update restrict;
-
-alter table EVUALUACIONCAPACITACION add constraint FK_SE_REALIZAN foreign key (CODIGOCAPACITACION)
-      references CAPACITACION (CODIGOCAPACITACION) on delete restrict on update restrict;
-
-alter table EXPEDIENTEEMPLEADO add constraint FK_SE_CREA foreign key (CODIGOEMPLEADO)
-      references EMPLEADO (CODIGOEMPLEADO) on delete restrict on update restrict;
-
-alter table HABILIDAD add constraint FK_DESARROLLA foreign key (CODIGOEMPLEADO)
-      references EMPLEADO (CODIGOEMPLEADO) on delete restrict on update restrict;
-
-alter table HIJOSDISCAPACIDAD add constraint FK_ES_RESPONSABLE foreign key (CODIGOEMPLEADO)
-      references EMPLEADO (CODIGOEMPLEADO) on delete restrict on update restrict;
-
-alter table INASISTENCIA add constraint FK_POSEE foreign key (CODIGOEMPLEADO)
-      references EMPLEADO (CODIGOEMPLEADO) on delete restrict on update restrict;
-
-alter table INCAPACIDAD add constraint FK_SE_OTORGA foreign key (CODIGOEMPLEADO)
-      references EMPLEADO (CODIGOEMPLEADO) on delete restrict on update restrict;
-
-alter table PROGRAMAHIJOSDISCAPACIDAD add constraint FK_RECIBE_UN foreign key (CODIGOHIJODISCAPACIDAD)
-      references HIJOSDISCAPACIDAD (CODIGOHIJODISCAPACIDAD) on delete restrict on update restrict;
-
-alter table PROGRAMAHIJOSDISCAPACIDAD add constraint FK_RECIBE_UN2 foreign key (CODIGOPROGRAMA)
-      references PROGRAMA (CODIGOPROGRAMA) on delete restrict on update restrict;
-
-alter table USUARIO add constraint FK_ES foreign key (CODIGOEMPLEADO)
-      references EMPLEADO (CODIGOEMPLEADO) on delete restrict on update restrict;
-
-alter table USUARIOROL add constraint FK_FK_ROL foreign key (CODIGOROL)
-      references ROL (CODIGOROL) on delete restrict on update restrict;
-
-alter table USUARIOROL add constraint FK_FK_USUARIO foreign key (CODIGOUSUARIO)
-      references USUARIO (CODIGOUSUARIO) on delete restrict on update restrict;
-
+-- phpMyAdmin SQL Dump
+-- version 4.6.6deb4
+-- https://www.phpmyadmin.net/
+--
+-- Servidor: localhost:3306
+-- Tiempo de generación: 19-06-2018 a las 01:56:29
+-- Versión del servidor: 10.1.26-MariaDB-0+deb9u1
+-- Versión de PHP: 7.0.27-0+deb9u1
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Base de datos: `SISADMRH`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `ASISTENCIACAPACIATION`
+--
+
+CREATE TABLE `ASISTENCIACAPACIATION` (
+  `CODIGOASISTENCIACAPACITACION` varchar(10) NOT NULL,
+  `CODIGOCAPACITACION` varchar(10) NOT NULL,
+  `HORASRECIBIDAS` int(11) DEFAULT NULL,
+  `UBICACIONASISTENCIACAPACITACION` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `beneficio`
+--
+
+CREATE TABLE `beneficio` (
+  `CODIGOBENEFICIO` int(11) NOT NULL,
+  `NOMBREBENEFICIO` varchar(30) DEFAULT NULL,
+  `DESCRIPCIONBENEFICIO` varchar(100) DEFAULT NULL,
+  `FECHAINICIOBENEFICIO` date DEFAULT NULL,
+  `FECHAFINALIZARBENEFICIO` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `BITACORA`
+--
+
+CREATE TABLE `BITACORA` (
+  `CODIGOBITACORA` int(11) NOT NULL,
+  `CODIGOEVENTOBITACORA` int(11) DEFAULT NULL,
+  `NOMBREEVENTOBITACORA` varchar(50) DEFAULT NULL,
+  `FECHABITACORA` date DEFAULT NULL,
+  `IP` varchar(18) DEFAULT NULL,
+  `CODIGOUSUARIOBITACORA` varchar(10) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `CAPACITACION`
+--
+
+CREATE TABLE `CAPACITACION` (
+  `CODIGOCAPACITACION` varchar(10) NOT NULL,
+  `CODIGOCAPACITADOR` varchar(100) NOT NULL,
+  `NOMBRECAPACITACION` varchar(50) DEFAULT NULL,
+  `DESCRIPCIONCAPACITACION` varchar(500) DEFAULT NULL,
+  `CATEGORIACAPACITACION` varchar(30) DEFAULT NULL,
+  `DESCRIPCIONCATEGORIA` varchar(500) DEFAULT NULL,
+  `DEPARTAMENTORESPONSABLE` varchar(100) DEFAULT NULL,
+  `DURACIONHORACAPACITACION` int(11) DEFAULT NULL,
+  `DURACIONDIACAPACITACION` int(11) DEFAULT NULL,
+  `ORGANISMOPATROCINADOR` varchar(200) DEFAULT NULL,
+  `TIPOEVENTO` varchar(200) DEFAULT NULL,
+  `ESPECIALIDADEVENTO` varchar(200) DEFAULT NULL,
+  `PAISCAPACITACION` varchar(50) DEFAULT NULL,
+  `FECHACAPACITACION` date DEFAULT NULL,
+  `TIPOCAPACITACION` varchar(20) DEFAULT NULL,
+  `ESTADOCAPACITACION` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `CAPACITADOR`
+--
+
+CREATE TABLE `CAPACITADOR` (
+  `CODIGOCAPACITADOR` varchar(100) NOT NULL,
+  `CODIGOEMPLEADO` varchar(10) NOT NULL,
+  `TEMADOMINIO` varchar(200) DEFAULT NULL,
+  `TIPOCAPACITADOR` varchar(100) DEFAULT NULL,
+  `DUICAPACITADOR` varchar(10) DEFAULT NULL,
+  `NITCAPACITADOR` varchar(17) DEFAULT NULL,
+  `CARNETRESIDENCIA` int(11) DEFAULT NULL,
+  `TELEFONOCAPACITADOR` varchar(11) DEFAULT NULL,
+  `TELEFONOMOVILCAPACITADOR` varchar(11) DEFAULT NULL,
+  `EMAILCAPACITADOR` varchar(50) DEFAULT NULL,
+  `NOMBRECAPACITADOR` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `COMISION`
+--
+
+CREATE TABLE `COMISION` (
+  `CODIGOCOMISION` varchar(10) NOT NULL,
+  `NOMBRECOMISION` varchar(50) DEFAULT NULL,
+  `NUMEROACUERDOCOMISION` int(11) DEFAULT NULL,
+  `FECHADESDECOMISION` date DEFAULT NULL,
+  `FECHAHASTACOMISION` date DEFAULT NULL,
+  `NIVELCOMISION` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `COMITE`
+--
+
+CREATE TABLE `COMITE` (
+  `CODIGOCOMITE` varchar(10) NOT NULL,
+  `NOMBRECOMITE` varchar(50) DEFAULT NULL,
+  `RESPONSABLECOMITE` varchar(30) DEFAULT NULL,
+  `DESRIPCIONCOMITE` varchar(100) DEFAULT NULL,
+  `NUMEROACUERDOCOMITE` int(11) DEFAULT NULL,
+  `MIEMBROMAXIMO` int(11) DEFAULT NULL,
+  `FECHADESDECOMITE` date DEFAULT NULL,
+  `FECHAHASTACOMITE` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `CONTACTO`
+--
+
+CREATE TABLE `CONTACTO` (
+  `CODIGOCONTACTO` varchar(10) NOT NULL,
+  `NOMBRECONTACTO` varchar(50) DEFAULT NULL,
+  `APELLIDOCONTACTO` varchar(50) DEFAULT NULL,
+  `DIRECCION` varchar(100) DEFAULT NULL,
+  `TELEFONOFIJOCONTACTO` varchar(11) DEFAULT NULL,
+  `TELEFONOMOVILCONTACTO` varchar(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `CONTRATO`
+--
+
+CREATE TABLE `CONTRATO` (
+  `CODIGOCONTRATO` varchar(10) NOT NULL,
+  `SALARIOACTUAL` float DEFAULT NULL,
+  `UNIDADPRECIDE` varchar(100) DEFAULT NULL,
+  `LINEATRABAJO` varchar(100) DEFAULT NULL,
+  `PARTIDACONTRATO` varchar(9) DEFAULT NULL,
+  `SUBPARTIDACONTRATO` varchar(100) DEFAULT NULL,
+  `FECHAINICIOCONTRATO` date DEFAULT NULL,
+  `FECHAFINCONTRATO` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `COSTOCAPACITACION`
+--
+
+CREATE TABLE `COSTOCAPACITACION` (
+  `CODIGOCOSTOCAPACITACION` varchar(10) NOT NULL,
+  `CODIGOCAPACITACION` varchar(10) NOT NULL,
+  `COSTOPERSONA` float DEFAULT NULL,
+  `NUMEROPERSONA` int(11) DEFAULT NULL,
+  `COSTOCAPACITADOR` float DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `CUADRODIRECTIVO`
+--
+
+CREATE TABLE `CUADRODIRECTIVO` (
+  `CODIGOCUADRODIRECTIVO` varchar(10) NOT NULL,
+  `RESPONSABLECUADRODIRECTIVO` varchar(30) DEFAULT NULL,
+  `AREA` varchar(30) DEFAULT NULL,
+  `DESRIPCIONCUADRODIRECTIVO` varchar(100) DEFAULT NULL,
+  `FECHAPRESENTACION` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `DEPENDIENTEEMPLEADO`
+--
+
+CREATE TABLE `DEPENDIENTEEMPLEADO` (
+  `CODIGODEPENDIENTEEMPLEADO` varchar(10) NOT NULL,
+  `CODIGOEMPLEADO` varchar(10) NOT NULL,
+  `NOMBREDEPENDIENTEEMPLEADO` varchar(50) DEFAULT NULL,
+  `APELLIDODEPENDIENTEEMPLEADO` varchar(50) DEFAULT NULL,
+  `PARENTESCO` varchar(50) DEFAULT NULL,
+  `FECHANACIMIENTODEPENDIENTEEMPLEADO` date DEFAULT NULL,
+  `DEPENDIENTE` varchar(9) DEFAULT NULL,
+  `SEXODEPENDIENTEEMPLEADO` varchar(10) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `DESCUENTO`
+--
+
+CREATE TABLE `DESCUENTO` (
+  `CODIGODESCUENTO` varchar(10) NOT NULL,
+  `NOMBREDESCUENTO` varchar(50) DEFAULT NULL,
+  `TIPODESCUENTO` varchar(50) DEFAULT NULL,
+  `MONTODESCUENTO` float DEFAULT NULL,
+  `TIPOBANCO` varchar(100) DEFAULT NULL,
+  `CLASE` varchar(100) DEFAULT NULL,
+  `MONTOPAGO` float DEFAULT NULL,
+  `SALARIO` float DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `DIAGNOSTICOCAPACITACION`
+--
+
+CREATE TABLE `DIAGNOSTICOCAPACITACION` (
+  `CODIGODIAGNOSTICOCAPACITACION` varchar(10) NOT NULL,
+  `CODIGOCAPACITACION` varchar(10) NOT NULL,
+  `NECESIDADCAPACITACION` varchar(500) DEFAULT NULL,
+  `MESCAPACITACION` varchar(20) DEFAULT NULL,
+  `RESULTADOOBTENER` varchar(500) DEFAULT NULL,
+  `NOMBREAUTORIZADIAGNOSTICOCAPACITACION` varchar(150) DEFAULT NULL,
+  `DIRECCION` varchar(100) DEFAULT NULL,
+  `CARGOAUTORIZADIAGNOSTICOCAPACITACION` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `DISCAPACIDAD`
+--
+
+CREATE TABLE `DISCAPACIDAD` (
+  `CODIGODISCAPACIDAD` varchar(10) NOT NULL,
+  `NOMBREDISCAPACIDAD` varchar(50) DEFAULT NULL,
+  `DESCRIPCIONDISCAPACIDAD` varchar(200) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `empleado`
+--
+
+CREATE TABLE `empleado` (
+  `NOMBREEMPLEADO` varchar(50) DEFAULT NULL,
+  `APELLIDOEMPLEADO` varchar(50) DEFAULT NULL,
+  `FECHANACIMIENTOEMPLEADO` date DEFAULT NULL,
+  `NACIONALIDAD` varchar(50) DEFAULT NULL,
+  `TIPONACIONALIDAD` varchar(50) DEFAULT NULL,
+  `DEPARTAMENTONACIMIENTO` varchar(50) DEFAULT NULL,
+  `MUNICIPIONACIMIENTO` varchar(50) DEFAULT NULL,
+  `GRUPOSANQUINEO` varchar(20) DEFAULT NULL,
+  `TELEFONOMOVILEMPLEADO` varchar(11) DEFAULT NULL,
+  `TELEFONOFIJOEMPLEADO` varchar(11) DEFAULT NULL,
+  `RESIDENCIAPERMANENTE` varchar(50) DEFAULT NULL,
+  `ESTADOFAMILIAR` varchar(50) DEFAULT NULL,
+  `DEPARTAMENTORECIDENCIA` varchar(50) DEFAULT NULL,
+  `MUNICIPIORESIDENCIA` varchar(50) DEFAULT NULL,
+  `DUIEMPLEADO` varchar(10) DEFAULT NULL,
+  `NITEMPLEADOR` varchar(17) DEFAULT NULL,
+  `ISSSEMPLEADO` varchar(9) DEFAULT NULL,
+  `FECHAINGRESOSECPUB` date DEFAULT NULL,
+  `FECHAINGRESOSECPRIV` date DEFAULT NULL,
+  `FECHAINGRESOMINISTERIO` date DEFAULT NULL,
+  `AFILIACIONPENSION` varchar(6) DEFAULT NULL,
+  `NUMEROAFILIACION` varchar(12) DEFAULT NULL,
+  `TIPOCUENTA` varchar(2) DEFAULT NULL,
+  `NOMBREINSTIUCIONDEPOSITAR` varchar(50) DEFAULT NULL,
+  `EMAILEMPLEADO` varchar(50) DEFAULT NULL,
+  `ESTADOEMPLEADO` int(11) DEFAULT NULL,
+  `SEXOEMPLEADO` varchar(1) DEFAULT NULL,
+  `CODIGOEMPLEADO` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `EMPLEADO`
+--
+
+CREATE TABLE `EMPLEADO` (
+  `CODIGOEMPLEADO` varchar(10) NOT NULL,
+  `CODIGOCONTRATO` varchar(10) DEFAULT NULL,
+  `CODIGOCOMITE` varchar(10) DEFAULT NULL,
+  `CODIGOHIJODISCAPACIDAD` varchar(10) DEFAULT NULL,
+  `CODIGOCUADRODIRECTIVO` varchar(10) DEFAULT NULL,
+  `CODIGOCOMISION` varchar(10) DEFAULT NULL,
+  `CODIGOPUESTO` varchar(10) DEFAULT NULL,
+  `CODIGOUBICACION` varchar(10) DEFAULT NULL,
+  `NOMBREEMPLEADO` varchar(50) DEFAULT NULL,
+  `APELLIDOEMPLEADO` varchar(50) DEFAULT NULL,
+  `FECHANACIMIENTOEMPLEADO` date DEFAULT NULL,
+  `NACIONALIDAD` varchar(50) DEFAULT NULL,
+  `TIPONACIONALIDAD` varchar(50) DEFAULT NULL,
+  `DEPARTAMENTONACIMIENTO` varchar(50) DEFAULT NULL,
+  `MUNICIPIONACIMIENTO` varchar(50) DEFAULT NULL,
+  `GRUPOSANQUINEO` varchar(20) DEFAULT NULL,
+  `TELEFONOMOVILEMPLEADO` varchar(11) DEFAULT NULL,
+  `TELEFONOFIJOEMPLEADO` varchar(11) DEFAULT NULL,
+  `RECIDENCIAPERMANENTE` varchar(50) DEFAULT NULL,
+  `ESTADOFAMILIAR` varchar(50) DEFAULT NULL,
+  `DEPARTAMENTORECIDENCIA` varchar(50) DEFAULT NULL,
+  `MUNICIPIORESIDENCIA` varchar(50) DEFAULT NULL,
+  `DUIEMPLEADO` varchar(10) DEFAULT NULL,
+  `NITEMPLEADOR` varchar(17) DEFAULT NULL,
+  `ISSSEMPLEADO` varchar(9) DEFAULT NULL,
+  `FECHAINGRESOSECPUB` date DEFAULT NULL,
+  `FECHAINGRESOSECPRIV` date DEFAULT NULL,
+  `FECHAINGRESOMINISTERIO` date DEFAULT NULL,
+  `AFILIACIONPENSION` varchar(6) DEFAULT NULL,
+  `NUMEROAFILIACION` varchar(12) DEFAULT NULL,
+  `TIPOCUENTA` varchar(2) DEFAULT NULL,
+  `NOMBREINSTIUCIONDEPOSITAR` varchar(50) DEFAULT NULL,
+  `EMAILEMPLEADO` varchar(50) DEFAULT NULL,
+  `ESTADOEMPLEADO` int(11) DEFAULT NULL,
+  `SEXOEMPLEADO` varchar(1) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `EMPLEADOASISTENCIACAPACITACION`
+--
+
+CREATE TABLE `EMPLEADOASISTENCIACAPACITACION` (
+  `CODIGOEMPLEADO` varchar(10) NOT NULL,
+  `CODIGOASISTENCIACAPACITACION` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `empleadobeneficio`
+--
+
+CREATE TABLE `empleadobeneficio` (
+  `CODIGOEMPLEADO` int(11) NOT NULL,
+  `CODIGOBENEFICIO` int(11) NOT NULL,
+  `FECHABENEFICIO` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `EMPLEADOCAPACITACION`
+--
+
+CREATE TABLE `EMPLEADOCAPACITACION` (
+  `CODIGOEMPLEADO` varchar(10) NOT NULL,
+  `CODIGOCAPACITACION` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `EMPLEADOCONTACTO`
+--
+
+CREATE TABLE `EMPLEADOCONTACTO` (
+  `CODIGOEMPLEADO` varchar(10) NOT NULL,
+  `CODIGOCONTACTO` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `EMPLEADODESCUENTO`
+--
+
+CREATE TABLE `EMPLEADODESCUENTO` (
+  `CODIGOEMPLEADO` varchar(10) NOT NULL,
+  `CODIGODESCUENTO` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `EMPLEADODISCAPACIDAD`
+--
+
+CREATE TABLE `EMPLEADODISCAPACIDAD` (
+  `CODIGOEMPLEADO` varchar(10) NOT NULL,
+  `CODIGODISCAPACIDAD` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `EMPLEADOEXPERIENCIALABORAL`
+--
+
+CREATE TABLE `EMPLEADOEXPERIENCIALABORAL` (
+  `CODIGOEMPLEADO` varchar(10) NOT NULL,
+  `CODIGOEXPERIENCIALABORAL` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `EMPLEADOIDIOMA`
+--
+
+CREATE TABLE `EMPLEADOIDIOMA` (
+  `CODIGOEMPLEADO` varchar(10) NOT NULL,
+  `CODIGOIDIOMA` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `EMPLEADOMISION`
+--
+
+CREATE TABLE `EMPLEADOMISION` (
+  `CODIGOEMPLEADO` varchar(10) NOT NULL,
+  `CODIGOMISION` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `EMPLEADONIVELESCOLARIDAD`
+--
+
+CREATE TABLE `EMPLEADONIVELESCOLARIDAD` (
+  `CODIGOEMPLEADO` varchar(10) NOT NULL,
+  `CODIGONIVELNIVELESCOLARIDAD` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `EMPLEADOPROGRAMA`
+--
+
+CREATE TABLE `EMPLEADOPROGRAMA` (
+  `CODIGOEMPLEADO` varchar(10) NOT NULL,
+  `CODIGOPROGRAMA` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `ESTADO`
+--
+
+CREATE TABLE `ESTADO` (
+  `CODIGOESTADO` varchar(10) NOT NULL,
+  `NOMBREESTADO` varchar(50) DEFAULT NULL,
+  `VALORESTADO` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `EVENTO`
+--
+
+CREATE TABLE `EVENTO` (
+  `CODIGOEVENTOBITACORA` int(11) NOT NULL,
+  `NOMBREEVENTOBITACORA` varchar(50) DEFAULT NULL,
+  `DESCRIPCIONEVENTO` varchar(300) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `EVUALUACIONCAPACITACION`
+--
+
+CREATE TABLE `EVUALUACIONCAPACITACION` (
+  `CODIGOEVALUACIONCAPACITACION` varchar(10) NOT NULL,
+  `CODIGOCAPACITACION` varchar(10) NOT NULL,
+  `LUGARCAPACITACION` varchar(100) DEFAULT NULL,
+  `HORAEVUALUACIONCAPACITACION` datetime DEFAULT NULL,
+  `DOMINIOTEMA` varchar(4) DEFAULT NULL,
+  `HABILIDADCOMUNICACION` varchar(2) DEFAULT NULL,
+  `ESPECTATIVA` varchar(2) DEFAULT NULL,
+  `CLARIDADTEMA` varchar(2) DEFAULT NULL,
+  `ALCLARADUDAS` varchar(2) DEFAULT NULL,
+  `INTERESTEMA` varchar(2) DEFAULT NULL,
+  `SATIFACCIONDETEMA` varchar(2) DEFAULT NULL,
+  `COMPRENCIONDETEMA` varchar(2) DEFAULT NULL,
+  `PLANEACIONTIEMPO` varchar(4) DEFAULT NULL,
+  `DISTRIBUCIONTIEMPO` varchar(4) DEFAULT NULL,
+  `CONTENIDOCLARO` varchar(4) DEFAULT NULL,
+  `CONTENIDOAPLICADOTRABAJO` varchar(4) DEFAULT NULL,
+  `SATISFECHOCONTENIDO` varchar(2) DEFAULT NULL,
+  `NECESARIOCAPACITACION` varchar(2) DEFAULT NULL,
+  `EQUIPOTECNOLOGICO` varchar(2) DEFAULT NULL,
+  `MATERIALUTILIZADO` varchar(2) DEFAULT NULL,
+  `TIEMPOCAPACITACIONOPTIMO` varchar(2) DEFAULT NULL,
+  `COMENTARIO` varchar(100) DEFAULT NULL,
+  `PUNTUALIDAD` varchar(2) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `EXPEDIENTEEMPLEADO`
+--
+
+CREATE TABLE `EXPEDIENTEEMPLEADO` (
+  `CODIGOEXPEDIENTEEMPLEADO` varchar(10) NOT NULL,
+  `CODIGOEMPLEADO` varchar(10) NOT NULL,
+  `LLAMADAATENCION` varchar(50) DEFAULT NULL,
+  `FECHADESPIDO` date DEFAULT NULL,
+  `JUBILADO` varchar(2) DEFAULT NULL,
+  `PENCIONADO` varchar(2) DEFAULT NULL,
+  `SANCIONES` varchar(200) DEFAULT NULL,
+  `SALARIOINICIAL` float DEFAULT NULL,
+  `SALARIOFINAL` float DEFAULT NULL,
+  `LOGROS` varchar(200) DEFAULT NULL,
+  `FECHAINICIOCONTRATO` date DEFAULT NULL,
+  `FECHAFINCONTRATO` date DEFAULT NULL,
+  `NOMBRECARGO` varchar(50) DEFAULT NULL,
+  `NOMBREPLAZA` varchar(50) DEFAULT NULL,
+  `DESCRIPCIONPLAZA` varchar(200) DEFAULT NULL,
+  `NUP` varchar(20) DEFAULT NULL,
+  `LICENCIA` varchar(20) DEFAULT NULL,
+  `DISCAPCIDAD` varchar(100) DEFAULT NULL,
+  `TRABAJOPRIVADO` varchar(2) DEFAULT NULL,
+  `TRABAJOPUBLICO` varchar(2) DEFAULT NULL,
+  `MOTIVODESPIDO` varchar(300) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `EXPERIENCIALABORAL`
+--
+
+CREATE TABLE `EXPERIENCIALABORAL` (
+  `CODIGOEXPERIENCIALABORAL` varchar(10) NOT NULL,
+  `NOMBREINSTITUCION` varchar(50) DEFAULT NULL,
+  `FECHADESDEEXPERIENCIALABORAL` date DEFAULT NULL,
+  `FECHAHASTAEXPERIENCIALABORAL` date DEFAULT NULL,
+  `SALARIOINICIAL` float DEFAULT NULL,
+  `SALARIOFINAL` float DEFAULT NULL,
+  `MOTIVORETIRO` varchar(200) DEFAULT NULL,
+  `SECTOREXPERIENCIALABORAL` varchar(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `GRUPOUSUARIO`
+--
+
+CREATE TABLE `GRUPOUSUARIO` (
+  `CODIGOGRUPOUSUARIO` varchar(10) NOT NULL,
+  `NOMBREGRUPOUSUARIO` varchar(50) DEFAULT NULL,
+  `ESTADOGRUPOUSUARIO` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `HABILIDAD`
+--
+
+CREATE TABLE `HABILIDAD` (
+  `CODIGOHABILIDAD` varchar(10) NOT NULL,
+  `CODIGOEMPLEADO` varchar(10) DEFAULT NULL,
+  `NOMBREHABLIDAD` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `hibernate_sequence`
+--
+
+CREATE TABLE `hibernate_sequence` (
+  `next_val` bigint(20) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `hibernate_sequence`
+--
+
+INSERT INTO `hibernate_sequence` (`next_val`) VALUES
+(10);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `HIJODISCAPACIDAD`
+--
+
+CREATE TABLE `HIJODISCAPACIDAD` (
+  `CODIGOHIJODISCAPACIDAD` varchar(10) NOT NULL,
+  `NOMBREHIJODISCAPACIDAD` varchar(50) DEFAULT NULL,
+  `APELLIDOHIJODISCAPACIDAD` varchar(50) DEFAULT NULL,
+  `NOMBREDISCAPACIDAD` varchar(50) DEFAULT NULL,
+  `PARENTESCO` varchar(50) DEFAULT NULL,
+  `FECHANAMIMIENTOHIJOSDISCAPACIDAD` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `IDIOMA`
+--
+
+CREATE TABLE `IDIOMA` (
+  `CODIGOIDIOMA` varchar(10) NOT NULL,
+  `NOMBREIDIOMA` varchar(50) DEFAULT NULL,
+  `ESCRIBE` varchar(2) DEFAULT NULL,
+  `HABLA` varchar(2) DEFAULT NULL,
+  `TRADUCE` varchar(2) DEFAULT NULL,
+  `NIVEL` varchar(2) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `INASISTENCIA`
+--
+
+CREATE TABLE `INASISTENCIA` (
+  `CODIGOINASISTENCIA` varchar(8) NOT NULL,
+  `CODIGOEMPLEADO` varchar(10) NOT NULL,
+  `MOTIVOINASISTENCIA` varchar(200) DEFAULT NULL,
+  `CONSTANCIAINASISTENCIA` varchar(200) DEFAULT NULL,
+  `FECHADESDEINASISTENCIA` date DEFAULT NULL,
+  `FECHAHASTAINASISTENCIA` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `INCAPACIDAD`
+--
+
+CREATE TABLE `INCAPACIDAD` (
+  `CODIGOINCAPACIDAD` varchar(10) NOT NULL,
+  `CODIGOEMPLEADO` varchar(10) NOT NULL,
+  `NUMEROFICHAISSS` varchar(12) DEFAULT NULL,
+  `SUBSIDIO` float DEFAULT NULL,
+  `FORMAINCAPACIDAD` varchar(100) DEFAULT NULL,
+  `FONDOINCAPACIDAD` varchar(200) DEFAULT NULL,
+  `OBSERVACION` varchar(500) DEFAULT NULL,
+  `DOCUMENTO1` varchar(100) DEFAULT NULL,
+  `DOCUMENTO2` varchar(100) DEFAULT NULL,
+  `FECHADESDEINCAPACIDAD` date DEFAULT NULL,
+  `FECHAHASTAINCAPACIDAD` date DEFAULT NULL,
+  `FECHAEMISION` date DEFAULT NULL,
+  `TIPOINCAPACIDAD` varchar(30) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `MISION`
+--
+
+CREATE TABLE `MISION` (
+  `CODIGOMISION` varchar(10) NOT NULL,
+  `NOMBREMISION` varchar(50) DEFAULT NULL,
+  `OBJETIVOMISION` varchar(100) DEFAULT NULL,
+  `RESPONSABLEGASTO` varchar(50) DEFAULT NULL,
+  `DEPARTAMENTOMISION` varchar(100) DEFAULT NULL,
+  `PAISDESTINO` varchar(50) DEFAULT NULL,
+  `CANTIDADDIA` int(11) DEFAULT NULL,
+  `FECHAACUERDOMISION` date DEFAULT NULL,
+  `GASTOVIAJE` float DEFAULT NULL,
+  `TIPOTRANSPORTE` varchar(30) DEFAULT NULL,
+  `GASTOTERMINALES` float DEFAULT NULL,
+  `GASTOSTOTALES` float DEFAULT NULL,
+  `CANTIDADMESES` int(11) DEFAULT NULL,
+  `DOCUMENTO` varchar(50) DEFAULT NULL,
+  `TIPOMISION` int(11) DEFAULT NULL,
+  `FECHASALIDAMISION` date DEFAULT NULL,
+  `FECHAREGRESOMISION` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `NIVELESCOLARIDAD`
+--
+
+CREATE TABLE `NIVELESCOLARIDAD` (
+  `CODIGONIVELNIVELESCOLARIDAD` varchar(10) NOT NULL,
+  `CENTROEDUCATIVO` varchar(50) DEFAULT NULL,
+  `ANIOSAPROBADOS` int(11) DEFAULT NULL,
+  `ESTUDIOREALIZADO` varchar(300) DEFAULT NULL,
+  `FINALIZADO` varchar(2) DEFAULT NULL,
+  `TITULOOBTENIDO` varchar(50) DEFAULT NULL,
+  `PAISCAPACITACION` varchar(50) DEFAULT NULL,
+  `FECHADESDENIVELESCOLARIDAD` date DEFAULT NULL,
+  `FECHAHASTANIVELESCOLARIDAD` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `PROGRAMA`
+--
+
+CREATE TABLE `PROGRAMA` (
+  `CODIGOPROGRAMA` varchar(10) NOT NULL,
+  `NOMBREPROGRAMA` varchar(50) DEFAULT NULL,
+  `FECHAPROGRAMA` date DEFAULT NULL,
+  `DESCRIPCIONPROGRAMA` varchar(10) DEFAULT NULL,
+  `RANGOEDAD` varchar(10) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `PROGRAMAHIJODISCAPACIDAD`
+--
+
+CREATE TABLE `PROGRAMAHIJODISCAPACIDAD` (
+  `CODIGOHIJODISCAPACIDAD` varchar(10) NOT NULL,
+  `CODIGOPROGRAMA` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `PUESTO`
+--
+
+CREATE TABLE `PUESTO` (
+  `CODIGOPUESTO` varchar(10) NOT NULL,
+  `CATEGORIAPUESTO` varchar(50) DEFAULT NULL,
+  `SUELDOBASE` float DEFAULT NULL,
+  `NOMBREPUESTO` varchar(50) DEFAULT NULL,
+  `NOMBREJERARQUIA` varchar(50) DEFAULT NULL,
+  `ESTADOPLANILLA` varchar(10) DEFAULT NULL,
+  `FECHAAUTORIZACIONPUESTO` date DEFAULT NULL,
+  `FECHABAJA` date DEFAULT NULL,
+  `FECHACONTRATACIONDESDE` date DEFAULT NULL,
+  `FECHACONTRATACIONHASTA` date DEFAULT NULL,
+  `FECHANOMBRAMIENTO` date DEFAULT NULL,
+  `FECHAMODIFICACION` date DEFAULT NULL,
+  `NIVELPUESTO` varchar(25) DEFAULT NULL,
+  `SUBLINEA` varchar(75) DEFAULT NULL,
+  `TIPOFINANZA` varchar(50) DEFAULT NULL,
+  `UBICACIONPUESTO` varchar(50) DEFAULT NULL,
+  `FORMAPAGO` varchar(20) DEFAULT NULL,
+  `CATEGORIASUELDO` varchar(50) DEFAULT NULL,
+  `FECHAVACANTE` date DEFAULT NULL,
+  `ULTIMOEMPLEADO` varchar(50) DEFAULT NULL,
+  `NUMEROPARTIDAPUESTO` varchar(10) DEFAULT NULL,
+  `NUMEROSUBPARTIDAPUESTO` varchar(10) DEFAULT NULL,
+  `SUELDOTOPEPUESTO` float DEFAULT NULL,
+  `CODIGOCARGOPUESTO` varchar(10) DEFAULT NULL,
+  `FECHAAPROBACION` date DEFAULT NULL,
+  `FECHACREACION` date DEFAULT NULL,
+  `ESTADOPUESTO` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `rol`
+--
+
+CREATE TABLE `rol` (
+  `CODIGOROL` int(11) NOT NULL,
+  `NOMBREROL` varchar(100) DEFAULT NULL,
+  `descripcionrol` varchar(30) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `rol`
+--
+
+INSERT INTO `rol` (`CODIGOROL`, `NOMBREROL`, `descripcionrol`) VALUES
+(5, ',R1,,R1,kjasgfsdakj', 'rol de prueba 1'),
+(6, ',R2', 'rol de prueba 2'),
+(7, ',rol4,rol4,rol4,,rol4', 'este es rol4');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `UBICACIONFISICA`
+--
+
+CREATE TABLE `UBICACIONFISICA` (
+  `CODIGOUBICACION` varchar(10) NOT NULL,
+  `NOMBREUBICACION` varchar(50) DEFAULT NULL,
+  `JEFEINMEDIATO` varchar(50) DEFAULT NULL,
+  `CARGOFUNCIONAL` varchar(50) DEFAULT NULL,
+  `TEAREADESEMPENIA` varchar(500) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usuario`
+--
+
+CREATE TABLE `usuario` (
+  `CODIGOUSUARIO` int(11) NOT NULL,
+  `NOMBREUSUARIO` varchar(50) DEFAULT NULL,
+  `CONTRASENIAUSUARIO` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
+  `CONTROLCONTRASENIA` int(11) DEFAULT NULL,
+  `ESTADOUSUARIO` int(11) DEFAULT NULL,
+  `FECHAINGRESO` date DEFAULT NULL,
+  `FECHACADUCIDAD` date DEFAULT NULL,
+  `FECHABAJA` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `usuario`
+--
+
+INSERT INTO `usuario` (`CODIGOUSUARIO`, `NOMBREUSUARIO`, `CONTRASENIAUSUARIO`, `CONTROLCONTRASENIA`, `ESTADOUSUARIO`, `FECHAINGRESO`, `FECHACADUCIDAD`, `FECHABAJA`) VALUES
+(1, 'dialv,dialv', 'nohaynimierda', 1, 1, NULL, NULL, NULL),
+(2, ',q,erwr,lol', 'eq', 1, 1, NULL, NULL, NULL),
+(3, ',1312', '1232', 1, 1, NULL, NULL, NULL),
+(4, ',asdf', 'RAQW', 1, 1, NULL, NULL, NULL),
+(8, ',11,,11', '11', 11, 11, NULL, NULL, NULL),
+(9, ',1,,111', '1', 1, 1, NULL, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usuariorol`
+--
+
+CREATE TABLE `usuariorol` (
+  `CODIGOUSUARIO` int(11) NOT NULL,
+  `CODIGOROL` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Índices para tablas volcadas
+--
+
+--
+-- Indices de la tabla `ASISTENCIACAPACIATION`
+--
+ALTER TABLE `ASISTENCIACAPACIATION`
+  ADD PRIMARY KEY (`CODIGOASISTENCIACAPACITACION`),
+  ADD KEY `FK_LLEVA` (`CODIGOCAPACITACION`);
+
+--
+-- Indices de la tabla `beneficio`
+--
+ALTER TABLE `beneficio`
+  ADD PRIMARY KEY (`CODIGOBENEFICIO`);
+
+--
+-- Indices de la tabla `BITACORA`
+--
+ALTER TABLE `BITACORA`
+  ADD PRIMARY KEY (`CODIGOBITACORA`);
+
+--
+-- Indices de la tabla `CAPACITACION`
+--
+ALTER TABLE `CAPACITACION`
+  ADD PRIMARY KEY (`CODIGOCAPACITACION`),
+  ADD KEY `FK_IMPARTE` (`CODIGOCAPACITADOR`);
+
+--
+-- Indices de la tabla `CAPACITADOR`
+--
+ALTER TABLE `CAPACITADOR`
+  ADD PRIMARY KEY (`CODIGOCAPACITADOR`),
+  ADD KEY `FK_PUEDE_SER` (`CODIGOEMPLEADO`);
+
+--
+-- Indices de la tabla `COMISION`
+--
+ALTER TABLE `COMISION`
+  ADD PRIMARY KEY (`CODIGOCOMISION`);
+
+--
+-- Indices de la tabla `COMITE`
+--
+ALTER TABLE `COMITE`
+  ADD PRIMARY KEY (`CODIGOCOMITE`);
+
+--
+-- Indices de la tabla `CONTACTO`
+--
+ALTER TABLE `CONTACTO`
+  ADD PRIMARY KEY (`CODIGOCONTACTO`);
+
+--
+-- Indices de la tabla `CONTRATO`
+--
+ALTER TABLE `CONTRATO`
+  ADD PRIMARY KEY (`CODIGOCONTRATO`);
+
+--
+-- Indices de la tabla `COSTOCAPACITACION`
+--
+ALTER TABLE `COSTOCAPACITACION`
+  ADD PRIMARY KEY (`CODIGOCOSTOCAPACITACION`),
+  ADD KEY `FK_GENERA` (`CODIGOCAPACITACION`);
+
+--
+-- Indices de la tabla `CUADRODIRECTIVO`
+--
+ALTER TABLE `CUADRODIRECTIVO`
+  ADD PRIMARY KEY (`CODIGOCUADRODIRECTIVO`);
+
+--
+-- Indices de la tabla `DEPENDIENTEEMPLEADO`
+--
+ALTER TABLE `DEPENDIENTEEMPLEADO`
+  ADD PRIMARY KEY (`CODIGODEPENDIENTEEMPLEADO`),
+  ADD KEY `FK_SE_ENCARGA_DE` (`CODIGOEMPLEADO`);
+
+--
+-- Indices de la tabla `DESCUENTO`
+--
+ALTER TABLE `DESCUENTO`
+  ADD PRIMARY KEY (`CODIGODESCUENTO`);
+
+--
+-- Indices de la tabla `DIAGNOSTICOCAPACITACION`
+--
+ALTER TABLE `DIAGNOSTICOCAPACITACION`
+  ADD PRIMARY KEY (`CODIGODIAGNOSTICOCAPACITACION`),
+  ADD KEY `FK_SE_HACE` (`CODIGOCAPACITACION`);
+
+--
+-- Indices de la tabla `DISCAPACIDAD`
+--
+ALTER TABLE `DISCAPACIDAD`
+  ADD PRIMARY KEY (`CODIGODISCAPACIDAD`);
+
+--
+-- Indices de la tabla `empleado`
+--
+ALTER TABLE `empleado`
+  ADD PRIMARY KEY (`CODIGOEMPLEADO`);
+
+--
+-- Indices de la tabla `EMPLEADO`
+--
+ALTER TABLE `EMPLEADO`
+  ADD PRIMARY KEY (`CODIGOEMPLEADO`),
+  ADD KEY `FK_DESEMPENIA` (`CODIGOPUESTO`),
+  ADD KEY `FK_ES_MIENBRO_DE` (`CODIGOCOMITE`),
+  ADD KEY `FK_ES_PARTE_DE` (`CODIGOCUADRODIRECTIVO`),
+  ADD KEY `FK_ES_RESPONSABLE` (`CODIGOHIJODISCAPACIDAD`),
+  ADD KEY `FK_PERTENECE` (`CODIGOCOMISION`),
+  ADD KEY `FK_PERTENECE_A` (`CODIGOUBICACION`),
+  ADD KEY `FK_POSEE_UN` (`CODIGOCONTRATO`);
+
+--
+-- Indices de la tabla `EMPLEADOASISTENCIACAPACITACION`
+--
+ALTER TABLE `EMPLEADOASISTENCIACAPACITACION`
+  ADD PRIMARY KEY (`CODIGOEMPLEADO`,`CODIGOASISTENCIACAPACITACION`),
+  ADD KEY `FK_LLEVA_UNA2` (`CODIGOASISTENCIACAPACITACION`);
+
+--
+-- Indices de la tabla `empleadobeneficio`
+--
+ALTER TABLE `empleadobeneficio`
+  ADD PRIMARY KEY (`CODIGOEMPLEADO`,`CODIGOBENEFICIO`),
+  ADD KEY `FKj26dpntfenk31hnhnnynyhr89` (`CODIGOBENEFICIO`);
+
+--
+-- Indices de la tabla `EMPLEADOCAPACITACION`
+--
+ALTER TABLE `EMPLEADOCAPACITACION`
+  ADD PRIMARY KEY (`CODIGOEMPLEADO`,`CODIGOCAPACITACION`),
+  ADD KEY `FK_RECIBE2` (`CODIGOCAPACITACION`);
+
+--
+-- Indices de la tabla `EMPLEADOCONTACTO`
+--
+ALTER TABLE `EMPLEADOCONTACTO`
+  ADD PRIMARY KEY (`CODIGOEMPLEADO`,`CODIGOCONTACTO`),
+  ADD KEY `FK_NECESITA2` (`CODIGOCONTACTO`);
+
+--
+-- Indices de la tabla `EMPLEADODESCUENTO`
+--
+ALTER TABLE `EMPLEADODESCUENTO`
+  ADD PRIMARY KEY (`CODIGOEMPLEADO`,`CODIGODESCUENTO`),
+  ADD KEY `FK_SE_REALIZA2` (`CODIGODESCUENTO`);
+
+--
+-- Indices de la tabla `EMPLEADODISCAPACIDAD`
+--
+ALTER TABLE `EMPLEADODISCAPACIDAD`
+  ADD PRIMARY KEY (`CODIGOEMPLEADO`,`CODIGODISCAPACIDAD`),
+  ADD KEY `FK_PADECE_DE2` (`CODIGODISCAPACIDAD`);
+
+--
+-- Indices de la tabla `EMPLEADOEXPERIENCIALABORAL`
+--
+ALTER TABLE `EMPLEADOEXPERIENCIALABORAL`
+  ADD PRIMARY KEY (`CODIGOEMPLEADO`,`CODIGOEXPERIENCIALABORAL`),
+  ADD KEY `FK_ADQUIERE2` (`CODIGOEXPERIENCIALABORAL`);
+
+--
+-- Indices de la tabla `EMPLEADOIDIOMA`
+--
+ALTER TABLE `EMPLEADOIDIOMA`
+  ADD PRIMARY KEY (`CODIGOEMPLEADO`,`CODIGOIDIOMA`),
+  ADD KEY `FK_HABLA2` (`CODIGOIDIOMA`);
+
+--
+-- Indices de la tabla `EMPLEADOMISION`
+--
+ALTER TABLE `EMPLEADOMISION`
+  ADD PRIMARY KEY (`CODIGOEMPLEADO`,`CODIGOMISION`),
+  ADD KEY `FK_ENVIADO_A2` (`CODIGOMISION`);
+
+--
+-- Indices de la tabla `EMPLEADONIVELESCOLARIDAD`
+--
+ALTER TABLE `EMPLEADONIVELESCOLARIDAD`
+  ADD PRIMARY KEY (`CODIGOEMPLEADO`,`CODIGONIVELNIVELESCOLARIDAD`),
+  ADD KEY `FK_TIENE2` (`CODIGONIVELNIVELESCOLARIDAD`);
+
+--
+-- Indices de la tabla `EMPLEADOPROGRAMA`
+--
+ALTER TABLE `EMPLEADOPROGRAMA`
+  ADD PRIMARY KEY (`CODIGOEMPLEADO`,`CODIGOPROGRAMA`),
+  ADD KEY `FK_SE_BENEFICIA2` (`CODIGOPROGRAMA`);
+
+--
+-- Indices de la tabla `ESTADO`
+--
+ALTER TABLE `ESTADO`
+  ADD PRIMARY KEY (`CODIGOESTADO`);
+
+--
+-- Indices de la tabla `EVENTO`
+--
+ALTER TABLE `EVENTO`
+  ADD PRIMARY KEY (`CODIGOEVENTOBITACORA`);
+
+--
+-- Indices de la tabla `EVUALUACIONCAPACITACION`
+--
+ALTER TABLE `EVUALUACIONCAPACITACION`
+  ADD PRIMARY KEY (`CODIGOEVALUACIONCAPACITACION`),
+  ADD KEY `FK_SE_REALIZAN` (`CODIGOCAPACITACION`);
+
+--
+-- Indices de la tabla `EXPEDIENTEEMPLEADO`
+--
+ALTER TABLE `EXPEDIENTEEMPLEADO`
+  ADD PRIMARY KEY (`CODIGOEXPEDIENTEEMPLEADO`),
+  ADD KEY `FK_SE_CREA` (`CODIGOEMPLEADO`);
+
+--
+-- Indices de la tabla `EXPERIENCIALABORAL`
+--
+ALTER TABLE `EXPERIENCIALABORAL`
+  ADD PRIMARY KEY (`CODIGOEXPERIENCIALABORAL`);
+
+--
+-- Indices de la tabla `GRUPOUSUARIO`
+--
+ALTER TABLE `GRUPOUSUARIO`
+  ADD PRIMARY KEY (`CODIGOGRUPOUSUARIO`);
+
+--
+-- Indices de la tabla `HABILIDAD`
+--
+ALTER TABLE `HABILIDAD`
+  ADD PRIMARY KEY (`CODIGOHABILIDAD`),
+  ADD KEY `FK_DESARROLLA` (`CODIGOEMPLEADO`);
+
+--
+-- Indices de la tabla `HIJODISCAPACIDAD`
+--
+ALTER TABLE `HIJODISCAPACIDAD`
+  ADD PRIMARY KEY (`CODIGOHIJODISCAPACIDAD`);
+
+--
+-- Indices de la tabla `IDIOMA`
+--
+ALTER TABLE `IDIOMA`
+  ADD PRIMARY KEY (`CODIGOIDIOMA`);
+
+--
+-- Indices de la tabla `INASISTENCIA`
+--
+ALTER TABLE `INASISTENCIA`
+  ADD PRIMARY KEY (`CODIGOINASISTENCIA`),
+  ADD KEY `FK_POSEE` (`CODIGOEMPLEADO`);
+
+--
+-- Indices de la tabla `INCAPACIDAD`
+--
+ALTER TABLE `INCAPACIDAD`
+  ADD PRIMARY KEY (`CODIGOINCAPACIDAD`),
+  ADD KEY `FK_SE_OTORGA` (`CODIGOEMPLEADO`);
+
+--
+-- Indices de la tabla `MISION`
+--
+ALTER TABLE `MISION`
+  ADD PRIMARY KEY (`CODIGOMISION`);
+
+--
+-- Indices de la tabla `NIVELESCOLARIDAD`
+--
+ALTER TABLE `NIVELESCOLARIDAD`
+  ADD PRIMARY KEY (`CODIGONIVELNIVELESCOLARIDAD`);
+
+--
+-- Indices de la tabla `PROGRAMA`
+--
+ALTER TABLE `PROGRAMA`
+  ADD PRIMARY KEY (`CODIGOPROGRAMA`);
+
+--
+-- Indices de la tabla `PROGRAMAHIJODISCAPACIDAD`
+--
+ALTER TABLE `PROGRAMAHIJODISCAPACIDAD`
+  ADD PRIMARY KEY (`CODIGOHIJODISCAPACIDAD`,`CODIGOPROGRAMA`),
+  ADD KEY `FK_RECIBE_UN2` (`CODIGOPROGRAMA`);
+
+--
+-- Indices de la tabla `PUESTO`
+--
+ALTER TABLE `PUESTO`
+  ADD PRIMARY KEY (`CODIGOPUESTO`);
+
+--
+-- Indices de la tabla `rol`
+--
+ALTER TABLE `rol`
+  ADD PRIMARY KEY (`CODIGOROL`);
+
+--
+-- Indices de la tabla `UBICACIONFISICA`
+--
+ALTER TABLE `UBICACIONFISICA`
+  ADD PRIMARY KEY (`CODIGOUBICACION`);
+
+--
+-- Indices de la tabla `usuario`
+--
+ALTER TABLE `usuario`
+  ADD PRIMARY KEY (`CODIGOUSUARIO`);
+
+--
+-- Indices de la tabla `usuariorol`
+--
+ALTER TABLE `usuariorol`
+  ADD PRIMARY KEY (`CODIGOUSUARIO`,`CODIGOROL`),
+  ADD KEY `FKj26dpntfenk31hnhnnynyhr89` (`CODIGOROL`);
+
+--
+-- Restricciones para tablas volcadas
+--
+
+--
+-- Filtros para la tabla `ASISTENCIACAPACIATION`
+--
+ALTER TABLE `ASISTENCIACAPACIATION`
+  ADD CONSTRAINT `FK_LLEVA` FOREIGN KEY (`CODIGOCAPACITACION`) REFERENCES `CAPACITACION` (`CODIGOCAPACITACION`);
+
+--
+-- Filtros para la tabla `CAPACITACION`
+--
+ALTER TABLE `CAPACITACION`
+  ADD CONSTRAINT `FK_IMPARTE` FOREIGN KEY (`CODIGOCAPACITADOR`) REFERENCES `CAPACITADOR` (`CODIGOCAPACITADOR`);
+
+--
+-- Filtros para la tabla `CAPACITADOR`
+--
+ALTER TABLE `CAPACITADOR`
+  ADD CONSTRAINT `FK_PUEDE_SER` FOREIGN KEY (`CODIGOEMPLEADO`) REFERENCES `EMPLEADO` (`CODIGOEMPLEADO`);
+
+--
+-- Filtros para la tabla `COSTOCAPACITACION`
+--
+ALTER TABLE `COSTOCAPACITACION`
+  ADD CONSTRAINT `FK_GENERA` FOREIGN KEY (`CODIGOCAPACITACION`) REFERENCES `CAPACITACION` (`CODIGOCAPACITACION`);
+
+--
+-- Filtros para la tabla `DEPENDIENTEEMPLEADO`
+--
+ALTER TABLE `DEPENDIENTEEMPLEADO`
+  ADD CONSTRAINT `FK_SE_ENCARGA_DE` FOREIGN KEY (`CODIGOEMPLEADO`) REFERENCES `EMPLEADO` (`CODIGOEMPLEADO`);
+
+--
+-- Filtros para la tabla `DIAGNOSTICOCAPACITACION`
+--
+ALTER TABLE `DIAGNOSTICOCAPACITACION`
+  ADD CONSTRAINT `FK_SE_HACE` FOREIGN KEY (`CODIGOCAPACITACION`) REFERENCES `CAPACITACION` (`CODIGOCAPACITACION`);
+
+--
+-- Filtros para la tabla `EMPLEADO`
+--
+ALTER TABLE `EMPLEADO`
+  ADD CONSTRAINT `FK_DESEMPENIA` FOREIGN KEY (`CODIGOPUESTO`) REFERENCES `PUESTO` (`CODIGOPUESTO`),
+  ADD CONSTRAINT `FK_ES_MIENBRO_DE` FOREIGN KEY (`CODIGOCOMITE`) REFERENCES `COMITE` (`CODIGOCOMITE`),
+  ADD CONSTRAINT `FK_ES_PARTE_DE` FOREIGN KEY (`CODIGOCUADRODIRECTIVO`) REFERENCES `CUADRODIRECTIVO` (`CODIGOCUADRODIRECTIVO`),
+  ADD CONSTRAINT `FK_ES_RESPONSABLE` FOREIGN KEY (`CODIGOHIJODISCAPACIDAD`) REFERENCES `HIJODISCAPACIDAD` (`CODIGOHIJODISCAPACIDAD`),
+  ADD CONSTRAINT `FK_PERTENECE` FOREIGN KEY (`CODIGOCOMISION`) REFERENCES `COMISION` (`CODIGOCOMISION`),
+  ADD CONSTRAINT `FK_PERTENECE_A` FOREIGN KEY (`CODIGOUBICACION`) REFERENCES `UBICACIONFISICA` (`CODIGOUBICACION`),
+  ADD CONSTRAINT `FK_POSEE_UN` FOREIGN KEY (`CODIGOCONTRATO`) REFERENCES `CONTRATO` (`CODIGOCONTRATO`);
+
+--
+-- Filtros para la tabla `EMPLEADOASISTENCIACAPACITACION`
+--
+ALTER TABLE `EMPLEADOASISTENCIACAPACITACION`
+  ADD CONSTRAINT `FK_LLEVA_UNA` FOREIGN KEY (`CODIGOEMPLEADO`) REFERENCES `EMPLEADO` (`CODIGOEMPLEADO`),
+  ADD CONSTRAINT `FK_LLEVA_UNA2` FOREIGN KEY (`CODIGOASISTENCIACAPACITACION`) REFERENCES `ASISTENCIACAPACIATION` (`CODIGOASISTENCIACAPACITACION`);
+
+--
+-- Filtros para la tabla `empleadobeneficio`
+--
+ALTER TABLE `empleadobeneficio`
+  ADD CONSTRAINT `FK_BENEFICIO` FOREIGN KEY (`CODIGOBENEFICIO`) REFERENCES `beneficio` (`CODIGOBENEFICIO`),
+  ADD CONSTRAINT `FK_EMPLEADO` FOREIGN KEY (`CODIGOEMPLEADO`) REFERENCES `empleado` (`CODIGOEMPLEADO`);
+
+--
+-- Filtros para la tabla `EMPLEADOCAPACITACION`
+--
+ALTER TABLE `EMPLEADOCAPACITACION`
+  ADD CONSTRAINT `FK_RECIBE` FOREIGN KEY (`CODIGOEMPLEADO`) REFERENCES `EMPLEADO` (`CODIGOEMPLEADO`),
+  ADD CONSTRAINT `FK_RECIBE2` FOREIGN KEY (`CODIGOCAPACITACION`) REFERENCES `CAPACITACION` (`CODIGOCAPACITACION`);
+
+--
+-- Filtros para la tabla `EMPLEADOCONTACTO`
+--
+ALTER TABLE `EMPLEADOCONTACTO`
+  ADD CONSTRAINT `FK_NECESITA` FOREIGN KEY (`CODIGOEMPLEADO`) REFERENCES `EMPLEADO` (`CODIGOEMPLEADO`),
+  ADD CONSTRAINT `FK_NECESITA2` FOREIGN KEY (`CODIGOCONTACTO`) REFERENCES `CONTACTO` (`CODIGOCONTACTO`);
+
+--
+-- Filtros para la tabla `EMPLEADODESCUENTO`
+--
+ALTER TABLE `EMPLEADODESCUENTO`
+  ADD CONSTRAINT `FK_SE_REALIZA` FOREIGN KEY (`CODIGOEMPLEADO`) REFERENCES `EMPLEADO` (`CODIGOEMPLEADO`),
+  ADD CONSTRAINT `FK_SE_REALIZA2` FOREIGN KEY (`CODIGODESCUENTO`) REFERENCES `DESCUENTO` (`CODIGODESCUENTO`);
+
+--
+-- Filtros para la tabla `EMPLEADODISCAPACIDAD`
+--
+ALTER TABLE `EMPLEADODISCAPACIDAD`
+  ADD CONSTRAINT `FK_PADECE_DE` FOREIGN KEY (`CODIGOEMPLEADO`) REFERENCES `EMPLEADO` (`CODIGOEMPLEADO`),
+  ADD CONSTRAINT `FK_PADECE_DE2` FOREIGN KEY (`CODIGODISCAPACIDAD`) REFERENCES `DISCAPACIDAD` (`CODIGODISCAPACIDAD`);
+
+--
+-- Filtros para la tabla `EMPLEADOEXPERIENCIALABORAL`
+--
+ALTER TABLE `EMPLEADOEXPERIENCIALABORAL`
+  ADD CONSTRAINT `FK_ADQUIERE` FOREIGN KEY (`CODIGOEMPLEADO`) REFERENCES `EMPLEADO` (`CODIGOEMPLEADO`),
+  ADD CONSTRAINT `FK_ADQUIERE2` FOREIGN KEY (`CODIGOEXPERIENCIALABORAL`) REFERENCES `EXPERIENCIALABORAL` (`CODIGOEXPERIENCIALABORAL`);
+
+--
+-- Filtros para la tabla `EMPLEADOIDIOMA`
+--
+ALTER TABLE `EMPLEADOIDIOMA`
+  ADD CONSTRAINT `FK_HABLA` FOREIGN KEY (`CODIGOEMPLEADO`) REFERENCES `EMPLEADO` (`CODIGOEMPLEADO`),
+  ADD CONSTRAINT `FK_HABLA2` FOREIGN KEY (`CODIGOIDIOMA`) REFERENCES `IDIOMA` (`CODIGOIDIOMA`);
+
+--
+-- Filtros para la tabla `EMPLEADOMISION`
+--
+ALTER TABLE `EMPLEADOMISION`
+  ADD CONSTRAINT `FK_ENVIADO_A` FOREIGN KEY (`CODIGOEMPLEADO`) REFERENCES `EMPLEADO` (`CODIGOEMPLEADO`),
+  ADD CONSTRAINT `FK_ENVIADO_A2` FOREIGN KEY (`CODIGOMISION`) REFERENCES `MISION` (`CODIGOMISION`);
+
+--
+-- Filtros para la tabla `EMPLEADONIVELESCOLARIDAD`
+--
+ALTER TABLE `EMPLEADONIVELESCOLARIDAD`
+  ADD CONSTRAINT `FK_TIENE` FOREIGN KEY (`CODIGOEMPLEADO`) REFERENCES `EMPLEADO` (`CODIGOEMPLEADO`),
+  ADD CONSTRAINT `FK_TIENE2` FOREIGN KEY (`CODIGONIVELNIVELESCOLARIDAD`) REFERENCES `NIVELESCOLARIDAD` (`CODIGONIVELNIVELESCOLARIDAD`);
+
+--
+-- Filtros para la tabla `EMPLEADOPROGRAMA`
+--
+ALTER TABLE `EMPLEADOPROGRAMA`
+  ADD CONSTRAINT `FK_SE_BENEFICIA` FOREIGN KEY (`CODIGOEMPLEADO`) REFERENCES `EMPLEADO` (`CODIGOEMPLEADO`),
+  ADD CONSTRAINT `FK_SE_BENEFICIA2` FOREIGN KEY (`CODIGOPROGRAMA`) REFERENCES `PROGRAMA` (`CODIGOPROGRAMA`);
+
+--
+-- Filtros para la tabla `EVUALUACIONCAPACITACION`
+--
+ALTER TABLE `EVUALUACIONCAPACITACION`
+  ADD CONSTRAINT `FK_SE_REALIZAN` FOREIGN KEY (`CODIGOCAPACITACION`) REFERENCES `CAPACITACION` (`CODIGOCAPACITACION`);
+
+--
+-- Filtros para la tabla `EXPEDIENTEEMPLEADO`
+--
+ALTER TABLE `EXPEDIENTEEMPLEADO`
+  ADD CONSTRAINT `FK_SE_CREA` FOREIGN KEY (`CODIGOEMPLEADO`) REFERENCES `EMPLEADO` (`CODIGOEMPLEADO`);
+
+--
+-- Filtros para la tabla `HABILIDAD`
+--
+ALTER TABLE `HABILIDAD`
+  ADD CONSTRAINT `FK_DESARROLLA` FOREIGN KEY (`CODIGOEMPLEADO`) REFERENCES `EMPLEADO` (`CODIGOEMPLEADO`);
+
+--
+-- Filtros para la tabla `INASISTENCIA`
+--
+ALTER TABLE `INASISTENCIA`
+  ADD CONSTRAINT `FK_POSEE` FOREIGN KEY (`CODIGOEMPLEADO`) REFERENCES `EMPLEADO` (`CODIGOEMPLEADO`);
+
+--
+-- Filtros para la tabla `INCAPACIDAD`
+--
+ALTER TABLE `INCAPACIDAD`
+  ADD CONSTRAINT `FK_SE_OTORGA` FOREIGN KEY (`CODIGOEMPLEADO`) REFERENCES `EMPLEADO` (`CODIGOEMPLEADO`);
+
+--
+-- Filtros para la tabla `PROGRAMAHIJODISCAPACIDAD`
+--
+ALTER TABLE `PROGRAMAHIJODISCAPACIDAD`
+  ADD CONSTRAINT `FK_RECIBE_UN` FOREIGN KEY (`CODIGOHIJODISCAPACIDAD`) REFERENCES `HIJODISCAPACIDAD` (`CODIGOHIJODISCAPACIDAD`),
+  ADD CONSTRAINT `FK_RECIBE_UN2` FOREIGN KEY (`CODIGOPROGRAMA`) REFERENCES `PROGRAMA` (`CODIGOPROGRAMA`);
+
+--
+-- Filtros para la tabla `usuariorol`
+--
+ALTER TABLE `usuariorol`
+  ADD CONSTRAINT `FK_ROL` FOREIGN KEY (`CODIGOROL`) REFERENCES `rol` (`CODIGOROL`),
+  ADD CONSTRAINT `FK_USUARIO` FOREIGN KEY (`CODIGOUSUARIO`) REFERENCES `usuario` (`CODIGOUSUARIO`);
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <title>Usuarios</title>
+    <th:block th:include="../templates/header"></th:block>
+</head>
+<body>
+<div class="container">
+    e aqui
+    <div th:if="${not #lists.isEmpty(beneficios)}">
+        <h2>Todos los Usuarios</h2>
+        <table class="table table-striped">
+            <tr>
+                <th>Codigo</th>
+                <th>Nombre</th>
+                <th>descripcion</th>
+                
+            </tr>
+            <tr th:each="beneficio : ${beneficios}">
+                <td th:text="${beneficio.codigobeneficio}">Codigo</td>
+                <td th:text="${beneficio.nombrebeneficio}">Nombre</td>
+                <td th:text="${beneficio.descripcionbeneficio}">descripcion</td>
+                
+                <td><a th:href="${'./show/' + beneficio.codigobeneficio}" class="btn btn-default">Mostrar</a></td>
+                <td><a th:href="${'./edit/' + beneficio.codigobeneficio}" class="btn btn-default">Edit</a></td>
+                <td><a th:href="${'./delete/' + beneficio.codigobeneficio}" class="btn btn-danger">Delete</a></td>
+            </tr>
+        </table>
+    </div>
+</div>
+</body>
+</html>
