@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <title>SISADMRH-Listado de Puestos</title>
+    <th:block th:include="../templates/header"></th:block>
+</head>
+<body>
+<div class="container">
+    
+    <div th:if="${not #lists.isEmpty(puestos)}" >
+        <h2 align="center">Listado de Puestos</h2>
+        <table class="table table-striped">
+            <tr >
+                <th>Codigo de Puesto</th>
+                <th>Nombre de  Puesto</th>
+                <th>Sueldo Base</th>
+                <!--<th>Sueldo Tope Puesto</th>-->
+                <th>Estado</th>
+                <th>Fecha Aprobacion </th>
+                <!--<th>Fecha Nombramiento</th>-->
+                <th>Fecha de Baja</th>
+            </tr>
+            <tr th:each="puesto : ${puestos}">
+                <td th:text="${puesto.codigopuesto}">codigopuesto</td>
+                <td th:text="${puesto.nombrepuesto}">nombrepuesto</td>
+                <td th:text="${puesto.sueldobase}">sueldobase</td>
+                <!--<td th:text="${puesto.sueldotopepuesto}">control</td>-->
+                <td>
+                    <span th:if="${puesto.estadopuesto} == 1"  th:text="Activo"  ></span>
+                    <span th:if="${puesto.estadopuesto} == 2"  th:text="Inactivo"></span>
+                    
+               </td> 
+                
+                
+                <td th:text="${puesto.fechaaprobacion}">fecha ingreso</td>
+                <!--<td th:text="${puesto.fechanombramiento}">fecha caducidad</td>-->
+                <td th:text="${puesto.fechabaja}">fecha baja</td>
+                <td><a th:href="${'./show/' + puesto.codigopuesto}" class="btn btn-default">Mostrar</a></td>
+                <td><a th:href="${'./edit/' + puesto.codigopuesto}" class="btn btn-default">Edit</a></td>
+                <td><a th:href="${'./delete/' + puesto.codigopuesto}" class="btn btn-danger">Delete</a></td>
+            </tr>
+        </table>
+    </div>
+</div>
+    <th:block th:include="../templates/footer"></th:block>
+</body>
+</html>
