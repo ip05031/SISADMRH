@@ -1,7 +1,6 @@
 package mj.gob.sisadmrh.controller.rol;
 
 import mj.gob.sisadmrh.model.Rol;
-import mj.gob.sisadmrh.repository.RolRepository;
 import mj.gob.sisadmrh.service.RolService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

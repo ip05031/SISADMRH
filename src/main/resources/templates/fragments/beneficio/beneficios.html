@@ -13,22 +13,14 @@
             <tr>
                 <th>Codigo</th>
                 <th>Nombre</th>
-                <th>contra</th>
-                <th>control contra</th>
-                <th>estado</th>
-                <th>f ingreso </th>
-                <th>f caducidad</th>
-                <th>f baja</th>
+                <th>descripcion</th>
+                
             </tr>
             <tr th:each="beneficio : ${beneficios}">
                 <td th:text="${beneficio.codigobeneficio}">Codigo</td>
                 <td th:text="${beneficio.nombrebeneficio}">Nombre</td>
-                <td th:text="${beneficio.contraseniabeneficio}">contraseña</td>
-                <td th:text="${beneficio.controlcontrasenia}">control</td>
-                <td th:text="${beneficio.estadobeneficio}">estado</td>
-                <td th:text="${beneficio.fechaingreso}">fecha ingreso</td>
-                <td th:text="${beneficio.fechacaducidad}">fecha caducidad</td>
-                <td th:text="${beneficio.fechabaja}">fecha baja</td>
+                <td th:text="${beneficio.descripcionbeneficio}">descripcion</td>
+                
                 <td><a th:href="${'./show/' + beneficio.codigobeneficio}" class="btn btn-default">Mostrar</a></td>
                 <td><a th:href="${'./edit/' + beneficio.codigobeneficio}" class="btn btn-default">Edit</a></td>
                 <td><a th:href="${'./delete/' + beneficio.codigobeneficio}" class="btn btn-danger">Delete</a></td>
