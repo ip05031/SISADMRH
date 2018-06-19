@@ -9,8 +9,10 @@ mj/gob/sisadmrh/service/UsuarioServiceImpl.class
 mj/gob/sisadmrh/repository/UsuarioRepository.class
 mj/gob/sisadmrh/service/UsuarioService.class
 mj/gob/sisadmrh/model/Usuariorol.class
+mj/gob/sisadmrh/model/Empleado.class
 mj/gob/sisadmrh/controller/HomeController.class
 mj/gob/sisadmrh/SisadmrhApplication.class
+mj/gob/sisadmrh/model/Beneficio.class
 mj/gob/sisadmrh/model/UsuariorolPK.class
 mj/gob/sisadmrh/ServletInitializer.class
 mj/gob/sisadmrh/model/Usuario.class
