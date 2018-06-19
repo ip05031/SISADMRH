@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <title>Estados</title>
+    <th:block th:include="../templates/header"></th:block>
+</head>
+<body>
+<div class="container">
+    e aqui
+    <div th:if="${not #lists.isEmpty(estados)}">
+        <h2>Todos los Estados</h2>
+        <table class="table table-striped">
+            <tr>
+                <th>Codigo</th>
+                <th>Nombre</th>
+                <th>valor</th>
+                
+            </tr>
+            <tr th:each="estado : ${estados}">
+                <td th:text="${estado.codigoestado}">Codigo</td>
+                <td th:text="${estado.nombreestado}">Nombre</td>
+                <td th:text="${estado.valorestado}">valor</td>
+                
+                
+                <td><a th:href="${'./show/' + estado.codigoestado}" class="btn btn-default">Mostrar</a></td>
+                <td><a th:href="${'./edit/' + estado.codigoestado}" class="btn btn-default">Edit</a></td>
+                <td><a th:href="${'./delete/' + estado.codigoestado}" class="btn btn-danger">Delete</a></td>
+            </tr>
+        </table>
+    </div>
+</div>
+</body>
+</html>

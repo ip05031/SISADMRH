@@ -14,31 +14,31 @@ import org.springframework.stereotype.Service;
 public class RolServiceImpl implements RolService {
 
     
-    private RolRepository usuarioRep;
+    private RolRepository rolRep;
 
     @Autowired
-    public void setRolRepository(RolRepository usuarioRepository) {
-        this.usuarioRep = usuarioRepository;
+    public void setRolRepository(RolRepository rolRepository) {
+        this.rolRep = rolRepository;
     }
 
     @Override
     public Iterable<Rol> listAllRoles() {
-        return usuarioRep.findAll();
+        return rolRep.findAll();
     }
 
     @Override
     public Optional<Rol> getRolById(Integer id) {
-        return usuarioRep.findById(id);
+        return rolRep.findById(id);
     }
 
     @Override
-    public Rol saveRol(Rol usuario) {
-        return usuarioRep.save(usuario);
+    public Rol saveRol(Rol rol) {
+        return rolRep.save(rol);
     }
 
     @Override
     public void deleteRol(Integer id) {
-        usuarioRep.deleteById(id);
+        rolRep.deleteById(id);
     }
 
 }
