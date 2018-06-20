@@ -41,7 +41,7 @@ public class EstadoController {
         return PREFIX + "estadoform";
     }
 
-    @RequestMapping("new")
+    @RequestMapping("new/estado")
     public String newEstado(Model model) {
         model.addAttribute("estado", new Estado());
         return PREFIX + "estadoform";
