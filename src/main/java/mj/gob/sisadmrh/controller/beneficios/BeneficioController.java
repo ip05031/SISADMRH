@@ -32,8 +32,7 @@ public class BeneficioController extends UtilsController{
     
     private BeneficioService beneficioService;
     
-    @Autowired
-    DataSource dataSource;
+
 
     
     @Autowired
@@ -78,18 +77,14 @@ public class BeneficioController extends UtilsController{
         return "redirect:/beneficios/";
     }
     
-    	@RequestMapping(value = "pdf/{nfolio}", method = { RequestMethod.POST, RequestMethod.GET })
-	public void pdf(@PathVariable("nfolio") Long cdeclaracion, HttpServletRequest request,
-			@RequestParam(required = false) Boolean download, HttpServletResponse response)
-			throws ServletException, IOException, ClassNotFoundException, SQLException, JRException, Exception {
-            
-            Map<String, Object> params = new HashMap<String, Object>();
-		params.put("N_FOLIO", cdeclaracion.toString());
-
-		generatePdf("beneficios", "rpt_beneficios", params, dataSource.getConnection(), request, download,
-				response);
-
-	}
+    	@RequestMapping(value = "pdf/{indice}", method = { RequestMethod.POST, RequestMethod.GET })
+	public void pdf(@PathVariable("indice") Long indice, 
+			@RequestParam(required = false) Boolean download, HttpServletResponse response) 
+			throws Exception {
+                Map<String, Object> params = new HashMap<>();
+		params.put("P_param1", indice.toString());
+        	generatePdf("beneficios", "rpt_beneficios", params, download,response);
+        }
 
     
 }
