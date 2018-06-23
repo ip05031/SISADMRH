@@ -1,13 +1,25 @@
 package mj.gob.sisadmrh.controller.beneficios;
 
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Map;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.sql.DataSource;
+import mj.gob.sisadmrh.controller.UtilsController;
 import mj.gob.sisadmrh.model.Beneficio;
 import mj.gob.sisadmrh.service.BeneficioService;
+import net.sf.jasperreports.engine.JRException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  *
@@ -16,9 +28,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 @Controller
 @RequestMapping(value = "beneficios")
-public class BeneficioControler {
+public class BeneficioController extends UtilsController{
     
     private BeneficioService beneficioService;
+    
+    @Autowired
+    DataSource dataSource;
+
     
     @Autowired
     public void setBeneficioService(BeneficioService beneficioService) {
@@ -61,4 +77,19 @@ public class BeneficioControler {
         beneficioService.deleteBeneficio(id);
         return "redirect:/beneficios/";
     }
+    
+    	@RequestMapping(value = "pdf/{nfolio}", method = { RequestMethod.POST, RequestMethod.GET })
+	public void pdf(@PathVariable("nfolio") Long cdeclaracion, HttpServletRequest request,
+			@RequestParam(required = false) Boolean download, HttpServletResponse response)
+			throws ServletException, IOException, ClassNotFoundException, SQLException, JRException, Exception {
+            
+            Map<String, Object> params = new HashMap<String, Object>();
+		params.put("N_FOLIO", cdeclaracion.toString());
+
+		generatePdf("beneficios", "rpt_beneficios", params, dataSource.getConnection(), request, download,
+				response);
+
+	}
+
+    
 }
