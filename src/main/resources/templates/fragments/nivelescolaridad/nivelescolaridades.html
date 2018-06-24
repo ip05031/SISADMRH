@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <title>Usuarios</title>
+    <th:block th:include="../templates/header"></th:block>
+</head>
+<body>
+<div class="container">
+    e aqui
+    <div th:if="${not #lists.isEmpty(nivelescolaridades)}">
+        <h2>Todos los niveles de escolaridad</h2>
+        <table class="table table-striped">
+            <tr>
+                <th>Codigo de escolaridad</th>
+                <th>Centro Educativo</th>
+                <th>anios aprobados</th>
+                 <th>Finalizado</th>
+                  <th>titulo obtenido</th>
+                   <th>Pais del nivel escolar</th>
+                   <th>Fecha desde</th>
+                   <th>Fecha hasta</th>
+                
+            </tr>
+            <tr th:each="nivelescolaridad : ${nivelescolaridades}">
+                <td th:text="${nivelescolaridad.codigobeneficio}">Codigo</td>
+                <td th:text="${nivelescolaridad.centroeducativo}">Centro educativo</td>
+                <td th:text="${nivelescolaridad.aniosaprobados}">Anos aprobados</td> 
+                <td th:text="${nivelescolaridad.estudiorealizado}">Estudio realizado</td>
+                <td th:text="${nivelescolaridad.finalizado}">finalizado</td>
+                <td th:text="${nivelescolaridad.tituloobtenido}">Titulo Obtenido</td>
+                <td th:text="${nivelescolaridad. paisnivelescolaridad}">Pais nivel escolaridad</td>
+                <td th:text="${nivelescolaridad.fechadesdenivelescolaridad}">fechadesdenivelescolaridad</td>
+                <td th:text="${nivelescolaridad.fechahastanivelescolaridad}">fechahastanivelescolaridad</td>
+                
+                <td><a th:href="${'./show/' + nivelescolaridad.codigonivelnivelescolaridad}" class="btn btn-default">Mostrar</a></td>
+                <td><a th:href="${'./edit/' + nivelescolaridad.codigonivelnivelescolaridad}" class="btn btn-default">Edit</a></td>
+                <td><a th:href="${'./delete/' + nivelescolaridad.codigonivelnivelescolaridad}" class="btn btn-danger">Delete</a></td>
+            </tr>
+        </table>
+    </div>
+</div>
+</body>
+</html>
