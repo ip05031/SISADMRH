@@ -19,6 +19,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 @RequestMapping(value = "nivelescolaridades")
 public class NivelEscolaridadController {
+    
+    
     private NivelEscolaridadService nivelEscolaridadService;
      
        @Autowired
@@ -45,11 +47,14 @@ public class NivelEscolaridadController {
         model.addAttribute("nivelescolaridad", new NivelEscolaridad());
         return PREFIX + "nivelescolaridadform";
     }
+    
     @RequestMapping(value = "nivelescolaridad")
     public String saveNivelEscolaridad(NivelEscolaridad nivelEscolaridad) {
         nivelEscolaridadService.saveNivelEscolaridad(nivelEscolaridad);
         return "redirect:./show/" + nivelEscolaridad.getCodigonivelnivelescolaridad();
     }
+    
+    
      @RequestMapping("show/{id}")
     public String showNivelEscolaridad(@PathVariable Integer id, Model model) {
         model.addAttribute("nivelescolaridad", nivelEscolaridadService.getNivelEscolaridadById(id).get());
