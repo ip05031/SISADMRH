@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <title>Usuarios</title>
+    <th:block th:include="../templates/header"></th:block>
+</head>
+<body>
+<div class="container">
+    
+    
+    lista prueba
+    <div th:if="${not #lists.isEmpty(nivelescolaridades)}">
+        <h2>Todos los niveles de escolaridad</h2>
+        <table class="table table-striped">
+            <tr>
+                <th>Centro Educativo</th>
+                <th>anios aprobados</th>
+                 <th>Finalizado</th>
+                  <th>titulo obtenido</th>
+                   <th>Pais del nivel escolar</th>
+                   <th>Fecha desde</th>
+                   <th>Fecha hasta</th>
+                   <th>Acciones</th>
+                
+            </tr>
+            <tr th:each="nivelescolaridad : ${nivelescolaridades}">
+<<<<<<< HEAD
+
+=======
+>>>>>>> origin/master
+                <td th:text="${nivelescolaridad.centroeducativo}">Centro educativo</td>
+                <td th:text="${nivelescolaridad.aniosaprobados}">Anos aprobados</td> 
+                <td th:text="${nivelescolaridad.finalizado}">finalizado</td>
+                <td th:text="${nivelescolaridad.tituloobtenido}">Titulo Obtenido</td>
+                <td th:text="${nivelescolaridad. paisnivelescolaridad}">Pais nivel escolaridad</td>
+                <td th:text="${#dates.format(nivelescolaridad.fechadesdenivelescolaridad, 'dd-MMM-yyyy')}">fechadesdenivelescolaridad</td>
+                <td th:text="${#calendars.format(nivelescolaridad.fechahastanivelescolaridad, 'dd-MMM-yyyy')}">fechahastanivelescolaridad</td>
+                
+                <td>
+                 <a th:href="${'./show/' + nivelescolaridad.codigonivelnivelescolaridad}" class="btn btn-default">Mostrar</a>
+                <a th:href="${'./edit/' + nivelescolaridad.codigonivelnivelescolaridad}" class="btn btn-default">Edit</a>
+                <a th:href="${'./delete/' + nivelescolaridad.codigonivelnivelescolaridad}" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+</body>
+</html>

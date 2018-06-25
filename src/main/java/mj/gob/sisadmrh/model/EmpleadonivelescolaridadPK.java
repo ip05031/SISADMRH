@@ -13,26 +13,25 @@ import javax.validation.constraints.NotNull;
 
 /**
  *
- * @author root
+ * @author daniel
  */
 @Embeddable
-public class EmpleadobeneficioPK implements Serializable {
-
+public class EmpleadonivelescolaridadPK implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "CODIGOEMPLEADO")
     private int codigoempleado;
     @Basic(optional = false)
     @NotNull
-    @Column(name = "CODIGOBENEFICIO")
-    private int codigobeneficio;
+    @Column(name = "CODIGONIVELNIVELESCOLARIDAD")
+    private int codigonivelnivelescolaridad;
 
-    public EmpleadobeneficioPK() {
+    public EmpleadonivelescolaridadPK() {
     }
 
-    public EmpleadobeneficioPK(int codigoempleado, int codigobeneficio) {
+    public EmpleadonivelescolaridadPK(int codigoempleado, int codigonivelnivelescolaridad) {
         this.codigoempleado = codigoempleado;
-        this.codigobeneficio = codigobeneficio;
+        this.codigonivelnivelescolaridad = codigonivelnivelescolaridad;
     }
 
     public int getCodigoempleado() {
@@ -43,33 +42,33 @@ public class EmpleadobeneficioPK implements Serializable {
         this.codigoempleado = codigoempleado;
     }
 
-    public int getCodigobeneficio() {
-        return codigobeneficio;
+    public int getCodigonivelnivelescolaridad() {
+        return codigonivelnivelescolaridad;
     }
 
-    public void setCodigobeneficio(int codigobeneficio) {
-        this.codigobeneficio = codigobeneficio;
+    public void setCodigonivelnivelescolaridad(int codigonivelnivelescolaridad) {
+        this.codigonivelnivelescolaridad = codigonivelnivelescolaridad;
     }
 
     @Override
     public int hashCode() {
         int hash = 0;
         hash += (int) codigoempleado;
-        hash += (int) codigobeneficio;
+        hash += (int) codigonivelnivelescolaridad;
         return hash;
     }
 
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof EmpleadobeneficioPK)) {
+        if (!(object instanceof EmpleadonivelescolaridadPK)) {
             return false;
         }
-        EmpleadobeneficioPK other = (EmpleadobeneficioPK) object;
+        EmpleadonivelescolaridadPK other = (EmpleadonivelescolaridadPK) object;
         if (this.codigoempleado != other.codigoempleado) {
             return false;
         }
-        if (this.codigobeneficio != other.codigobeneficio) {
+        if (this.codigonivelnivelescolaridad != other.codigonivelnivelescolaridad) {
             return false;
         }
         return true;
@@ -77,7 +76,7 @@ public class EmpleadobeneficioPK implements Serializable {
 
     @Override
     public String toString() {
-        return "mj.gob.sisadmrh.model.EmpleadobeneficioPK[ codigoempleado=" + codigoempleado + ", codigobeneficio=" + codigobeneficio + " ]";
+        return "mj.gob.sisadmrh.model.EmpleadonivelescolaridadPK[ codigoempleado=" + codigoempleado + ", codigonivelnivelescolaridad=" + codigonivelnivelescolaridad + " ]";
     }
     
 }
