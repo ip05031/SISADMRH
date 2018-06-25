@@ -1,8 +1,8 @@
 package mj.gob.sisadmrh.service;
 
 import java.util.Optional;
-import mj.gob.sisadmrh.model.Beneficio;
-import mj.gob.sisadmrh.repository.BeneficioRepository;
+import mj.gob.sisadmrh.model.Empleadobeneficio;
+import mj.gob.sisadmrh.repository.EmpleadoBeneficioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,34 +11,36 @@ import org.springframework.stereotype.Service;
  * @author dialv
  */
 @Service
-public class BeneficioServiceImpl implements BeneficioService {
+public class EmpleadoBeneficioServiceImpl implements EmpleadoBeneficioService {
 
     
-    private BeneficioRepository beneficioRep;
+    private EmpleadoBeneficioRepository empleadobeneficiorep;
 
     @Autowired
-    public void setBeneficioRepository(BeneficioRepository beneficioRepository) {
-        this.beneficioRep = beneficioRepository;
+    public void setEmpleadoBeneficioRepository(EmpleadoBeneficioRepository empleadoBeneficioRepository) {
+        this.empleadobeneficiorep = empleadoBeneficioRepository;
+    }
+
+
+    @Override
+    public Iterable<Empleadobeneficio> listAllEmpleadobeneficios() {
+           return empleadobeneficiorep.findAll();
     }
 
     @Override
-    public Iterable<Beneficio> listAllBeneficios() {
-        return beneficioRep.findAll();
+    public Optional<Empleadobeneficio> getEmpleadobeneficioById(Integer id) {
+        return empleadobeneficiorep.findById(id);
     }
 
     @Override
-    public Optional<Beneficio> getBeneficioById(Integer id) {
-        return beneficioRep.findById(id);
+    public Empleadobeneficio saveEmpleadobeneficio(Empleadobeneficio empleadobeneficio) {
+        return empleadobeneficiorep.save(empleadobeneficio);
     }
 
     @Override
-    public Beneficio saveBeneficio(Beneficio beneficio) {
-        return beneficioRep.save(beneficio);
+    public void deleteEmpleadobeneficio(Integer id) {
+        empleadobeneficiorep.deleteById(id);
     }
 
-    @Override
-    public void deleteBeneficio(Integer id) {
-        beneficioRep.deleteById(id);
-    }
 
 }

@@ -12,6 +12,7 @@ import javax.sql.DataSource;
 import mj.gob.sisadmrh.controller.UtilsController;
 import mj.gob.sisadmrh.model.Beneficio;
 import mj.gob.sisadmrh.service.BeneficioService;
+import mj.gob.sisadmrh.service.EmpleadoBeneficioService;
 import net.sf.jasperreports.engine.JRException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -31,6 +32,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class BeneficioController extends UtilsController{
     
     private BeneficioService beneficioService;
+    private EmpleadoBeneficioService empleadoBeneficioService;
     
 
 
@@ -77,14 +79,18 @@ public class BeneficioController extends UtilsController{
         return "redirect:/beneficios/";
     }
     
-    	@RequestMapping(value = "pdf/{indice}", method = { RequestMethod.POST, RequestMethod.GET })
-	public void pdf(@PathVariable("indice") Long indice, 
-			@RequestParam(required = false) Boolean download, HttpServletResponse response) 
-			throws Exception {
+    @RequestMapping("report")
+    public String reporte() {
+        return PREFIX + "beneficiosreport";
+    }
+    
+    @RequestMapping(value = "pdf/{indice}", method = { RequestMethod.POST, RequestMethod.GET })
+    public void pdf(@PathVariable("indice") Long indice, @RequestParam(required = false) Boolean download, 
+                HttpServletResponse response) throws Exception {
                 Map<String, Object> params = new HashMap<>();
 		params.put("P_param1", indice.toString());
         	generatePdf("beneficios", "rpt_beneficios", params, download,response);
-        }
+    }
 
     
 }
