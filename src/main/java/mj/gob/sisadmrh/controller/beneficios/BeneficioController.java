@@ -79,7 +79,7 @@ public class BeneficioController extends UtilsController{
         return "redirect:/beneficios/";
     }
     
-    @RequestMapping("report")
+    @RequestMapping("report/")
     public String reporte() {
         return PREFIX + "beneficiosreport";
     }

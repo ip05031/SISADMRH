@@ -6,8 +6,8 @@ mj/gob/sisadmrh/controller/rol/RolController.class
 mj/gob/sisadmrh/service/RolService.class
 mj/gob/sisadmrh/model/NivelEscolaridad.class
 mj/gob/sisadmrh/controller/nivelescolaridad/NivelEscolaridadController.class
-mj/gob/sisadmrh/model/Rol.class
 mj/gob/sisadmrh/service/NivelEscolaridadService.class
+mj/gob/sisadmrh/model/Rol.class
 mj/gob/sisadmrh/model/Empleadonivelescolaridad.class
 mj/gob/sisadmrh/service/BeneficioServiceImpl.class
 mj/gob/sisadmrh/service/UsuarioServiceImpl.class
@@ -26,12 +26,12 @@ mj/gob/sisadmrh/service/BeneficioService.class
 mj/gob/sisadmrh/controller/usuario/UsuarioController.class
 mj/gob/sisadmrh/service/NivelEscolaridadServiceImpl.class
 mj/gob/sisadmrh/service/RolServiceImpl.class
-mj/gob/sisadmrh/controller/beneficios/BeneficioController.class
 mj/gob/sisadmrh/controller/UtilsController.class
+mj/gob/sisadmrh/controller/beneficios/BeneficioController.class
 mj/gob/sisadmrh/model/EmpleadonivelescolaridadPK.class
 mj/gob/sisadmrh/repository/UsuarioRepository.class
 mj/gob/sisadmrh/model/Empleadobeneficio.class
-mj/gob/sisadmrh/model/Usuariorol.class
 mj/gob/sisadmrh/service/UsuarioService.class
+mj/gob/sisadmrh/model/Usuariorol.class
 mj/gob/sisadmrh/controller/HomeController.class
 mj/gob/sisadmrh/service/EstadoService.class

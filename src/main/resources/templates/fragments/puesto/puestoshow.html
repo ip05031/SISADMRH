@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+
+    <title>SISADMRH-Detalle de Puesto</title>
+     <th:block th:include="../templates/header"></th:block>
+ 
+
+  
+</head>
+<body>
+ <div class="row">
+ <div class="col-md-3">
+            <th:block th:include="../templates/menu"></th:block>
+        </div>
+        <div class="col-md-8">
+    <h3 align="center">Consulta de Datos de Puesto</h3>
+        <div>
+            <form class="form-horizontal">
+                 <div class="col-md-6">
+                     <div class="form-group">
+                    <label class="col-sm-5 control-label">codigo:</label>
+                    <div class="col-sm-7">
+                        <p class="form-control-static" th:text="${puesto.codigopuesto}">codigo de Puesto</p></div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-5 control-label">Nombre de Puesto:</label>
+                    <div class="col-sm-7">
+                        <p class="form-control-static" th:text="${puesto.nombrepuesto}">Nombre de Puesto</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-5 control-label">Sueldo Base:</label>
+                    <div class="col-sm-7">
+                        <p class="form-control-static" th:text="${puesto.sueldobase}">Sueldo Base</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-5 control-label">Codigo de Cargo:</label>
+                    <div class="col-sm-7">
+                        <p class="form-control-static" th:text="${puesto.codigocargopuesto}">Codigo de Cargo</p>
+                    </div>
+                </div>
+                  </div> 
+                      <div class="col-md-6">
+                          <div class="form-group">
+                    <label class="col-sm-7 control-label">Fecha de Aprobacion:</label>
+                    <div class="col-sm-5">
+                        <p class="form-control-static" th:text="${puesto.fechaaprobacion}">Fecha de Aprobacion</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-7 control-label">Fecha de Contratacion Desde:</label>
+                    <div class="col-sm-5">
+                        <p class="form-control-static" th:text="${puesto.fechacontrataciondesde}">Fecha de Contratacion Desde</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-7 control-label">Fecha Contratacion Hasta:</label>
+                    <div class="col-sm-5">
+                        <p class="form-control-static" th:text="${puesto.fechacontratacionhasta}">Fecha Contratacion Hasta</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-7 control-label">Fecha de Baja:</label>
+                    <div class="col-sm-5">
+                        <p class="form-control-static" th:text="${puesto.fechabaja}">Fecha de Baja</p>
+                    </div>
+                </div>
+                  </div> 
+                
+                
+            </form>
+            <div class="col-md-12">
+            <div class="row" align="center">
+                <button type="submit" class="btn btn-default"><a href="#" th:href="@{/puestos/}">Regresar</a></button>
+                
+            </div>
+    </div>
+    </div>
+</div>
+      <div class="col-md-12">
+            <th:block th:include="../templates/footer"></th:block>
+        </div>
+     </div>
+
+</body>
+</html>
