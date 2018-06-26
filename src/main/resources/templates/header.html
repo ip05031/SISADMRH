@@ -4,24 +4,44 @@
     <head lang="en">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <link href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" rel="stylesheet" media="screen"/>
-        <link href="../static/css/style.css" th:href="@{css/style.css}" rel="stylesheet" media="screen"/>
+        <link href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet" media="screen"/>
+        
+         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </head>
 
     <body>
-        <div class="container">
+        <!--<div class="container">-->
             <div th:fragment="header">
-                <div class="jumbotron">
-                    <div class="row text-center">
+                <div class="jumbotron row">
+                     <div  class="col-md-3">
+                         <div class="row text-center">
+                        <img src="../../static/image/gob.png" width="200" th:src="@{/image/gob.png}"/>
+                    </div>
+                   </div>
+                     <div class="col-md-6">
+                         <div class="row text-center">
                         <div class="">
-                            <h2>SISTEMADE ADMINISTRACION DE RECURSOS HUMANOS DEL MINISTERIO DE JUSTICIA Y SEGURIDAD PUBLICA</h2>
-                            <h3>SISADMRH</h3>
+                            <h2>Ministerio de Justicia y Seguridad Publica</h2>
+                            <h2>Departamento de Recursos Humanos</h2>
+                            <h2>SISADMRH</h2>
                         </div>
                     </div>
+                   </div>
+                     <div class="col-md-3">
+                         <div class="row text-center">
+                        <img src="../../static/image/mjsp.png" width="200" th:src="@{/image/mjsp.png}"/>
+                    </div>
+                   </div>
+                    
+                    <!--
                     <div class="row text-center">
                         <img src="../../static/image/UESlogo.jpg" width="100" th:src="@{/image/UESlogo.jpg}"/>
-                    </div>
+                    </div>-->
                 </div>
-                <nav class="navbar navbar-default">
+                <!--
+<nav class="navbar navbar-default">
                     <div class="container-fluid">
                         <div class="navbar-header">
                             <a class="navbar-brand" href="#" th:href="@{/}">Home</a>
@@ -47,8 +67,57 @@
 
                         </div>
                     </div>
-                </nav>
+                </nav>-->
+                
+<!--                 <nav class="navbar navbar-inverse nav flex-column">
+                    <div class="container-fluid">
+
+                      <ul class="nav navbar-nav ">
+                        <li class="active"><a class="navbar-brand" href="#" th:href="@{/}">Inicio</a></li>
+                        <li class="dropdown">
+                          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Usuario
+                          <span class="caret"></span></a>
+                          <ul class="dropdown-menu">
+                                <li><a href="#" th:href="@{/usuarios/}">Consultar Usuarios</a></li>
+                                <li><a href="#" th:href="@{/usuarios/new/usuario}">Crear Usuario</a></li>
+                          </ul>
+                        </li>
+                        <li class="dropdown">
+                          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Roles
+                          <span class="caret"></span></a>
+                          <ul class="dropdown-menu">
+                                <li><a href="#" th:href="@{/roles/}">Consultar Roles</a></li>
+                                <li><a href="#" th:href="@{/roles/new/rol}">Crear Rol</a></li>
+                          </ul>
+                        </li>
+                        <li class="dropdown">
+                          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Puesto
+                          <span class="caret"></span></a>
+                          <ul class="dropdown-menu">
+                               <li><a href="#" th:href="@{/puestos/}">Consultar Puestos</a></li>
+                               <li><a href="#" th:href="@{/puestos/new/puesto}">Crear Puesto</a></li>
+                               <li><a href="#" th:href="@{/puestos/reporte/puesto}">Reporte Puestos a Caducar</a></li>
+                          </ul>
+                        </li>
+                        
+                      </ul>
+                    </div>
+                </nav>-->
+              
+                
+                
             </div>
-        </div>
+        <!--</div>-->
+
+
+     
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+
+       
     </body>
 </html>

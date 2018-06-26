@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <title>SISADMRH-Listado de Puestos</title>
+    <th:block th:include="../templates/header"></th:block>
+</head>
+<body>
+<!--<div class="container">-->
+    
+    <div th:if="${not #lists.isEmpty(puestos)}" >
+         <div class="row">
+        <div class="col-md-3">
+            <th:block th:include="../templates/menu"></th:block>
+        </div>
+        <div class="col-md-9">
+            
+        <!--</div>-->
+        <h3 align="center">Listado de segun el modulo que se este haciendo</h3>
+        <table class="table table-striped">
+            <tr >
+                <th>columna</th>
+                <th>columna</th>
+                <th>columna</th>
+                <!--<th>Sueldo Tope Puesto</th>-->
+                <th>columna</th>
+                <th>columna</th>
+                <!--<th>Fecha Nombramiento</th>-->
+                <th>columna</th>
+            </tr>
+            <tr th:each="puesto : ${puestos}">
+                <td th:text="${puesto.codigopuesto}">codigopuesto</td>
+                <td th:text="${puesto.nombrepuesto}">nombrepuesto</td>
+                <td th:text="${puesto.sueldobase}">sueldobase</td>
+                <!--<td th:text="${puesto.sueldotopepuesto}">control</td>-->
+                <td>
+                    <span th:if="${puesto.estadopuesto} == 1"  th:text="Activo"  ></span>
+                    <span th:if="${puesto.estadopuesto} == 2"  th:text="Inactivo"></span>
+                    
+               </td> 
+                
+                
+                <td th:text="${puesto.fechaaprobacion}">fecha ingreso</td>
+                <!--<td th:text="${puesto.fechanombramiento}">fecha caducidad</td>-->
+                <td th:text="${puesto.fechabaja}">fecha baja</td>
+                <td><a th:href="${'./show/' + puesto.codigopuesto}" class="btn btn-default">Mostrar</a></td>
+                <td><a th:href="${'./edit/' + puesto.codigopuesto}" class="btn btn-default">Edit</a></td>
+                <td><a th:href="${'./delete/' + puesto.codigopuesto}" class="btn btn-danger">Delete</a></td>
+            </tr>
+        </table>
+        </div>
+   
+<!--</div>-->
+<div class="col-md-12">
+            <th:block th:include="../templates/footer"></th:block>
+        </div>
+ </div>
+   </div> 
+</body>
+</html>
