@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head lang="en">
-    <title>Usuarios</title>
+    <title>Niveles escolares</title>
     <th:block th:include="../templates/header"></th:block>
 </head>
 <body>
@@ -15,6 +15,7 @@
             <tr>
                 <th>Centro Educativo</th>
                 <th>anios aprobados</th>
+                  <th>Estudios realizados</th>
                  <th>Finalizado</th>
                   <th>titulo obtenido</th>
                    <th>Pais del nivel escolar</th>
@@ -24,12 +25,10 @@
                 
             </tr>
             <tr th:each="nivelescolaridad : ${nivelescolaridades}">
-<<<<<<< HEAD
 
-=======
->>>>>>> origin/master
                 <td th:text="${nivelescolaridad.centroeducativo}">Centro educativo</td>
                 <td th:text="${nivelescolaridad.aniosaprobados}">Anos aprobados</td> 
+                <td th:text="${nivelescolaridad.estudiorealizado}">Estudios</td> 
                 <td th:text="${nivelescolaridad.finalizado}">finalizado</td>
                 <td th:text="${nivelescolaridad.tituloobtenido}">Titulo Obtenido</td>
                 <td th:text="${nivelescolaridad. paisnivelescolaridad}">Pais nivel escolaridad</td>
