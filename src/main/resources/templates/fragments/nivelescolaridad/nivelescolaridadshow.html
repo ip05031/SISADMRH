@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+
+    <title>SISADMRH</title>
+     <th:block th:include="../templates/header"></th:block>
+ 
+
+  
+</head>
+<body>
+<div class="container">
+    <h2>Datos de Usuario</h2>
+        <div>
+            <form class="form-horizontal">
+                
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">codigo:</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static" th:text="${nivelescolaridad.codigonivelnivelescolaridad}">codigo nivel escolaridad</p></div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Centro educativo:</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static" th:text="${nivelescolaridad.centroeducativo}">Centro educativo</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">anios aprobados:</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static" th:text="${nivelescolaridad.aniosaprobados}">anios aprobados</p>
+                    </div>
+                </div>
+                 <div class="form-group">
+                    <label class="col-sm-2 control-label">estudios realizados:</label>
+                    <div class="col-sm-10">
+<!--                        <p class="form-control-static" th:text="${nivelescolaridad.estudiorealizado">estudiorealizado</p>-->
+                    </div>
+                </div>
+                 <div class="form-group">
+                    <label class="col-sm-2 control-label">finalizado:</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static" th:text="${nivelescolaridad.finalizado}">Finalizado</p>
+                    </div>
+                </div>
+                 <div class="form-group">
+                    <label class="col-sm-2 control-label">titulo Obtenido:</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static" th:text="${nivelescolaridad.tituloobtenido}">titulo obtenido</p>
+                    </div>
+                </div>
+                 <div class="form-group">
+                    <label class="col-sm-2 control-label">Pais Nivel escolardiad:</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static" th:text="${nivelescolaridad.paisnivelescolaridad}">Pais </p>
+                    </div>
+                </div>
+                 <div class="form-group">
+                    <label class="col-sm-2 control-label">fecha desde:</label>
+                    <div class="col-sm-10">
+<!--                        <p class="form-control-static" th:text="${nivelescolaridad.fechadesdenivelescolaridad}">Fecha desde</p>-->
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Fecha desde:</label>
+                    <div class="col-sm-10">
+<!--                        <p class="form-control-static" th:text="${nivelescolaridad.fechahastanivelescolaridad}">fecha hasta</p>-->
+                    </div>
+                </div>
+                
+            </form>
+    </div>
+</div>
+
+</body>
+</html>
