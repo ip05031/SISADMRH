@@ -5,10 +5,17 @@
     <th:block th:include="../templates/header"></th:block>
 </head>
 <body>
-<div class="container">
+<!--<div class="container">-->
     
     <div th:if="${not #lists.isEmpty(puestos)}" >
-        <h2 align="center">Listado de Puestos</h2>
+         <div class="row">
+        <div class="col-md-3">
+            <th:block th:include="../templates/menu"></th:block>
+        </div>
+        <div class="col-md-9">
+            
+        <!--</div>-->
+        <h3 align="center">Listado de Puestos</h3>
         <table class="table table-striped">
             <tr >
                 <th>Codigo de Puesto</th>
@@ -40,8 +47,13 @@
                 <td><a th:href="${'./delete/' + puesto.codigopuesto}" class="btn btn-danger">Delete</a></td>
             </tr>
         </table>
-    </div>
-</div>
-    <th:block th:include="../templates/footer"></th:block>
+        </div>
+   
+<!--</div>-->
+<div class="col-md-12">
+            <th:block th:include="../templates/footer"></th:block>
+        </div>
+ </div>
+   </div> 
 </body>
 </html>

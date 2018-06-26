@@ -159,7 +159,7 @@ body {
   /* Set the fixed height of the footer here */
   height: 30px;
   line-height: 30px; /* Vertically center the text there */
-  background-color: #000000;
+  background-color: #232323;
 }
 
 .boton{
@@ -186,3 +186,4 @@ body {
   text-decoration:none;
   padding:5px 5px 5px 0;
 }
+

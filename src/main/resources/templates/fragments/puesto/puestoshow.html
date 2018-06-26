@@ -9,61 +9,80 @@
   
 </head>
 <body>
-<div class="container">
-    <h2 align="center">Datos de Puesto</h2>
+ <div class="row">
+ <div class="col-md-3">
+            <th:block th:include="../templates/menu"></th:block>
+        </div>
+        <div class="col-md-8">
+    <h3 align="center">Consulta de Datos de Puesto</h3>
         <div>
             <form class="form-horizontal">
-                
-                <div class="form-group">
-                    <label class="col-sm-2 control-label">codigo:</label>
-                    <div class="col-sm-10">
+                 <div class="col-md-6">
+                     <div class="form-group">
+                    <label class="col-sm-5 control-label">codigo:</label>
+                    <div class="col-sm-7">
                         <p class="form-control-static" th:text="${puesto.codigopuesto}">codigo de Puesto</p></div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-2 control-label">Nombre de Puesto:</label>
-                    <div class="col-sm-10">
+                    <label class="col-sm-5 control-label">Nombre de Puesto:</label>
+                    <div class="col-sm-7">
                         <p class="form-control-static" th:text="${puesto.nombrepuesto}">Nombre de Puesto</p>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-2 control-label">contraseña:</label>
-                    <div class="col-sm-10">
-                        <p class="form-control-static" th:text="${puesto.contraseniapuesto}">contraseña</p>
+                    <label class="col-sm-5 control-label">Sueldo Base:</label>
+                    <div class="col-sm-7">
+                        <p class="form-control-static" th:text="${puesto.sueldobase}">Sueldo Base</p>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-2 control-label">control pass:</label>
-                    <div class="col-sm-10">
-                        <p class="form-control-static" th:text="${puesto.controlcontrasenia}">control pass</p>
+                    <label class="col-sm-5 control-label">Codigo de Cargo:</label>
+                    <div class="col-sm-7">
+                        <p class="form-control-static" th:text="${puesto.codigocargopuesto}">Codigo de Cargo</p>
+                    </div>
+                </div>
+                  </div> 
+                      <div class="col-md-6">
+                          <div class="form-group">
+                    <label class="col-sm-7 control-label">Fecha de Aprobacion:</label>
+                    <div class="col-sm-5">
+                        <p class="form-control-static" th:text="${puesto.fechaaprobacion}">Fecha de Aprobacion</p>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-2 control-label">estado:</label>
-                    <div class="col-sm-10">
-                        <p class="form-control-static" th:text="${puesto.estadopuesto}">estado</p>
+                    <label class="col-sm-7 control-label">Fecha de Contratacion Desde:</label>
+                    <div class="col-sm-5">
+                        <p class="form-control-static" th:text="${puesto.fechacontrataciondesde}">Fecha de Contratacion Desde</p>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-2 control-label">fechaing:</label>
-                    <div class="col-sm-10">
-                        <p class="form-control-static" th:text="${puesto.fechaingreso}">fecha ing</p>
+                    <label class="col-sm-7 control-label">Fecha Contratacion Hasta:</label>
+                    <div class="col-sm-5">
+                        <p class="form-control-static" th:text="${puesto.fechacontratacionhasta}">Fecha Contratacion Hasta</p>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-2 control-label">fecha cad:</label>
-                    <div class="col-sm-10">
-                        <p class="form-control-static" th:text="${puesto.fechacaducidad}">fecha cad</p>
+                    <label class="col-sm-7 control-label">Fecha de Baja:</label>
+                    <div class="col-sm-5">
+                        <p class="form-control-static" th:text="${puesto.fechabaja}">Fecha de Baja</p>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label class="col-sm-2 control-label">fecha baj:</label>
-                    <div class="col-sm-10">
-                        <p class="form-control-static" th:text="${puesto.fechabaja}">fecha baj</p>
-                    </div>
-                </div>
+                  </div> 
+                
+                
             </form>
+            <div class="col-md-12">
+            <div class="row" align="center">
+                <button type="submit" class="btn btn-default"><a href="#" th:href="@{/puestos/}">Regresar</a></button>
+                
+            </div>
+    </div>
     </div>
 </div>
-<th:block th:include="../templates/footer"></th:block>
+      <div class="col-md-12">
+            <th:block th:include="../templates/footer"></th:block>
+        </div>
+     </div>
+
 </body>
 </html>
