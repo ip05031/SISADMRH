@@ -14,6 +14,7 @@
                 <th>Codigo</th>
                 <th>Nombre</th>
                 <th>valor</th>
+                 <th>Acciones</th>
                 
             </tr>
             <tr th:each="estado : ${estados}">
@@ -22,9 +23,11 @@
                 <td th:text="${estado.valorestado}">valor</td>
                 
                 
-                <td><a th:href="${'./show/' + estado.codigoestado}" class="btn btn-default">Mostrar</a></td>
-                <td><a th:href="${'./edit/' + estado.codigoestado}" class="btn btn-default">Edit</a></td>
-                <td><a th:href="${'./delete/' + estado.codigoestado}" class="btn btn-danger">Delete</a></td>
+                
+                <td><a th:href="${'./show/' + estado.codigoestado}" class="btn btn-default">Mostrar</a>
+                <a th:href="${'./edit/' + estado.codigoestado}" class="btn btn-default">Edit</a>
+                <a th:href="${'./delete/' + estado.codigoestado}" class="btn btn-danger">Delete</a>
+                </td>
             </tr>
         </table>
     </div>
