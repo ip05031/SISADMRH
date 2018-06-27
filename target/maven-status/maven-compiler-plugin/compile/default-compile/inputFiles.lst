@@ -1,3 +1,4 @@
+/home/dialv/Documentos/sourcecode/SISADMRH2/src/main/java/mj/gob/sisadmrh/service/PuestoService.java
 /home/dialv/Documentos/sourcecode/SISADMRH2/src/main/java/mj/gob/sisadmrh/repository/NivelEscolaridadRepository.java
 /home/dialv/Documentos/sourcecode/SISADMRH2/src/main/java/mj/gob/sisadmrh/model/Empleadonivelescolaridad.java
 /home/dialv/Documentos/sourcecode/SISADMRH2/src/main/java/mj/gob/sisadmrh/service/NivelEscolaridadService.java
@@ -11,6 +12,7 @@
 /home/dialv/Documentos/sourcecode/SISADMRH2/src/main/java/mj/gob/sisadmrh/repository/UsuarioRepository.java
 /home/dialv/Documentos/sourcecode/SISADMRH2/src/main/java/mj/gob/sisadmrh/controller/beneficios/BeneficioController.java
 /home/dialv/Documentos/sourcecode/SISADMRH2/src/main/java/mj/gob/sisadmrh/service/UsuarioService.java
+/home/dialv/Documentos/sourcecode/SISADMRH2/src/main/java/mj/gob/sisadmrh/controller/puesto/PuestoController.java
 /home/dialv/Documentos/sourcecode/SISADMRH2/src/main/java/mj/gob/sisadmrh/controller/rol/RolController.java
 /home/dialv/Documentos/sourcecode/SISADMRH2/src/main/java/mj/gob/sisadmrh/repository/BeneficioRepository.java
 /home/dialv/Documentos/sourcecode/SISADMRH2/src/main/java/mj/gob/sisadmrh/model/Rol.java
@@ -24,9 +26,12 @@
 /home/dialv/Documentos/sourcecode/SISADMRH2/src/main/java/mj/gob/sisadmrh/controller/UtilsController.java
 /home/dialv/Documentos/sourcecode/SISADMRH2/src/main/java/mj/gob/sisadmrh/service/UsuarioServiceImpl.java
 /home/dialv/Documentos/sourcecode/SISADMRH2/src/main/java/mj/gob/sisadmrh/service/EmpleadoBeneficioService.java
+/home/dialv/Documentos/sourcecode/SISADMRH2/src/main/java/mj/gob/sisadmrh/service/PuestoServiceImpl.java
 /home/dialv/Documentos/sourcecode/SISADMRH2/src/main/java/mj/gob/sisadmrh/model/Usuariorol.java
+/home/dialv/Documentos/sourcecode/SISADMRH2/src/main/java/mj/gob/sisadmrh/model/Puesto.java
 /home/dialv/Documentos/sourcecode/SISADMRH2/src/main/java/mj/gob/sisadmrh/model/EmpleadobeneficioPK.java
 /home/dialv/Documentos/sourcecode/SISADMRH2/src/main/java/mj/gob/sisadmrh/controller/nivelescolaridad/NivelEscolaridadController.java
+/home/dialv/Documentos/sourcecode/SISADMRH2/src/main/java/mj/gob/sisadmrh/repository/PuestoRepository.java
 /home/dialv/Documentos/sourcecode/SISADMRH2/src/main/java/mj/gob/sisadmrh/SisadmrhApplication.java
 /home/dialv/Documentos/sourcecode/SISADMRH2/src/main/java/mj/gob/sisadmrh/service/EstadoService.java
 /home/dialv/Documentos/sourcecode/SISADMRH2/src/main/java/mj/gob/sisadmrh/service/EmpleadoBeneficioServiceImpl.java

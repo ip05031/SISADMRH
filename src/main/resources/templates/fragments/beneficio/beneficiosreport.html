@@ -1,42 +1,61 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head lang="en">
-
-    <title>Nuevo beneficio</title>
-  <th:block th:include="../templates/header"></th:block>
-  </head>
+    <head lang="en">
+        <title>SISADMRH</title>
+    <th:block th:include="../templates/header"></th:block>
+</head>
 <body>
-<div class="container">
-    <h2>Usuario Details</h2>
-    <div>
-        <form class="form-horizontal" th:object="${beneficio}" th:action="@{../beneficio}" method="post">
-            <input type="hidden" th:field="*{codigobeneficio}"/>
-            <input type="hidden" th:field="*{nombrebeneficio}"/>
-            <div class="form-group">
-                <label class="col-sm-2 control-label">Codigo de Beneficio:</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" th:field="*{codigobeneficio}"/>
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="col-sm-2 control-label">Nombre de Beneficio:</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" th:field="*{nombrebeneficio}"/>
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="col-sm-2 control-label">Contraseña de beneficio:</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" th:field="*{descripcionbeneficio}"/>
-                </div>
-            </div>
-            
-            <div class="row">
-                <button type="submit" class="btn btn-default">Agregar</button>
-            </div>
-        </form>
-    </div>
-</div>
+    <div class="row">
+        <div class="col-md-3">
+            <th:block th:include="../templates/menu"></th:block>
+        </div>
+        <div class="col-md-8">
+            <h3>GENERACION DE REPORTE DE BENEFICIOS</h3>
+            <div>
+                <form class="form-horizontal" id="formbeneficio">
 
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" >Codigo de empleado:</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="codigo"/>
+                        </div>
+                    </div>
+                     <div class="form-group">    
+                        <label class="col-sm-3 control-label">Fecha Inicial:</label>
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control" id="fechainicial"/>
+                        </div>
+                        <label class="col-sm-2 control-label">Fecha Final:</label>
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control" id="fechafinal"/>
+                        </div>
+                    </div>
+                     <div class="form-group">    
+                         <td><a class="btn btn-default" id="generar">Generar</a></td>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <th:block th:include="../templates/footer"></th:block>
+        </div>
+    </div>
 </body>
+<script>
+    $(document).ready(function () {
+        $('#fechainicial').datepicker({
+            dateFormat: 'yy-mm-dd'
+        });
+
+        $('#fechafinal').datepicker({
+            dateFormat: 'yy-mm-dd'
+        });
+        $('#generar').click(function(){
+            $("#formbeneficio").attr('action', '../pdf/'+ $("#codigo").val().toString());
+            $("form#formbeneficio").submit();
+            
+        });
+    });
+</script>
+
 </html>

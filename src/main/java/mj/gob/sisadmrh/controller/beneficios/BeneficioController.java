@@ -85,10 +85,15 @@ public class BeneficioController extends UtilsController{
     }
     
     @RequestMapping(value = "pdf/{indice}", method = { RequestMethod.POST, RequestMethod.GET })
-    public void pdf(@PathVariable("indice") Long indice, @RequestParam(required = false) Boolean download, 
+    public void pdf(@PathVariable("indice") Long indice, 
+            @RequestParam(required = false) Boolean download, 
+            @RequestParam(value="fechainicio",required = false) String fechainicio, 
+            @RequestParam(value="fechafin", required = false) String fechafin, 
                 HttpServletResponse response) throws Exception {
                 Map<String, Object> params = new HashMap<>();
-		params.put("P_param1", indice.toString());
+		params.put("CODIGO", indice.toString());
+		params.put("FECAINICIO", fechainicio);
+		params.put("FECHAFIN", fechafin);
         	generatePdf("beneficios", "rpt_beneficios", params, download,response);
     }
 
