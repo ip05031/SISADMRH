@@ -2,48 +2,48 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head lang="en">
 
-    <title>Nuevo Estado</title>
+    <title>Nuevo Cuadro Directivo</title>
   <th:block th:include="../templates/header"></th:block>
   </head>
 <body>
 <div class="container">
-    <h2>Detalle de estados</h2>
+    <h2>Detalle de cuadros directivos</h2>
     <div>
-        <form class="form-horizontal" th:object="${estado}" th:action="@{../estado}" method="post">
-            <input type="hidden" th:field="*{codigoestado}"/>
-            <input type="hidden" th:field="*{nombreestado}"/>
+        <form class="form-horizontal" th:object="${cuadrodirectivo}" th:action="@{../cuadrodirectivo}" method="post">
+            <input type="hidden" th:field="*{codigocuadrodirectivo}"/>
+            <input type="hidden" th:field="*{responsablecuadrodirectivo}"/>
             <div class="form-group">
-                <label class="col-sm-2 control-label">COdigo de estado:</label>
+                <label class="col-sm-2 control-label">COdigo de cuadro directivo:</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" th:field="*{codigoestado}"/>
+                    <input type="number" class="form-control" th:field="*{codigocuadrodirectivo}"/>
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-2 control-label">Nombre de estado:</label>
+                <label class="col-sm-2 control-label">responsablecuadrodirectivo:</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" th:field="*{nombreestado}"/>
+                    <input type="text" class="form-control" th:field="*{responsablecuadrodirectivo}"/>
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-2 control-label">Valor de estado:</label>
+                <label class="col-sm-2 control-label">area:</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" th:field="*{valorestado}"/>
+                    <input type="text" class="form-control" th:field="*{area}"/>
                 </div>
             </div>
             
+            <div class="form-group">
+                <label class="col-sm-2 control-label">desripcioncuadrodirectivo:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" th:field="*{desripcioncuadrodirectivo}"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">fechapre sentacion:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" th:field="*{echapresentacion}"/>
+                </div>
+            </div>
 <!--            <div class="form-group">
-                <label class="col-sm-2 control-label">Fecha ingreso:</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" th:field="*{fechaingreso}"/>
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="col-sm-2 control-label">fecha de caducidad:</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" th:field="*{fechacaducidad}"/>
-                </div>
-            </div>
-            <div class="form-group">
                 <label class="col-sm-2 control-label">fecha de baja:</label>
                 <div class="col-sm-10">
                     <input type="text" class="form-control" th:field="*{fechabaja}"/>

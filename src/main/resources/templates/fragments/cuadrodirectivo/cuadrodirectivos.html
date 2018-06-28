@@ -1,32 +1,37 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head lang="en">
-    <title>Estados</title>
+    <title>cuadro directivo</title>
     <th:block th:include="../templates/header"></th:block>
 </head>
 <body>
 <div class="container">
-    e aqui
+    Listado de cuadros directivos
     <div th:if="${not #lists.isEmpty(estados)}">
-        <h2>Todos los Estados</h2>
+        <h2>Todos los Listados</h2>
         <table class="table table-striped">
             <tr>
-                <th>Codigo</th>
-                <th>Nombre</th>
-                <th>valor</th>
+                <th>codigocuadrodirectivo</th>
+                <th>responsablecuadrodirectivo</th>
+                <th>area</th>
+                <th>desripcioncuadrodirectivo</th>
+                <th>fechapresentacion</th>
+               
                  <th>Acciones</th>
                 
             </tr>
-            <tr th:each="estado : ${estados}">
-                <td th:text="${estado.codigoestado}">Codigo</td>
-                <td th:text="${estado.nombreestado}">Nombre</td>
-                <td th:text="${estado.valorestado}">valor</td>
+            <tr th:each="cuadrodirectivo : ${cuadrodirectivos}">
+                <td th:text="${cuadrodirectivo.codigocuadrodirectivo}">Codigo</td>
+                <td th:text="${cuadrodirectivo.responsablecuadrodirectivo}">Responsable</td>
+                <td th:text="${cuadrodirectivo.area}">area</td>
+                <td th:text="${cuadrodirectivo.desripcioncuadrodirectivo}">Descripcion</td>
+                <td th:text="${#calendars.format(nivelescolaridad.fechapresentacion, 'dd-MMM-yyyy')}">F. Presentacion</td>
                 
                 
                 
-                <td><a th:href="${'./show/' + estado.codigoestado}" class="btn btn-default">Mostrar</a>
-                <a th:href="${'./edit/' + estado.codigoestado}" class="btn btn-default">Edit</a>
-                <a th:href="${'./delete/' + estado.codigoestado}" class="btn btn-danger">Delete</a>
+                <td><a th:href="${'./show/' + cuadrodirectivo.codigocuadrodirectivo}" class="btn btn-default">Mostrar</a>
+                <a th:href="${'./edit/' + cuadrodirectivo.codigocuadrodirectivo}" class="btn btn-default">Edit</a>
+                <a th:href="${'./delete/' + cuadrodirectivo.codigocuadrodirectivo}" class="btn btn-danger">Delete</a>
                 </td>
             </tr>
         </table>
