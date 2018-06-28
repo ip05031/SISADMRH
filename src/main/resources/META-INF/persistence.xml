@@ -2,9 +2,16 @@
 <persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
   <persistence-unit name="mj.gob_sisadmrh_war_0.0.1-SNAPSHOTPU" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
-    <class>mj.gob.sisadmrh.model.Empleado_1</class>
     <class>mj.gob.sisadmrh.model.Empleadonivelescolaridad</class>
     <class>mj.gob.sisadmrh.model.NivelEscolaridad</class>
+    <class>mj.gob.sisadmrh.model.Comite</class>
+    <class>mj.gob.sisadmrh.model.Empleado</class>
+    <class>mj.gob.sisadmrh.model.Capacitacion</class>
+    <class>mj.gob.sisadmrh.model.Asistenciacapaciation</class>
+    <class>mj.gob.sisadmrh.model.Costocapacitacion</class>
+    <class>mj.gob.sisadmrh.model.Capacitador</class>
+    <class>mj.gob.sisadmrh.model.Diagnosticocapacitacion</class>
+    <class>mj.gob.sisadmrh.model.Evualuacioncapacitacion</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/SISADMRH?zeroDateTimeBehavior=convertToNull"/>
