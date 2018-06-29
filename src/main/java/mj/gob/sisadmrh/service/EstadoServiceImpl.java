@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
  *
  * @author dialv
  */
-@Service
+
 public class EstadoServiceImpl implements EstadoService {
 
     
