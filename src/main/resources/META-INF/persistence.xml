@@ -7,11 +7,13 @@
     <class>mj.gob.sisadmrh.model.Comite</class>
     <class>mj.gob.sisadmrh.model.Empleado</class>
     <class>mj.gob.sisadmrh.model.Capacitacion</class>
-    <class>mj.gob.sisadmrh.model.Asistenciacapaciation</class>
-    <class>mj.gob.sisadmrh.model.Costocapacitacion</class>
     <class>mj.gob.sisadmrh.model.Capacitador</class>
-    <class>mj.gob.sisadmrh.model.Diagnosticocapacitacion</class>
-    <class>mj.gob.sisadmrh.model.Evualuacioncapacitacion</class>
+    <class>mj.gob.sisadmrh.model.AsistenciaCapaciation</class>
+    <class>mj.gob.sisadmrh.model.CostoCapacitacion</class>
+    <class>mj.gob.sisadmrh.model.DiagnosticoCapacitacion</class>
+    <class>mj.gob.sisadmrh.model.CuadroDirectivo</class>
+    <class>mj.gob.sisadmrh.model.EvualuacionCapacitacion</class>
+    <class>mj.gob.sisadmrh.model.AsistenciaCapacitacion</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/SISADMRH?zeroDateTimeBehavior=convertToNull"/>

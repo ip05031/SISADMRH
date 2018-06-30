@@ -16,7 +16,6 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
-import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
@@ -24,14 +23,10 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @Entity
 @Table(name = "COSTOCAPACITACION")
-@XmlRootElement
-@NamedQueries({
-    @NamedQuery(name = "Costocapacitacion.findAll", query = "SELECT c FROM Costocapacitacion c"),
-    @NamedQuery(name = "Costocapacitacion.findByCodigocostocapacitacion", query = "SELECT c FROM Costocapacitacion c WHERE c.codigocostocapacitacion = :codigocostocapacitacion"),
-    @NamedQuery(name = "Costocapacitacion.findByCostopersona", query = "SELECT c FROM Costocapacitacion c WHERE c.costopersona = :costopersona"),
-    @NamedQuery(name = "Costocapacitacion.findByNumeropersona", query = "SELECT c FROM Costocapacitacion c WHERE c.numeropersona = :numeropersona"),
-    @NamedQuery(name = "Costocapacitacion.findByCostocapacitador", query = "SELECT c FROM Costocapacitacion c WHERE c.costocapacitador = :costocapacitador")})
-public class Costocapacitacion implements Serializable {
+//@NamedQueries({
+//@NamedQuery(name = "Costocapacitacion.findAll", query = "SELECT c FROM Costocapacitacion c")})
+
+public class CostoCapacitacion implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
@@ -49,10 +44,10 @@ public class Costocapacitacion implements Serializable {
     @ManyToOne(optional = false)
     private Capacitacion codigocapacitacion;
 
-    public Costocapacitacion() {
+    public CostoCapacitacion() {
     }
 
-    public Costocapacitacion(Integer codigocostocapacitacion) {
+    public CostoCapacitacion(Integer codigocostocapacitacion) {
         this.codigocostocapacitacion = codigocostocapacitacion;
     }
 
@@ -106,10 +101,10 @@ public class Costocapacitacion implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Costocapacitacion)) {
+        if (!(object instanceof CostoCapacitacion)) {
             return false;
         }
-        Costocapacitacion other = (Costocapacitacion) object;
+        CostoCapacitacion other = (CostoCapacitacion) object;
         if ((this.codigocostocapacitacion == null && other.codigocostocapacitacion != null) || (this.codigocostocapacitacion != null && !this.codigocostocapacitacion.equals(other.codigocostocapacitacion))) {
             return false;
         }

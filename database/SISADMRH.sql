@@ -6,13 +6,13 @@
 
 
 /*==============================================================*/
-/* Table: ASISTENCIACAPACIATION                                 */
+/* Table: ASISTENCIACAPACITACION                                */
 /*==============================================================*/
-create table ASISTENCIACAPACIATION
+create table ASISTENCIACAPACITACION
 (
    CODIGOASISTENCIACAPACITACION int not null,
    CODIGOCAPACITACION   int not null,
-   HORASRECIBIDAS       int,
+   HORASRECIBIDAS       int not null,
    UBICACIONASISTENCIACAPACITACION varchar(50),
    primary key (CODIGOASISTENCIACAPACITACION)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -619,7 +619,7 @@ create table UBICACIONFISICA
 );
 
 
-alter table ASISTENCIACAPACIATION add constraint FK_LLEVA foreign key (CODIGOCAPACITACION)
+alter table ASISTENCIACAPACITACION add constraint FK_LLEVA foreign key (CODIGOCAPACITACION)
       references CAPACITACION (CODIGOCAPACITACION) on delete restrict on update restrict;
 
 alter table CAPACITACION add constraint FK_IMPARTE foreign key (CODIGOCAPACITADOR)
@@ -653,7 +653,7 @@ alter table EMPLEADOASISTENCIACAPACITACION add constraint FK_LLEVA_UNA foreign k
       references EMPLEADO (CODIGOEMPLEADO) on delete restrict on update restrict;
 
 alter table EMPLEADOASISTENCIACAPACITACION add constraint FK_LLEVA_UNA2 foreign key (CODIGOASISTENCIACAPACITACION)
-      references ASISTENCIACAPACIATION (CODIGOASISTENCIACAPACITACION) on delete restrict on update restrict;
+      references ASISTENCIACAPACITACION (CODIGOASISTENCIACAPACITACION) on delete restrict on update restrict;
 
 
 

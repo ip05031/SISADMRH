@@ -20,7 +20,6 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
@@ -28,32 +27,10 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @Entity
 @Table(name = "EVUALUACIONCAPACITACION")
-@XmlRootElement
-@NamedQueries({
-    @NamedQuery(name = "Evualuacioncapacitacion.findAll", query = "SELECT e FROM Evualuacioncapacitacion e"),
-    @NamedQuery(name = "Evualuacioncapacitacion.findByCodigoevaluacioncapacitacion", query = "SELECT e FROM Evualuacioncapacitacion e WHERE e.codigoevaluacioncapacitacion = :codigoevaluacioncapacitacion"),
-    @NamedQuery(name = "Evualuacioncapacitacion.findByLugarcapacitacion", query = "SELECT e FROM Evualuacioncapacitacion e WHERE e.lugarcapacitacion = :lugarcapacitacion"),
-    @NamedQuery(name = "Evualuacioncapacitacion.findByHoraevualuacioncapacitacion", query = "SELECT e FROM Evualuacioncapacitacion e WHERE e.horaevualuacioncapacitacion = :horaevualuacioncapacitacion"),
-    @NamedQuery(name = "Evualuacioncapacitacion.findByDominiotema", query = "SELECT e FROM Evualuacioncapacitacion e WHERE e.dominiotema = :dominiotema"),
-    @NamedQuery(name = "Evualuacioncapacitacion.findByHabilidadcomunicacion", query = "SELECT e FROM Evualuacioncapacitacion e WHERE e.habilidadcomunicacion = :habilidadcomunicacion"),
-    @NamedQuery(name = "Evualuacioncapacitacion.findByEspectativa", query = "SELECT e FROM Evualuacioncapacitacion e WHERE e.espectativa = :espectativa"),
-    @NamedQuery(name = "Evualuacioncapacitacion.findByClaridadtema", query = "SELECT e FROM Evualuacioncapacitacion e WHERE e.claridadtema = :claridadtema"),
-    @NamedQuery(name = "Evualuacioncapacitacion.findByAlclaradudas", query = "SELECT e FROM Evualuacioncapacitacion e WHERE e.alclaradudas = :alclaradudas"),
-    @NamedQuery(name = "Evualuacioncapacitacion.findByInterestema", query = "SELECT e FROM Evualuacioncapacitacion e WHERE e.interestema = :interestema"),
-    @NamedQuery(name = "Evualuacioncapacitacion.findBySatifacciondetema", query = "SELECT e FROM Evualuacioncapacitacion e WHERE e.satifacciondetema = :satifacciondetema"),
-    @NamedQuery(name = "Evualuacioncapacitacion.findByComprenciondetema", query = "SELECT e FROM Evualuacioncapacitacion e WHERE e.comprenciondetema = :comprenciondetema"),
-    @NamedQuery(name = "Evualuacioncapacitacion.findByPlaneaciontiempo", query = "SELECT e FROM Evualuacioncapacitacion e WHERE e.planeaciontiempo = :planeaciontiempo"),
-    @NamedQuery(name = "Evualuacioncapacitacion.findByDistribuciontiempo", query = "SELECT e FROM Evualuacioncapacitacion e WHERE e.distribuciontiempo = :distribuciontiempo"),
-    @NamedQuery(name = "Evualuacioncapacitacion.findByContenidoclaro", query = "SELECT e FROM Evualuacioncapacitacion e WHERE e.contenidoclaro = :contenidoclaro"),
-    @NamedQuery(name = "Evualuacioncapacitacion.findByContenidoaplicadotrabajo", query = "SELECT e FROM Evualuacioncapacitacion e WHERE e.contenidoaplicadotrabajo = :contenidoaplicadotrabajo"),
-    @NamedQuery(name = "Evualuacioncapacitacion.findBySatisfechocontenido", query = "SELECT e FROM Evualuacioncapacitacion e WHERE e.satisfechocontenido = :satisfechocontenido"),
-    @NamedQuery(name = "Evualuacioncapacitacion.findByNecesariocapacitacion", query = "SELECT e FROM Evualuacioncapacitacion e WHERE e.necesariocapacitacion = :necesariocapacitacion"),
-    @NamedQuery(name = "Evualuacioncapacitacion.findByEquipotecnologico", query = "SELECT e FROM Evualuacioncapacitacion e WHERE e.equipotecnologico = :equipotecnologico"),
-    @NamedQuery(name = "Evualuacioncapacitacion.findByMaterialutilizado", query = "SELECT e FROM Evualuacioncapacitacion e WHERE e.materialutilizado = :materialutilizado"),
-    @NamedQuery(name = "Evualuacioncapacitacion.findByTiempocapacitacionoptimo", query = "SELECT e FROM Evualuacioncapacitacion e WHERE e.tiempocapacitacionoptimo = :tiempocapacitacionoptimo"),
-    @NamedQuery(name = "Evualuacioncapacitacion.findByComentario", query = "SELECT e FROM Evualuacioncapacitacion e WHERE e.comentario = :comentario"),
-    @NamedQuery(name = "Evualuacioncapacitacion.findByPuntualidad", query = "SELECT e FROM Evualuacioncapacitacion e WHERE e.puntualidad = :puntualidad")})
-public class Evualuacioncapacitacion implements Serializable {
+//@NamedQueries({
+//@NamedQuery(name = "Evualuacioncapacitacion.findAll", query = "SELECT ec FROM Evualuacioncapacitacion ec")})
+
+public class EvualuacionCapacitacion implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
@@ -127,10 +104,10 @@ public class Evualuacioncapacitacion implements Serializable {
     @ManyToOne(optional = false)
     private Capacitacion codigocapacitacion;
 
-    public Evualuacioncapacitacion() {
+    public EvualuacionCapacitacion() {
     }
 
-    public Evualuacioncapacitacion(Integer codigoevaluacioncapacitacion) {
+    public EvualuacionCapacitacion(Integer codigoevaluacioncapacitacion) {
         this.codigoevaluacioncapacitacion = codigoevaluacioncapacitacion;
     }
 
@@ -328,10 +305,10 @@ public class Evualuacioncapacitacion implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Evualuacioncapacitacion)) {
+        if (!(object instanceof EvualuacionCapacitacion)) {
             return false;
         }
-        Evualuacioncapacitacion other = (Evualuacioncapacitacion) object;
+        EvualuacionCapacitacion other = (EvualuacionCapacitacion) object;
         if ((this.codigoevaluacioncapacitacion == null && other.codigoevaluacioncapacitacion != null) || (this.codigoevaluacioncapacitacion != null && !this.codigoevaluacioncapacitacion.equals(other.codigoevaluacioncapacitacion))) {
             return false;
         }

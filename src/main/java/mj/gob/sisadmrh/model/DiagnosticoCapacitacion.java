@@ -17,7 +17,6 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
@@ -25,17 +24,10 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @Entity
 @Table(name = "DIAGNOSTICOCAPACITACION")
-@XmlRootElement
-@NamedQueries({
-    @NamedQuery(name = "Diagnosticocapacitacion.findAll", query = "SELECT d FROM Diagnosticocapacitacion d"),
-    @NamedQuery(name = "Diagnosticocapacitacion.findByCodigodiagnosticocapacitacion", query = "SELECT d FROM Diagnosticocapacitacion d WHERE d.codigodiagnosticocapacitacion = :codigodiagnosticocapacitacion"),
-    @NamedQuery(name = "Diagnosticocapacitacion.findByNecesidadcapacitacion", query = "SELECT d FROM Diagnosticocapacitacion d WHERE d.necesidadcapacitacion = :necesidadcapacitacion"),
-    @NamedQuery(name = "Diagnosticocapacitacion.findByMescapacitacion", query = "SELECT d FROM Diagnosticocapacitacion d WHERE d.mescapacitacion = :mescapacitacion"),
-    @NamedQuery(name = "Diagnosticocapacitacion.findByResultadoobtener", query = "SELECT d FROM Diagnosticocapacitacion d WHERE d.resultadoobtener = :resultadoobtener"),
-    @NamedQuery(name = "Diagnosticocapacitacion.findByNombreautorizadiagnosticocapacitacion", query = "SELECT d FROM Diagnosticocapacitacion d WHERE d.nombreautorizadiagnosticocapacitacion = :nombreautorizadiagnosticocapacitacion"),
-    @NamedQuery(name = "Diagnosticocapacitacion.findByDireccion", query = "SELECT d FROM Diagnosticocapacitacion d WHERE d.direccion = :direccion"),
-    @NamedQuery(name = "Diagnosticocapacitacion.findByCargoautorizadiagnosticocapacitacion", query = "SELECT d FROM Diagnosticocapacitacion d WHERE d.cargoautorizadiagnosticocapacitacion = :cargoautorizadiagnosticocapacitacion")})
-public class Diagnosticocapacitacion implements Serializable {
+//@NamedQueries({
+//@NamedQuery(name = "Diagnosticocapacitacion.findAll", query = "SELECT dc FROM Diagnosticocapacitacion dc")})
+
+public class DiagnosticoCapacitacion implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
@@ -64,10 +56,10 @@ public class Diagnosticocapacitacion implements Serializable {
     @ManyToOne(optional = false)
     private Capacitacion codigocapacitacion;
 
-    public Diagnosticocapacitacion() {
+    public DiagnosticoCapacitacion() {
     }
 
-    public Diagnosticocapacitacion(Integer codigodiagnosticocapacitacion) {
+    public DiagnosticoCapacitacion(Integer codigodiagnosticocapacitacion) {
         this.codigodiagnosticocapacitacion = codigodiagnosticocapacitacion;
     }
 
@@ -145,10 +137,10 @@ public class Diagnosticocapacitacion implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Diagnosticocapacitacion)) {
+        if (!(object instanceof DiagnosticoCapacitacion)) {
             return false;
         }
-        Diagnosticocapacitacion other = (Diagnosticocapacitacion) object;
+        DiagnosticoCapacitacion other = (DiagnosticoCapacitacion) object;
         if ((this.codigodiagnosticocapacitacion == null && other.codigodiagnosticocapacitacion != null) || (this.codigodiagnosticocapacitacion != null && !this.codigodiagnosticocapacitacion.equals(other.codigodiagnosticocapacitacion))) {
             return false;
         }

@@ -6,8 +6,8 @@
 package mj.gob.sisadmrh.model;
 
 import java.io.Serializable;
-import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -24,8 +24,6 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -33,44 +31,24 @@ import javax.xml.bind.annotation.XmlTransient;
  */
 @Entity
 @Table(name = "EMPLEADO")
-@XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Empleado_1.findAll", query = "SELECT e FROM Empleado_1 e"),
-    @NamedQuery(name = "Empleado_1.findByCodigoempleado", query = "SELECT e FROM Empleado_1 e WHERE e.codigoempleado = :codigoempleado"),
-    @NamedQuery(name = "Empleado_1.findByNombreempleado", query = "SELECT e FROM Empleado_1 e WHERE e.nombreempleado = :nombreempleado"),
-    @NamedQuery(name = "Empleado_1.findByApellidoempleado", query = "SELECT e FROM Empleado_1 e WHERE e.apellidoempleado = :apellidoempleado"),
-    @NamedQuery(name = "Empleado_1.findByFechanacimientoempleado", query = "SELECT e FROM Empleado_1 e WHERE e.fechanacimientoempleado = :fechanacimientoempleado"),
-    @NamedQuery(name = "Empleado_1.findByNacionalidad", query = "SELECT e FROM Empleado_1 e WHERE e.nacionalidad = :nacionalidad"),
-    @NamedQuery(name = "Empleado_1.findByTiponacionalidad", query = "SELECT e FROM Empleado_1 e WHERE e.tiponacionalidad = :tiponacionalidad"),
-    @NamedQuery(name = "Empleado_1.findByDepartamentonacimiento", query = "SELECT e FROM Empleado_1 e WHERE e.departamentonacimiento = :departamentonacimiento"),
-    @NamedQuery(name = "Empleado_1.findByMunicipionacimiento", query = "SELECT e FROM Empleado_1 e WHERE e.municipionacimiento = :municipionacimiento"),
-    @NamedQuery(name = "Empleado_1.findByGruposanquineo", query = "SELECT e FROM Empleado_1 e WHERE e.gruposanquineo = :gruposanquineo"),
-    @NamedQuery(name = "Empleado_1.findByTelefonomovilempleado", query = "SELECT e FROM Empleado_1 e WHERE e.telefonomovilempleado = :telefonomovilempleado"),
-    @NamedQuery(name = "Empleado_1.findByTelefonofijoempleado", query = "SELECT e FROM Empleado_1 e WHERE e.telefonofijoempleado = :telefonofijoempleado"),
-    @NamedQuery(name = "Empleado_1.findByRecidenciapermanente", query = "SELECT e FROM Empleado_1 e WHERE e.recidenciapermanente = :recidenciapermanente"),
-    @NamedQuery(name = "Empleado_1.findByEstadofamiliar", query = "SELECT e FROM Empleado_1 e WHERE e.estadofamiliar = :estadofamiliar"),
-    @NamedQuery(name = "Empleado_1.findByDepartamentorecidencia", query = "SELECT e FROM Empleado_1 e WHERE e.departamentorecidencia = :departamentorecidencia"),
-    @NamedQuery(name = "Empleado_1.findByMunicipioresidencia", query = "SELECT e FROM Empleado_1 e WHERE e.municipioresidencia = :municipioresidencia"),
-    @NamedQuery(name = "Empleado_1.findByDuiempleado", query = "SELECT e FROM Empleado_1 e WHERE e.duiempleado = :duiempleado"),
-    @NamedQuery(name = "Empleado_1.findByNitempleador", query = "SELECT e FROM Empleado_1 e WHERE e.nitempleador = :nitempleador"),
-    @NamedQuery(name = "Empleado_1.findByIsssempleado", query = "SELECT e FROM Empleado_1 e WHERE e.isssempleado = :isssempleado"),
-    @NamedQuery(name = "Empleado_1.findByFechaingresosecpub", query = "SELECT e FROM Empleado_1 e WHERE e.fechaingresosecpub = :fechaingresosecpub"),
-    @NamedQuery(name = "Empleado_1.findByFechaingresosecpriv", query = "SELECT e FROM Empleado_1 e WHERE e.fechaingresosecpriv = :fechaingresosecpriv"),
-    @NamedQuery(name = "Empleado_1.findByFechaingresoministerio", query = "SELECT e FROM Empleado_1 e WHERE e.fechaingresoministerio = :fechaingresoministerio"),
-    @NamedQuery(name = "Empleado_1.findByAfiliacionpension", query = "SELECT e FROM Empleado_1 e WHERE e.afiliacionpension = :afiliacionpension"),
-    @NamedQuery(name = "Empleado_1.findByNumeroafiliacion", query = "SELECT e FROM Empleado_1 e WHERE e.numeroafiliacion = :numeroafiliacion"),
-    @NamedQuery(name = "Empleado_1.findByTipocuenta", query = "SELECT e FROM Empleado_1 e WHERE e.tipocuenta = :tipocuenta"),
-    @NamedQuery(name = "Empleado_1.findByNombreinstiuciondepositar", query = "SELECT e FROM Empleado_1 e WHERE e.nombreinstiuciondepositar = :nombreinstiuciondepositar"),
-    @NamedQuery(name = "Empleado_1.findByEmailempleado", query = "SELECT e FROM Empleado_1 e WHERE e.emailempleado = :emailempleado"),
-    @NamedQuery(name = "Empleado_1.findByEstadoempleado", query = "SELECT e FROM Empleado_1 e WHERE e.estadoempleado = :estadoempleado"),
-    @NamedQuery(name = "Empleado_1.findBySexoempleado", query = "SELECT e FROM Empleado_1 e WHERE e.sexoempleado = :sexoempleado")})
+@NamedQuery(name = "Empleado.findAll", query = "SELECT e FROM Empleado e")})
 public class Empleado implements Serializable {
+    private static final long serialVersionUID = 1L;
+    @Id
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "CODIGOEMPLEADO")
+    private Integer codigoempleado;
     @Size(max = 50)
     @Column(name = "NOMBREEMPLEADO")
     private String nombreempleado;
     @Size(max = 50)
     @Column(name = "APELLIDOEMPLEADO")
     private String apellidoempleado;
+    @Column(name = "FECHANACIMIENTOEMPLEADO")
+    @Temporal(TemporalType.DATE)
+    private Date fechanacimientoempleado;
     @Size(max = 50)
     @Column(name = "NACIONALIDAD")
     private String nacionalidad;
@@ -113,6 +91,15 @@ public class Empleado implements Serializable {
     @Size(max = 9)
     @Column(name = "ISSSEMPLEADO")
     private String isssempleado;
+    @Column(name = "FECHAINGRESOSECPUB")
+    @Temporal(TemporalType.DATE)
+    private Date fechaingresosecpub;
+    @Column(name = "FECHAINGRESOSECPRIV")
+    @Temporal(TemporalType.DATE)
+    private Date fechaingresosecpriv;
+    @Column(name = "FECHAINGRESOMINISTERIO")
+    @Temporal(TemporalType.DATE)
+    private Date fechaingresoministerio;
     @Size(max = 6)
     @Column(name = "AFILIACIONPENSION")
     private String afiliacionpension;
@@ -128,43 +115,32 @@ public class Empleado implements Serializable {
     @Size(max = 50)
     @Column(name = "EMAILEMPLEADO")
     private String emailempleado;
+    @Column(name = "ESTADOEMPLEADO")
+    private Integer estadoempleado;
     @Size(max = 1)
     @Column(name = "SEXOEMPLEADO")
     private String sexoempleado;
-    @JoinTable(name = "EMPLEADOCAPACITACION", joinColumns = {
+    @JoinTable(name = "EMPLEADONIVELESCOLARIDAD", joinColumns = {
         @JoinColumn(name = "CODIGOEMPLEADO", referencedColumnName = "CODIGOEMPLEADO")}, inverseJoinColumns = {
-        @JoinColumn(name = "CODIGOCAPACITACION", referencedColumnName = "CODIGOCAPACITACION")})
+        @JoinColumn(name = "CODIGONIVELNIVELESCOLARIDAD", referencedColumnName = "CODIGONIVELNIVELESCOLARIDAD")})
     @ManyToMany
-    private Collection<Capacitacion> capacitacionCollection;
+    private List<NivelEscolaridad> nivelescolaridadList;
     @JoinTable(name = "EMPLEADOASISTENCIACAPACITACION", joinColumns = {
         @JoinColumn(name = "CODIGOEMPLEADO", referencedColumnName = "CODIGOEMPLEADO")}, inverseJoinColumns = {
         @JoinColumn(name = "CODIGOASISTENCIACAPACITACION", referencedColumnName = "CODIGOASISTENCIACAPACITACION")})
     @ManyToMany
-    private Collection<Asistenciacapaciation> asistenciacapaciationCollection;
+    private List<AsistenciaCapacitacion> asistenciacapacitacionList;
+    @JoinTable(name = "EMPLEADOCAPACITACION", joinColumns = {
+        @JoinColumn(name = "CODIGOEMPLEADO", referencedColumnName = "CODIGOEMPLEADO")}, inverseJoinColumns = {
+        @JoinColumn(name = "CODIGOCAPACITACION", referencedColumnName = "CODIGOCAPACITACION")})
+    @ManyToMany
+    private List<Capacitacion> capacitacionList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "codigoempleado")
-    private Collection<Capacitador> capacitadorCollection;
-    private static final long serialVersionUID = 1L;
-    @Id
-    @Basic(optional = false)
-    @NotNull
-    @Column(name = "CODIGOEMPLEADO")
-    private Integer codigoempleado;
-    @Column(name = "FECHANACIMIENTOEMPLEADO")
-    @Temporal(TemporalType.DATE)
-    private Date fechanacimientoempleado;
-    @Column(name = "FECHAINGRESOSECPUB")
-    @Temporal(TemporalType.DATE)
-    private Date fechaingresosecpub;
-    @Column(name = "FECHAINGRESOSECPRIV")
-    @Temporal(TemporalType.DATE)
-    private Date fechaingresosecpriv;
-    @Column(name = "FECHAINGRESOMINISTERIO")
-    @Temporal(TemporalType.DATE)
-    private Date fechaingresoministerio;
-    @Column(name = "ESTADOEMPLEADO")
-    private Integer estadoempleado;
+    private List<Capacitador> capacitadorList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "codigoempleado")
-    private Collection<Comite> comiteCollection;
+    private List<Comite> comiteList;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "codigoempleado")
+    private List<CuadroDirectivo> cuadrodirectivoList;
 
     public Empleado() {
     }
@@ -181,68 +157,6 @@ public class Empleado implements Serializable {
         this.codigoempleado = codigoempleado;
     }
 
-
-    public Date getFechanacimientoempleado() {
-        return fechanacimientoempleado;
-    }
-
-    public void setFechanacimientoempleado(Date fechanacimientoempleado) {
-        this.fechanacimientoempleado = fechanacimientoempleado;
-    }
-    public Date getFechaingresosecpub() {
-        return fechaingresosecpub;
-    }
-    public void setFechaingresosecpub(Date fechaingresosecpub) {
-        this.fechaingresosecpub = fechaingresosecpub;
-    }
-    public Date getFechaingresosecpriv() {
-        return fechaingresosecpriv;
-    }
-    public void setFechaingresosecpriv(Date fechaingresosecpriv) {
-        this.fechaingresosecpriv = fechaingresosecpriv;
-    }
-    public Date getFechaingresoministerio() {
-        return fechaingresoministerio;
-    }
-    public void setFechaingresoministerio(Date fechaingresoministerio) {
-        this.fechaingresoministerio = fechaingresoministerio;
-    }
-    public Integer getEstadoempleado() {
-        return estadoempleado;
-    }
-    public void setEstadoempleado(Integer estadoempleado) {
-        this.estadoempleado = estadoempleado;
-    }
-    @XmlTransient
-    public Collection<Comite> getComiteCollection() {
-        return comiteCollection;
-    }
-    public void setComiteCollection(Collection<Comite> comiteCollection) {
-        this.comiteCollection = comiteCollection;
-    }
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (codigoempleado != null ? codigoempleado.hashCode() : 0);
-        return hash;
-    }
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Empleado)) {
-            return false;
-        }
-        Empleado other = (Empleado) object;
-        if ((this.codigoempleado == null && other.codigoempleado != null) || (this.codigoempleado != null && !this.codigoempleado.equals(other.codigoempleado))) {
-            return false;
-        }
-        return true;
-    }
-    @Override
-    public String toString() {
-        return "mj.gob.sisadmrh.model.Empleado_1[ codigoempleado=" + codigoempleado + " ]";
-    }
-
     public String getNombreempleado() {
         return nombreempleado;
     }
@@ -257,6 +171,14 @@ public class Empleado implements Serializable {
 
     public void setApellidoempleado(String apellidoempleado) {
         this.apellidoempleado = apellidoempleado;
+    }
+
+    public Date getFechanacimientoempleado() {
+        return fechanacimientoempleado;
+    }
+
+    public void setFechanacimientoempleado(Date fechanacimientoempleado) {
+        this.fechanacimientoempleado = fechanacimientoempleado;
     }
 
     public String getNacionalidad() {
@@ -371,6 +293,30 @@ public class Empleado implements Serializable {
         this.isssempleado = isssempleado;
     }
 
+    public Date getFechaingresosecpub() {
+        return fechaingresosecpub;
+    }
+
+    public void setFechaingresosecpub(Date fechaingresosecpub) {
+        this.fechaingresosecpub = fechaingresosecpub;
+    }
+
+    public Date getFechaingresosecpriv() {
+        return fechaingresosecpriv;
+    }
+
+    public void setFechaingresosecpriv(Date fechaingresosecpriv) {
+        this.fechaingresosecpriv = fechaingresosecpriv;
+    }
+
+    public Date getFechaingresoministerio() {
+        return fechaingresoministerio;
+    }
+
+    public void setFechaingresoministerio(Date fechaingresoministerio) {
+        this.fechaingresoministerio = fechaingresoministerio;
+    }
+
     public String getAfiliacionpension() {
         return afiliacionpension;
     }
@@ -411,6 +357,14 @@ public class Empleado implements Serializable {
         this.emailempleado = emailempleado;
     }
 
+    public Integer getEstadoempleado() {
+        return estadoempleado;
+    }
+
+    public void setEstadoempleado(Integer estadoempleado) {
+        this.estadoempleado = estadoempleado;
+    }
+
     public String getSexoempleado() {
         return sexoempleado;
     }
@@ -419,31 +373,77 @@ public class Empleado implements Serializable {
         this.sexoempleado = sexoempleado;
     }
 
-    @XmlTransient
-    public Collection<Capacitacion> getCapacitacionCollection() {
-        return capacitacionCollection;
+    public List<NivelEscolaridad> getNivelescolaridadList() {
+        return nivelescolaridadList;
     }
 
-    public void setCapacitacionCollection(Collection<Capacitacion> capacitacionCollection) {
-        this.capacitacionCollection = capacitacionCollection;
+    public void setNivelescolaridadList(List<NivelEscolaridad> nivelescolaridadList) {
+        this.nivelescolaridadList = nivelescolaridadList;
     }
 
-    @XmlTransient
-    public Collection<Asistenciacapaciation> getAsistenciacapaciationCollection() {
-        return asistenciacapaciationCollection;
+    public List<AsistenciaCapacitacion> getAsistenciacapacitacionList() {
+        return asistenciacapacitacionList;
     }
 
-    public void setAsistenciacapaciationCollection(Collection<Asistenciacapaciation> asistenciacapaciationCollection) {
-        this.asistenciacapaciationCollection = asistenciacapaciationCollection;
+    public void setAsistenciacapacitacionList(List<AsistenciaCapacitacion> asistenciacapacitacionList) {
+        this.asistenciacapacitacionList = asistenciacapacitacionList;
     }
 
-    @XmlTransient
-    public Collection<Capacitador> getCapacitadorCollection() {
-        return capacitadorCollection;
+    public List<Capacitacion> getCapacitacionList() {
+        return capacitacionList;
     }
 
-    public void setCapacitadorCollection(Collection<Capacitador> capacitadorCollection) {
-        this.capacitadorCollection = capacitadorCollection;
+    public void setCapacitacionList(List<Capacitacion> capacitacionList) {
+        this.capacitacionList = capacitacionList;
+    }
+
+    public List<Capacitador> getCapacitadorList() {
+        return capacitadorList;
+    }
+
+    public void setCapacitadorList(List<Capacitador> capacitadorList) {
+        this.capacitadorList = capacitadorList;
+    }
+
+    public List<Comite> getComiteList() {
+        return comiteList;
+    }
+
+    public void setComiteList(List<Comite> comiteList) {
+        this.comiteList = comiteList;
+    }
+
+    public List<CuadroDirectivo> getCuadrodirectivoList() {
+        return cuadrodirectivoList;
+    }
+
+    public void setCuadrodirectivoList(List<CuadroDirectivo> cuadrodirectivoList) {
+        this.cuadrodirectivoList = cuadrodirectivoList;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 0;
+        hash += (codigoempleado != null ? codigoempleado.hashCode() : 0);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        // TODO: Warning - this method won't work in the case the id fields are not set
+        if (!(object instanceof Empleado)) {
+            return false;
+        }
+        Empleado other = (Empleado) object;
+        if ((this.codigoempleado == null && other.codigoempleado != null) || (this.codigoempleado != null && !this.codigoempleado.equals(other.codigoempleado))) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return "mj.gob.sisadmrh.model.Empleado[ codigoempleado=" + codigoempleado + " ]";
     }
     
 }

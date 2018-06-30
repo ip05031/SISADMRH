@@ -6,8 +6,8 @@
 package mj.gob.sisadmrh.model;
 
 import java.io.Serializable;
-import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -24,8 +24,6 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -33,24 +31,8 @@ import javax.xml.bind.annotation.XmlTransient;
  */
 @Entity
 @Table(name = "CAPACITACION")
-@XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Capacitacion.findAll", query = "SELECT c FROM Capacitacion c"),
-    @NamedQuery(name = "Capacitacion.findByCodigocapacitacion", query = "SELECT c FROM Capacitacion c WHERE c.codigocapacitacion = :codigocapacitacion"),
-    @NamedQuery(name = "Capacitacion.findByNombrecapacitacion", query = "SELECT c FROM Capacitacion c WHERE c.nombrecapacitacion = :nombrecapacitacion"),
-    @NamedQuery(name = "Capacitacion.findByDescripcioncapacitacion", query = "SELECT c FROM Capacitacion c WHERE c.descripcioncapacitacion = :descripcioncapacitacion"),
-    @NamedQuery(name = "Capacitacion.findByCategoriacapacitacion", query = "SELECT c FROM Capacitacion c WHERE c.categoriacapacitacion = :categoriacapacitacion"),
-    @NamedQuery(name = "Capacitacion.findByDescripcioncategoria", query = "SELECT c FROM Capacitacion c WHERE c.descripcioncategoria = :descripcioncategoria"),
-    @NamedQuery(name = "Capacitacion.findByDepartamentoresponsable", query = "SELECT c FROM Capacitacion c WHERE c.departamentoresponsable = :departamentoresponsable"),
-    @NamedQuery(name = "Capacitacion.findByDuracionhoracapacitacion", query = "SELECT c FROM Capacitacion c WHERE c.duracionhoracapacitacion = :duracionhoracapacitacion"),
-    @NamedQuery(name = "Capacitacion.findByDuraciondiacapacitacion", query = "SELECT c FROM Capacitacion c WHERE c.duraciondiacapacitacion = :duraciondiacapacitacion"),
-    @NamedQuery(name = "Capacitacion.findByOrganismopatrocinador", query = "SELECT c FROM Capacitacion c WHERE c.organismopatrocinador = :organismopatrocinador"),
-    @NamedQuery(name = "Capacitacion.findByTipoevento", query = "SELECT c FROM Capacitacion c WHERE c.tipoevento = :tipoevento"),
-    @NamedQuery(name = "Capacitacion.findByEspecialidadevento", query = "SELECT c FROM Capacitacion c WHERE c.especialidadevento = :especialidadevento"),
-    @NamedQuery(name = "Capacitacion.findByPaiscapacitacion", query = "SELECT c FROM Capacitacion c WHERE c.paiscapacitacion = :paiscapacitacion"),
-    @NamedQuery(name = "Capacitacion.findByFechacapacitacion", query = "SELECT c FROM Capacitacion c WHERE c.fechacapacitacion = :fechacapacitacion"),
-    @NamedQuery(name = "Capacitacion.findByTipocapacitacion", query = "SELECT c FROM Capacitacion c WHERE c.tipocapacitacion = :tipocapacitacion"),
-    @NamedQuery(name = "Capacitacion.findByEstadocapacitacion", query = "SELECT c FROM Capacitacion c WHERE c.estadocapacitacion = :estadocapacitacion")})
+@NamedQuery(name = "Capacitacion.findAll", query = "SELECT c FROM Capacitacion c")})
 public class Capacitacion implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -97,19 +79,19 @@ public class Capacitacion implements Serializable {
     private String tipocapacitacion;
     @Column(name = "ESTADOCAPACITACION")
     private Integer estadocapacitacion;
-    @ManyToMany(mappedBy = "capacitacionCollection")
-    private Collection<Empleado> empleadoCollection;
+    @ManyToMany(mappedBy = "capacitacionList")
+    private List<Empleado> empleadoList;
     @JoinColumn(name = "CODIGOCAPACITADOR", referencedColumnName = "CODIGOCAPACITADOR")
     @ManyToOne(optional = false)
     private Capacitador codigocapacitador;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "codigocapacitacion")
-    private Collection<Evualuacioncapacitacion> evualuacioncapacitacionCollection;
+    private List<EvualuacionCapacitacion> evualuacioncapacitacionList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "codigocapacitacion")
-    private Collection<Diagnosticocapacitacion> diagnosticocapacitacionCollection;
+    private List<AsistenciaCapacitacion> asistenciacapacitacionList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "codigocapacitacion")
-    private Collection<Asistenciacapaciation> asistenciacapaciationCollection;
+    private List<DiagnosticoCapacitacion> diagnosticocapacitacionList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "codigocapacitacion")
-    private Collection<Costocapacitacion> costocapacitacionCollection;
+    private List<CostoCapacitacion> costocapacitacionList;
 
     public Capacitacion() {
     }
@@ -238,13 +220,12 @@ public class Capacitacion implements Serializable {
         this.estadocapacitacion = estadocapacitacion;
     }
 
-    @XmlTransient
-    public Collection<Empleado> getEmpleadoCollection() {
-        return empleadoCollection;
+    public List<Empleado> getEmpleadoList() {
+        return empleadoList;
     }
 
-    public void setEmpleadoCollection(Collection<Empleado> empleadoCollection) {
-        this.empleadoCollection = empleadoCollection;
+    public void setEmpleadoList(List<Empleado> empleadoList) {
+        this.empleadoList = empleadoList;
     }
 
     public Capacitador getCodigocapacitador() {
@@ -255,40 +236,36 @@ public class Capacitacion implements Serializable {
         this.codigocapacitador = codigocapacitador;
     }
 
-    @XmlTransient
-    public Collection<Evualuacioncapacitacion> getEvualuacioncapacitacionCollection() {
-        return evualuacioncapacitacionCollection;
+    public List<EvualuacionCapacitacion> getEvualuacioncapacitacionList() {
+        return evualuacioncapacitacionList;
     }
 
-    public void setEvualuacioncapacitacionCollection(Collection<Evualuacioncapacitacion> evualuacioncapacitacionCollection) {
-        this.evualuacioncapacitacionCollection = evualuacioncapacitacionCollection;
+    public void setEvualuacioncapacitacionList(List<EvualuacionCapacitacion> evualuacioncapacitacionList) {
+        this.evualuacioncapacitacionList = evualuacioncapacitacionList;
     }
 
-    @XmlTransient
-    public Collection<Diagnosticocapacitacion> getDiagnosticocapacitacionCollection() {
-        return diagnosticocapacitacionCollection;
+    public List<AsistenciaCapacitacion> getAsistenciacapacitacionList() {
+        return asistenciacapacitacionList;
     }
 
-    public void setDiagnosticocapacitacionCollection(Collection<Diagnosticocapacitacion> diagnosticocapacitacionCollection) {
-        this.diagnosticocapacitacionCollection = diagnosticocapacitacionCollection;
+    public void setAsistenciacapacitacionList(List<AsistenciaCapacitacion> asistenciacapacitacionList) {
+        this.asistenciacapacitacionList = asistenciacapacitacionList;
     }
 
-    @XmlTransient
-    public Collection<Asistenciacapaciation> getAsistenciacapaciationCollection() {
-        return asistenciacapaciationCollection;
+    public List<DiagnosticoCapacitacion> getDiagnosticocapacitacionList() {
+        return diagnosticocapacitacionList;
     }
 
-    public void setAsistenciacapaciationCollection(Collection<Asistenciacapaciation> asistenciacapaciationCollection) {
-        this.asistenciacapaciationCollection = asistenciacapaciationCollection;
+    public void setDiagnosticocapacitacionList(List<DiagnosticoCapacitacion> diagnosticocapacitacionList) {
+        this.diagnosticocapacitacionList = diagnosticocapacitacionList;
     }
 
-    @XmlTransient
-    public Collection<Costocapacitacion> getCostocapacitacionCollection() {
-        return costocapacitacionCollection;
+    public List<CostoCapacitacion> getCostocapacitacionList() {
+        return costocapacitacionList;
     }
 
-    public void setCostocapacitacionCollection(Collection<Costocapacitacion> costocapacitacionCollection) {
-        this.costocapacitacionCollection = costocapacitacionCollection;
+    public void setCostocapacitacionList(List<CostoCapacitacion> costocapacitacionList) {
+        this.costocapacitacionList = costocapacitacionList;
     }
 
     @Override

@@ -7,7 +7,7 @@
 <body>
 <div class="container">
     Listado de cuadros directivos
-    <div th:if="${not #lists.isEmpty(estados)}">
+    <div th:if="${not #lists.isEmpty(cuadrodirectivos)}">
         <h2>Todos los Listados</h2>
         <table class="table table-striped">
             <tr>
@@ -25,7 +25,7 @@
                 <td th:text="${cuadrodirectivo.responsablecuadrodirectivo}">Responsable</td>
                 <td th:text="${cuadrodirectivo.area}">area</td>
                 <td th:text="${cuadrodirectivo.desripcioncuadrodirectivo}">Descripcion</td>
-                <td th:text="${#calendars.format(nivelescolaridad.fechapresentacion, 'dd-MMM-yyyy')}">F. Presentacion</td>
+                <td th:text="${#calendars.format(cuadrodirectivo.fechapresentacion, 'dd-MMM-yyyy')}">F. Presentacion</td>
                 
                 
                 

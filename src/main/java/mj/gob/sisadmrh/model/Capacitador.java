@@ -6,7 +6,7 @@
 package mj.gob.sisadmrh.model;
 
 import java.io.Serializable;
-import java.util.Collection;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -20,8 +20,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -29,19 +27,8 @@ import javax.xml.bind.annotation.XmlTransient;
  */
 @Entity
 @Table(name = "CAPACITADOR")
-@XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Capacitador.findAll", query = "SELECT c FROM Capacitador c"),
-    @NamedQuery(name = "Capacitador.findByCodigocapacitador", query = "SELECT c FROM Capacitador c WHERE c.codigocapacitador = :codigocapacitador"),
-    @NamedQuery(name = "Capacitador.findByTemadominio", query = "SELECT c FROM Capacitador c WHERE c.temadominio = :temadominio"),
-    @NamedQuery(name = "Capacitador.findByTipocapacitador", query = "SELECT c FROM Capacitador c WHERE c.tipocapacitador = :tipocapacitador"),
-    @NamedQuery(name = "Capacitador.findByDuicapacitador", query = "SELECT c FROM Capacitador c WHERE c.duicapacitador = :duicapacitador"),
-    @NamedQuery(name = "Capacitador.findByNitcapacitador", query = "SELECT c FROM Capacitador c WHERE c.nitcapacitador = :nitcapacitador"),
-    @NamedQuery(name = "Capacitador.findByCarnetresidencia", query = "SELECT c FROM Capacitador c WHERE c.carnetresidencia = :carnetresidencia"),
-    @NamedQuery(name = "Capacitador.findByTelefonocapacitador", query = "SELECT c FROM Capacitador c WHERE c.telefonocapacitador = :telefonocapacitador"),
-    @NamedQuery(name = "Capacitador.findByTelefonomovilcapacitador", query = "SELECT c FROM Capacitador c WHERE c.telefonomovilcapacitador = :telefonomovilcapacitador"),
-    @NamedQuery(name = "Capacitador.findByEmailcapacitador", query = "SELECT c FROM Capacitador c WHERE c.emailcapacitador = :emailcapacitador"),
-    @NamedQuery(name = "Capacitador.findByNombrecapacitador", query = "SELECT c FROM Capacitador c WHERE c.nombrecapacitador = :nombrecapacitador")})
+@NamedQuery(name = "Capacitador.findAll", query = "SELECT c FROM Capacitador c")})
 public class Capacitador implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -76,7 +63,7 @@ public class Capacitador implements Serializable {
     @Column(name = "NOMBRECAPACITADOR")
     private String nombrecapacitador;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "codigocapacitador")
-    private Collection<Capacitacion> capacitacionCollection;
+    private List<Capacitacion> capacitacionList;
     @JoinColumn(name = "CODIGOEMPLEADO", referencedColumnName = "CODIGOEMPLEADO")
     @ManyToOne(optional = false)
     private Empleado codigoempleado;
@@ -168,13 +155,12 @@ public class Capacitador implements Serializable {
         this.nombrecapacitador = nombrecapacitador;
     }
 
-    @XmlTransient
-    public Collection<Capacitacion> getCapacitacionCollection() {
-        return capacitacionCollection;
+    public List<Capacitacion> getCapacitacionList() {
+        return capacitacionList;
     }
 
-    public void setCapacitacionCollection(Collection<Capacitacion> capacitacionCollection) {
-        this.capacitacionCollection = capacitacionCollection;
+    public void setCapacitacionList(List<Capacitacion> capacitacionList) {
+        this.capacitacionList = capacitacionList;
     }
 
     public Empleado getCodigoempleado() {

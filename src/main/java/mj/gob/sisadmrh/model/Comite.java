@@ -20,7 +20,6 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
@@ -28,17 +27,8 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @Entity
 @Table(name = "COMITE")
-@XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Comite.findAll", query = "SELECT c FROM Comite c"),
-    @NamedQuery(name = "Comite.findByCodigocomite", query = "SELECT c FROM Comite c WHERE c.codigocomite = :codigocomite"),
-    @NamedQuery(name = "Comite.findByNombrecomite", query = "SELECT c FROM Comite c WHERE c.nombrecomite = :nombrecomite"),
-    @NamedQuery(name = "Comite.findByResponsablecomite", query = "SELECT c FROM Comite c WHERE c.responsablecomite = :responsablecomite"),
-    @NamedQuery(name = "Comite.findByDesripcioncomite", query = "SELECT c FROM Comite c WHERE c.desripcioncomite = :desripcioncomite"),
-    @NamedQuery(name = "Comite.findByNumeroacuerdocomite", query = "SELECT c FROM Comite c WHERE c.numeroacuerdocomite = :numeroacuerdocomite"),
-    @NamedQuery(name = "Comite.findByMiembromaximo", query = "SELECT c FROM Comite c WHERE c.miembromaximo = :miembromaximo"),
-    @NamedQuery(name = "Comite.findByFechadesdecomite", query = "SELECT c FROM Comite c WHERE c.fechadesdecomite = :fechadesdecomite"),
-    @NamedQuery(name = "Comite.findByFechahastacomite", query = "SELECT c FROM Comite c WHERE c.fechahastacomite = :fechahastacomite")})
+@NamedQuery(name = "Comite.findAll", query = "SELECT c FROM Comite c")})
 public class Comite implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package mj.gob.sisadmrh.controller.CuadroDirectivoController;
+package mj.gob.sisadmrh.controller.cuadrodirectivo;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 
-@RequestMapping(value = "cuadrorectivos")
+@RequestMapping(value = "cuadrodirectivos")
 public class CuadroDirectivoController {
     private CuadroDirectivoService cuadroDirectivoService;
     @Autowired
