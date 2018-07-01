@@ -2,15 +2,12 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rpt_beneficios" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="3a38cd99-f22b-4f67-b7df-20e01626a3e5">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
-	<parameter name="FECHAINICIO" class="java.lang.String"/>
-	<parameter name="FECHAFIN" class="java.lang.String"/>
-	<parameter name="CODIGO" class="java.lang.String"/>
+	<property name="ireport.y" value="96"/>
 	<queryString>
 		<![CDATA[select * from empleadobeneficio empben
 inner join empleado using(codigoempleado)
 inner join beneficio using (codigobeneficio)
-where empben.codigoempleado =$P{CODIGO}]]>
+where empben.codigoempleado =1]]>
 	</queryString>
 	<field name="CODIGOBENEFICIO" class="java.lang.Integer">
 		<fieldDescription><![CDATA[]]></fieldDescription>
@@ -120,75 +117,53 @@ where empben.codigoempleado =$P{CODIGO}]]>
 	<title>
 		<band height="74" splitType="Stretch">
 			<staticText>
-				<reportElement uuid="49fdfec4-dd74-4ef1-a05d-943f225b8baa" x="43" y="0" width="475" height="30"/>
+				<reportElement x="43" y="0" width="475" height="30" uuid="49fdfec4-dd74-4ef1-a05d-943f225b8baa"/>
 				<textElement>
 					<font size="16" isBold="true"/>
 				</textElement>
 				<text><![CDATA[MINISTERIO DE JUSTICIA Y SEGURIDAD PUBLICA]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="191dad33-aeab-4a34-8a51-89e2d9426ef0" x="150" y="30" width="297" height="20"/>
-				<textElement/>
+				<reportElement x="150" y="30" width="297" height="20" uuid="191dad33-aeab-4a34-8a51-89e2d9426ef0"/>
 				<text><![CDATA[REPORTE DE BENEFIICIOS DE EMPLEADOS]]></text>
 			</staticText>
 		</band>
 	</title>
 	<pageHeader>
-		<band height="35" splitType="Stretch">
-			<textField>
-				<reportElement uuid="b16c5584-130c-4d28-a35f-6f331b22c476" x="62" y="15" width="100" height="20"/>
-				<textElement/>
-				<textFieldExpression><![CDATA[$P{FECHAINICIO}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement uuid="af786da9-bf36-48c6-93ab-391a4cf75aa5" x="382" y="15" width="100" height="20"/>
-				<textElement/>
-				<textFieldExpression><![CDATA[$P{FECHAFIN}]]></textFieldExpression>
-			</textField>
-			<staticText>
-				<reportElement uuid="fcd49830-caa5-4e4c-a4c0-67edab40d858" x="12" y="15" width="100" height="20"/>
-				<textElement/>
-				<text><![CDATA[DESDE:]]></text>
-			</staticText>
-			<staticText>
-				<reportElement uuid="7f7fbe36-ed4c-4c24-9789-d40b85df50db" x="332" y="15" width="100" height="20"/>
-				<textElement/>
-				<text><![CDATA[HASTA:]]></text>
-			</staticText>
-		</band>
+		<band height="35" splitType="Stretch"/>
 	</pageHeader>
 	<columnHeader>
 		<band height="61" splitType="Stretch">
 			<staticText>
-				<reportElement uuid="21013ac3-83d2-48e0-8663-b651fa613ff0" x="200" y="20" width="100" height="20"/>
+				<reportElement x="200" y="20" width="100" height="20" uuid="21013ac3-83d2-48e0-8663-b651fa613ff0"/>
 				<textElement>
 					<font isUnderline="true"/>
 				</textElement>
 				<text><![CDATA[NOMBREEMPLEADO]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="7e076150-d156-4236-aee8-35b1156f7138" x="100" y="20" width="100" height="20"/>
+				<reportElement x="100" y="20" width="100" height="20" uuid="7e076150-d156-4236-aee8-35b1156f7138"/>
 				<textElement>
 					<font isUnderline="true"/>
 				</textElement>
 				<text><![CDATA[NOMBREBENEFICIO]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="04190aba-1eb9-4136-b324-34ffd66d26d0" x="332" y="20" width="223" height="20"/>
+				<reportElement x="332" y="20" width="223" height="20" uuid="04190aba-1eb9-4136-b324-34ffd66d26d0"/>
 				<textElement>
 					<font isUnderline="true"/>
 				</textElement>
 				<text><![CDATA[DESCRIPCIONBENEFICIO]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="2b1920bb-54aa-4296-bdc2-bce9dc33b72e" x="300" y="20" width="32" height="20"/>
+				<reportElement x="300" y="20" width="32" height="20" uuid="2b1920bb-54aa-4296-bdc2-bce9dc33b72e"/>
 				<textElement>
 					<font isUnderline="true"/>
 				</textElement>
 				<text><![CDATA[SEXOEMPLEADO]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="6f34145f-662c-4029-a33d-eae35bf8451a" x="0" y="20" width="100" height="20"/>
+				<reportElement x="0" y="20" width="100" height="20" uuid="6f34145f-662c-4029-a33d-eae35bf8451a"/>
 				<textElement>
 					<font isUnderline="true"/>
 				</textElement>
@@ -199,28 +174,23 @@ where empben.codigoempleado =$P{CODIGO}]]>
 	<detail>
 		<band height="125" splitType="Stretch">
 			<textField>
-				<reportElement uuid="9fec0fb1-2899-468a-8a91-8fb33d210e06" x="200" y="9" width="100" height="20"/>
-				<textElement/>
+				<reportElement x="200" y="9" width="100" height="20" uuid="9fec0fb1-2899-468a-8a91-8fb33d210e06"/>
 				<textFieldExpression><![CDATA[$F{NOMBREEMPLEADO}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="88f23bdb-c0c4-45f2-bd68-ce83e3bd3e94" x="100" y="9" width="100" height="20"/>
-				<textElement/>
+				<reportElement x="100" y="9" width="100" height="20" uuid="88f23bdb-c0c4-45f2-bd68-ce83e3bd3e94"/>
 				<textFieldExpression><![CDATA[$F{NOMBREBENEFICIO}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="6563e988-c80a-43ca-b053-77d70abfbccd" x="332" y="9" width="223" height="20"/>
-				<textElement/>
+				<reportElement x="332" y="9" width="223" height="20" uuid="6563e988-c80a-43ca-b053-77d70abfbccd"/>
 				<textFieldExpression><![CDATA[$F{DESCRIPCIONBENEFICIO}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="1636ecd0-befe-49b1-80bf-86bf97f69f88" x="300" y="9" width="32" height="20"/>
-				<textElement/>
+				<reportElement x="300" y="9" width="32" height="20" uuid="1636ecd0-befe-49b1-80bf-86bf97f69f88"/>
 				<textFieldExpression><![CDATA[$F{SEXOEMPLEADO}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="130ffff8-42de-42d6-a057-efc5b2dd59cf" x="0" y="9" width="100" height="20"/>
-				<textElement/>
+				<reportElement x="0" y="9" width="100" height="20" uuid="130ffff8-42de-42d6-a057-efc5b2dd59cf"/>
 				<textFieldExpression><![CDATA[$F{CODIGOBENEFICIO}]]></textFieldExpression>
 			</textField>
 		</band>

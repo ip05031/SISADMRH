@@ -17,7 +17,7 @@ public class CuadroDirectivoServiceImpl implements CuadroDirectivoService{
     private CuadroDirectivoRepository cuadroDirectivoRep;
     
     @Autowired
-    public void setBeneficioRepository(CuadroDirectivoRepository cuadroDirectivoRepository) {
+    public void setCuadroDirectivoRepository(CuadroDirectivoRepository cuadroDirectivoRepository) {
         this.cuadroDirectivoRep = cuadroDirectivoRepository;
     }
 
