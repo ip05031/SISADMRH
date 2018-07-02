@@ -22,6 +22,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  *
@@ -35,7 +36,6 @@ public class Comite implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
-    @NotNull
     @Column(name = "CODIGOCOMITE")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer codigocomite;
@@ -52,12 +52,15 @@ public class Comite implements Serializable {
     private Integer numeroacuerdocomite;
     @Column(name = "MIEMBROMAXIMO")
     private Integer miembromaximo;
+    
     @Column(name = "FECHADESDECOMITE")
-    @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "YYYY-MM-dd")
     private Date fechadesdecomite;
+    
     @Column(name = "FECHAHASTACOMITE")
-    @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "YYYY-MM-dd")
     private Date fechahastacomite;
+    
     @JoinColumn(name = "CODIGOEMPLEADO", referencedColumnName = "CODIGOEMPLEADO")
     @ManyToOne(optional = false)
     private Empleado codigoempleado;
