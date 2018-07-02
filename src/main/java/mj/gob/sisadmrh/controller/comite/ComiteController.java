@@ -5,14 +5,14 @@
  */
 package mj.gob.sisadmrh.controller.comite;
 
-<<<<<<< HEAD
+
 import java.util.HashMap;
 import java.util.Map;
 import mj.gob.sisadmrh.controller.UtilsController;
 import javax.servlet.http.HttpServletResponse;
-=======
+
 import javax.validation.Valid;
->>>>>>> origin/master
+
 import mj.gob.sisadmrh.model.Comite;
 import mj.gob.sisadmrh.service.ComiteService;
 import mj.gob.sisadmrh.service.EmpleadoBeneficioServiceImpl;
