@@ -5,12 +5,16 @@
  */
 package mj.gob.sisadmrh.controller.comite;
 
+import javax.validation.Valid;
 import mj.gob.sisadmrh.model.Comite;
 import mj.gob.sisadmrh.service.ComiteService;
+import mj.gob.sisadmrh.service.EmpleadoBeneficioServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -31,6 +35,7 @@ public class ComiteController {
     }
     
     
+  
     private final String PREFIX = "fragments/comite/";
     @RequestMapping(value = "/", method=RequestMethod.GET)
     public String list(Model model){
@@ -47,6 +52,7 @@ public class ComiteController {
     @RequestMapping("new/comite")
     public String newComite(Model model) {
         model.addAttribute("comite", new Comite());
+        model.addAttribute("comite", new Comite());
         return PREFIX + "comiteform";
     }
     
@@ -57,7 +63,14 @@ public class ComiteController {
         return "redirect:./show/" + comite.getCodigocomite();
     }
     
-    
+//      @RequestMapping(value = "comite",method=RequestMethod.POST)
+//    public String saveComite(@Valid @ModelAttribute(name = "comite") Comite comite) {
+//        comiteService.saveComite(comite);
+//       
+//        return "redirect:./show/" + comite.getCodigocomite();
+//    }
+//    
+//    
      @RequestMapping("show/{id}")
     public String showComite(@PathVariable Integer id, Model model) {
         model.addAttribute("comite", comiteService.getComiteById(id).get());
