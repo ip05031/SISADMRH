@@ -92,20 +92,20 @@ public class ComiteController extends UtilsController{
     
     @RequestMapping("report/")
     public String reporte() {
-        return PREFIX + "comitereport";
+        return PREFIX + "comitesreport";
     }
     
     @RequestMapping(value = "pdf/{indice}", method = { RequestMethod.POST, RequestMethod.GET })
     public void pdf(@PathVariable("indice") Long indice, 
             @RequestParam(required = false) Boolean download, 
-            @RequestParam(value="fechainicio",required = false) String fechainicio, 
-            @RequestParam(value="fechafin", required = false) String fechafin, 
+            @RequestParam(value="fechainicial",required = false) String fechainicio, 
+            @RequestParam(value="fechafinal", required = false) String fechafin, 
                 HttpServletResponse response) throws Exception {
                 Map<String, Object> params = new HashMap<>();
 		params.put("CODIGO", indice.toString());
-		params.put("FECAINICIO", fechainicio);
+		params.put("FECHAINICIO", fechainicio);
 		params.put("FECHAFIN", fechafin);
-        	generatePdf("comites", "rpt_comite", params, download,response);
+        	generatePdf("comites", "rpt_comites", params, download,response);
     }
     
 }

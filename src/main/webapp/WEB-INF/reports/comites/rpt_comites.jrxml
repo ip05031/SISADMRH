@@ -3,12 +3,13 @@
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
-	<parameter name="fecha1" class="java.util.Date">
+	<parameter name="CODIGO" class="java.util.Date">
 		<defaultValueExpression><![CDATA[now]]></defaultValueExpression>
 	</parameter>
-	<parameter name="fecha2" class="java.util.Date">
+	<parameter name="FECHAINICIO" class="java.util.Date">
 		<defaultValueExpression><![CDATA[now]]></defaultValueExpression>
 	</parameter>
+	<parameter name="FECHAFIN" class="java.lang.String"/>
 	<queryString>
 		<![CDATA[SELECT
      empleado.`nombreempleado` AS empleado_nombreempleado,
@@ -19,8 +20,8 @@
 FROM
      `empleado` empleado INNER JOIN `comite` comite ON empleado.`codigoempleado` = comite.`codigoempleado`
 WHERE
-     comite.fechadesdecomite >= $P{fecha1}
-     and comite.fechahastacomite <= $P{fecha2}]]>
+     comite.fechadesdecomite >= $P{FECHAINICIO}
+     and comite.fechahastacomite <= $P{FECHAFIN} and comite.codigoempleado=$P{CODIGO}]]>
 	</queryString>
 	<field name="empleado_nombreempleado" class="java.lang.String"/>
 	<field name="acuerdo" class="java.lang.Integer"/>
