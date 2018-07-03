@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null"  pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f3437bb1-7b5b-4e71-9370-31f0c09403d0">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rpt_comites"  pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f3437bb1-7b5b-4e71-9370-31f0c09403d0">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="99"/>
-	<parameter name="CODIGO" class="java.util.Date">
-		<defaultValueExpression><![CDATA[now]]></defaultValueExpression>
-	</parameter>
+	<property name="ireport.y" value="0"/>
 	<parameter name="FECHAINICIO" class="java.util.Date">
 		<defaultValueExpression><![CDATA[now]]></defaultValueExpression>
 	</parameter>
-	<parameter name="FECHAFIN" class="java.lang.String"/>
+	<parameter name="FECHAFIN" class="java.util.Date">
+		<defaultValueExpression><![CDATA[now]]></defaultValueExpression>
+	</parameter>
+	<parameter name="CODIGO" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
 	<queryString>
 		<![CDATA[SELECT
      empleado.`nombreempleado` AS empleado_nombreempleado,
@@ -19,9 +21,8 @@
      comite.`fechadesdecomite` AS comite_fechadesdecomite
 FROM
      `empleado` empleado INNER JOIN `comite` comite ON empleado.`codigoempleado` = comite.`codigoempleado`
-WHERE
-     comite.codigocomite = $P{CODIGO}
-     and comite.fechadesdecomite >= $P{FECHAINICIO}
+WHERE comite.`codigocomite`=$P{CODIGO} and
+     comite.fechadesdecomite >= $P{FECHAINICIO}
      and comite.fechahastacomite <= $P{FECHAFIN}]]>
 	</queryString>
 	<field name="empleado_nombreempleado" class="java.lang.String"/>
