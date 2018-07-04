@@ -1,29 +1,47 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head lang="en">
-    <title>Usuarios</title>
+    <title>Capacitadores</title>
     <th:block th:include="../templates/header"></th:block>
 </head>
 <body>
 <div class="container">
-    e aqui
-    <div th:if="${not #lists.isEmpty(beneficios)}">
-        <h2>Todos los Usuarios</h2>
+    Listado de Capacitadores
+    <div th:if="${not #lists.isEmpty(capacitadores)}">
+        <h2>Listado de Capacitadores</h2>
         <table class="table table-striped">
             <tr>
                 <th>Codigo</th>
                 <th>Nombre</th>
-                <th>descripcion</th>
-                
+                <th>Tema Dominio</th>
+                <th>Tipo Capacitador</th>
+                  <th>Tipo Capacitador</th>
+                  <th>Dui</th>
+                  <th>Nit</th>
+                  <th>Carnet Residente</th>
+                  <th>Telefono</th>
+                  <th>Celular</th>
+                  <th>Email</th>
+                  <th>Codigo Empleado</th>
+                  <th>Acciones</th>
             </tr>
-            <tr th:each="beneficio : ${beneficios}">
-                <td th:text="${beneficio.codigobeneficio}">Codigo</td>
-                <td th:text="${beneficio.nombrebeneficio}">Nombre</td>
-                <td th:text="${beneficio.descripcionbeneficio}">descripcion</td>
+            <tr th:each="capacitador : ${capacitadores}">
+                <td th:text="${capacitador.codigocapacitador}">Codigo</td>
+                <td th:text="${capacitador.nombrecapacitador}">Nombre</td>
+                <td th:text="${capacitador.temadominio}">Tema</td>
+                <td th:text="${capacitador.tipocapacitador}">Tipo</td>
+                <td th:text="${capacitador.duicapacitador}">Dui</td>
+                <td th:text="${capacitador.nitcapacitador}">Nit</td>
+                <td th:text="${capacitador.carnetresidencia}">Carnet</td>
+                <td th:text="${capacitador.telefonocapacitador}">Telefono</td>
+                <td th:text="${capacitador.telefonomovilcapacitador}">Movil</td>
+                <td th:text="${capacitador.emailcapacitador}">Email</td>
+<!--                <td th:text="${capacitador.codigoempleado.codigoempleado}">Email</td>-->
                 
-                <td><a th:href="${'./show/' + beneficio.codigobeneficio}" class="btn btn-default">Mostrar</a></td>
-                <td><a th:href="${'./edit/' + beneficio.codigobeneficio}" class="btn btn-default">Edit</a></td>
-                <td><a th:href="${'./delete/' + beneficio.codigobeneficio}" class="btn btn-danger">Delete</a></td>
+                <td><a th:href="${'./show/' + capacitador.codigocapacitador}" class="btn btn-default">Mostrar</a>
+                <a th:href="${'./edit/' + capacitador.codigocapacitador}" class="btn btn-default">Edit</a>
+                <a th:href="${'./delete/' + capacitador.codigocapacitador}" class="btn btn-danger">Delete</a>
+                </td>
             </tr>
         </table>
     </div>

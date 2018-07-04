@@ -7,6 +7,7 @@
         <link href="../static/css/menu.css" th:href="@{/css/menu.css}" rel="stylesheet" media="screen"/>
         
 
+       
     </head>
 
     <body>
@@ -21,7 +22,8 @@
 				<span class="sr-only">Toggle navigation</span>
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
+			
+                                <span class="icon-bar"></span>
 			</button>
 			<a class="navbar-brand" href="#">Menu</a>
 		</div>
@@ -66,6 +68,16 @@
                                                 <li><a href="#" th:href="@{/cuadrodirectivos/report/}">Reporte de Cuadro Directivo</a></li>
 					</ul>
 				</li>
+                                
+                                <li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Gestionar Capacitador <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-cog"></span></a>
+					<ul class="dropdown-menu forAnimate" role="menu">
+						<li><a href="#" th:href="@{/capacitadores/}">Consultar Capacitador</a></li>
+                                                 <li><a href="#" th:href="@{/capacitadores/new/capacitador}">Crear Capacitador</a></li>
+                                                 <li><a href="#" th:href="@{/capacitadores/report/}">Reporte Capacitador</a></li>
+                                        </ul>
+				</li>
+				
                                 
                                 <li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Gestionar Comites <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-cog"></span></a>

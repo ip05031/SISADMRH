@@ -50,7 +50,7 @@ public class CuadroDirectivoController extends UtilsController{
         return PREFIX + "cuadrodirectivoform";
     }
 
-    @RequestMapping(value = "cuadrodirectivo")
+    @RequestMapping(value = "cuadrodirectivo")//El erorr que te daba era puta el jasPer dice que recibire un int y vos me man
     public String saveCuadroDirectivo(CuadroDirectivo cuadroDirectivo) {
         cuadroDirectivoService.saveCuadroDirectivo(cuadroDirectivo);
         return "redirect:./show/" + cuadroDirectivo.getCodigocuadrodirectivo();

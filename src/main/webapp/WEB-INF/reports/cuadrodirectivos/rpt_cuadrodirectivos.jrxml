@@ -1,29 +1,107 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE jasperReport PUBLIC "-//JasperReports//DTD JasperReport//EN" "http://jasperreports.sourceforge.net/dtds/jasperreport.dtd">
-
-<jasperReport name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
-    <background>
-        <band/>
-    </background>
-    <title>
-        <band height="79"/>
-    </title>
-    <pageHeader>
-        <band height="35"/>
-    </pageHeader>
-    <columnHeader>
-        <band height="61"/>
-    </columnHeader>
-    <detail>
-        <band height="125"/>
-    </detail>
-    <columnFooter>
-        <band height="45"/>
-    </columnFooter>
-    <pageFooter>
-        <band height="54"/>
-    </pageFooter>
-    <summary>
-        <band height="42"/>
-    </summary>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="522e2e0d-e566-4f97-9bad-689394118816">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="CODIGO" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="FECHAINICIO" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="FECHAFIN" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select e.nombreempleado,p.nombrepuesto,p.ubicacionpuesto, p.acuerdo,cd.fechapresentacion from empleado e inner join puesto p 
+on e.codigoempleado=p.codigoempleado 
+inner join cuadrodirectivo as cd on p.codigoempleado=cd.codigoempleado 
+where fechapresentacion between $P{FECHAFIN} and $P{FECHAFIN} and cd.codigocuadrodirectivo=$P{CODIGO}]]>
+	</queryString>
+	<field name="nombreempleado" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nombrepuesto" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="ubicacionpuesto" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="acuerdo" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fechapresentacion" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="178" y="33" width="100" height="20" uuid="63a3b12e-133e-495d-a54a-baa5d1ca9e46"/>
+				<text><![CDATA[reporte dE merge]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="43" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="9" width="100" height="20" uuid="626af65e-9380-41da-885b-e697cc202e4d"/>
+				<text><![CDATA[Empleado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="121" y="9" width="100" height="20" uuid="44cc95cd-6828-4e06-b466-5987d192b5fe"/>
+				<text><![CDATA[Puesto]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="242" y="9" width="100" height="20" uuid="b08f05fd-bc89-492b-acd5-fd89b64ddf9f"/>
+				<text><![CDATA[ubicacion]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="377" y="9" width="71" height="20" uuid="8f6b71bc-635b-4417-a63e-b537f69ac8af"/>
+				<text><![CDATA[N. Acuerdo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="470" y="9" width="78" height="20" uuid="cdeee58c-7ca6-4994-b72b-b58a7efd46e3"/>
+				<text><![CDATA[FechaDesde]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="10" width="100" height="20" uuid="73153a53-99e0-44d3-a43b-7e717d71f9d2"/>
+				<textFieldExpression><![CDATA[$F{nombreempleado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="123" y="11" width="100" height="20" uuid="affd2adb-5953-41d1-aa93-c319a28f47a6"/>
+				<textFieldExpression><![CDATA[$F{nombrepuesto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="242" y="12" width="100" height="20" uuid="6e17cfda-b2e1-4e3b-af9f-2fb775a9b102"/>
+				<textFieldExpression><![CDATA[$F{ubicacionpuesto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="373" y="13" width="100" height="20" uuid="2e042cf3-652c-4e85-848f-d3d095d35688"/>
+				<textFieldExpression><![CDATA[$F{acuerdo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="487" y="11" width="61" height="20" uuid="4cefc143-9bbc-419a-94dc-7c4f85623c06"/>
+				<textFieldExpression><![CDATA[$F{fechapresentacion}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
 </jasperReport>

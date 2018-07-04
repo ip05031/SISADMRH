@@ -1,3 +1,4 @@
+/home/daniel/NetBeansProjects/SISADMRH/src/main/java/mj/gob/sisadmrh/controller/Capacitador/CapacitadorController.java
 /home/daniel/NetBeansProjects/SISADMRH/src/main/java/mj/gob/sisadmrh/repository/EstadoRepository.java
 /home/daniel/NetBeansProjects/SISADMRH/src/main/java/mj/gob/sisadmrh/model/Rol.java
 /home/daniel/NetBeansProjects/SISADMRH/src/main/java/mj/gob/sisadmrh/model/Empleado.java
@@ -15,6 +16,7 @@
 /home/daniel/NetBeansProjects/SISADMRH/src/main/java/mj/gob/sisadmrh/model/Capacitacion.java
 /home/daniel/NetBeansProjects/SISADMRH/src/main/java/mj/gob/sisadmrh/controller/comite/ComiteController.java
 /home/daniel/NetBeansProjects/SISADMRH/src/main/java/mj/gob/sisadmrh/service/PuestoServiceImpl.java
+/home/daniel/NetBeansProjects/SISADMRH/src/main/java/mj/gob/sisadmrh/service/CapacitadorService.java
 /home/daniel/NetBeansProjects/SISADMRH/src/main/java/mj/gob/sisadmrh/service/UsuarioServiceImpl.java
 /home/daniel/NetBeansProjects/SISADMRH/src/main/java/mj/gob/sisadmrh/model/UsuariorolPK.java
 /home/daniel/NetBeansProjects/SISADMRH/src/main/java/mj/gob/sisadmrh/repository/NivelEscolaridadRepository.java
@@ -25,9 +27,11 @@
 /home/daniel/NetBeansProjects/SISADMRH/src/main/java/mj/gob/sisadmrh/model/EvualuacionCapacitacion.java
 /home/daniel/NetBeansProjects/SISADMRH/src/main/java/mj/gob/sisadmrh/model/Estado.java
 /home/daniel/NetBeansProjects/SISADMRH/src/main/java/mj/gob/sisadmrh/controller/usuario/UsuarioController.java
+/home/daniel/NetBeansProjects/SISADMRH/src/main/java/mj/gob/sisadmrh/service/CapacitadorServiceImpl.java
 /home/daniel/NetBeansProjects/SISADMRH/src/main/java/mj/gob/sisadmrh/service/EstadoServiceImpl.java
 /home/daniel/NetBeansProjects/SISADMRH/src/main/java/mj/gob/sisadmrh/repository/CuadroDirectivoRepository.java
 /home/daniel/NetBeansProjects/SISADMRH/src/main/java/mj/gob/sisadmrh/service/BeneficioServiceImpl.java
+/home/daniel/NetBeansProjects/SISADMRH/src/main/java/mj/gob/sisadmrh/repository/CapacitadorRepository.java
 /home/daniel/NetBeansProjects/SISADMRH/src/main/java/mj/gob/sisadmrh/ServletInitializer.java
 /home/daniel/NetBeansProjects/SISADMRH/src/main/java/mj/gob/sisadmrh/repository/BeneficioRepository.java
 /home/daniel/NetBeansProjects/SISADMRH/src/main/java/mj/gob/sisadmrh/model/NivelEscolaridad.java
