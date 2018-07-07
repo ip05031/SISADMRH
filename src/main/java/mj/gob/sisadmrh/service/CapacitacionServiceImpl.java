@@ -43,5 +43,11 @@ this.capacitacionRep=capacitacionRepository;
        capacitacionRep.deleteById(id);
 // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    @Override
+    public Iterable<Capacitacion> findByDato(String dato) {
+        return capacitacionRep.findByDato("%"+dato+"%");
+        
+    }
     
 }

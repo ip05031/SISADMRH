@@ -19,4 +19,7 @@ public interface CapacitacionService {
     Capacitacion saveCapacitacion(Capacitacion capacitacion);
 
     void deleteCapacitacion(Integer id);
+    
+       Iterable<Capacitacion> findByDato(String dato);
+    
 }

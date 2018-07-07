@@ -7,6 +7,7 @@ package mj.gob.sisadmrh.controller.capacitacion;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 import javax.servlet.http.HttpServletResponse;
 import mj.gob.sisadmrh.controller.UtilsController;
 import mj.gob.sisadmrh.model.Capacitacion;
@@ -20,6 +21,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 @RequestMapping(value = "capacitaciones")
@@ -72,7 +74,9 @@ public class CapacitacionController extends UtilsController{
 //    
      @RequestMapping("show/{id}")
     public String showCapacitacion(@PathVariable Integer id, Model model) {
-        model.addAttribute("capacitacion", capacitacionService.getCapacitacionById(id));
+        
+        model.addAttribute("capacitacion", capacitacionService.getCapacitacionById(id).get());
+        
         return PREFIX +"capacitacionshow";
     }
      @RequestMapping("delete/{id}")
@@ -97,6 +101,28 @@ public class CapacitacionController extends UtilsController{
 		params.put("FECHAINICIO", fechainicio);
 		params.put("FECHAFIN", fechafin);
         	generatePdf("capacitaciones", "rpt_capacitaciones", params, download,response);
+    }
+    
+    
+    
+      @RequestMapping("buscar/")
+    public String buscar() {
+             
+        return PREFIX +"buscar";
+    }
+    
+    
+      @RequestMapping(value="buscar/listar/{dato}",method = { RequestMethod.GET})
+    public ModelAndView listCapacitacion(@PathVariable("dato") String dato) {
+        
+          ModelAndView mv = new ModelAndView(PREFIX +"listCapacitacion");
+          
+       Iterable<Capacitacion> lista =  capacitacionService.findByDato(dato);
+          
+          
+           mv.addObject("capacitaciones", lista);
+           mv.addObject("dato", dato);
+        return mv;
     }
     
     
