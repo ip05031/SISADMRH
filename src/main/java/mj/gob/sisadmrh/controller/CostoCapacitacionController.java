@@ -66,7 +66,7 @@ public class CostoCapacitacionController extends UtilsController{
 //    
      @RequestMapping("show/{id}")
     public String showCostoCapacitacion(@PathVariable Integer id, Model model) {
-        model.addAttribute("costocapacitacion", costoCapacitacionService.getCostoCapacitacionById(id));
+        model.addAttribute("costocapacitacion", costoCapacitacionService.getCostoCapacitacionById(id).get());
         return PREFIX +"costocapacitacionshow";
     }
      @RequestMapping("delete/{id}")

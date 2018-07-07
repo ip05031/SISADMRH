@@ -2,40 +2,9 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head lang="en">
     <title>Capacitaciones</title>
-    <th:block th:include="../templates/header"></th:block>
-    
-    <script src="http://code.jquery.com/jquery-2.1.4.min.js" type="text/javascript"></script>
-
- 
-  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-
-  	
-  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
-
-  	
-  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-
+   
      
-
-      <script type="text/javascript">
-        $(document).ready(function () {
-
-            (function ($) {
-
-                $('#filtrar').keyup(function () {
-
-                    var rex = new RegExp($(this).val(), 'i');
-                    $('.buscar tr').hide();
-                    $('.buscar tr').filter(function () {
-                        return rex.test($(this).text());
-                    }).show();
-
-                })
-
-            }(jQuery));
-
-        });
-      </script>    
+    
 </head>
 <body>
 <div class="container">
