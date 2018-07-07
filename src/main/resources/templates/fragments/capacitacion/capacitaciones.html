@@ -1,41 +1,92 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head lang="en">
-    <title>Comites</title>
+    <title>Capacitaciones</title>
     <th:block th:include="../templates/header"></th:block>
+    
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js" type="text/javascript"></script>
+
+ 
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+  	
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+  	
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+     
+
+      <script type="text/javascript">
+        $(document).ready(function () {
+
+            (function ($) {
+
+                $('#filtrar').keyup(function () {
+
+                    var rex = new RegExp($(this).val(), 'i');
+                    $('.buscar tr').hide();
+                    $('.buscar tr').filter(function () {
+                        return rex.test($(this).text());
+                    }).show();
+
+                })
+
+            }(jQuery));
+
+        });
+      </script>    
 </head>
 <body>
 <div class="container">
-    e aqui
-    <div th:if="${not #lists.isEmpty(comites)}">
-        <h2>Todos losComites</h2>
+   
+    <div th:if="${not #lists.isEmpty(capacitaciones)}">
+        <h2>Listado de Capacitaciones</h2>
+        <div class="input-group"> <span class="input-group-addon">Buscar</span>
+        <input id="filtrar" type="text" class="form-control" placeholder="Ingresa la capacitacion a buscar...">
+      </div>
         <table class="table table-striped">
             <tr>
                 <th>Codigo</th>
                 <th>Nombre</th>
-                <th>Responsable</th>
                 <th>Descripcion</th>
-                <th>N de acuerdo</th>
-                <th>Miembros maximos</th>
-                <th>F. desde</th>
-                <th>F. hasta</th>
-                <th>descripcion</th>
-                <th>Acciones</th>
+                <th>Categoria</th>
+                <th>Descripcion Cat</th>
+                <th>Departamento Responsable</th>
+                <th>N horas</th>
+                <th>N Dias</th>
+                <th>Patrocinador</th>
+                <th>Tipo de Evento</th>
+                <th>Especialidad</th>
+                <th>Pais Capacitacion</th>
+                <th>Fecha Capacitacion</th>
+                <th>Tipo Capacitacion</th>
+                <th>Estado Capacitacion</th>
+                <th>Codigo Capacitador</th>
+               <th>Acciones</th>
                 
             </tr>
-            <tr th:each="comite : ${comites}">
-                <td th:text="${comite.codigocomite}">Codigo</td>
-                <td th:text="${comite.nombrecomite}">Nombre</td>
-                <td th:text="${comite.responsablecomite}">Responsable</td>
-                <td th:text="${comite.desripcioncomite}">Descripcion</td>
-                <td th:text="${comite.numeroacuerdocomite}">Numero acuerdo</td>
-                <td th:text="${comite.miembromaximo}">Miembro maximo</td>
-                <td th:text="${comite.fechadesdecomite}">F. desde</td>
-                <td th:text="${comite.fechahastacomite}">fechahastacomite</td>
+            <tr th:each="capacitacion : ${capacitaciones}">
+                <td th:text="${capacitacion.codigocapacitacion}">Codigo</td>
+                <td th:text="${capacitacion.nombrecapacitacion}">Nombre</td>
+                <td th:text="${capacitacion.descripcioncapacitacion}">Descripcion</td>
+                <td th:text="${capacitacion.categoriacapacitacion}">Categoria</td>
+                <td th:text="${capacitacion.descripcioncategoria}">Descripcion Cat</td>
+                <td th:text="${capacitacion.departamentoresponsable}">Departamento Res</td>
+                <td th:text="${capacitacion.duracionhoracapacitacion}">N horas</td>
+                <td th:text="${capacitacion.duraciondiacapacitacion}">N Dias</td>
+                <td th:text="${capacitacion.organismopatrocinador}">Patrocinador</td>
+                <td th:text="${capacitacion.tipoevento}">Tipo Evento</td>
+                <td th:text="${capacitacion.especialidadevento}">Especialidad</td>
+                <td th:text="${capacitacion.paiscapacitacion}">Pais Capacitacion</td>
+                <td th:text="${capacitacion.fechacapacitacion}">Fecha Capacitacion</td>
+                <td th:text="${capacitacion.tipocapacitacion}">Tipo Capacitacion</td>
+                <td th:text="${capacitacion.estadocapacitacion}">Estado Capacitacion</td>
+                <td th:text="${capacitacion.codigocapacitador.codigocapacitador}">Codigo Capacitador</td>
                 
-                <td><a th:href="${'./show/' + comite.codigocomite}" class="btn btn-default">Mostrar</a>
-                <a th:href="${'./edit/' + comite.codigocomite}" class="btn btn-default">Edit</a>
-                <a th:href="${'./delete/' + comite.codigocomite}" class="btn btn-danger">Delete</a></td>
+                <td><a th:href="${'./show/' + capacitacion.codigocapacitacion}" class="btn btn-default">Mostrar</a>
+                <a th:href="${'./edit/' + capacitacion.codigocapacitacion}" class="btn btn-default">Edit</a>
+                <a th:href="${'./delete/' + capacitacion.codigocapacitacion}" class="btn btn-danger">Delete</a></td>
             </tr>
         </table>
     </div>

@@ -42,13 +42,7 @@
 					</ul>
                                         
                                         
-                                 <li class="dropdown">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Gestionar tigres <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-cog"></span></a>
-					<ul class="dropdown-menu forAnimate" role="menu">
-						<li><a href="#" th:href="@{/betos/report/}">Reporte tigres</a></li>
-						<li><a href="#"></a></li>
-					</ul>
-				</li>
+                               
 				</li>
                                 <li ><a href="#">Carga de Archivos Fuentes<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-cog"></span></a></li>
 				<li class="dropdown">
@@ -68,7 +62,14 @@
                                                 <li><a href="#" th:href="@{/cuadrodirectivos/report/}">Reporte de Cuadro Directivo</a></li>
 					</ul>
 				</li>
-                                
+                                <li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Gestionar Capacitaciones <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-cog"></span></a>
+					<ul class="dropdown-menu forAnimate" role="menu">
+						<li><a href="#" th:href="@{/capacitaciones/}">Consultar Capacitaciones</a></li>
+                                                <li><a href="#" th:href="@{/capacitaciones/new/capacitacion}">Crear Capacitaciones</a></li>
+                                                <li><a href="#" th:href="@{/capacitaciones/reporte/}">Reporte de Capacitaciones</a></li>
+					</ul>
+				</li>
                                 <li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Gestionar Capacitador <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-cog"></span></a>
 					<ul class="dropdown-menu forAnimate" role="menu">
@@ -85,6 +86,14 @@
 						<li><a href="#" th:href="@{/comites/}">Consultar comites</a></li>
                                                  <li><a href="#" th:href="@{/comites/new/comite}">Crear comite</a></li>
                                                  <li><a href="#" th:href="@{/comites/report/}">Reporte comites</a></li>
+                                        </ul>
+				</li>
+                                 <li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Gestionar Costos de capacitaciones <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-cog"></span></a>
+					<ul class="dropdown-menu forAnimate" role="menu">
+						<li><a href="#" th:href="@{/costocapacitaciones/}">Consultar Costo Capacitaciones</a></li>
+                                                 <li><a href="#" th:href="@{/costocapacitaciones/new/costocapacitacion}">Crear Costo Capacitacion</a></li>
+<!--                                                 <li><a href="#" th:href="@{/costocapacitaciones/report/}">Reporte comites</a></li>-->
                                         </ul>
 				</li>
 				
@@ -138,13 +147,7 @@
 					</ul>
 				</li>
                                 
-                                <li class="dropdown">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Gestionar Capacitaciones <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-cog"></span></a>
-					<ul class="dropdown-menu forAnimate" role="menu">
-						<li><a href="#"></a></li>
-						<li><a href="#"></a></li>
-					</ul>
-				</li>
+                                
                                 
                                 <li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Gestionar Niveles Escolares  <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-cog"></span>
