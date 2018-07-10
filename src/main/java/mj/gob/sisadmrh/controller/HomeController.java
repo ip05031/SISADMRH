@@ -24,19 +24,19 @@ public class HomeController {
     public String welcomePage(Model model) {
         model.addAttribute("title", "Welcome");
         model.addAttribute("message", "Bienvenido");
-        return "welcomePage";
+        return "index";
     }
  
-    @RequestMapping(value = "/admin", method = RequestMethod.GET)
-    public String adminPage(Model model, Principal principal) {
-         
-        User loginedUser = (User) ((Authentication) principal).getPrincipal();
- 
-        String userInfo = WebUtils.toString(loginedUser);
-        model.addAttribute("userInfo", userInfo);
-         
-        return "adminPage";
-    }
+//    @RequestMapping(value = "/admin", method = RequestMethod.GET)
+//    public String adminPage(Model model, Principal principal) {
+//         
+//        User loginedUser = (User) ((Authentication) principal).getPrincipal();
+// 
+//        String userInfo = WebUtils.toString(loginedUser);
+//        model.addAttribute("userInfo", userInfo);
+//         
+//        return "adminPage";
+//    }
  
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String loginPage(Model model) {
@@ -50,24 +50,24 @@ public class HomeController {
         return "logoutSuccessfulPage";
     }
  
-    @RequestMapping(value = "/userInfo", method = RequestMethod.GET)
-    public String userInfo(Model model, Principal principal) {
- 
-        // (1) (en)
-        // After user login successfully.
-        // (vi)
-        // Sau khi user login thanh cong se co principal
-        String userName = principal.getName();
- 
-        System.out.println("User Name: " + userName);
- 
-        User loginedUser = (User) ((Authentication) principal).getPrincipal();
- 
-        String userInfo = WebUtils.toString(loginedUser);
-        model.addAttribute("userInfo", userInfo);
- 
-        return "userInfoPage";
-    }
+//    @RequestMapping(value = "/userInfo", method = RequestMethod.GET)
+//    public String userInfo(Model model, Principal principal) {
+// 
+//        // (1) (en)
+//        // After user login successfully.
+//        // (vi)
+//        // Sau khi user login thanh cong se co principal
+//        String userName = principal.getName();
+// 
+//        System.out.println("User Name: " + userName);
+// 
+//        User loginedUser = (User) ((Authentication) principal).getPrincipal();
+// 
+//        String userInfo = WebUtils.toString(loginedUser);
+//        model.addAttribute("userInfo", userInfo);
+// 
+//        return "userInfoPage";
+//    }
  
     @RequestMapping(value = "/403", method = RequestMethod.GET)
     public String accessDenied(Model model, Principal principal) {
