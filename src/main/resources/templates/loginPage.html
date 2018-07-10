@@ -10,6 +10,7 @@
     <div class="col-md-3">
         <th:block th:include="../templates/menu"></th:block>
     </div>
+    <div class="col-md-8">
     <h1>Login</h1>
     <!-- /login?error=true -->
     <div th:if="${#request.getParameter('error') == 'true'}"
@@ -23,7 +24,7 @@
 
     </div>
 
-    <h3>Intrdusca nombre de usuario y contraseña:</h3>
+    <h3>Introdusca nombre de usuario y contraseña:</h3>
     <form name='f' th:action="@{/j_spring_security_check}" method='POST'>
         <table>
             <tr>
@@ -46,6 +47,7 @@
         <li>dbuser1/123</li>
         <li>dbadmin1/123</li>
     </ul>  
+    </div>
    <div class="col-md-12">
             <th:block th:include="footer"></th:block>
    </div>
