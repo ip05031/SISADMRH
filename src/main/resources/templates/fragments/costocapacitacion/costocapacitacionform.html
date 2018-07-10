@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  
+<head lang="en">
+
+    <title>Nuevo Costo de Capacitacion</title>
+  <th:block th:include="../templates/header"></th:block>
+  </head>
+<body>
+<div class="container">
+    <h2>detalle comite</h2>
+    <div>
+        <form class="form-horizontal" th:object="${costocapacitacion}" th:action="@{../costocapacitacion}" method="post">
+          <input type="hidden" th:field="*{codigocostocapacitacion}"/>
+            <!--  <input type="hidden" th:field="*{nombrecomite}"/>-->
+            
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Costo Por Persona:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" th:field="*{costopersona}"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Numero de Personas:</label>
+                <div class="col-sm-10">
+                    <input type="number" class="form-control" th:field="*{numeropersona}"/>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Costo Capacitador:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" th:field="*{costocapacitador}"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">codigo de Capacitacion:</label>
+                <div class="col-sm-10">
+                    <input type="number" class="form-control" th:field="*{codigocapacitacion.codigocapacitacion}"/>
+                </div>
+            </div>
+            
+            
+           
+        
+            
+            <div class="row">
+                <button type="submit" class="btn btn-default">Agregar</button>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        $('#fechadesdecomite').datepicker({
+            dateFormat: 'yy-mm-dd'
+        });
+
+        $('#fechahastacomite').datepicker({
+            dateFormat: 'yy-mm-dd'
+        });
+    });
+</script>
+
+</body>	
+</html>

@@ -8,6 +8,7 @@ package mj.gob.sisadmrh.controller.cuadrodirectivo;
 import java.util.HashMap;
 import java.util.Map;
 import javax.servlet.http.HttpServletResponse;
+import mj.gob.sisadmrh.controller.UtilsController;
 import mj.gob.sisadmrh.model.Beneficio;
 import mj.gob.sisadmrh.model.CuadroDirectivo;
 import mj.gob.sisadmrh.service.BeneficioService;
@@ -23,10 +24,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 
 @RequestMapping(value = "cuadrodirectivos")
-public class CuadroDirectivoController {
+public class CuadroDirectivoController extends UtilsController{
     private CuadroDirectivoService cuadroDirectivoService;
     @Autowired
-    public void setCuadroDirectivoService(CuadroDirectivoService cuadroDirectivoService) {
+    public void setCuadroDirectivoService (CuadroDirectivoService cuadroDirectivoService) {
         this.cuadroDirectivoService = cuadroDirectivoService;
     }
     
@@ -49,7 +50,7 @@ public class CuadroDirectivoController {
         return PREFIX + "cuadrodirectivoform";
     }
 
-    @RequestMapping(value = "cuadrodirectivo")
+    @RequestMapping(value = "cuadrodirectivo")//El erorr que te daba era puta el jasPer dice que recibire un int y vos me man
     public String saveCuadroDirectivo(CuadroDirectivo cuadroDirectivo) {
         cuadroDirectivoService.saveCuadroDirectivo(cuadroDirectivo);
         return "redirect:./show/" + cuadroDirectivo.getCodigocuadrodirectivo();
@@ -67,23 +68,24 @@ public class CuadroDirectivoController {
         return "redirect:/cuadrodrorectivos/";
     }
     
-//    @RequestMapping("report/")
-//    public String reporte() {
-//        return PREFIX + "cuadrodirectivosreport";
-//    }
-//    
-//    @RequestMapping(value = "pdf/{indice}", method = { RequestMethod.POST, RequestMethod.GET })
-//    public void pdf(@PathVariable("indice") Long indice, 
-//            @RequestParam(required = false) Boolean download, 
-//            @RequestParam(value="fechainicio",required = false) String fechainicio, 
-//            @RequestParam(value="fechafin", required = false) String fechafin, 
-//                HttpServletResponse response) throws Exception {
-//                Map<String, Object> params = new HashMap<>();
-//		params.put("CODIGO", indice.toString());
-//		params.put("FECAINICIO", fechainicio);
-//		params.put("FECHAFIN", fechafin);
-//        	generatePdf("beneficios", "rpt_beneficios", params, download,response);
-//    }
+
+    @RequestMapping("report/")
+    public String reporte() {
+        return PREFIX + "cuadrodirectivosreport";
+    }
+    
+    @RequestMapping(value = "pdf/{indice}", method = { RequestMethod.POST, RequestMethod.GET })
+    public void pdf(@PathVariable("indice") Long indice, 
+            @RequestParam(required = false) Boolean download, 
+            @RequestParam(value="fechainicial",required = false) String fechainicio, 
+            @RequestParam(value="fechafinal", required = false) String fechafin, 
+                HttpServletResponse response) throws Exception {
+                Map<String, Object> params = new HashMap<>();
+		params.put("CODIGO", indice.toString());
+		params.put("FECHAINICIO", fechainicio);
+		params.put("FECHAFIN", fechafin);
+        	generatePdf("cuadrodirectivos", "rpt_cuadrodirectivos", params, download,response);
+    }
 
     
 }

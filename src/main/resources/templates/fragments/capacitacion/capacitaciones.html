@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <title>Capacitaciones</title>
+   
+     
+    
+</head>
+<body>
+<div class="container">
+   
+    <div th:if="${not #lists.isEmpty(capacitaciones)}">
+        <h2>Listado de Capacitaciones</h2>
+        <div class="input-group"> <span class="input-group-addon">Buscar</span>
+        <input id="filtrar" type="text" class="form-control" placeholder="Ingresa la capacitacion a buscar...">
+      </div>
+        <table class="table table-striped">
+            <tr>
+                <th>Codigo</th>
+                <th>Nombre</th>
+                <th>Descripcion</th>
+                <th>Categoria</th>
+                <th>Descripcion Cat</th>
+                <th>Departamento Responsable</th>
+                <th>N horas</th>
+                <th>N Dias</th>
+                <th>Patrocinador</th>
+                <th>Tipo de Evento</th>
+                <th>Especialidad</th>
+                <th>Pais Capacitacion</th>
+                <th>Fecha Capacitacion</th>
+                <th>Tipo Capacitacion</th>
+                <th>Estado Capacitacion</th>
+                <th>Codigo Capacitador</th>
+               <th>Acciones</th>
+                
+            </tr>
+            <tr th:each="capacitacion : ${capacitaciones}">
+                <td th:text="${capacitacion.codigocapacitacion}">Codigo</td>
+                <td th:text="${capacitacion.nombrecapacitacion}">Nombre</td>
+                <td th:text="${capacitacion.descripcioncapacitacion}">Descripcion</td>
+                <td th:text="${capacitacion.categoriacapacitacion}">Categoria</td>
+                <td th:text="${capacitacion.descripcioncategoria}">Descripcion Cat</td>
+                <td th:text="${capacitacion.departamentoresponsable}">Departamento Res</td>
+                <td th:text="${capacitacion.duracionhoracapacitacion}">N horas</td>
+                <td th:text="${capacitacion.duraciondiacapacitacion}">N Dias</td>
+                <td th:text="${capacitacion.organismopatrocinador}">Patrocinador</td>
+                <td th:text="${capacitacion.tipoevento}">Tipo Evento</td>
+                <td th:text="${capacitacion.especialidadevento}">Especialidad</td>
+                <td th:text="${capacitacion.paiscapacitacion}">Pais Capacitacion</td>
+                <td th:text="${capacitacion.fechacapacitacion}">Fecha Capacitacion</td>
+                <td th:text="${capacitacion.tipocapacitacion}">Tipo Capacitacion</td>
+                <td th:text="${capacitacion.estadocapacitacion}">Estado Capacitacion</td>
+                <td th:text="${capacitacion.codigocapacitador.codigocapacitador}">Codigo Capacitador</td>
+                
+                <td><a th:href="${'./show/' + capacitacion.codigocapacitacion}" class="btn btn-default">Mostrar</a>
+                <a th:href="${'./edit/' + capacitacion.codigocapacitacion}" class="btn btn-default">Edit</a>
+                <a th:href="${'./delete/' + capacitacion.codigocapacitacion}" class="btn btn-danger">Delete</a></td>
+            </tr>
+        </table>
+    </div>
+</div>
+</body>
+</html>
