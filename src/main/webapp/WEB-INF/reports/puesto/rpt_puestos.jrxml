@@ -3,7 +3,9 @@
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
-	<queryString language="SQL">
+	<parameter name="FECHAINICIO" class="java.lang.String"/>
+	<parameter name="FECHAFIN" class="java.lang.String"/>
+	<queryString>
 		<![CDATA[SELECT
      puesto.`CODIGOPUESTO` AS puesto_CODIGOPUESTO,
      puesto.`CATEGORIAPUESTO` AS puesto_CATEGORIAPUESTO,
@@ -11,7 +13,7 @@
      puesto.`NOMBREPUESTO` AS puesto_NOMBREPUESTO,
      puesto.`NOMBREJERARQUIA` AS puesto_NOMBREJERARQUIA,
      puesto.`ESTADOPLANILLA` AS puesto_ESTADOPLANILLA,
-     puesto.`FECHAAUTORIZACIONPUESTO` AS puesto_FECHAAUTORIZACIONPUESTO,
+     puesto.`FECHAAUTORIZACIONPUESTO` AS     puesto_FECHAAUTORIZACIONPUESTO,
      puesto.`FECHABAJA` AS puesto_FECHABAJA,
      puesto.`FECHACONTRATACIONDESDE` AS puesto_FECHACONTRATACIONDESDE,
      puesto.`FECHACONTRATACIONHASTA` AS puesto_FECHACONTRATACIONHASTA,
@@ -35,17 +37,36 @@
 FROM
      `puesto` puesto
 WHERE
-     FECHACONTRATACIONHASTA <= '2018-06-30'
- AND FECHACONTRATACIONHASTA >= '2018-06-01']]>
+     FECHACONTRATACIONHASTA <= $P{FECHAINICIO}
+ AND FECHACONTRATACIONHASTA >= $P{FECHAFIN}]]>
 	</queryString>
-	<field name="puesto_CODIGOPUESTO" class="java.lang.String"/>
+	<field name="puesto_CODIGOPUESTO" class="java.lang.Integer"/>
+	<field name="puesto_CATEGORIAPUESTO" class="java.lang.String"/>
+	<field name="puesto_SUELDOBASE" class="java.lang.Float"/>
 	<field name="puesto_NOMBREPUESTO" class="java.lang.String"/>
+	<field name="puesto_NOMBREJERARQUIA" class="java.lang.String"/>
+	<field name="puesto_ESTADOPLANILLA" class="java.lang.String"/>
+	<field name="puesto_FECHAAUTORIZACIONPUESTO" class="java.sql.Date"/>
+	<field name="puesto_FECHABAJA" class="java.sql.Date"/>
 	<field name="puesto_FECHACONTRATACIONDESDE" class="java.sql.Date"/>
 	<field name="puesto_FECHACONTRATACIONHASTA" class="java.sql.Date"/>
-	<field name="puesto_UBICACIONPUESTO" class="java.lang.String"/>
+	<field name="puesto_FECHANOMBRAMIENTO" class="java.sql.Date"/>
+	<field name="puesto_FECHAMODIFICACION" class="java.sql.Date"/>
+	<field name="puesto_NIVELPUESTO" class="java.lang.String"/>
 	<field name="puesto_SUBLINEA" class="java.lang.String"/>
+	<field name="puesto_TIPOFINANZA" class="java.lang.String"/>
+	<field name="puesto_UBICACIONPUESTO" class="java.lang.String"/>
+	<field name="puesto_FORMAPAGO" class="java.lang.String"/>
+	<field name="puesto_CATEGORIASUELDO" class="java.lang.String"/>
+	<field name="puesto_FECHAVACANTE" class="java.sql.Date"/>
+	<field name="puesto_ULTIMOEMPLEADO" class="java.lang.String"/>
 	<field name="puesto_NUMEROPARTIDAPUESTO" class="java.lang.String"/>
 	<field name="puesto_NUMEROSUBPARTIDAPUESTO" class="java.lang.String"/>
+	<field name="puesto_SUELDOTOPEPUESTO" class="java.lang.Float"/>
+	<field name="puesto_CODIGOCARGOPUESTO" class="java.lang.String"/>
+	<field name="puesto_FECHAAPROBACION" class="java.sql.Date"/>
+	<field name="puesto_FECHACREACION" class="java.sql.Date"/>
+	<field name="puesto_ESTADOPUESTO" class="java.lang.Integer"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>

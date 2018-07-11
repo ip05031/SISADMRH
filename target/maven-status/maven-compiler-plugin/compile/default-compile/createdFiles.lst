@@ -5,10 +5,12 @@ mj/gob/sisadmrh/repository/ComiteRepository.class
 mj/gob/sisadmrh/controller/rol/RolController.class
 mj/gob/sisadmrh/service/RolService.class
 mj/gob/sisadmrh/model/NivelEscolaridad.class
+mj/gob/sisadmrh/repository/AsistenciaCapacitacionRepository.class
 mj/gob/sisadmrh/model/Rol.class
 mj/gob/sisadmrh/service/NivelEscolaridadService.class
 mj/gob/sisadmrh/model/CostoCapacitacion.class
 mj/gob/sisadmrh/service/UsuarioServiceImpl.class
+mj/gob/sisadmrh/controller/costocapacitacion/CostoCapacitacionController.class
 mj/gob/sisadmrh/service/PuestoServiceImpl.class
 mj/gob/sisadmrh/service/ComiteService.class
 mj/gob/sisadmrh/model/Empleado.class
@@ -43,7 +45,6 @@ mj/gob/sisadmrh/service/EmpleadoBeneficioServiceImpl.class
 mj/gob/sisadmrh/controller/comite/ComiteController.class
 mj/gob/sisadmrh/model/Capacitador.class
 mj/gob/sisadmrh/repository/EmpleadoBeneficioRepository.class
-mj/gob/sisadmrh/controller/CostoCapacitacionController.class
 mj/gob/sisadmrh/repository/BeneficioRepository.class
 mj/gob/sisadmrh/repository/RolRepository.class
 mj/gob/sisadmrh/model/CuadroDirectivo.class
@@ -59,6 +60,7 @@ mj/gob/sisadmrh/service/CapacitadorServiceImpl.class
 mj/gob/sisadmrh/model/Usuario.class
 mj/gob/sisadmrh/service/CapacitacionServiceImpl.class
 mj/gob/sisadmrh/controller/usuario/UsuarioController.class
+mj/gob/sisadmrh/controller/asistenciacapacitaciones/AsistenciaCapacitacionController.class
 mj/gob/sisadmrh/controller/UtilsController.class
 mj/gob/sisadmrh/model/EvualuacionCapacitacion.class
 mj/gob/sisadmrh/model/AsistenciaCapacitacion.class
@@ -66,6 +68,8 @@ mj/gob/sisadmrh/repository/PuestoRepository.class
 mj/gob/sisadmrh/service/CuadroDirectivoServiceImpl.class
 mj/gob/sisadmrh/controller/cuadrodirectivo/CuadroDirectivoController.class
 mj/gob/sisadmrh/service/ComiteServiceImpl.class
+mj/gob/sisadmrh/service/AsistenciaCapacitacionService.class
+mj/gob/sisadmrh/service/AsistenciaCapacitacionImpl.class
 mj/gob/sisadmrh/repository/CuadroDirectivoRepository.class
 mj/gob/sisadmrh/service/EmpleadoBeneficioService.class
 mj/gob/sisadmrh/repository/CapacitacionRepository.class

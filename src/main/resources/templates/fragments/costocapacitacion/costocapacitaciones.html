@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head lang="en">
-    <title>Comites de Capacitaciones</title>
+    <title>Costo de Capacitaciones</title>
     <th:block th:include="../templates/header"></th:block>
 </head>
 <body>
@@ -15,17 +15,18 @@
                 <th>Costo Persona</th>
                 <th>Numero de Personas</th>
                 <th>Costo de Capacitador</th>
-                <th>Codigo Capacitacion</th>
+<!--                <th>Codigo Capacitacion</th>-->
                 
                 <th>Acciones</th>
                 
             </tr>
             <tr th:each="costocapacitacion : ${costocapacitaciones}">
                 <td th:text="${costocapacitacion.codigocostocapacitacion}">Codigo Capacitacion</td>
-                <td th:text="${costocapacitacion.costopersona}">Costo Persona</td>
-                <td th:text="${costocapacitacion.numeropersona}">Numero de Personas</td>
-                <td th:text="${costocapacitacion.costocapacitador}">Costo de Capactador</td>
-                <td th:text="${costocapacitacion.codigocapacitacion}">Codigo Capacitacion</td>
+                <td  th:text="${costocapacitacion.costopersona}">Costo Persona</td>
+                <td  th:text="${costocapacitacion.numeropersona}">Numero de Personas</td>
+               <td   th:text="${costocapacitacion.costocapacitador}">Costo de Capactador</td>
+<!--               <td  th:text="${costocapacitacion.codigocapacitacion}">Codigo Capacitacion</td>-->
+               
                 
                 
                 <td><a th:href="${'./show/' + costocapacitacion.codigocostocapacitacion}" class="btn btn-default">Mostrar</a>

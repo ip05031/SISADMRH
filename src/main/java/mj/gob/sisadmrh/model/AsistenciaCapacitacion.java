@@ -10,6 +10,8 @@ import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
@@ -26,8 +28,8 @@ import javax.validation.constraints.Size;
  */
 @Entity
 @Table(name = "ASISTENCIACAPACITACION")
-//@NamedQueries({
-//@NamedQuery(name = "Asistenciacapacitacion.findAll", query = "SELECT ac FROM Asistenciacapacitacion ac")})
+@NamedQueries({
+@NamedQuery(name = "AsistenciaCapacitacion.findAll", query = "SELECT ac FROM AsistenciaCapacitacion ac")})
 
 public class AsistenciaCapacitacion implements Serializable {
     private static final long serialVersionUID = 1L;
@@ -35,6 +37,7 @@ public class AsistenciaCapacitacion implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "CODIGOASISTENCIACAPACITACION")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer codigoasistenciacapacitacion;
     @Basic(optional = false)
     @NotNull

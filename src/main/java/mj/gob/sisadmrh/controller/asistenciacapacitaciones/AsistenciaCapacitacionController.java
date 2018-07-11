@@ -3,69 +3,62 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package mj.gob.sisadmrh.controller.comite;
-
+package mj.gob.sisadmrh.controller.asistenciacapacitaciones;
 
 import java.util.HashMap;
 import java.util.Map;
-import mj.gob.sisadmrh.controller.UtilsController;
 import javax.servlet.http.HttpServletResponse;
-
-import javax.validation.Valid;
-
+import mj.gob.sisadmrh.controller.UtilsController;
+import mj.gob.sisadmrh.model.AsistenciaCapacitacion;
 import mj.gob.sisadmrh.model.Comite;
+import mj.gob.sisadmrh.service.AsistenciaCapacitacionService;
 import mj.gob.sisadmrh.service.ComiteService;
-import mj.gob.sisadmrh.service.EmpleadoBeneficioServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-
 @Controller
-@RequestMapping(value = "comites")
-public class ComiteController extends UtilsController{
+@RequestMapping(value = "asistenciacapacitaciones")
+public class AsistenciaCapacitacionController extends UtilsController{
     
     
-    private ComiteService comiteService;
-     
-       @Autowired
-    public void setComiteService(ComiteService comiteService) {
-        this.comiteService = comiteService;
+    private AsistenciaCapacitacionService asistenciaCapacitacionService; 
+      @Autowired
+    public void SetAsistenciaCapacitacionService(AsistenciaCapacitacionService asistenciaCapacitacionService){
+    this.asistenciaCapacitacionService=asistenciaCapacitacionService;
     }
-    
+ 
     
   
-    private final String PREFIX = "fragments/comite/";
+    private final String PREFIX = "fragments/asistenciacapacitacion/";
     @RequestMapping(value = "/", method=RequestMethod.GET)
     public String list(Model model){
-        model.addAttribute("comites", comiteService.listAllComite());
-        return PREFIX + "comites";
+        model.addAttribute("asistenciacapacitaciones", asistenciaCapacitacionService.listAllAsistenciaCapacitacion());
+        return PREFIX + "asistenciacapacitaciones";
     }
     
      @RequestMapping("edit/{id}")
     public String edit(@PathVariable Integer id, Model model) {
-        model.addAttribute("comite", comiteService.getComiteById(id));
-        return PREFIX + "comiteform";
+        model.addAttribute("asistenciacapacitacion", asistenciaCapacitacionService.getAsistenciaCapacitacionById(id));
+        return PREFIX + "asistenciacapacitacionform";
     }
     
-    @RequestMapping("new/comite")
+    @RequestMapping("new/asistenciacapacitacion")
     public String newComite(Model model) {
-        model.addAttribute("comite", new Comite());
+        model.addAttribute("asistenciacapacitacion", new AsistenciaCapacitacion());
        // model.addAttribute("comite", new Comite());
-        return PREFIX + "comiteform";
+        return PREFIX + "AsistenciaCapacitacionform";
     }
     
-    @RequestMapping(value = "comite")
-    public String saveComite(Comite comite) {
-        comiteService.saveComite(comite);
+    @RequestMapping(value = "AsistenciaCapacitacion")
+    public String saveAsistenciaCapacitacion(AsistenciaCapacitacion asistenciaCapacitacion) {
+        asistenciaCapacitacionService.saveAsistenciaCapacitacion(asistenciaCapacitacion);
        
-        return "redirect:./show/" + comite.getCodigocomite();
+        return "redirect:./show/" + asistenciaCapacitacion.getUbicacionasistenciacapacitacion();
     }
     
 //      @RequestMapping(value = "comite",method=RequestMethod.POST)
@@ -77,19 +70,19 @@ public class ComiteController extends UtilsController{
 //    
 //    
      @RequestMapping("show/{id}")
-    public String showComite(@PathVariable Integer id, Model model) {
-        model.addAttribute("comite", comiteService.getComiteById(id).get());
-        return PREFIX +"comiteshow";
+    public String showAsistenciaCapacitacion(@PathVariable Integer id, Model model) {
+        model.addAttribute("asistenciacapacitacion", asistenciaCapacitacionService.getAsistenciaCapacitacionById(id).get());
+        return PREFIX +"asistenciacapacitacionshow";
     }
      @RequestMapping("delete/{id}")
     public String delete(@PathVariable Integer id) {
-        comiteService.deleteComite(id);
-        return "redirect:/comites/";
+        asistenciaCapacitacionService.deleteAsistenciaCapacitacion(id);
+        return "redirect:/asistenciacapacitaciones/";
     }
     
     @RequestMapping("report/")
     public String reporte() {
-        return PREFIX + "comitesreport";
+        return PREFIX + "asistenciacapacitacionesreport";
     }
     
     @RequestMapping(value = "pdf/{indice}", method = { RequestMethod.POST, RequestMethod.GET })
@@ -102,7 +95,6 @@ public class ComiteController extends UtilsController{
 		params.put("CODIGO", indice.toString());
 		params.put("FECHAINICIO", fechainicio);
 		params.put("FECHAFIN", fechafin);
-        	generatePdf("comites", "rpt_comites", params, download,response);
+        	generatePdf("asistenciacapacitaciones", "rpt_asistenciacapacitaciones", params, download,response);
     }
-    
 }

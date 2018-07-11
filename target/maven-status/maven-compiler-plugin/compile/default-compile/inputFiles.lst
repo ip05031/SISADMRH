@@ -12,11 +12,13 @@
 /home/daniel/NetBeansProjects/SISADMRH/src/main/java/mj/gob/sisadmrh/controller/nivelescolaridad/NivelEscolaridadController.java
 /home/daniel/NetBeansProjects/SISADMRH/src/main/java/mj/gob/sisadmrh/service/EmpleadoBeneficioService.java
 /home/daniel/NetBeansProjects/SISADMRH/src/main/java/mj/gob/sisadmrh/repository/RolRepository.java
+/home/daniel/NetBeansProjects/SISADMRH/src/main/java/mj/gob/sisadmrh/service/AsistenciaCapacitacionImpl.java
 /home/daniel/NetBeansProjects/SISADMRH/src/main/java/mj/gob/sisadmrh/controller/estado/EstadoController.java
 /home/daniel/NetBeansProjects/SISADMRH/src/main/java/mj/gob/sisadmrh/model/Capacitacion.java
 /home/daniel/NetBeansProjects/SISADMRH/src/main/java/mj/gob/sisadmrh/controller/comite/ComiteController.java
 /home/daniel/NetBeansProjects/SISADMRH/src/main/java/mj/gob/sisadmrh/service/PuestoServiceImpl.java
 /home/daniel/NetBeansProjects/SISADMRH/src/main/java/mj/gob/sisadmrh/service/CapacitadorService.java
+/home/daniel/NetBeansProjects/SISADMRH/src/main/java/mj/gob/sisadmrh/repository/AsistenciaCapacitacionRepository.java
 /home/daniel/NetBeansProjects/SISADMRH/src/main/java/mj/gob/sisadmrh/service/UsuarioServiceImpl.java
 /home/daniel/NetBeansProjects/SISADMRH/src/main/java/mj/gob/sisadmrh/model/UsuariorolPK.java
 /home/daniel/NetBeansProjects/SISADMRH/src/main/java/mj/gob/sisadmrh/repository/NivelEscolaridadRepository.java
@@ -26,6 +28,7 @@
 /home/daniel/NetBeansProjects/SISADMRH/src/main/java/mj/gob/sisadmrh/controller/puesto/PuestoController.java
 /home/daniel/NetBeansProjects/SISADMRH/src/main/java/mj/gob/sisadmrh/model/CostoCapacitacion.java
 /home/daniel/NetBeansProjects/SISADMRH/src/main/java/mj/gob/sisadmrh/model/EvualuacionCapacitacion.java
+/home/daniel/NetBeansProjects/SISADMRH/src/main/java/mj/gob/sisadmrh/controller/asistenciacapacitaciones/AsistenciaCapacitacionController.java
 /home/daniel/NetBeansProjects/SISADMRH/src/main/java/mj/gob/sisadmrh/model/Estado.java
 /home/daniel/NetBeansProjects/SISADMRH/src/main/java/mj/gob/sisadmrh/controller/usuario/UsuarioController.java
 /home/daniel/NetBeansProjects/SISADMRH/src/main/java/mj/gob/sisadmrh/service/CapacitadorServiceImpl.java
@@ -59,7 +62,9 @@
 /home/daniel/NetBeansProjects/SISADMRH/src/main/java/mj/gob/sisadmrh/repository/CostoCapacitacionRepository.java
 /home/daniel/NetBeansProjects/SISADMRH/src/main/java/mj/gob/sisadmrh/model/Comite.java
 /home/daniel/NetBeansProjects/SISADMRH/src/main/java/mj/gob/sisadmrh/controller/UtilsController.java
+/home/daniel/NetBeansProjects/SISADMRH/src/main/java/mj/gob/sisadmrh/service/AsistenciaCapacitacionService.java
 /home/daniel/NetBeansProjects/SISADMRH/src/main/java/mj/gob/sisadmrh/model/Empleadobeneficio.java
+/home/daniel/NetBeansProjects/SISADMRH/src/main/java/mj/gob/sisadmrh/controller/costocapacitacion/CostoCapacitacionController.java
 /home/daniel/NetBeansProjects/SISADMRH/src/main/java/mj/gob/sisadmrh/controller/capacitacion/CapacitacionController.java
 /home/daniel/NetBeansProjects/SISADMRH/src/main/java/mj/gob/sisadmrh/model/Puesto.java
 /home/daniel/NetBeansProjects/SISADMRH/src/main/java/mj/gob/sisadmrh/repository/EmpleadoBeneficioRepository.java
@@ -68,4 +73,3 @@
 /home/daniel/NetBeansProjects/SISADMRH/src/main/java/mj/gob/sisadmrh/service/ComiteService.java
 /home/daniel/NetBeansProjects/SISADMRH/src/main/java/mj/gob/sisadmrh/service/CapacitacionServiceImpl.java
 /home/daniel/NetBeansProjects/SISADMRH/src/main/java/mj/gob/sisadmrh/repository/ComiteRepository.java
-/home/daniel/NetBeansProjects/SISADMRH/src/main/java/mj/gob/sisadmrh/controller/CostoCapacitacionController.java
