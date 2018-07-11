@@ -14,7 +14,7 @@ public interface CapacitadorService {
     
     Optional<Capacitador> getCapacitadorById(Integer id);
 
-    Capacitador saveCapacaitador(Capacitador capacitador);
+    Capacitador saveCapacitador(Capacitador capacitador);
 
     void deleteCapacitador(Integer id);
     

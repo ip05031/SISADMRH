@@ -42,12 +42,12 @@ public class CapacitadorController extends UtilsController{
      @RequestMapping("new/capacitador")
     public String newCapacitador(Model model) {
         model.addAttribute("capacitador", new Capacitador());
-        model.addAttribute("capacitador", new Capacitador());
+       // model.addAttribute("capacitador", new Capacitador());
         return PREFIX + "capacitadorform";
     }
      @RequestMapping(value = "capacitador")
     public String saveCapacitador(Capacitador capacitador) {
-        capacitadorService.saveCapacaitador(capacitador);
+        capacitadorService.saveCapacitador(capacitador);
        
         return "redirect:./show/" + capacitador.getCodigocapacitador();
     }

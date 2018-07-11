@@ -37,7 +37,7 @@ public class CapacitadorServiceImpl implements CapacitadorService{
     }
 
     @Override
-    public Capacitador saveCapacaitador(Capacitador capacitador) {
+    public Capacitador saveCapacitador(Capacitador capacitador) {
 return capacitadorRep.save(capacitador);
 // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
