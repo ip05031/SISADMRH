@@ -6,14 +6,10 @@ mj/gob/sisadmrh/repository/ComiteRepository.class
 mj/gob/sisadmrh/controller/rol/RolController.class
 mj/gob/sisadmrh/service/RolService.class
 mj/gob/sisadmrh/model/NivelEscolaridad.class
-<<<<<<< HEAD
 mj/gob/sisadmrh/repository/AsistenciaCapacitacionRepository.class
 mj/gob/sisadmrh/model/Rol.class
-=======
->>>>>>> c9e86554f3b1a3854be4f2a85ca81d100187ccd0
-mj/gob/sisadmrh/service/NivelEscolaridadService.class
-mj/gob/sisadmrh/model/Rol.class
 mj/gob/sisadmrh/controller/WebUtils.class
+mj/gob/sisadmrh/service/NivelEscolaridadService.class
 mj/gob/sisadmrh/model/CostoCapacitacion.class
 mj/gob/sisadmrh/service/UsuarioServiceImpl.class
 mj/gob/sisadmrh/controller/costocapacitacion/CostoCapacitacionController.class
@@ -23,15 +19,14 @@ mj/gob/sisadmrh/model/Empleado.class
 mj/gob/sisadmrh/service/EstadoServiceImpl.class
 mj/gob/sisadmrh/repository/EstadoRepository.class
 mj/gob/sisadmrh/service/CostoCapacitacionService.class
-mj/gob/sisadmrh/service/PuestoService.class
 mj/gob/sisadmrh/model/UsuariorolPK.class
+mj/gob/sisadmrh/service/PuestoService.class
 mj/gob/sisadmrh/model/DiagnosticoCapacitacion.class
 mj/gob/sisadmrh/ServletInitializer.class
 mj/gob/sisadmrh/model/EmpleadobeneficioPK.class
 mj/gob/sisadmrh/model/Capacitacion.class
 mj/gob/sisadmrh/controller/estado/EstadoController.class
 mj/gob/sisadmrh/service/BeneficioService.class
-mj/gob/sisadmrh/repository/AsistenciaCapacitacionRepositoy.class
 mj/gob/sisadmrh/service/CapacitacionService.class
 mj/gob/sisadmrh/service/NivelEscolaridadServiceImpl.class
 mj/gob/sisadmrh/model/Puesto.class
@@ -41,15 +36,15 @@ mj/gob/sisadmrh/repository/CostoCapacitacionRepository.class
 mj/gob/sisadmrh/controller/beneficios/BeneficioController.class
 mj/gob/sisadmrh/repository/UsuarioRepository.class
 mj/gob/sisadmrh/model/Empleadobeneficio.class
-mj/gob/sisadmrh/service/UsuarioService.class
 mj/gob/sisadmrh/model/Usuariorol.class
+mj/gob/sisadmrh/service/UsuarioService.class
 mj/gob/sisadmrh/repository/CapacitadorRepository.class
 mj/gob/sisadmrh/controller/HomeController.class
 mj/gob/sisadmrh/service/UserDetailsServiceImpl.class
 mj/gob/sisadmrh/controller/capacitacion/CapacitacionController.class
 mj/gob/sisadmrh/service/EstadoService.class
-mj/gob/sisadmrh/service/EmpleadoBeneficioServiceImpl.class
 mj/gob/sisadmrh/controller/puesto/PuestoController.class
+mj/gob/sisadmrh/service/EmpleadoBeneficioServiceImpl.class
 mj/gob/sisadmrh/controller/comite/ComiteController.class
 mj/gob/sisadmrh/model/Capacitador.class
 mj/gob/sisadmrh/repository/EmpleadoBeneficioRepository.class
@@ -69,11 +64,8 @@ mj/gob/sisadmrh/service/CapacitadorServiceImpl.class
 mj/gob/sisadmrh/model/Usuario.class
 mj/gob/sisadmrh/service/CapacitacionServiceImpl.class
 mj/gob/sisadmrh/controller/usuario/UsuarioController.class
-<<<<<<< HEAD
 mj/gob/sisadmrh/controller/asistenciacapacitaciones/AsistenciaCapacitacionController.class
-=======
 mj/gob/sisadmrh/config/SecurityConfig.class
->>>>>>> c9e86554f3b1a3854be4f2a85ca81d100187ccd0
 mj/gob/sisadmrh/controller/UtilsController.class
 mj/gob/sisadmrh/model/EvualuacionCapacitacion.class
 mj/gob/sisadmrh/model/AsistenciaCapacitacion.class
