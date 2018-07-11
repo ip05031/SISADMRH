@@ -152,35 +152,35 @@ $P{FECHAINICIO} and $P{FECHAFIN}]]>
 				<textElement>
 					<font isUnderline="true"/>
 				</textElement>
-				<text><![CDATA[NOMBREEMPLEADO]]></text>
+				<text><![CDATA[Empleado]]></text>
 			</staticText>
 			<staticText>
 				<reportElement uuid="7e076150-d156-4236-aee8-35b1156f7138" x="100" y="20" width="100" height="20"/>
 				<textElement>
 					<font isUnderline="true"/>
 				</textElement>
-				<text><![CDATA[NOMBREBENEFICIO]]></text>
+				<text><![CDATA[Nombre]]></text>
 			</staticText>
 			<staticText>
 				<reportElement uuid="04190aba-1eb9-4136-b324-34ffd66d26d0" x="332" y="20" width="223" height="20"/>
 				<textElement>
 					<font isUnderline="true"/>
 				</textElement>
-				<text><![CDATA[DESCRIPCIONBENEFICIO]]></text>
+				<text><![CDATA[Descripcion]]></text>
 			</staticText>
 			<staticText>
 				<reportElement uuid="2b1920bb-54aa-4296-bdc2-bce9dc33b72e" x="300" y="20" width="32" height="20"/>
 				<textElement>
 					<font isUnderline="true"/>
 				</textElement>
-				<text><![CDATA[SEXOEMPLEADO]]></text>
+				<text><![CDATA[Sexo]]></text>
 			</staticText>
 			<staticText>
 				<reportElement uuid="6f34145f-662c-4029-a33d-eae35bf8451a" x="0" y="20" width="100" height="20"/>
 				<textElement>
 					<font isUnderline="true"/>
 				</textElement>
-				<text><![CDATA[CODIGOBENEFICIO]]></text>
+				<text><![CDATA[Codigo de Beneficio]]></text>
 			</staticText>
 		</band>
 	</columnHeader>

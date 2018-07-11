@@ -171,6 +171,9 @@
                                                   
 					</ul>
 				</li>
+                                  <li class="dropdown">
+					 <a th:if="${#request.userPrincipal != null}" th:href="@{/logout}">Cerrar Session</a>
+				</li>
 			</ul>
 		</div>
 	</div>

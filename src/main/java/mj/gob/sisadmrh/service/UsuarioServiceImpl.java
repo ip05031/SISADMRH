@@ -1,6 +1,7 @@
 package mj.gob.sisadmrh.service;
 
 import java.util.Optional;
+import mj.gob.sisadmrh.mapper.AppUserMapper;
 import mj.gob.sisadmrh.model.Usuario;
 import mj.gob.sisadmrh.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,4 +42,8 @@ public class UsuarioServiceImpl implements UsuarioService {
         usuarioRep.deleteById(id);
     }
 
+
+    
+
+   
 }

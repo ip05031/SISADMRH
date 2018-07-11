@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <link href="../static/css/style.css" th:href="@{css/style.css}" rel="stylesheet" media="screen"/>
+        <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <title>Login</title>
+    <th:block th:include="../templates/header"></th:block>
+</head>
+<body>
+    <div class="col-md-3">
+        <th:block th:include="../templates/menu"></th:block>
+    </div>
+    <div class="col-md-8">
+    <h1>Login</h1>
+    <!-- /login?error=true -->
+    <div th:if="${#request.getParameter('error') == 'true'}"
+         style="color:red;margin:10px 0px;">
+        ACCESO NO PERMITIDO!!!<br />
+        Razon :
+        <span th:if="${#session!= null and #session.getAttribute('SPRING_SECURITY_LAST_EXCEPTION') != null}"
+              th:utext="${#session.getAttribute('SPRING_SECURITY_LAST_EXCEPTION').message}">
+            Static summary
+        </span>
+
+    </div>
+
+    <h3>Introdusca nombre de usuario y contraseña:</h3>
+    <form name='f' th:action="@{/j_spring_security_check}" method='POST'>
+        <table>
+            <tr>
+                <td>User:</td>
+                <td><input type='text' name='username' value='' ></td>
+            </tr>
+            <tr>
+                <td>Password:</td>
+                <td><input type='password' name='password' /></td>
+            </tr>
+            <tr>
+                <td><input name="submit" type="submit" value="Login" /></td>
+            </tr>
+        </table>
+    </form>
+
+    <br>
+    Username/pass:
+    <ul>
+        <li>dbuser1/123</li>
+        <li>dbadmin1/123</li>
+    </ul>  
+    </div>
+   <div class="col-md-12">
+            <th:block th:include="footer"></th:block>
+   </div>
+</body>
+
+</html>
