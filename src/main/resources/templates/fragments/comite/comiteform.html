@@ -7,8 +7,12 @@
   <th:block th:include="../templates/header"></th:block>
   </head>
 <body>
-<div class="container">
-    <h2>Detalle comite</h2>
+    <div class="row">
+        <div class="col-md-3">
+         <th:block th:include="../templates/menu"></th:block>
+    </div> 
+        <div class="col-md-8">
+             <h3 align="center">Detalle comite</h3>
     <div>
         <form class="form-horizontal" th:object="${comite}" th:action="@{../comite}" method="post">
 <!--          <input type="hidden" th:field="*{codigocomite}"/>-->
@@ -80,7 +84,14 @@
     </div>
         </form>
     </div>
-</div>
+
+            
+        </div>
+    </div>
+   </div>
+  <div class="col-md-12">
+            <th:block th:include="../templates/footer"></th:block>
+        </div>   
 <script>
     $(document).ready(function () {
         $('#fechadesdecomite').datepicker({

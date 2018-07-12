@@ -6,23 +6,23 @@
 </head>
 <body>
 <div class="container">
-    Listado de Capacitadores
+   
     <div th:if="${not #lists.isEmpty(capacitadores)}">
-        <h2>Listado de Capacitadores</h2>
+        <h3 align="center">Listado de Capacitadores</h3>
         <table class="table table-striped">
             <tr>
                 <th>Codigo</th>
                 <th>Nombre</th>
                 <th>Tema Dominio</th>
                 <th>Tipo Capacitador</th>
-                  <th>Tipo Capacitador</th>
+                
                   <th>Dui</th>
                   <th>Nit</th>
                   <th>Carnet Residente</th>
                   <th>Telefono</th>
                   <th>Celular</th>
                   <th>Email</th>
-                  <th>Codigo Empleado</th>
+<!--                  <th>Codigo Empleado</th>-->
                   <th>Acciones</th>
             </tr>
             <tr th:each="capacitador : ${capacitadores}">
@@ -38,7 +38,8 @@
                 <td th:text="${capacitador.emailcapacitador}">Email</td>
 <!--                <td th:text="${capacitador.codigoempleado.codigoempleado}">Email</td>-->
                 
-                <td><a th:href="${'./show/' + capacitador.codigocapacitador}" class="btn btn-default">Mostrar</a>
+                <td>
+                    <a th:href="${'./show/' + capacitador.codigocapacitador}" class="btn btn-default">Mostrar</a>
                 <a th:href="${'./edit/' + capacitador.codigocapacitador}" class="btn btn-default">Edit</a>
                 <a th:href="${'./delete/' + capacitador.codigocapacitador}" class="btn btn-danger">Delete</a>
                 </td>

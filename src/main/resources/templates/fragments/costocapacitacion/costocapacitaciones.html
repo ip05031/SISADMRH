@@ -6,9 +6,9 @@
 </head>
 <body>
 <div class="container">
-    e aqui
+   
     <div th:if="${not #lists.isEmpty(costocapacitaciones)}">
-        <h2>Listado de costos de Capacitaciones</h2>
+        <h3 align="center">Listado de costos de Capacitaciones</h3>
         <table class="table table-striped">
             <tr>
                 <th>Codigo de costo de Capacitacion</th>
@@ -21,10 +21,10 @@
                 
             </tr>
             <tr th:each="costocapacitacion : ${costocapacitaciones}">
-                <td th:text="${costocapacitacion.codigocostocapacitacion}">Codigo Capacitacion</td>
-                <td  th:text="${costocapacitacion.costopersona}">Costo Persona</td>
-                <td  th:text="${costocapacitacion.numeropersona}">Numero de Personas</td>
-               <td   th:text="${costocapacitacion.costocapacitador}">Costo de Capactador</td>
+                <td align="center" th:text="${costocapacitacion.codigocostocapacitacion}">Codigo Capacitacion</td>
+                <td align="center" th:text="${costocapacitacion.costopersona}">Costo Persona</td>
+                <td align="center" th:text="${costocapacitacion.numeropersona}">Numero de Personas</td>
+               <td  align="center" th:text="${costocapacitacion.costocapacitador}">Costo de Capactador</td>
 <!--               <td  th:text="${costocapacitacion.codigocapacitacion}">Codigo Capacitacion</td>-->
                
                 

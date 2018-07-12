@@ -48,17 +48,17 @@ public class AsistenciaCapacitacionController extends UtilsController{
     }
     
     @RequestMapping("new/asistenciacapacitacion")
-    public String newComite(Model model) {
+    public String newAsistenciaCapacitacion(Model model) {
         model.addAttribute("asistenciacapacitacion", new AsistenciaCapacitacion());
        // model.addAttribute("comite", new Comite());
-        return PREFIX + "AsistenciaCapacitacionform";
+        return PREFIX + "asistenciacapacitacionform";
     }
     
-    @RequestMapping(value = "AsistenciaCapacitacion")
+    @RequestMapping(value = "asistenciacapacitacion")
     public String saveAsistenciaCapacitacion(AsistenciaCapacitacion asistenciaCapacitacion) {
         asistenciaCapacitacionService.saveAsistenciaCapacitacion(asistenciaCapacitacion);
        
-        return "redirect:./show/" + asistenciaCapacitacion.getUbicacionasistenciacapacitacion();
+        return "redirect:./show/" + asistenciaCapacitacion.getCodigoasistenciacapacitacion();
     }
     
 //      @RequestMapping(value = "comite",method=RequestMethod.POST)
