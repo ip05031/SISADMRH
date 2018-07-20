@@ -24,6 +24,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -34,21 +35,12 @@ import javax.validation.constraints.Size;
 @NamedQueries({
 @NamedQuery(name = "Empleado.findAll", query = "SELECT e FROM Empleado e")})
 public class Empleado implements Serializable {
-    private static final long serialVersionUID = 1L;
-    @Id
-    @Basic(optional = false)
-    @NotNull
-    @Column(name = "CODIGOEMPLEADO")
-    private Integer codigoempleado;
     @Size(max = 50)
     @Column(name = "NOMBREEMPLEADO")
     private String nombreempleado;
     @Size(max = 50)
     @Column(name = "APELLIDOEMPLEADO")
     private String apellidoempleado;
-    @Column(name = "FECHANACIMIENTOEMPLEADO")
-    @Temporal(TemporalType.DATE)
-    private Date fechanacimientoempleado;
     @Size(max = 50)
     @Column(name = "NACIONALIDAD")
     private String nacionalidad;
@@ -91,15 +83,6 @@ public class Empleado implements Serializable {
     @Size(max = 9)
     @Column(name = "ISSSEMPLEADO")
     private String isssempleado;
-    @Column(name = "FECHAINGRESOSECPUB")
-    @Temporal(TemporalType.DATE)
-    private Date fechaingresosecpub;
-    @Column(name = "FECHAINGRESOSECPRIV")
-    @Temporal(TemporalType.DATE)
-    private Date fechaingresosecpriv;
-    @Column(name = "FECHAINGRESOMINISTERIO")
-    @Temporal(TemporalType.DATE)
-    private Date fechaingresoministerio;
     @Size(max = 6)
     @Column(name = "AFILIACIONPENSION")
     private String afiliacionpension;
@@ -115,11 +98,36 @@ public class Empleado implements Serializable {
     @Size(max = 50)
     @Column(name = "EMAILEMPLEADO")
     private String emailempleado;
-    @Column(name = "ESTADOEMPLEADO")
-    private Integer estadoempleado;
     @Size(max = 1)
     @Column(name = "SEXOEMPLEADO")
     private String sexoempleado;
+    @JoinTable(name = "EMPLEADOMISION", joinColumns = {
+        @JoinColumn(name = "CODIGOEMPLEADO", referencedColumnName = "CODIGOEMPLEADO")}, inverseJoinColumns = {
+        @JoinColumn(name = "CODIGOMISION", referencedColumnName = "CODIGOMISION")})
+    @ManyToMany
+    private List<Mision> misionList;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "codigoempleado")
+    private List<Ubicacionfisica> ubicacionfisicaList;
+    private static final long serialVersionUID = 1L;
+    @Id
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "CODIGOEMPLEADO")
+    private Integer codigoempleado;
+    @Column(name = "FECHANACIMIENTOEMPLEADO")
+    @Temporal(TemporalType.DATE)
+    private Date fechanacimientoempleado;
+    @Column(name = "FECHAINGRESOSECPUB")
+    @Temporal(TemporalType.DATE)
+    private Date fechaingresosecpub;
+    @Column(name = "FECHAINGRESOSECPRIV")
+    @Temporal(TemporalType.DATE)
+    private Date fechaingresosecpriv;
+    @Column(name = "FECHAINGRESOMINISTERIO")
+    @Temporal(TemporalType.DATE)
+    private Date fechaingresoministerio;
+    @Column(name = "ESTADOEMPLEADO")
+    private Integer estadoempleado;
     @JoinTable(name = "EMPLEADONIVELESCOLARIDAD", joinColumns = {
         @JoinColumn(name = "CODIGOEMPLEADO", referencedColumnName = "CODIGOEMPLEADO")}, inverseJoinColumns = {
         @JoinColumn(name = "CODIGONIVELNIVELESCOLARIDAD", referencedColumnName = "CODIGONIVELNIVELESCOLARIDAD")})
@@ -157,6 +165,130 @@ public class Empleado implements Serializable {
         this.codigoempleado = codigoempleado;
     }
 
+
+    public Date getFechanacimientoempleado() {
+        return fechanacimientoempleado;
+    }
+
+    public void setFechanacimientoempleado(Date fechanacimientoempleado) {
+        this.fechanacimientoempleado = fechanacimientoempleado;
+    }
+
+
+    public Date getFechaingresosecpub() {
+        return fechaingresosecpub;
+    }
+
+    public void setFechaingresosecpub(Date fechaingresosecpub) {
+        this.fechaingresosecpub = fechaingresosecpub;
+    }
+
+    public Date getFechaingresosecpriv() {
+        return fechaingresosecpriv;
+    }
+
+    public void setFechaingresosecpriv(Date fechaingresosecpriv) {
+        this.fechaingresosecpriv = fechaingresosecpriv;
+    }
+
+    public Date getFechaingresoministerio() {
+        return fechaingresoministerio;
+    }
+
+    public void setFechaingresoministerio(Date fechaingresoministerio) {
+        this.fechaingresoministerio = fechaingresoministerio;
+    }
+
+
+    public Integer getEstadoempleado() {
+        return estadoempleado;
+    }
+
+    public void setEstadoempleado(Integer estadoempleado) {
+        this.estadoempleado = estadoempleado;
+    }
+
+
+    public List<NivelEscolaridad> getNivelescolaridadList() {
+        return nivelescolaridadList;
+    }
+
+    public void setNivelescolaridadList(List<NivelEscolaridad> nivelescolaridadList) {
+        this.nivelescolaridadList = nivelescolaridadList;
+    }
+
+    public List<AsistenciaCapacitacion> getAsistenciacapacitacionList() {
+        return asistenciacapacitacionList;
+    }
+
+    public void setAsistenciacapacitacionList(List<AsistenciaCapacitacion> asistenciacapacitacionList) {
+        this.asistenciacapacitacionList = asistenciacapacitacionList;
+    }
+
+    public List<Capacitacion> getCapacitacionList() {
+        return capacitacionList;
+    }
+
+    public void setCapacitacionList(List<Capacitacion> capacitacionList) {
+        this.capacitacionList = capacitacionList;
+    }
+
+    public List<Capacitador> getCapacitadorList() {
+        return capacitadorList;
+    }
+
+    public void setCapacitadorList(List<Capacitador> capacitadorList) {
+        this.capacitadorList = capacitadorList;
+    }
+
+    public List<Comite> getComiteList() {
+        return comiteList;
+    }
+
+    public void setComiteList(List<Comite> comiteList) {
+        this.comiteList = comiteList;
+    }
+
+    public List<CuadroDirectivo> getCuadrodirectivoList() {
+        return cuadrodirectivoList;
+    }
+
+    public void setCuadrodirectivoList(List<CuadroDirectivo> cuadrodirectivoList) {
+        this.cuadrodirectivoList = cuadrodirectivoList;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 0;
+        hash += (codigoempleado != null ? codigoempleado.hashCode() : 0);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        // TODO: Warning - this method won't work in the case the id fields are not set
+        if (!(object instanceof Empleado)) {
+            return false;
+        }
+        Empleado other = (Empleado) object;
+        if ((this.codigoempleado == null && other.codigoempleado != null) || (this.codigoempleado != null && !this.codigoempleado.equals(other.codigoempleado))) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return "mj.gob.sisadmrh.model.Empleado[ codigoempleado=" + codigoempleado + " ]";
+    }
+    @XmlTransient
+    public List<Ubicacionfisica> getUbicacionfisicaList() {
+        return ubicacionfisicaList;
+    }
+    public void setUbicacionfisicaList(List<Ubicacionfisica> ubicacionfisicaList) {
+        this.ubicacionfisicaList = ubicacionfisicaList;
+    }
+
     public String getNombreempleado() {
         return nombreempleado;
     }
@@ -171,14 +303,6 @@ public class Empleado implements Serializable {
 
     public void setApellidoempleado(String apellidoempleado) {
         this.apellidoempleado = apellidoempleado;
-    }
-
-    public Date getFechanacimientoempleado() {
-        return fechanacimientoempleado;
-    }
-
-    public void setFechanacimientoempleado(Date fechanacimientoempleado) {
-        this.fechanacimientoempleado = fechanacimientoempleado;
     }
 
     public String getNacionalidad() {
@@ -293,30 +417,6 @@ public class Empleado implements Serializable {
         this.isssempleado = isssempleado;
     }
 
-    public Date getFechaingresosecpub() {
-        return fechaingresosecpub;
-    }
-
-    public void setFechaingresosecpub(Date fechaingresosecpub) {
-        this.fechaingresosecpub = fechaingresosecpub;
-    }
-
-    public Date getFechaingresosecpriv() {
-        return fechaingresosecpriv;
-    }
-
-    public void setFechaingresosecpriv(Date fechaingresosecpriv) {
-        this.fechaingresosecpriv = fechaingresosecpriv;
-    }
-
-    public Date getFechaingresoministerio() {
-        return fechaingresoministerio;
-    }
-
-    public void setFechaingresoministerio(Date fechaingresoministerio) {
-        this.fechaingresoministerio = fechaingresoministerio;
-    }
-
     public String getAfiliacionpension() {
         return afiliacionpension;
     }
@@ -357,14 +457,6 @@ public class Empleado implements Serializable {
         this.emailempleado = emailempleado;
     }
 
-    public Integer getEstadoempleado() {
-        return estadoempleado;
-    }
-
-    public void setEstadoempleado(Integer estadoempleado) {
-        this.estadoempleado = estadoempleado;
-    }
-
     public String getSexoempleado() {
         return sexoempleado;
     }
@@ -373,77 +465,12 @@ public class Empleado implements Serializable {
         this.sexoempleado = sexoempleado;
     }
 
-    public List<NivelEscolaridad> getNivelescolaridadList() {
-        return nivelescolaridadList;
+    public List<Mision> getMisionList() {
+        return misionList;
     }
 
-    public void setNivelescolaridadList(List<NivelEscolaridad> nivelescolaridadList) {
-        this.nivelescolaridadList = nivelescolaridadList;
-    }
-
-    public List<AsistenciaCapacitacion> getAsistenciacapacitacionList() {
-        return asistenciacapacitacionList;
-    }
-
-    public void setAsistenciacapacitacionList(List<AsistenciaCapacitacion> asistenciacapacitacionList) {
-        this.asistenciacapacitacionList = asistenciacapacitacionList;
-    }
-
-    public List<Capacitacion> getCapacitacionList() {
-        return capacitacionList;
-    }
-
-    public void setCapacitacionList(List<Capacitacion> capacitacionList) {
-        this.capacitacionList = capacitacionList;
-    }
-
-    public List<Capacitador> getCapacitadorList() {
-        return capacitadorList;
-    }
-
-    public void setCapacitadorList(List<Capacitador> capacitadorList) {
-        this.capacitadorList = capacitadorList;
-    }
-
-    public List<Comite> getComiteList() {
-        return comiteList;
-    }
-
-    public void setComiteList(List<Comite> comiteList) {
-        this.comiteList = comiteList;
-    }
-
-    public List<CuadroDirectivo> getCuadrodirectivoList() {
-        return cuadrodirectivoList;
-    }
-
-    public void setCuadrodirectivoList(List<CuadroDirectivo> cuadrodirectivoList) {
-        this.cuadrodirectivoList = cuadrodirectivoList;
-    }
-
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (codigoempleado != null ? codigoempleado.hashCode() : 0);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Empleado)) {
-            return false;
-        }
-        Empleado other = (Empleado) object;
-        if ((this.codigoempleado == null && other.codigoempleado != null) || (this.codigoempleado != null && !this.codigoempleado.equals(other.codigoempleado))) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return "mj.gob.sisadmrh.model.Empleado[ codigoempleado=" + codigoempleado + " ]";
+    public void setMisionList(List<Mision> misionList) {
+        this.misionList = misionList;
     }
     
 }

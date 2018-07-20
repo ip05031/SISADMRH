@@ -16,12 +16,14 @@ mj/gob/sisadmrh/controller/costocapacitacion/CostoCapacitacionController.class
 mj/gob/sisadmrh/service/PuestoServiceImpl.class
 mj/gob/sisadmrh/service/ComiteService.class
 mj/gob/sisadmrh/model/Empleado.class
+mj/gob/sisadmrh/model/Mision.class
 mj/gob/sisadmrh/service/EstadoServiceImpl.class
 mj/gob/sisadmrh/repository/EstadoRepository.class
 mj/gob/sisadmrh/service/CostoCapacitacionService.class
 mj/gob/sisadmrh/model/UsuariorolPK.class
 mj/gob/sisadmrh/service/PuestoService.class
 mj/gob/sisadmrh/model/DiagnosticoCapacitacion.class
+mj/gob/sisadmrh/model/Ubicacionfisica.class
 mj/gob/sisadmrh/ServletInitializer.class
 mj/gob/sisadmrh/model/EmpleadobeneficioPK.class
 mj/gob/sisadmrh/model/Capacitacion.class

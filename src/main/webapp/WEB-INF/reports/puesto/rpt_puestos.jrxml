@@ -209,18 +209,18 @@ WHERE
 		</band>
 	</detail>
 	<columnFooter>
-		<band height="45" splitType="Stretch"/>
-	</columnFooter>
-	<pageFooter>
-		<band height="54" splitType="Stretch">
+		<band height="45" splitType="Stretch">
 			<textField evaluationTime="Report">
-				<reportElement x="5" y="34" width="100" height="20" uuid="629deae5-0261-45bc-8c0f-1e8da51865c7"/>
+				<reportElement x="8" y="37" width="100" height="20" uuid="629deae5-0261-45bc-8c0f-1e8da51865c7"/>
 				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
 			<line>
-				<reportElement x="-3" y="20" width="568" height="1" uuid="065de079-304c-4465-9dd2-e757d4f62ead"/>
+				<reportElement x="0" y="23" width="568" height="1" uuid="065de079-304c-4465-9dd2-e757d4f62ead"/>
 			</line>
 		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
 	</pageFooter>
 	<summary>
 		<band height="42" splitType="Stretch"/>

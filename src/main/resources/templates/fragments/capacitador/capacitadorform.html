@@ -1,122 +1,147 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head lang="en">
+    <head lang="en">
 
-    <title>Nuevo Capacitador</title>
-  <th:block th:include="../templates/header"></th:block>
-  </head>
+        <title>Nuevo Capacitador</title>
+    <th:block th:include="../templates/header"></th:block>
+</head>
 <body>
-<!--<div class="container">-->
-<div class="row">
-    <div class="col-md-3">
-         <th:block th:include="../templates/menu"></th:block>
-    </div> 
-    <div class="col-md-8">
-        <h3 align="center">Detalle Capacitador</h3>
-    <div>
-        <form class="form-horizontal" th:object="${capacitador}" th:action="@{../capacitador}" method="post">
-<!--            <input type="hidden" th:field="*{codigocapacitador}"/>
-            <input type="hidden" th:field="*{nombrecapacitador}"/>-->
-<!--            <div class="form-group">
-                <label class="col-sm-2 control-label">Codigo de Capacitador:</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" th:field="*{codigocapacitador}"/>
-                </div>
-            </div>-->
-            
-             <div class="form-group">
-                <label class="col-sm-2 control-label">Codigo de Empleado:</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" th:field="*{codigoempleado.codigoempleado}"/>
-                </div>
-            </div>
-            
-             <div class="form-group">
-                <label class="col-sm-2 control-label">Nombre Capacitador:</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" th:field="*{nombrecapacitador}"/>
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="col-sm-2 control-label">Categoria del Puesto(*):</label>
-                <div class="col-sm-4">
-                    <!--<input type="text" class="form-control" th:field="*{categoriapuesto}"/>-->
-                    <select class="form-control" name="temadominio" >
-                        <option>Terapia Psicologia</option>
-                        <option>Desarrollo Personal</option>
-                        <option>Derechos laborales</option>
+    <!--<div class="container">-->
+    <div class="row">
+        <div class="col-md-3">
+            <th:block th:include="../templates/menu"></th:block>
+        </div> 
+        <div class="col-md-8">
+            <h3 align="center">Detalle Capacitador</h3>
+            <div>
+                <form class="form-horizontal" th:object="${capacitador}" th:action="@{../capacitador}" method="post">
+                    <!--            <input type="hidden" th:field="*{codigocapacitador}"/>
+                                <input type="hidden" th:field="*{nombrecapacitador}"/>-->
+                    <!--            <div class="form-group">
+                                    <label class="col-sm-2 control-label">Codigo de Capacitador:</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" th:field="*{codigocapacitador}"/>
+                                    </div>
+                                </div>-->
 
-                    </select>
-                </div>
-            </div>
-<div class="form-group">
-    <label class="col-sm-2 control-label">Tipo Capacitador(*):</label>
-    <div class="col-sm-4">
-        <!--<input type="text" class="form-control" th:field="*{categoriapuesto}"/>-->
-        <select class="form-control" name="tipocapacitador" >
-            <option>Salu</option>
-            <option>Derecho</option>
-            <option>Educacion</option>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Codigo de Empleado:</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" th:field="*{codigoempleado.codigoempleado}"/>
+                        </div>
+                    </div>
 
-        </select>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Nombre Capacitador:</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" th:field="*{nombrecapacitador}"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Tema de Dominio(*):</label>
+                        <div class="col-sm-4">
+                            <!--<input type="text" class="form-control" th:field="*{categoriapuesto}"/>-->
+                            <select class="form-control" name="temadominio" >
+                                <option>Terapia Psicologia</option>
+                                <option>Desarrollo Personal</option>
+                                <option>Derechos laborales</option>
+
+                            </select>
+                        </div>
+                    </div>
+                   
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Institucion(*):</label>
+                        <div class="col-sm-4">
+
+                            <select class="form-control" name="institucioncapacitador" >
+                                <option>Publico</option>
+                                <option>Privado</option>
+                                <option>Red</option>
+
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Tipo Capacitador(*):</label>
+                        <div class="col-sm-4">
+
+                            <select class="form-control" name="tipocapacitador" >
+                                <option>Interno</option>
+                                <option>Publico</option>
+                                <option>Privado</option>
+
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Tipo Agrupacion(*):</label>
+                        <div class="col-sm-4">
+
+                            <select class="form-control" name="tipoagrupacion" >
+                                <option>Interno</option>
+                                <option>Publico</option>
+                                <option>Privado</option>
+
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Dui:</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" th:field="*{duicapacitador}"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Nit:</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" th:field="*{nitcapacitador}"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Carnet:</label>
+                        <div class="col-sm-10">
+                            <input type="number" class="form-control" th:field="*{carnetresidencia}"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Telefono:</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" th:field="*{telefonocapacitador}"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Movil:</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" th:field="*{telefonomovilcapacitador}"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Email:</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" th:field="*{emailcapacitador}"/>
+                        </div>
+                    </div>
+
+
+
+
+                    <div class="col-md-12">
+                        <div class="row" align="center">
+                            <button type="button" class="btn btn-default"><a href="#" th:href="@{/capacitadores/}">Regresar</a></button>
+                            <button type="submit" class="btn btn-default">Guardar</button>
+                            <button type="reset" class="btn btn-default">Limpiar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
     </div>
-</div>
-             <div class="form-group">
-                <label class="col-sm-2 control-label">Dui:</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" th:field="*{duicapacitador}"/>
-                </div>
-            </div>
-             <div class="form-group">
-                <label class="col-sm-2 control-label">Nit:</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" th:field="*{nitcapacitador}"/>
-                </div>
-            </div>
-             <div class="form-group">
-                <label class="col-sm-2 control-label">Carnet:</label>
-                <div class="col-sm-10">
-                    <input type="number" class="form-control" th:field="*{carnetresidencia}"/>
-                </div>
-            </div>
-             <div class="form-group">
-                <label class="col-sm-2 control-label">Telefono:</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" th:field="*{telefonocapacitador}"/>
-                </div>
-            </div>
-              <div class="form-group">
-                <label class="col-sm-2 control-label">Movil:</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" th:field="*{telefonomovilcapacitador}"/>
-                </div>
-            </div>
-              <div class="form-group">
-                <label class="col-sm-2 control-label">Email:</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" th:field="*{emailcapacitador}"/>
-                </div>
-            </div>
-            
-            
-            
-           
-<div class="col-md-12">
-            <div class="row" align="center">
-                <button type="button" class="btn btn-default"><a href="#" th:href="@{/capacitadores/}">Regresar</a></button>
-                <button type="submit" class="btn btn-default">Guardar</button>
-                <button type="reset" class="btn btn-default">Limpiar</button>
-            </div>
-    </div>
-        </form>
-    </div>
-        
-    </div>
-</div>
-  <div class="col-md-12">
-            <th:block th:include="../templates/footer"></th:block>
-        </div>   
-    
+    <div class="col-md-12">
+        <th:block th:include="../templates/footer"></th:block>
+    </div>   
+
 
 
 </body>

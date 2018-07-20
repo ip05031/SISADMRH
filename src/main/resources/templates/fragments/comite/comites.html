@@ -15,7 +15,9 @@
                     <h3 align="center">Listado de Comites</h3>
                     <table class="table table-striped">
                         <tr>
-                            <th>Codigo</th>
+                            <th>DUI</th>
+                            <th>Nit</th>
+<!--                            <th>Codigo</th>-->
                             <th>Nombre</th>
                             <th>Responsable</th>
                             <th>Descripcion</th>
@@ -28,8 +30,10 @@
 
                         </tr>
                         <tr th:each="comite : ${comites}">
-                            <td th:text="${comite.codigocomite}">Codigo</td>
+<!--                            <td th:text="${comite.codigocomite}">Codigo</td>-->
                             <td th:text="${comite.nombrecomite}">Nombre</td>
+                            <td th:text="${comite.dui}">DUI</td>
+                            <td th:text="${comite.nit}">NIT</td>
                             <td th:text="${comite.responsablecomite}">Responsable</td>
                             <td th:text="${comite.desripcioncomite}">Descripcion</td>
                             <td th:text="${comite.numeroacuerdocomite}">Numero acuerdo</td>

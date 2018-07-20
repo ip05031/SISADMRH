@@ -11,11 +11,12 @@
         <h3 align="center">Listado de Capacitadores</h3>
         <table class="table table-striped">
             <tr>
-                <th>Codigo</th>
+<!--                <th>Codigo</th>-->
                 <th>Nombre</th>
                 <th>Tema Dominio</th>
+                <th>Institucion</th>
                 <th>Tipo Capacitador</th>
-                
+                <th>Tipo Agrupacion</th>
                   <th>Dui</th>
                   <th>Nit</th>
                   <th>Carnet Residente</th>
@@ -26,10 +27,12 @@
                   <th>Acciones</th>
             </tr>
             <tr th:each="capacitador : ${capacitadores}">
-                <td th:text="${capacitador.codigocapacitador}">Codigo</td>
+<!--                <td th:text="${capacitador.codigocapacitador}">Codigo</td>-->
                 <td th:text="${capacitador.nombrecapacitador}">Nombre</td>
                 <td th:text="${capacitador.temadominio}">Tema</td>
-                <td th:text="${capacitador.tipocapacitador}">Tipo</td>
+                <td th:text="${capacitador.institucioncapacitador}">Institucion</td>
+                <td th:text="${capacitador.tipocapacitador}">Tipo Capacitador</td>
+                 <td th:text="${capacitador.tipoagrupacion}">Tipo Agrupacion</td>
                 <td th:text="${capacitador.duicapacitador}">Dui</td>
                 <td th:text="${capacitador.nitcapacitador}">Nit</td>
                 <td th:text="${capacitador.carnetresidencia}">Carnet</td>

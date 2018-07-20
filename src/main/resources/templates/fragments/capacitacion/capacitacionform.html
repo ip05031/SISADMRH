@@ -103,9 +103,15 @@
                     </div>
                 </div>
                  <div class="form-group">
-                    <label class="col-sm-2 control-label">Fecha Capacitacion:</label>
+                    <label class="col-sm-2 control-label">Fecha Desde:</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" th:field="*{fechacapacitacion}"/>
+                        <input type="text" class="form-control" th:field="*{fechacapacitaciondesde}"/>
+                    </div>
+                </div>
+                   <div class="form-group">
+                    <label class="col-sm-2 control-label">Fecha  Hasta:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" th:field="*{fechacapacitacionhasta}"/>
                     </div>
                 </div>
                  <div class="form-group">
@@ -148,11 +154,11 @@
         </div>  
     <script>
         $(document).ready(function () {
-            $('#fechacapacitacion').datepicker({
+            $('#fechacapacitaciondesde').datepicker({
                 dateFormat: 'yy-mm-dd'
             });
 
-            $('#fechahastacomite').datepicker({
+            $('#fechacapacitacionhasta').datepicker({
                 dateFormat: 'yy-mm-dd'
             });
         });

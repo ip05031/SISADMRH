@@ -37,13 +37,6 @@ import org.springframework.format.annotation.DateTimeFormat;
 @NamedQueries({
 @NamedQuery(name = "Capacitacion.findAll", query = "SELECT c FROM Capacitacion c")})
 public class Capacitacion implements Serializable {
-    private static final long serialVersionUID = 1L;
-    @Id
-    @Basic(optional = false)
-    @NotNull
-    @Column(name = "CODIGOCAPACITACION")
-     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer codigocapacitacion;
     @Size(max = 50)
     @Column(name = "NOMBRECAPACITACION")
     private String nombrecapacitacion;
@@ -59,10 +52,6 @@ public class Capacitacion implements Serializable {
     @Size(max = 100)
     @Column(name = "DEPARTAMENTORESPONSABLE")
     private String departamentoresponsable;
-    @Column(name = "DURACIONHORACAPACITACION")
-    private Integer duracionhoracapacitacion;
-    @Column(name = "DURACIONDIACAPACITACION")
-    private Integer duraciondiacapacitacion;
     @Size(max = 200)
     @Column(name = "ORGANISMOPATROCINADOR")
     private String organismopatrocinador;
@@ -75,12 +64,29 @@ public class Capacitacion implements Serializable {
     @Size(max = 50)
     @Column(name = "PAISCAPACITACION")
     private String paiscapacitacion;
-    @Column(name = "FECHACAPACITACION")
+    @Column(name = "FECHACAPACITACIONDESDE")
     @DateTimeFormat(pattern = "YYYY-MM-dd")
-    private Date fechacapacitacion;
+    private Date fechacapacitaciondesde;
+    @Column(name = "FECHACAPACITACIONHASTA")
+   @DateTimeFormat(pattern = "YYYY-MM-dd")
+    private Date fechacapacitacionhasta;
     @Size(max = 20)
     @Column(name = "TIPOCAPACITACION")
     private String tipocapacitacion;
+    private static final long serialVersionUID = 1L;
+    @Id
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "CODIGOCAPACITACION")
+     @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer codigocapacitacion;
+    @Column(name = "DURACIONHORACAPACITACION")
+    private Integer duracionhoracapacitacion;
+    @Column(name = "DURACIONDIACAPACITACION")
+    private Integer duraciondiacapacitacion;
+    @Column(name = "FECHACAPACITACION")
+    @DateTimeFormat(pattern = "YYYY-MM-dd")
+    private Date fechacapacitacion;
     @Column(name = "ESTADOCAPACITACION")
     private Integer estadocapacitacion;
     @ManyToMany(mappedBy = "capacitacionList")
@@ -112,45 +118,6 @@ public class Capacitacion implements Serializable {
         this.codigocapacitacion = codigocapacitacion;
     }
 
-    public String getNombrecapacitacion() {
-        return nombrecapacitacion;
-    }
-
-    public void setNombrecapacitacion(String nombrecapacitacion) {
-        this.nombrecapacitacion = nombrecapacitacion;
-    }
-
-    public String getDescripcioncapacitacion() {
-        return descripcioncapacitacion;
-    }
-
-    public void setDescripcioncapacitacion(String descripcioncapacitacion) {
-        this.descripcioncapacitacion = descripcioncapacitacion;
-    }
-
-    public String getCategoriacapacitacion() {
-        return categoriacapacitacion;
-    }
-
-    public void setCategoriacapacitacion(String categoriacapacitacion) {
-        this.categoriacapacitacion = categoriacapacitacion;
-    }
-
-    public String getDescripcioncategoria() {
-        return descripcioncategoria;
-    }
-
-    public void setDescripcioncategoria(String descripcioncategoria) {
-        this.descripcioncategoria = descripcioncategoria;
-    }
-
-    public String getDepartamentoresponsable() {
-        return departamentoresponsable;
-    }
-
-    public void setDepartamentoresponsable(String departamentoresponsable) {
-        this.departamentoresponsable = departamentoresponsable;
-    }
 
     public Integer getDuracionhoracapacitacion() {
         return duracionhoracapacitacion;
@@ -168,37 +135,6 @@ public class Capacitacion implements Serializable {
         this.duraciondiacapacitacion = duraciondiacapacitacion;
     }
 
-    public String getOrganismopatrocinador() {
-        return organismopatrocinador;
-    }
-
-    public void setOrganismopatrocinador(String organismopatrocinador) {
-        this.organismopatrocinador = organismopatrocinador;
-    }
-
-    public String getTipoevento() {
-        return tipoevento;
-    }
-
-    public void setTipoevento(String tipoevento) {
-        this.tipoevento = tipoevento;
-    }
-
-    public String getEspecialidadevento() {
-        return especialidadevento;
-    }
-
-    public void setEspecialidadevento(String especialidadevento) {
-        this.especialidadevento = especialidadevento;
-    }
-
-    public String getPaiscapacitacion() {
-        return paiscapacitacion;
-    }
-
-    public void setPaiscapacitacion(String paiscapacitacion) {
-        this.paiscapacitacion = paiscapacitacion;
-    }
 
     public Date getFechacapacitacion() {
         return fechacapacitacion;
@@ -208,13 +144,6 @@ public class Capacitacion implements Serializable {
         this.fechacapacitacion = fechacapacitacion;
     }
 
-    public String getTipocapacitacion() {
-        return tipocapacitacion;
-    }
-
-    public void setTipocapacitacion(String tipocapacitacion) {
-        this.tipocapacitacion = tipocapacitacion;
-    }
 
     public Integer getEstadocapacitacion() {
         return estadocapacitacion;
@@ -295,6 +224,102 @@ public class Capacitacion implements Serializable {
     @Override
     public String toString() {
         return "mj.gob.sisadmrh.model.Capacitacion[ codigocapacitacion=" + codigocapacitacion + " ]";
+    }
+
+    public String getNombrecapacitacion() {
+        return nombrecapacitacion;
+    }
+
+    public void setNombrecapacitacion(String nombrecapacitacion) {
+        this.nombrecapacitacion = nombrecapacitacion;
+    }
+
+    public String getDescripcioncapacitacion() {
+        return descripcioncapacitacion;
+    }
+
+    public void setDescripcioncapacitacion(String descripcioncapacitacion) {
+        this.descripcioncapacitacion = descripcioncapacitacion;
+    }
+
+    public String getCategoriacapacitacion() {
+        return categoriacapacitacion;
+    }
+
+    public void setCategoriacapacitacion(String categoriacapacitacion) {
+        this.categoriacapacitacion = categoriacapacitacion;
+    }
+
+    public String getDescripcioncategoria() {
+        return descripcioncategoria;
+    }
+
+    public void setDescripcioncategoria(String descripcioncategoria) {
+        this.descripcioncategoria = descripcioncategoria;
+    }
+
+    public String getDepartamentoresponsable() {
+        return departamentoresponsable;
+    }
+
+    public void setDepartamentoresponsable(String departamentoresponsable) {
+        this.departamentoresponsable = departamentoresponsable;
+    }
+
+    public String getOrganismopatrocinador() {
+        return organismopatrocinador;
+    }
+
+    public void setOrganismopatrocinador(String organismopatrocinador) {
+        this.organismopatrocinador = organismopatrocinador;
+    }
+
+    public String getTipoevento() {
+        return tipoevento;
+    }
+
+    public void setTipoevento(String tipoevento) {
+        this.tipoevento = tipoevento;
+    }
+
+    public String getEspecialidadevento() {
+        return especialidadevento;
+    }
+
+    public void setEspecialidadevento(String especialidadevento) {
+        this.especialidadevento = especialidadevento;
+    }
+
+    public String getPaiscapacitacion() {
+        return paiscapacitacion;
+    }
+
+    public void setPaiscapacitacion(String paiscapacitacion) {
+        this.paiscapacitacion = paiscapacitacion;
+    }
+
+    public Date getFechacapacitaciondesde() {
+        return fechacapacitaciondesde;
+    }
+
+    public void setFechacapacitaciondesde(Date fechacapacitaciondesde) {
+        this.fechacapacitaciondesde = fechacapacitaciondesde;
+    }
+
+    public Date getFechacapacitacionhasta() {
+        return fechacapacitacionhasta;
+    }
+
+    public void setFechacapacitacionhasta(Date fechacapacitacionhasta) {
+        this.fechacapacitacionhasta = fechacapacitacionhasta;
+    }
+
+    public String getTipocapacitacion() {
+        return tipocapacitacion;
+    }
+
+    public void setTipocapacitacion(String tipocapacitacion) {
+        this.tipocapacitacion = tipocapacitacion;
     }
     
 }
