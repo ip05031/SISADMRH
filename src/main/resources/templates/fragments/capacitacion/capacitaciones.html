@@ -7,13 +7,16 @@
     
 </head>
 <body>
-<div class="container">
-   
     <div th:if="${not #lists.isEmpty(capacitaciones)}">
-        <h2>Listado de Capacitaciones</h2>
-        <div class="input-group"> <span class="input-group-addon">Buscar</span>
-        <input id="filtrar" type="text" class="form-control" placeholder="Ingresa la capacitacion a buscar...">
-      </div>
+        
+       <div class="row">
+        
+        <div class="col-md-3">
+            <th:block th:include="../templates/menu"></th:block>
+        </div>
+        <div class="col-md-9">
+           <h3 align="center">Listado de Capacitaciones</h3>
+      
         <table class="table table-striped">
             <tr>
                 <th>Codigo</th>
@@ -28,7 +31,8 @@
                 <th>Tipo de Evento</th>
                 <th>Especialidad</th>
                 <th>Pais Capacitacion</th>
-                <th>Fecha Capacitacion</th>
+                <th>Fecha Capacitacion Desde</th>
+                <th>Fecha Capacitacion Hasta</th>
                 <th>Tipo Capacitacion</th>
                 <th>Estado Capacitacion</th>
                 <th>Codigo Capacitador</th>
@@ -48,17 +52,31 @@
                 <td th:text="${capacitacion.tipoevento}">Tipo Evento</td>
                 <td th:text="${capacitacion.especialidadevento}">Especialidad</td>
                 <td th:text="${capacitacion.paiscapacitacion}">Pais Capacitacion</td>
-                <td th:text="${capacitacion.fechacapacitacion}">Fecha Capacitacion</td>
+                <td th:text="${capacitacion.fechacapacitaciondesde}">Fecha Capacitacion Desde</td>
+                <td th:text="${capacitacion.fechacapacitacionhasta}">Fecha Capacitacion Hasta</td>
                 <td th:text="${capacitacion.tipocapacitacion}">Tipo Capacitacion</td>
                 <td th:text="${capacitacion.estadocapacitacion}">Estado Capacitacion</td>
                 <td th:text="${capacitacion.codigocapacitador.codigocapacitador}">Codigo Capacitador</td>
                 
-                <td><a th:href="${'./show/' + capacitacion.codigocapacitacion}" class="btn btn-default">Mostrar</a>
+                <td>
+                    <a th:href="${'./show/' + capacitacion.codigocapacitacion}" class="btn btn-default">Mostrar</a>
                 <a th:href="${'./edit/' + capacitacion.codigocapacitacion}" class="btn btn-default">Edit</a>
                 <a th:href="${'./delete/' + capacitacion.codigocapacitacion}" class="btn btn-danger">Delete</a></td>
             </tr>
         </table>
+            
+        </div>
+            <div class="col-md-12">
+                    <th:block th:include="../templates/footer"></th:block>
+                </div>
+    </div>  
     </div>
-</div>
+   
+   
+   
+       
+        
+   
+
 </body>
 </html>

@@ -87,8 +87,8 @@ public class PuestoController extends UtilsController{
 //        	generatePdf("puestos", "rpt_puestos", params, download,response);
 //    }
     
-     @RequestMapping(value = "/pdf/{indice}", method = { RequestMethod.POST, RequestMethod.GET })
-    public void pdf(@PathVariable("indice") Long indice, 
+     @RequestMapping(value = "/pdf/", method = { RequestMethod.POST, RequestMethod.GET })
+    public void pdf( 
             @RequestParam(required = false) Boolean download, 
             @RequestParam(value="fechacontrataciondesde",required = false) String fechainicio, 
             @RequestParam(value="fechacontratacionhasta", required = false) String fechafin, 

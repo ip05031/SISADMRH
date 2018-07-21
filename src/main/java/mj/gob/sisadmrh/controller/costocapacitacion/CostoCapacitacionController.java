@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package mj.gob.sisadmrh.controller;
+package mj.gob.sisadmrh.controller.costocapacitacion;
 
+import mj.gob.sisadmrh.controller.*;
 import java.util.HashMap;
 import java.util.Map;
 import javax.servlet.http.HttpServletResponse;

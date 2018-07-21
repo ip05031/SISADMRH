@@ -14,6 +14,9 @@ create table ASISTENCIACAPACITACION
    CODIGOCAPACITACION   int not null,
    HORASRECIBIDAS       int not null,
    UBICACIONASISTENCIACAPACITACION varchar(50),
+TELEFONO varchar(11),
+EMAIL varchar(50),
+
    primary key (CODIGOASISTENCIACAPACITACION)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -52,7 +55,8 @@ create table CAPACITACION
    TIPOEVENTO           varchar(200),
    ESPECIALIDADEVENTO   varchar(200),
    PAISCAPACITACION     varchar(50),
-   FECHACAPACITACION    date,
+   FECHACAPACITACIONDESDE    date,
+FECHACAPACITACIONHASTA    date,
    TIPOCAPACITACION     varchar(20),
    ESTADOCAPACITACION   int,
    primary key (CODIGOCAPACITACION)
@@ -66,7 +70,9 @@ create table CAPACITADOR
    CODIGOCAPACITADOR    int not null,
    CODIGOEMPLEADO       int not null,
    TEMADOMINIO          varchar(200),
+   INSTITUCIONCAPACITADOR      varchar(100),
    TIPOCAPACITADOR      varchar(100),
+ TIPOAGRUPACION      varchar(100),
    DUICAPACITADOR       varchar(10),
    NITCAPACITADOR       varchar(17),
    CARNETRESIDENCIA     int,
@@ -99,6 +105,8 @@ create table COMITE
 (
    CODIGOCOMITE         int not null,
    CODIGOEMPLEADO       int not null,
+    NIT varchar(20) not null,
+    DUI varchar(13) not null,
    NOMBRECOMITE         varchar(50),
    RESPONSABLECOMITE    varchar(30),
    DESRIPCIONCOMITE     varchar(100),
@@ -212,6 +220,8 @@ create table DIAGNOSTICOCAPACITACION
    RESULTADOOBTENER     varchar(500),
    NOMBREAUTORIZADIAGNOSTICOCAPACITACION varchar(150),
    DIRECCION            varchar(100),
+   DIAGNOSTICODESDE DATE,
+DIAGNOSTICOHASTA DATE,
    CARGOAUTORIZADIAGNOSTICOCAPACITACION varchar(100),
    primary key (CODIGODIAGNOSTICOCAPACITACION)
 );
@@ -546,16 +556,22 @@ create table MISION
    NOMBREMISION         varchar(50),
    OBJETIVOMISION       varchar(100),
    RESPONSABLEGASTO     varchar(50),
+   ORGANISMOPATROCINADOR varchar(50),
+ORGANISMOINVITA varchar(50),
    DEPARTAMENTOMISION   varchar(100),
    PAISDESTINO          varchar(50),
+ CIUDAD          varchar(50),
    CANTIDADDIA          int,
    FECHAACUERDOMISION   date,
    GASTOVIAJE           float,
    TIPOTRANSPORTE       varchar(30),
    GASTOTERMINALES      float,
+ VIATICOS     float,
    GASTOSTOTALES        float,
    CANTIDADMESES        int,
    DOCUMENTO            varchar(50),
+     BOLETO            varchar(20),
+   NUMEROACUERDO int,
    TIPOMISION           int,
    FECHASALIDAMISION    date,
    FECHAREGRESOMISION   date,

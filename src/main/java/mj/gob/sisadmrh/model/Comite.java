@@ -33,12 +33,16 @@ import org.springframework.format.annotation.DateTimeFormat;
 @NamedQueries({
 @NamedQuery(name = "Comite.findAll", query = "SELECT c FROM Comite c")})
 public class Comite implements Serializable {
-    private static final long serialVersionUID = 1L;
-    @Id
     @Basic(optional = false)
-    @Column(name = "CODIGOCOMITE")
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer codigocomite;
+    @NotNull()
+    @Size(min = 1, max = 20)
+    @Column(name = "NIT")
+    private String nit;
+    @Basic(optional = false)
+    @NotNull()
+    @Size(min = 1, max = 13)
+    @Column(name = "DUI")
+    private String dui;
     @Size(max = 50)
     @Column(name = "NOMBRECOMITE")
     private String nombrecomite;
@@ -48,6 +52,12 @@ public class Comite implements Serializable {
     @Size(max = 100)
     @Column(name = "DESRIPCIONCOMITE")
     private String desripcioncomite;
+    private static final long serialVersionUID = 1L;
+    @Id
+    @Basic(optional = false)
+    @Column(name = "CODIGOCOMITE")
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer codigocomite;
     @Column(name = "NUMEROACUERDOCOMITE")
     private Integer numeroacuerdocomite;
     @Column(name = "MIEMBROMAXIMO")
@@ -80,29 +90,6 @@ public class Comite implements Serializable {
         this.codigocomite = codigocomite;
     }
 
-    public String getNombrecomite() {
-        return nombrecomite;
-    }
-
-    public void setNombrecomite(String nombrecomite) {
-        this.nombrecomite = nombrecomite;
-    }
-
-    public String getResponsablecomite() {
-        return responsablecomite;
-    }
-
-    public void setResponsablecomite(String responsablecomite) {
-        this.responsablecomite = responsablecomite;
-    }
-
-    public String getDesripcioncomite() {
-        return desripcioncomite;
-    }
-
-    public void setDesripcioncomite(String desripcioncomite) {
-        this.desripcioncomite = desripcioncomite;
-    }
 
     public Integer getNumeroacuerdocomite() {
         return numeroacuerdocomite;
@@ -167,6 +154,46 @@ public class Comite implements Serializable {
     @Override
     public String toString() {
         return "mj.gob.sisadmrh.model.Comite[ codigocomite=" + codigocomite + " ]";
+    }
+
+    public String getNit() {
+        return nit;
+    }
+
+    public void setNit(String nit) {
+        this.nit = nit;
+    }
+
+    public String getDui() {
+        return dui;
+    }
+
+    public void setDui(String dui) {
+        this.dui = dui;
+    }
+
+    public String getNombrecomite() {
+        return nombrecomite;
+    }
+
+    public void setNombrecomite(String nombrecomite) {
+        this.nombrecomite = nombrecomite;
+    }
+
+    public String getResponsablecomite() {
+        return responsablecomite;
+    }
+
+    public void setResponsablecomite(String responsablecomite) {
+        this.responsablecomite = responsablecomite;
+    }
+
+    public String getDesripcioncomite() {
+        return desripcioncomite;
+    }
+
+    public void setDesripcioncomite(String desripcioncomite) {
+        this.desripcioncomite = desripcioncomite;
     }
     
 }

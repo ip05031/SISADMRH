@@ -5,10 +5,21 @@
  */
 package mj.gob.sisadmrh.service;
 
+import java.util.Optional;
+import mj.gob.sisadmrh.model.AsistenciaCapacitacion;
+
+
 /**
  *
  * @author daniel
  */
 public interface AsistenciaCapacitacionService {
+    Iterable <AsistenciaCapacitacion> listAllAsistenciaCapacitacion();
+    
+    Optional<AsistenciaCapacitacion> getAsistenciaCapacitacionById(Integer id);
+
+    AsistenciaCapacitacion saveAsistenciaCapacitacion(AsistenciaCapacitacion asistenciaCapacitacion);
+
+    void deleteAsistenciaCapacitacion(Integer id);
     
 }

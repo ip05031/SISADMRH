@@ -22,6 +22,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -30,29 +31,26 @@ import javax.validation.constraints.Size;
 @Entity
 @Table(name = "CAPACITADOR")
 @NamedQueries({
-@NamedQuery(name = "Capacitador.findAll", query = "SELECT c FROM Capacitador c")})
+    @NamedQuery(name = "Capacitador.findAll", query = "SELECT c FROM Capacitador c")})
 public class Capacitador implements Serializable {
-    private static final long serialVersionUID = 1L;
-    @Id
-    @Basic(optional = false)
-    @NotNull
-       @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "CODIGOCAPACITADOR")
-    private Integer codigocapacitador;
     @Size(max = 200)
     @Column(name = "TEMADOMINIO")
     private String temadominio;
     @Size(max = 100)
+    @Column(name = "INSTITUCIONCAPACITADOR")
+    private String institucioncapacitador;
+    @Size(max = 100)
     @Column(name = "TIPOCAPACITADOR")
     private String tipocapacitador;
+    @Size(max = 100)
+    @Column(name = "TIPOAGRUPACION")
+    private String tipoagrupacion;
     @Size(max = 10)
     @Column(name = "DUICAPACITADOR")
     private String duicapacitador;
     @Size(max = 17)
     @Column(name = "NITCAPACITADOR")
     private String nitcapacitador;
-    @Column(name = "CARNETRESIDENCIA")
-    private Integer carnetresidencia;
     @Size(max = 11)
     @Column(name = "TELEFONOCAPACITADOR")
     private String telefonocapacitador;
@@ -67,6 +65,15 @@ public class Capacitador implements Serializable {
     private String nombrecapacitador;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "codigocapacitador")
     private List<Capacitacion> capacitacionList;
+    private static final long serialVersionUID = 1L;
+    @Id
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "CODIGOCAPACITADOR")
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer codigocapacitador;
+    @Column(name = "CARNETRESIDENCIA")
+    private Integer carnetresidencia;
     @JoinColumn(name = "CODIGOEMPLEADO", referencedColumnName = "CODIGOEMPLEADO")
     @ManyToOne(optional = false)
     private Empleado codigoempleado;
@@ -86,37 +93,6 @@ public class Capacitador implements Serializable {
         this.codigocapacitador = codigocapacitador;
     }
 
-    public String getTemadominio() {
-        return temadominio;
-    }
-
-    public void setTemadominio(String temadominio) {
-        this.temadominio = temadominio;
-    }
-
-    public String getTipocapacitador() {
-        return tipocapacitador;
-    }
-
-    public void setTipocapacitador(String tipocapacitador) {
-        this.tipocapacitador = tipocapacitador;
-    }
-
-    public String getDuicapacitador() {
-        return duicapacitador;
-    }
-
-    public void setDuicapacitador(String duicapacitador) {
-        this.duicapacitador = duicapacitador;
-    }
-
-    public String getNitcapacitador() {
-        return nitcapacitador;
-    }
-
-    public void setNitcapacitador(String nitcapacitador) {
-        this.nitcapacitador = nitcapacitador;
-    }
 
     public Integer getCarnetresidencia() {
         return carnetresidencia;
@@ -126,45 +102,6 @@ public class Capacitador implements Serializable {
         this.carnetresidencia = carnetresidencia;
     }
 
-    public String getTelefonocapacitador() {
-        return telefonocapacitador;
-    }
-
-    public void setTelefonocapacitador(String telefonocapacitador) {
-        this.telefonocapacitador = telefonocapacitador;
-    }
-
-    public String getTelefonomovilcapacitador() {
-        return telefonomovilcapacitador;
-    }
-
-    public void setTelefonomovilcapacitador(String telefonomovilcapacitador) {
-        this.telefonomovilcapacitador = telefonomovilcapacitador;
-    }
-
-    public String getEmailcapacitador() {
-        return emailcapacitador;
-    }
-
-    public void setEmailcapacitador(String emailcapacitador) {
-        this.emailcapacitador = emailcapacitador;
-    }
-
-    public String getNombrecapacitador() {
-        return nombrecapacitador;
-    }
-
-    public void setNombrecapacitador(String nombrecapacitador) {
-        this.nombrecapacitador = nombrecapacitador;
-    }
-
-    public List<Capacitacion> getCapacitacionList() {
-        return capacitacionList;
-    }
-
-    public void setCapacitacionList(List<Capacitacion> capacitacionList) {
-        this.capacitacionList = capacitacionList;
-    }
 
     public Empleado getCodigoempleado() {
         return codigoempleado;
@@ -197,6 +134,93 @@ public class Capacitador implements Serializable {
     @Override
     public String toString() {
         return "mj.gob.sisadmrh.model.Capacitador[ codigocapacitador=" + codigocapacitador + " ]";
+    }
+    @XmlTransient
+    public List<Capacitacion> getCapacitacionList() {
+        return capacitacionList;
+    }
+    public void setCapacitacionList(List<Capacitacion> capacitacionList) {
+        this.capacitacionList = capacitacionList;
+    }
+
+    public String getTemadominio() {
+        return temadominio;
+    }
+
+    public void setTemadominio(String temadominio) {
+        this.temadominio = temadominio;
+    }
+
+    public String getInstitucioncapacitador() {
+        return institucioncapacitador;
+    }
+
+    public void setInstitucioncapacitador(String institucioncapacitador) {
+        this.institucioncapacitador = institucioncapacitador;
+    }
+
+    public String getTipocapacitador() {
+        return tipocapacitador;
+    }
+
+    public void setTipocapacitador(String tipocapacitador) {
+        this.tipocapacitador = tipocapacitador;
+    }
+
+    public String getTipoagrupacion() {
+        return tipoagrupacion;
+    }
+
+    public void setTipoagrupacion(String tipoagrupacion) {
+        this.tipoagrupacion = tipoagrupacion;
+    }
+
+    public String getDuicapacitador() {
+        return duicapacitador;
+    }
+
+    public void setDuicapacitador(String duicapacitador) {
+        this.duicapacitador = duicapacitador;
+    }
+
+    public String getNitcapacitador() {
+        return nitcapacitador;
+    }
+
+    public void setNitcapacitador(String nitcapacitador) {
+        this.nitcapacitador = nitcapacitador;
+    }
+
+    public String getTelefonocapacitador() {
+        return telefonocapacitador;
+    }
+
+    public void setTelefonocapacitador(String telefonocapacitador) {
+        this.telefonocapacitador = telefonocapacitador;
+    }
+
+    public String getTelefonomovilcapacitador() {
+        return telefonomovilcapacitador;
+    }
+
+    public void setTelefonomovilcapacitador(String telefonomovilcapacitador) {
+        this.telefonomovilcapacitador = telefonomovilcapacitador;
+    }
+
+    public String getEmailcapacitador() {
+        return emailcapacitador;
+    }
+
+    public void setEmailcapacitador(String emailcapacitador) {
+        this.emailcapacitador = emailcapacitador;
+    }
+
+    public String getNombrecapacitador() {
+        return nombrecapacitador;
+    }
+
+    public void setNombrecapacitador(String nombrecapacitador) {
+        this.nombrecapacitador = nombrecapacitador;
     }
     
 }

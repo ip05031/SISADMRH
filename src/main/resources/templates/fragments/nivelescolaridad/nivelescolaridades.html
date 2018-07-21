@@ -8,9 +8,9 @@
 <div class="container">
     
     
-    lista prueba
+    
     <div th:if="${not #lists.isEmpty(nivelescolaridades)}">
-        <h2>Todos los niveles de escolaridad</h2>
+        <h3 align="center" >Lista de Niveles Escolares</h3>
         <table class="table table-striped">
             <tr>
                 <th>Centro Educativo</th>
@@ -22,7 +22,7 @@
                    <th>Fecha desde</th>
                    <th>Fecha hasta</th>
                    <th>Acciones</th>
-                   <th> hola</th>
+                   
                 
             </tr>
             <tr th:each="nivelescolaridad : ${nivelescolaridades}">

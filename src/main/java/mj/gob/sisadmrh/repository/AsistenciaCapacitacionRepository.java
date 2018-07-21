@@ -12,6 +12,6 @@ import org.springframework.data.repository.CrudRepository;
  *
  * @author daniel
  */
-public interface AsistenciaCapacitacionRepositoy extends CrudRepository<AsistenciaCapacitacion, Integer>{
+public interface AsistenciaCapacitacionRepository extends CrudRepository<AsistenciaCapacitacion, Integer>{
     
 }

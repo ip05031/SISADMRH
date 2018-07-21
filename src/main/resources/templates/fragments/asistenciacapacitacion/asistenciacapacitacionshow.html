@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head lang="en">
+
+        <title>SISADMRH-Detalle de Asistencias de Capacitacion</title>
+    <th:block th:include="../templates/header"></th:block>
+
+
+
+</head>
+<body>
+    <div class="row">
+        <div class="col-md-3">
+            <th:block th:include="../templates/menu"></th:block>
+        </div>
+        <div class="col-md-8">
+            <h3 align="center">Consulta de Asistencias de Capacitacion</h3>
+            <div>
+                <form class="form-horizontal">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="col-sm-5 control-label">codigo:</label>
+                            <div class="col-sm-7">
+                                <p class="form-control-static" th:text="${asistenciacapacitacion.codigoasistenciacapacitacion}">codigo de comite</p></div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-5 control-label">Horas Recibidas:</label>
+                            <div class="col-sm-7">
+                                <p class="form-control-static" th:text="${asistenciacapacitacion.horasrecibidas}">Horas Recibidas</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-5 control-label">Ubicacion Fisica de Capacitacion:</label>
+                            <div class="col-sm-7">
+                                <p class="form-control-static" th:text="${asistenciacapacitacion.ubicacionasistenciacapacitacion}">Ubicacion Fisica de Capacitacion</p>
+                            </div>
+                        </div>
+<!--                        <div class="form-group">
+                            <label class="col-sm-5 control-label">codigo de Capacitacion:</label>
+                            <div class="col-sm-7">
+                                <p class="form-control-static" th:text="${codigocapacitacion.codigocapacitacion}">Codigo de Capacitacion</p>
+                            </div>
+                        </div>-->
+                        
+                        
+
+                        
+                       
+                    </div> 
+
+
+                </form>
+                <div class="col-md-12">
+                    <div class="row" align="center">
+                                       <button type="button" class="btn btn-default"><a href="#" th:href="@{/asistenciacapacitaciones/}">Regresar</a></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <th:block th:include="../templates/footer"></th:block>
+        </div>
+    </div>
+
+</body>
+</html>
