@@ -60,8 +60,7 @@ public class RolController {
     }
     
     @RequestMapping("show/{id}")
-    public String showRol(@PathVariable Integer id, Model model, HttpServletRequest request) {
-        model.addAttribute("lol",request.getSession().getAttribute("lol"));
+    public String showRol(@PathVariable Integer id, Model model) {
         model.addAttribute("rol", rolService.getRolById(id).get());
         return PREFIX +"rolshow";
     }
