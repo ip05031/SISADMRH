@@ -55,7 +55,7 @@ public class CapacitadorController extends UtilsController{
 		}
         capacitadorService.saveCapacitador(capacitador);
       
-        return "redirect:capacitadores/capacitador/show/" + capacitador.getCodigocapacitador();
+        return "redirect:show/" + capacitador.getCodigocapacitador();
        
     }
      @RequestMapping("show/{id}")
