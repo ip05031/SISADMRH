@@ -37,4 +37,16 @@
 </div>
 
 </body>
+
+<script th:inline="javascript">
+    $(document).ready(function () {
+    if([[${lol}]]===0){
+       swal("Exito!", "Registro agregado correctamente", "success");
+    }
+    
+    if([[${lol}]]===1){
+       swal("ERROR!", "Ocurrio un error en el proceso", "error");
+    }
+    });
+</script>
 </html>

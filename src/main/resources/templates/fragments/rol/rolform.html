@@ -39,4 +39,25 @@
 </div>
 
 </body>
+<script th:inline="javascript">
+    $(document).ready(function () {
+    if([[${msg}]]===0){
+       swal({
+                title: "Exito!",
+                text: "Registro agregado correctamente",
+                type: "success"
+       }).then(function() {
+                location.href = '../roles/';
+       }); 
+}
+    
+    if([[${msg}]]===1){
+        swal({
+                title: "ERROR!",
+                text: "Ocurrio un error en el proceso",
+                type: "error"
+       });
+    }
+    });
+</script>    
 </html>
