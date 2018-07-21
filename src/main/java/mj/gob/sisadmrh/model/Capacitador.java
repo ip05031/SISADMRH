@@ -20,6 +20,7 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlTransient;
@@ -47,20 +48,26 @@ public class Capacitador implements Serializable {
     private String tipoagrupacion;
     @Size(max = 10)
     @Column(name = "DUICAPACITADOR")
+    @NotEmpty
     private String duicapacitador;
     @Size(max = 17)
     @Column(name = "NITCAPACITADOR")
+    @NotEmpty
     private String nitcapacitador;
     @Size(max = 11)
     @Column(name = "TELEFONOCAPACITADOR")
+    @NotEmpty
     private String telefonocapacitador;
     @Size(max = 11)
     @Column(name = "TELEFONOMOVILCAPACITADOR")
+    @NotEmpty
     private String telefonomovilcapacitador;
     @Size(max = 50)
+    @NotEmpty
     @Column(name = "EMAILCAPACITADOR")
     private String emailcapacitador;
     @Size(max = 100)
+    @NotEmpty
     @Column(name = "NOMBRECAPACITADOR")
     private String nombrecapacitador;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "codigocapacitador")

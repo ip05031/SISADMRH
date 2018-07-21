@@ -8,12 +8,14 @@ package mj.gob.sisadmrh.controller.Capacitador;
 import java.util.HashMap;
 import java.util.Map;
 import javax.servlet.http.HttpServletResponse;
+import javax.validation.Valid;
 import mj.gob.sisadmrh.controller.UtilsController;
 import mj.gob.sisadmrh.model.Capacitador;
 import mj.gob.sisadmrh.service.CapacitadorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -46,10 +48,15 @@ public class CapacitadorController extends UtilsController{
         return PREFIX + "capacitadorform";
     }
      @RequestMapping(value = "capacitador")
-    public String saveCapacitador(Capacitador capacitador) {
+    public String saveCapacitador(@Valid Capacitador capacitador,BindingResult result) {
+      if (result.hasErrors()) {
+			
+			return PREFIX + "capacitadorform";
+		}
         capacitadorService.saveCapacitador(capacitador);
+      
+        return "redirect:capacitadores/capacitador/show/" + capacitador.getCodigocapacitador();
        
-        return "redirect:./show/" + capacitador.getCodigocapacitador();
     }
      @RequestMapping("show/{id}")
     public String showCapacitador(@PathVariable Integer id, Model model) {

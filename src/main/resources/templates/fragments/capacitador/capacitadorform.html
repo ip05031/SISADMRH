@@ -35,6 +35,7 @@
                         <label class="col-sm-2 control-label">Nombre Capacitador:</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" th:field="*{nombrecapacitador}"/>
+                             <small class="form-text text-danger" th:if="${#fields.hasErrors('nombrecapacitador')}" th:errors="*{nombrecapacitador}"></small>
                         </div>
                     </div>
                     <div class="form-group">
@@ -90,12 +91,14 @@
                         <label class="col-sm-2 control-label">Dui:</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" th:field="*{duicapacitador}"/>
+                             <small class="form-text text-danger" th:if="${#fields.hasErrors('duicapacitador')}" th:errors="*{duicapacitador}"></small>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Nit:</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" th:field="*{nitcapacitador}"/>
+                             <small class="form-text text-danger" th:if="${#fields.hasErrors('nitcapacitador')}" th:errors="*{nitcapacitador}"></small>
                         </div>
                     </div>
                     <div class="form-group">
@@ -108,18 +111,21 @@
                         <label class="col-sm-2 control-label">Telefono:</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" th:field="*{telefonocapacitador}"/>
+                            <small class="form-text text-danger" th:if="${#fields.hasErrors('telefonocapacitador')}" th:errors="*{telefonocapacitador}"></small>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Movil:</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" th:field="*{telefonomovilcapacitador}"/>
+                            <small class="form-text text-danger" th:if="${#fields.hasErrors('telefonomovilcapacitador')}" th:errors="*{telefonomovilcapacitador}"></small>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Email:</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" th:field="*{emailcapacitador}"/>
+                             <!--<small class="form-text text-danger" th:if="${#fields.hasErrors('emailcapacitador')}" th:errors="*{emailcapacitador}"></small>-->
                         </div>
                     </div>
 
