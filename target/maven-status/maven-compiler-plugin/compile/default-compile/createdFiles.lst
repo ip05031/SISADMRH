@@ -22,8 +22,8 @@ mj/gob/sisadmrh/repository/EstadoRepository.class
 mj/gob/sisadmrh/service/CostoCapacitacionService.class
 mj/gob/sisadmrh/model/UsuariorolPK.class
 mj/gob/sisadmrh/service/PuestoService.class
-mj/gob/sisadmrh/model/Ubicacionfisica.class
 mj/gob/sisadmrh/model/DiagnosticoCapacitacion.class
+mj/gob/sisadmrh/model/Ubicacionfisica.class
 mj/gob/sisadmrh/ServletInitializer.class
 mj/gob/sisadmrh/model/EmpleadobeneficioPK.class
 mj/gob/sisadmrh/model/Capacitacion.class
@@ -66,8 +66,8 @@ mj/gob/sisadmrh/service/CapacitadorServiceImpl.class
 mj/gob/sisadmrh/model/Usuario.class
 mj/gob/sisadmrh/service/CapacitacionServiceImpl.class
 mj/gob/sisadmrh/controller/usuario/UsuarioController.class
-mj/gob/sisadmrh/config/SecurityConfig.class
 mj/gob/sisadmrh/controller/asistenciacapacitaciones/AsistenciaCapacitacionController.class
+mj/gob/sisadmrh/config/SecurityConfig.class
 mj/gob/sisadmrh/controller/UtilsController.class
 mj/gob/sisadmrh/model/EvualuacionCapacitacion.class
 mj/gob/sisadmrh/model/AsistenciaCapacitacion.class

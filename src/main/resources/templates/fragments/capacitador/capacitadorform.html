@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
     <head lang="en">
-
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
         <title>Nuevo Capacitador</title>
     <th:block th:include="../templates/header"></th:block>
 </head>
@@ -151,4 +151,27 @@
 
 
 </body>
-</html>
+<!--<script th:inline="javascript">
+    $(document).ready(function () {
+    if([[${msg}]]===0){
+       swal({
+                title: "Exito!",
+                text: "Registro agregado correctamente",
+                type: "success"
+       }).then(function() {
+                location.href = '../capacitadores/';
+       }); 
+}
+    
+    if([[${msg}]]===1){
+        swal({
+                title: "ERROR!",
+                text: "Ocurrio un error en el proceso",
+                type: "error"
+       });
+    }
+    });
+</script>-->
+<script type="text/javascript" th:src="@{/js/sweetalert.js}"></script>
+<script type="text/javascript" th:src="@{/js/SweetAlert.min.js}"></script>
+<script type="text/javascript" th:src="@{/ccs/sweetalert.ccs}"></script>
