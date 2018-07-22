@@ -8,150 +8,154 @@
 </head>
 <body>
     <div class="row">
-         <div class="col-md-3">
-         <th:block th:include="../templates/menu"></th:block>
-    </div> 
+        <div class="col-md-3">
+            <th:block th:include="../templates/menu"></th:block>
+        </div> 
         <div class="col-md-8">
-           <h3>Detalle de Capacitacion</h3>
-        <div>
-            <form class="form-horizontal" th:object="${capacitacion}" th:action="@{../capacitacion}" method="post">
-               
-                <input type="hidden" th:field="*{codigocapacitacion}"/>
-    
+            <h3>Detalle de Capacitacion</h3>
+            <div>
+                <form class="form-horizontal" th:object="${capacitacion}" th:action="@{../capacitacion}" method="post">
 
-                <div class="form-group">
-                    <label class="col-sm-2 control-label">Nombre de Capacitacion:</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" th:field="*{nombrecapacitacion}"/>
+                    <input type="hidden" th:field="*{codigocapacitacion}"/>
+
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Nombre de Capacitacion:</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" th:field="*{nombrecapacitacion}"/>
+                        </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-2 control-label">Descripcion Capacitacion:</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" th:field="*{descripcioncapacitacion}"/>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Descripcion Capacitacion:</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" th:field="*{descripcioncapacitacion}"/>
+                        </div>
                     </div>
-                </div>
 
-                <div class="form-group">
-                <label class="col-sm-2 control-label">Categoria Capacitacion(*):</label>
-                <div class="col-sm-7">
-                    <!--<input type="text" class="form-control" th:field="*{categoriapuesto}"/>-->
-                    <select class="form-control" name="categoriacapacitacion" >
-                        <option>Desarrollo laboral</option>
-                        <option>Desarrollo Personal</option>
-                        <option>Desarrollo Social</option>
-                        <option>Desarrollo del pensamiento</option>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Categoria Capacitacion(*):</label>
+                        <div class="col-sm-7">
+                            <!--<input type="text" class="form-control" th:field="*{categoriapuesto}"/>-->
+                            <select class="form-control" name="categoriacapacitacion" >
+                                <option>Desarrollo laboral</option>
+                                <option>Desarrollo Personal</option>
+                                <option>Desarrollo Social</option>
+                                <option>Desarrollo del pensamiento</option>
 
-                    </select>
-                </div>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Descripcion Categoria:</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" th:field="*{descripcioncategoria}"/>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Departamento Responsable(*):</label>
+                        <div class="col-sm-7">
+                            <!--<input type="text" class="form-control" th:field="*{categoriapuesto}"/>-->
+                            <select class="form-control" name="departamentoresponsable" >
+                                <option>Recursos humanos</option>
+                                <option>Finanzas</option>
+                                <option>Contabilidad</option>
+
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Duracion de Capacitacion en Horas:</label>
+                        <div class="col-sm-10">
+                            <input type="number" class="form-control" th:field="*{duracionhoracapacitacion}"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Duracion de Capacitacion en Dias:</label>
+                        <div class="col-sm-10">
+                            <input type="number" class="form-control" th:field="*{duraciondiacapacitacion}"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Organismo Patrocianador:</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" th:field="*{organismopatrocinador}"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Tipo Evento:</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" th:field="*{tipoevento}"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Especialidad de Evento:</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" th:field="*{especialidadevento}"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Pais de realizacion de Capacitacion:</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" th:field="*{paiscapacitacion}"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Fecha Desde:</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" th:field="*{fechacapacitaciondesde}"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Fecha  Hasta:</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" th:field="*{fechacapacitacionhasta}"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Tipo de Capacitacion:</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" th:field="*{tipocapacitacion}"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Estado de la Capacitacion:</label>
+                        <div class="col-sm-10">
+                            <input type="number" class="form-control" th:field="*{estadocapacitacion}"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Capacitador:</label>
+                        <div class="col-sm-10">
+                            <!--                        <input type="number" class="form-control" th:field="*{codigocapacitador.codigocapacitador}"/>-->
+
+                            <select class="form-control" th:field="*{codigocapacitador.codigocapacitador}" >
+                                <option th:each="c:${capacitadores}" value="${c.codigocapacitador}" th:text="${c.nombrecapacitador}"></option>
+                            </select>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-12">
+                        <div class="row" align="center">
+                            <button type="button" class="btn btn-default"><a href="#" th:href="@{/capacitaciones/}">Regresar</a></button>
+                            <button type="submit" class="btn btn-default">Guardar</button>
+                            <button type="reset" class="btn btn-default">Limpiar</button>
+                        </div>
+                    </div>
+
+                </form>
             </div>
-                <div class="form-group">
-                    <label class="col-sm-2 control-label">Descripcion Categoria:</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" th:field="*{descripcioncategoria}"/>
-                    </div>
-                </div>
 
 
-                <div class="form-group">
-                <label class="col-sm-2 control-label">Departamento Responsable(*):</label>
-                <div class="col-sm-7">
-                    <!--<input type="text" class="form-control" th:field="*{categoriapuesto}"/>-->
-                    <select class="form-control" name="departamentoresponsable" >
-                        <option>Recursos humanos</option>
-                        <option>Finanzas</option>
-                        <option>Contabilidad</option>
-
-                    </select>
-                </div>
-            </div>
-
-                <div class="form-group">
-                    <label class="col-sm-2 control-label">Duracion de Capacitacion en Horas:</label>
-                    <div class="col-sm-10">
-                        <input type="number" class="form-control" th:field="*{duracionhoracapacitacion}"/>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-2 control-label">Duracion de Capacitacion en Dias:</label>
-                    <div class="col-sm-10">
-                        <input type="number" class="form-control" th:field="*{duraciondiacapacitacion}"/>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-2 control-label">Organismo Patrocianador:</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" th:field="*{organismopatrocinador}"/>
-                    </div>
-                </div>
-                 <div class="form-group">
-                    <label class="col-sm-2 control-label">Tipo Evento:</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" th:field="*{tipoevento}"/>
-                    </div>
-                </div>
-                 <div class="form-group">
-                    <label class="col-sm-2 control-label">Especialidad de Evento:</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" th:field="*{especialidadevento}"/>
-                    </div>
-                </div>
-                 <div class="form-group">
-                    <label class="col-sm-2 control-label">Pais de realizacion de Capacitacion:</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" th:field="*{paiscapacitacion}"/>
-                    </div>
-                </div>
-                 <div class="form-group">
-                    <label class="col-sm-2 control-label">Fecha Desde:</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" th:field="*{fechacapacitaciondesde}"/>
-                    </div>
-                </div>
-                   <div class="form-group">
-                    <label class="col-sm-2 control-label">Fecha  Hasta:</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" th:field="*{fechacapacitacionhasta}"/>
-                    </div>
-                </div>
-                 <div class="form-group">
-                    <label class="col-sm-2 control-label">Tipo de Capacitacion:</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" th:field="*{tipocapacitacion}"/>
-                    </div>
-                </div>
-                
-                <div class="form-group">
-                    <label class="col-sm-2 control-label">Estado de la Capacitacion:</label>
-                    <div class="col-sm-10">
-                        <input type="number" class="form-control" th:field="*{estadocapacitacion}"/>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-2 control-label">CodigoCapacitador:</label>
-                    <div class="col-sm-10">
-                        <input type="number" class="form-control" th:field="*{codigocapacitador.codigocapacitador}"/>
-                    </div>
-                </div>
-                
-
-               <div class="col-md-12">
-            <div class="row" align="center">
-                <button type="button" class="btn btn-default"><a href="#" th:href="@{/capacitaciones/}">Regresar</a></button>
-                <button type="submit" class="btn btn-default">Guardar</button>
-                <button type="reset" class="btn btn-default">Limpiar</button>
-            </div>
-    </div>
-                
-            </form>
         </div>
-      
-            
-        </div>
     </div>
-      <div class="col-md-12">
-            <th:block th:include="../templates/footer"></th:block>
-        </div>  
+    <div class="col-md-12">
+        <th:block th:include="../templates/footer"></th:block>
+    </div>  
     <script>
         $(document).ready(function () {
             $('#fechacapacitaciondesde').datepicker({

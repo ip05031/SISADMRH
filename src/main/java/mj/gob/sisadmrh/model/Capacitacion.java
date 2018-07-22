@@ -33,7 +33,7 @@ import org.springframework.format.annotation.DateTimeFormat;
  * @author daniel
  */
 @Entity
-@Table(name = "CAPACITACION")
+@Table(name = "capacitacion")
 @NamedQueries({
 @NamedQuery(name = "Capacitacion.findAll", query = "SELECT c FROM Capacitacion c")})
 public class Capacitacion implements Serializable {
