@@ -11,7 +11,9 @@ import java.util.Optional;
 import javax.servlet.http.HttpServletResponse;
 import mj.gob.sisadmrh.controller.UtilsController;
 import mj.gob.sisadmrh.model.Capacitacion;
+import mj.gob.sisadmrh.model.Capacitador;
 import mj.gob.sisadmrh.service.CapacitacionService;
+import mj.gob.sisadmrh.service.CapacitadorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -36,6 +38,12 @@ public class CapacitacionController extends UtilsController{
     }
     
     
+    private CapacitadorService capacitadorService;
+    @Autowired
+    public void SetCapacitadorService(CapacitadorService capacitadorService){
+    this.capacitadorService=capacitadorService;
+    }
+    
   
     private final String PREFIX = "fragments/capacitacion/";
     @RequestMapping(value = "/", method=RequestMethod.GET)
@@ -53,7 +61,10 @@ public class CapacitacionController extends UtilsController{
     @RequestMapping("new/capacitacion")
     public String newCapacitacion(Model model) {
         model.addAttribute("capacitacion", new Capacitacion());
-     //   model.addAttribute("capacitacion", new Capacitacion());
+        
+          Iterable<Capacitador> capacitadores = capacitadorService.listAllCapacitador();
+         // System.out.println("numero:"+capacitadores);
+        model.addAttribute("capacitadores", capacitadores);
         return PREFIX + "capacitacionform";
     }
     
