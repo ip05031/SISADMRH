@@ -27,7 +27,7 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Codigo de Empleado:</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" th:field="*{codigoempleado.codigoempleado}"/>
+                            <input type="text" class="form-control" onkeypress="return valida(event)" th:field="*{codigoempleado.codigoempleado}"/>
                         </div>
                     </div>
 
@@ -104,7 +104,8 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Carnet:</label>
                         <div class="col-sm-10">
-                            <input type="number" class="form-control" th:field="*{carnetresidencia}"/>
+                            <input type="number" class="form-control" onkeypress="return valida(event)" th:field="*{carnetresidencia}"/>
+                              <small class="form-text text-danger" th:if="${#fields.hasErrors('carnetresidencia')}" th:errors="*{carnetresidencia}"></small>
                         </div>
                     </div>
                     <div class="form-group">
@@ -151,7 +152,7 @@
 
 
 </body>
-<!--<script th:inline="javascript">
+<script th:inline="javascript">
     $(document).ready(function () {
     if([[${msg}]]===0){
        swal({
@@ -171,7 +172,22 @@
        });
     }
     });
-</script>-->
+</script>
+<script>
+function valida(e){
+    tecla = (document.all) ? e.keyCode : e.which;
+
+    //Tecla de retroceso para borrar, siempre la permite
+    if (tecla==8){
+        return true;
+    }
+        
+    // Patron de entrada, en este caso solo acepta numeros
+    patron =/[0-9]/;
+    tecla_final = String.fromCharCode(tecla);
+    return patron.test(tecla_final);
+}
+</script>
 <script type="text/javascript" th:src="@{/js/sweetalert.js}"></script>
 <script type="text/javascript" th:src="@{/js/SweetAlert.min.js}"></script>
 <script type="text/javascript" th:src="@{/ccs/sweetalert.ccs}"></script>

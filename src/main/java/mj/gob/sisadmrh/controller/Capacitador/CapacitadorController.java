@@ -57,7 +57,7 @@ public class CapacitadorController extends UtilsController{
 
            }
         capacitadorService.saveCapacitador(capacitador);
-<<<<<<< HEAD
+
         model.addAttribute("msg", 0);
         }
         catch(Exception e){
@@ -68,13 +68,13 @@ public class CapacitadorController extends UtilsController{
         }
   
 
-=======
+
       
-        return "redirect:./show/" + capacitador.getCodigocapacitador();
+       // return "redirect:./show/" + capacitador.getCodigocapacitador();
 
     
-    }
->>>>>>> ea2f531de1eb76c75870a7e30f482361845244f2
+   // }
+
      @RequestMapping("show/{id}")
     public String showCapacitador(@PathVariable Integer id, Model model) {
         model.addAttribute("capacitador", capacitadorService.getCapacitadorById(id).get());
