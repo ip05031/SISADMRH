@@ -133,7 +133,7 @@
                             <!--                        <input type="number" class="form-control" th:field="*{codigocapacitador.codigocapacitador}"/>-->
 
                             <select class="form-control" th:field="*{codigocapacitador.codigocapacitador}" >
-                                <option th:each="c:${capacitadores}" value="${c.codigocapacitador}" th:text="${c.nombrecapacitador}"></option>
+                                <option th:each="c:${capacitadores}" th:value="${c.codigocapacitador}" th:text="${c.nombrecapacitador}"></option>
                             </select>
                         </div>
                     </div>
