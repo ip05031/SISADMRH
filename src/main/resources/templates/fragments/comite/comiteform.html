@@ -20,13 +20,13 @@
              <div class="form-group">
                 <label class="col-sm-2 control-label">DUI:</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" th:field="*{dui}"/>
+                    <input type="text" class="form-control" id="dui" th:field="*{dui}"/>
                 </div>
             </div>
              <div class="form-group">
                 <label class="col-sm-2 control-label">NIT:</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" th:field="*{nit}"/>
+                    <input type="text"  class="form-control" id="nit" th:field="*{nit}"/>
                 </div>
             </div>
             <div class="form-group">
@@ -51,7 +51,7 @@
             <div class="form-group">
                 <label class="col-sm-2 control-label">Numero de acuerdo:</label>
                 <div class="col-sm-10">
-                    <input type="number" class="form-control" th:field="*{numeroacuerdocomite}"/>
+                    <input type="number" class="form-control" onkeypress="return valida(event)" th:field="*{numeroacuerdocomite}"/>
                 </div>
             </div>
             
@@ -114,6 +114,30 @@
         });
     });
 </script>
+<script>// funcion para permitir solo numeros
+function valida(e){
+    tecla = (document.all) ? e.keyCode : e.which;
 
+    //Tecla de retroceso para borrar, siempre la permite
+    if (tecla==8){
+        return true;
+    }
+        
+    // Patron de entrada, en este caso solo acepta numeros
+    patron =/[0-9]/;
+    tecla_final = String.fromCharCode(tecla);
+    return patron.test(tecla_final);
+}
+</script>
+<script>
+jQuery(function($){
+$("#telefono").mask("99/99/9999");
+$("#dui").mask("99999999-9");
+$("#nit").mask("9999-999999-999-9");
+});
+</script>
+>
+		
+                
 </body>	
 </html>

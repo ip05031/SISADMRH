@@ -48,17 +48,33 @@ public class CapacitadorController extends UtilsController{
         return PREFIX + "capacitadorform";
     }
      @RequestMapping(value = "capacitador")
-    public String saveCapacitador(@Valid Capacitador capacitador,BindingResult result) {
-      if (result.hasErrors()) {
-			
-			return PREFIX + "capacitadorform";
-		}
+    public String saveCapacitador(@Valid Capacitador capacitador, BindingResult result, Model model) {
+//        try {
+             try{
+                 if (result.hasErrors()) {
+
+              return PREFIX + "capacitadorform";
+
+           }
         capacitadorService.saveCapacitador(capacitador);
+
+        model.addAttribute("msg", 0);
+        }
+        catch(Exception e){
+        model.addAttribute("msg", 1);
+        }
+        return PREFIX + "capacitadorform";
+
+        }
+  
+
+
       
-        return "redirect:./show/" + capacitador.getCodigocapacitador();
+       // return "redirect:./show/" + capacitador.getCodigocapacitador();
 
     
-    }
+   // }
+
      @RequestMapping("show/{id}")
     public String showCapacitador(@PathVariable Integer id, Model model) {
         model.addAttribute("capacitador", capacitadorService.getCapacitadorById(id).get());
@@ -66,6 +82,7 @@ public class CapacitadorController extends UtilsController{
     }
     @RequestMapping("delete/{id}")
     public String delete(@PathVariable Integer id) {
+        try{} catch(Exception e){}
         capacitadorService.deleteCapacitador(id);
         return "redirect:/capacitadores/";
     }
@@ -83,4 +100,5 @@ public class CapacitadorController extends UtilsController{
 		params.put("FECHAFIN", fechafin);
         	generatePdf("capacitadores", "rpt_capacitadores", params, download,response);
     }
+    
 }
