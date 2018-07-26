@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <title>Usuarios</title>
+    <th:block th:include="../templates/header"></th:block>
+</head>
+<body>
+<div class="container">
+    e aqui
+    <div th:if="${not #lists.isEmpty(comisiones)}">
+        <h2>Todos las comisiones</h2>
+        <table class="table table-striped">
+            <tr>
+                <th>Codigo</th>
+                <th>Nombre</th>
+                <th>descripcion</th>
+                
+            </tr>
+            <tr th:each="comision : ${comisiones}">
+                <td th:text="${comision.codigocomision}">Codigo</td>
+                <td th:text="${comision.nombrecomision}">Nombre</td>
+                <td th:text="${comision.descripcioncomision}">descripcion</td>
+                
+                <td><a th:href="${'./show/' + comision.codigocomision}" class="btn btn-default">Mostrar</a></td>
+                <td><a th:href="${'./edit/' + comision.codigocomision}" class="btn btn-default">Edit</a></td>
+                <td><a th:href="${'./delete/' + comision.codigocomision}" class="btn btn-danger">Delete</a></td>
+            </tr>
+        </table>
+    </div>
+</div>
+</body>
+</html>

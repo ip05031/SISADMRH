@@ -17,6 +17,7 @@
     <class>mj.gob.sisadmrh.model.Puesto</class>
     <class>mj.gob.sisadmrh.model.Ubicacionfisica</class>
     <class>mj.gob.sisadmrh.model.Mision</class>
+    <class>mj.gob.sisadmrh.model.Comision</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/SISADMRH?zeroDateTimeBehavior=convertToNull"/>
