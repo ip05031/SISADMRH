@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+
+    <title>Nuevo comision</title>
+  <th:block th:include="../templates/header"></th:block>
+  </head>
+<body>
+<div class="container">
+    <h2>Usuario Details</h2>
+    <div>
+        <form class="form-horizontal" th:object="${comision}" th:action="@{../comision}" method="post">
+            <input type="hidden" th:field="*{codigocomision}"/>
+            <input type="hidden" th:field="*{nombrecomision}"/>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Codigo de Beneficio:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" th:field="*{codigocomision}"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Nombre de Beneficio:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" th:field="*{nombrecomision}"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Contraseña de comision:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" th:field="*{descripcioncomision}"/>
+                </div>
+            </div>
+            
+            <div class="row">
+                <button type="submit" class="btn btn-default">Agregar</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>
