@@ -13,6 +13,7 @@ C:\Users\gladiador\Documents\NetBeansProjects\SISADMRH\src\main\java\mj\gob\sisa
 C:\Users\gladiador\Documents\NetBeansProjects\SISADMRH\src\main\java\mj\gob\sisadmrh\controller\capacitacion\CapacitacionController.java
 C:\Users\gladiador\Documents\NetBeansProjects\SISADMRH\src\main\java\mj\gob\sisadmrh\controller\nivelescolaridad\NivelEscolaridadController.java
 C:\Users\gladiador\Documents\NetBeansProjects\SISADMRH\src\main\java\mj\gob\sisadmrh\service\AsistenciaCapacitacionImpl.java
+C:\Users\gladiador\Documents\NetBeansProjects\SISADMRH\src\main\java\mj\gob\sisadmrh\model\Contrato.java
 C:\Users\gladiador\Documents\NetBeansProjects\SISADMRH\src\main\java\mj\gob\sisadmrh\controller\estado\EstadoController.java
 C:\Users\gladiador\Documents\NetBeansProjects\SISADMRH\src\main\java\mj\gob\sisadmrh\repository\ComiteRepository.java
 C:\Users\gladiador\Documents\NetBeansProjects\SISADMRH\src\main\java\mj\gob\sisadmrh\controller\costocapacitacion\CostoCapacitacionController.java
@@ -39,6 +40,7 @@ C:\Users\gladiador\Documents\NetBeansProjects\SISADMRH\src\main\java\mj\gob\sisa
 C:\Users\gladiador\Documents\NetBeansProjects\SISADMRH\src\main\java\mj\gob\sisadmrh\model\Capacitador.java
 C:\Users\gladiador\Documents\NetBeansProjects\SISADMRH\src\main\java\mj\gob\sisadmrh\service\UsuarioService.java
 C:\Users\gladiador\Documents\NetBeansProjects\SISADMRH\src\main\java\mj\gob\sisadmrh\model\Empleado.java
+C:\Users\gladiador\Documents\NetBeansProjects\SISADMRH\src\main\java\mj\gob\sisadmrh\model\Descuento.java
 C:\Users\gladiador\Documents\NetBeansProjects\SISADMRH\src\main\java\mj\gob\sisadmrh\model\Rol.java
 C:\Users\gladiador\Documents\NetBeansProjects\SISADMRH\src\main\java\mj\gob\sisadmrh\service\CapacitacionService.java
 C:\Users\gladiador\Documents\NetBeansProjects\SISADMRH\src\main\java\mj\gob\sisadmrh\service\RolServiceImpl.java

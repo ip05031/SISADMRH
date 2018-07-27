@@ -18,4 +18,5 @@ public interface CapacitadorService {
 
     void deleteCapacitador(Integer id);
     
+    
 }

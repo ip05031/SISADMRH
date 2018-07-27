@@ -4,6 +4,10 @@
     <head lang="en">
 
         <title>Nueva Capacitacion</title>
+        <link rel="stylesheet"
+	th:href="@{/css/bootstrap.min.css}" />
+<link rel="stylesheet"
+	th:href="@{/css/jquery-ui.min.css}" />
     <th:block th:include="../templates/header"></th:block>
 </head>
 <body>
@@ -127,16 +131,25 @@
                             <input type="number" class="form-control" th:field="*{estadocapacitacion}"/>
                         </div>
                     </div>
+                    
                     <div class="form-group">
+                        <label class="col-sm-2 control-label">Buscar Capacitador:</label>
+                        <div class="col-sm-10">
+                            
+                            <input type="text" name="buscar_capacitador" id="buscar_producto"
+								class="form-control" />
+                        </div>
+                    </div>
+<!--                    <div class="form-group">
                         <label class="col-sm-2 control-label">Capacitador:</label>
                         <div class="col-sm-10">
-                            <!--                        <input type="number" class="form-control" th:field="*{codigocapacitador.codigocapacitador}"/>-->
+                                                    <input type="number" class="form-control" th:field="*{codigocapacitador.codigocapacitador}"/>
 
                             <select class="form-control" th:field="*{codigocapacitador.codigocapacitador}" >
                                 <option th:each="c:${capacitadores}" th:value="${c.codigocapacitador}" th:text="${c.nombrecapacitador}"></option>
                             </select>
                         </div>
-                    </div>
+                    </div>-->
 
 
                     <div class="col-md-12">
@@ -155,6 +168,7 @@
     </div>
     <div class="col-md-12">
         <th:block th:include="../templates/footer"></th:block>
+        
     </div>  
     <script>
         $(document).ready(function () {
@@ -167,6 +181,8 @@
             });
         });
     </script>
-
+    <script>th:href="@{/css/bootstrap.min.css}" /></script>
+<script>th:href="@{/css/jquery-ui.min.css}" /></script>
+<script th:replace="templates/fragments/capacitacion.js :: javascript"></script>
 </body>	
 </html>

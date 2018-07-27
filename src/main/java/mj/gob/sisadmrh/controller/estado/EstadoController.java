@@ -48,9 +48,17 @@ public class EstadoController {
     }
 
     @RequestMapping(value = "estado")
-    public String saveEstado(Estado estado) {
+    public String saveEstado(Estado estado,Model model) {
+         try{
         estadoService.saveEstado(estado);
-        return "redirect:./show/" + estado.getCodigoestado();
+        model.addAttribute("msg", 0);
+        }
+        catch(Exception e){
+        model.addAttribute("msg", 1);
+        }
+    //    return PREFIX+"estadoform";
+       return PREFIX+"estadoform";  
+      // return "redirect:./show/" + estado.getCodigoestado();
     }
     
     @RequestMapping("show/{id}")
