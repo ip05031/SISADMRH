@@ -1,31 +1,73 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head lang="en">
-    <title>Roles</title>
+    <head lang="en">
+        <title>Roles</title>
     <th:block th:include="../templates/header"></th:block>
 </head>
 <body>
-<div class="container">
-    e aqui
-    <div th:if="${not #lists.isEmpty(roles)}">
-        <h2>Todos los Roles</h2>
-        <table class="table table-striped">
-            <tr>
-                <th>Codigo</th>
-                <th>Nombre</th>
-                <th>Desacripcion</th>
-                
-            </tr>
-            <tr th:each="rol : ${roles}">
-                <td th:text="${rol.codigorol}">Codigo</td>
-                <td th:text="${rol.nombrerol}">Nombre</td>
-                <td th:text="${rol.descripcionrol}">contraseña</td>
-                <td><a th:href="${'./show/' + rol.codigorol}" class="btn btn-default">Mostrar</a></td>
-                <td><a th:href="${'./edit/' + rol.codigorol}" class="btn btn-default">Edit</a></td>
-                <td><a th:href="${'./delete/' + rol.codigorol}" class="btn btn-danger">Delete</a></td>
-            </tr>
-        </table>
+    <div class="container">
+        e aqui
+        <div th:if="${not #lists.isEmpty(roles)}">
+            <h2>Todos los Roles</h2>
+            <table class="table table-striped">
+                <tr>
+                    <th>Codigo</th>
+                    <th>Nombre</th>
+                    <th>Desacripcion</th>
+
+                </tr>
+                <tr th:each="rol : ${roles}">
+                    <td th:text="${rol.codigorol}">Codigo</td>
+                    <td th:text="${rol.nombrerol}">Nombre</td>
+                    <td th:text="${rol.descripcionrol}">contraseña</td>
+                    <td><a th:href="${'./show/' + rol.codigorol}" class="btn btn-default">Mostrar</a></td>
+                    <td><a th:href="${'./edit/' + rol.codigorol}" class="btn btn-default">Edit</a></td>
+                    <!--<td><a th:href="${'./delete/' + rol.codigorol}" class="btn btn-danger">Delete</a></td>-->
+                    <td><a  class="btn btn-danger" th:onclick="'eliminar(\'' + ${rol.codigorol} + '\');'" >Delete</a></td>
+                </tr>
+            </table>
+        </div>
     </div>
-</div>
+    <script th:inline="javascript">
+        $(document).ready(function () {
+    if([[${msg}]]===3){
+       swal({
+           
+                title: "Exito!",
+                text: "Registro Eliminado correctamente",
+                type: "success",
+                icon: "success",
+       }).then(function() {
+                location.href = '../../roles/';
+       }); 
+}
+    
+    if([[${msg}]]===4){
+        swal({
+                title: "ERROR!",
+                text: "Ocurrio un error al eliminar el registro",
+                type: "error",
+                icon: "error"
+       });
+    }
+    });
+        
+        function eliminar(id) {
+            swal({
+                title: "Desea Eliminar?",
+                text: "favor confirme que desea eliminar este registro!",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+                    .then((willDelete) => {
+                        if (willDelete) {
+                            location.href = './delete/' + id;
+                        } else {
+                            swal("Accion cancelada", "se ha cancelado la operaacion de eliminado", "error");
+                        }
+                    });
+        }
+    </script>
 </body>
 </html>

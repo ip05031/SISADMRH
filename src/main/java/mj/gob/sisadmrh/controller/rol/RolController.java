@@ -66,8 +66,15 @@ public class RolController {
     }
 
     @RequestMapping("delete/{id}")
-    public String delete(@PathVariable Integer id) {
+    public String delete(@PathVariable Integer id, Model model) {
+         try{
         rolService.deleteRol(id);
-        return "redirect:/roles/";
+        model.addAttribute("msg", 3);
+        }
+        catch(Exception e){
+        model.addAttribute("msg", 4);
+        }
+        return PREFIX + "roles";
+//        return "redirect:/roles/";
     }
 }
