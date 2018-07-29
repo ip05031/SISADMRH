@@ -36,6 +36,13 @@ import javax.validation.constraints.Size;
     @NamedQuery(name = "Estado.findAll", query = "SELECT e FROM Estado e")})
 public class Estado implements Serializable {
 
+    @Size(max = 50)
+    @Column(name = "NOMBREESTADO")
+    private String nombreestado;
+    @Size(max = 100)
+    @Column(name = "VALORESTADO")
+    private String valorestado;
+
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
@@ -43,12 +50,6 @@ public class Estado implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "CODIGOESTADO")
     private Integer codigoestado;
-    @Size(max = 50)
-    @Column(name = "NOMBREESTADO")
-    private String nombreestado;
-    @Size(max = 100)
-    @Column(name = "VALORESTADO")
-    private String valorestado;
      public Estado() {
     }
 
@@ -60,21 +61,6 @@ public class Estado implements Serializable {
         this.codigoestado = codigoestado;
     }
 
-    public String getNombreestado() {
-        return nombreestado;
-    }
-
-    public void setNombreestado(String nombreestado) {
-        this.nombreestado = nombreestado;
-    }
-
-    public String getValorestado() {
-        return valorestado;
-    }
-
-    public void setValorestado(String valorestado) {
-        this.valorestado = valorestado;
-    }
 
 
 
@@ -101,6 +87,22 @@ public class Estado implements Serializable {
     @Override
     public String toString() {
         return "mj.gob.sisadmrh.model.Usuario[ codigousuario=" + codigoestado + " ]";
+    }
+
+    public String getNombreestado() {
+        return nombreestado;
+    }
+
+    public void setNombreestado(String nombreestado) {
+        this.nombreestado = nombreestado;
+    }
+
+    public String getValorestado() {
+        return valorestado;
+    }
+
+    public void setValorestado(String valorestado) {
+        this.valorestado = valorestado;
     }
     
 }

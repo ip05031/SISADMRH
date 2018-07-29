@@ -1,32 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1ef4d0a4-db8a-4cc6-81ad-b4ec81f2231d">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rpt_comites" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d8a9c9f0-e47f-42fc-a58b-0670236a87b0">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="50"/>
-	<parameter name="FECHAINICIO" class="java.lang.String"/>
-	<parameter name="parameter1" class="java.lang.String"/>
+	<property name="ireport.y" value="22"/>
+	<style name="Crosstab Data Text" hAlign="Center"/>
+	<parameter name="CODIGO" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="FECHAINICIO" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
 	<parameter name="FECHAFIN" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<queryString>
-		<![CDATA[SELECT e.nombreempleado,p.nombrepuesto,c.numeroacuerdocomite,c.nombrecomite,c.fechadesdecomite,c.fechahastacomite FROM empleado e INNER JOIN puesto p on e.codigoempleado=p.codigoempleado INNER JOIN comite c on e.codigoempleado=c.codigoempleado where c.fechadesdecomite >= $P{FECHAINICIO} and c.fechahastacomite <=$P{FECHAFIN}]]>
+		<![CDATA[SELECT count(e.codigoempleado)as totalRegistros, concat(DAY(e.fechanacimientoempleado)," / ", MONTH(e.fechanacimientoempleado)) AS Fecha,p.nombrepuesto,uf.nombreubicacion,e.nombreempleado from SISADMRH.empleado e INNER JOIN SISADMRH.puesto p ON e.codigoempleado=p.codigoempleado INNER JOIN SISADMRH.ubicacionfisica uf on uf.codigoempleado=e.codigoempleado]]>
 	</queryString>
-	<field name="nombreempleado" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
+	<field name="totalRegistros" class="java.lang.Long"/>
+	<field name="Fecha" class="java.lang.String"/>
 	<field name="nombrepuesto" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="numeroacuerdocomite" class="java.lang.Integer">
+	<field name="nombreubicacion" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="nombrecomite" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="fechadesdecomite" class="java.sql.Date">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="fechahastacomite" class="java.sql.Date">
+	<field name="nombreempleado" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<group name="nombreempleado">
@@ -35,105 +33,102 @@
 	<group name="nombrepuesto">
 		<groupExpression><![CDATA[$F{nombrepuesto}]]></groupExpression>
 	</group>
-	<group name="nombremision">
-		<groupExpression><![CDATA[$F{nombremision}]]></groupExpression>
+	<group name="numeroacuerdocomite">
+		<groupExpression><![CDATA[$F{numeroacuerdocomite}]]></groupExpression>
 	</group>
-	<group name="objetivomision">
-		<groupExpression><![CDATA[$F{objetivomision}]]></groupExpression>
+	<group name="nombrecomite">
+		<groupExpression><![CDATA[$F{nombrecomite}]]></groupExpression>
 	</group>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="79" splitType="Stretch">
+		<band height="103" splitType="Stretch">
 			<staticText>
-				<reportElement x="322" y="10" width="260" height="20" uuid="a0dbe5a9-0228-4d87-aec6-d782086fdf42"/>
-				<text><![CDATA[MINISTERIO DE JUSTICA Y SEGURIDAD PUBLICA]]></text>
+				<reportElement x="305" y="7" width="275" height="20" uuid="78f7dadb-ddf2-488e-a6c0-418deaa0c9e7"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Ministerio de Justicia y Seguridad Publica]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="335" y="30" width="222" height="20" uuid="db6f5eb3-86ed-4034-ba10-eab3fd2e2b42"/>
-				<text><![CDATA[DIRECCION DE RECURSOS HUMANOS]]></text>
+				<reportElement x="328" y="30" width="215" height="20" uuid="65d458af-7267-4bd4-9fac-8848270eb364"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Direccion de Recursos Humanos]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="389" y="50" width="84" height="20" uuid="4029d439-49b0-4518-9158-407c5b425ee8"/>
+				<reportElement x="387" y="53" width="83" height="20" uuid="e2a08f35-317d-4233-92ce-4a1149753255"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
 				<text><![CDATA[SISADMRH]]></text>
 			</staticText>
-			<textField pattern="dd/MM/yyyy">
-				<reportElement x="681" y="86" width="100" height="20" uuid="defd1f57-b9e1-4411-9a1b-4f605b930187"/>
-				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
-			</textField>
+			<image>
+				<reportElement x="13" y="18" width="230" height="50" uuid="5bb000d3-0739-4fcf-8a42-1af14b0f4394"/>
+				<imageExpression><![CDATA["C:\\Users\\gladiador\\Documents\\NetBeansProjects\\SISADMRH\\src\\main\\resources\\static\\image\\GOES.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="709" y="18" width="180" height="50" uuid="ef105edf-a15f-47af-acf2-cb978ea4dd39"/>
+				<imageExpression><![CDATA["C:\\Users\\gladiador\\Documents\\NetBeansProjects\\SISADMRH\\src\\main\\resources\\static\\image\\LOGOMJ.jpg"]]></imageExpression>
+			</image>
 		</band>
 	</title>
 	<pageHeader>
-		<band height="75" splitType="Stretch">
+		<band height="68" splitType="Stretch">
+			<staticText>
+				<reportElement x="369" y="3" width="100" height="20" uuid="bcac0bb2-156c-45dd-9430-175ced9c1960"/>
+				<text><![CDATA[Reporte de Comites]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="691" y="10" width="100" height="20" uuid="6a4bd46f-4e2f-4c5a-bb23-300958410eab"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
 			<textField>
-				<reportElement x="675" y="35" width="80" height="20" uuid="50d7697d-bd9e-42e2-829d-5dfaaf1c7d49"/>
+				<reportElement x="671" y="38" width="80" height="20" uuid="86e0643c-a3b9-47e7-a369-ad60147593d7"/>
 				<textElement textAlignment="Right"/>
 				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
 			</textField>
 			<textField evaluationTime="Report">
-				<reportElement x="755" y="35" width="40" height="20" uuid="d63d0eb3-1543-473d-a0be-53844c71f01f"/>
+				<reportElement x="751" y="38" width="40" height="20" uuid="315b6d50-d166-45c9-b7fe-f5601af00fa7"/>
 				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
-			<staticText>
-				<reportElement x="322" y="7" width="175" height="20" uuid="deab7866-efc6-4654-b9e0-af062f2ca3ce"/>
-				<text><![CDATA[Reporte de Comites]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="251" y="42" width="100" height="20" uuid="1ba3c303-1161-4e5d-8141-8f4747ee1c73"/>
-				<text><![CDATA[Desde]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="457" y="42" width="100" height="20" uuid="490e45c9-0353-42d5-8b19-b6879e26d467"/>
-				<text><![CDATA[Hasta]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="325" y="174" width="100" height="20" uuid="cbec0ed1-8970-442a-af13-0bb74b6b6f36"/>
-				<text><![CDATA[Fecha Desde]]></text>
-			</staticText>
 		</band>
 	</pageHeader>
 	<columnHeader>
 		<band height="61" splitType="Stretch">
 			<staticText>
-				<reportElement x="8" y="0" width="100" height="20" uuid="22183433-15f3-4ed8-8dde-0305ea72cd85"/>
-				<text><![CDATA[Nombre Empleado]]></text>
+				<reportElement x="16" y="4" width="109" height="20" uuid="e1eb6fe9-3b36-490e-b24c-60047453e629"/>
+				<text><![CDATA[Fecha]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="190" y="0" width="61" height="20" uuid="bf1fa215-2e0a-4f00-905b-ef326941f8b2"/>
-				<text><![CDATA[Puesto]]></text>
+				<reportElement x="222" y="4" width="100" height="20" uuid="bf290ab8-8297-4af0-9f64-914ac157fca7"/>
+				<text><![CDATA[Nombre de Puesto]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="351" y="0" width="100" height="20" uuid="26fb181f-06f0-4d7c-b0fa-282ed8c95d86"/>
-				<text><![CDATA[Nombre Comite]]></text>
+				<reportElement x="443" y="4" width="118" height="20" uuid="f7ed979d-495e-4ad9-b324-e931275d0a66"/>
+				<text><![CDATA[Ubicación]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="497" y="0" width="100" height="20" uuid="cdb3befd-a442-4a3e-8d8e-4c641dc1afd4"/>
-				<text><![CDATA[Fecha Desde]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="649" y="0" width="100" height="20" uuid="80f78e53-8a72-4a7b-b23a-c353940ec35d"/>
-				<text><![CDATA[Fecha Hasta]]></text>
+				<reportElement x="663" y="4" width="119" height="20" uuid="2fa8ca79-af5c-4976-8ef1-60d699dbea6f"/>
+				<text><![CDATA[Nombre de Empleado]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="12" y="30" width="100" height="20" uuid="4aabc5b7-980a-49c8-b2e5-1a58bcdb03d0"/>
+				<reportElement x="676" y="36" width="100" height="20" uuid="c8f78bb0-4533-4a78-a87a-899fec78db60"/>
 				<textFieldExpression><![CDATA[$F{nombreempleado}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="174" y="29" width="100" height="20" uuid="c26510bd-61ba-4c00-8b77-314d3c08a902"/>
+				<reportElement x="221" y="35" width="100" height="20" uuid="101d2911-b796-43be-a3b2-9ee58efd9713"/>
 				<textFieldExpression><![CDATA[$F{nombrepuesto}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="355" y="30" width="100" height="20" uuid="132613bb-7884-4afb-9bfb-58c707d4abc9"/>
-				<textFieldExpression><![CDATA[$F{nombrecomite}]]></textFieldExpression>
+				<reportElement x="454" y="33" width="100" height="20" uuid="77fb5d1d-a072-438a-b413-96e15ff86077"/>
+				<textFieldExpression><![CDATA[$F{nombreubicacion}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="499" y="31" width="100" height="20" uuid="c31d3451-8a81-4cde-af3c-d6ffc5845a45"/>
-				<textFieldExpression><![CDATA[$F{fechadesdecomite}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="649" y="29" width="100" height="20" uuid="e0fdcc26-caaf-418e-a50a-908eee092161"/>
-				<textFieldExpression><![CDATA[$F{fechahastacomite}]]></textFieldExpression>
+				<reportElement x="23" y="37" width="100" height="20" uuid="b35f0949-fa32-4bfd-8bd3-c0a1e04c5024"/>
+				<textFieldExpression><![CDATA[$F{Fecha}]]></textFieldExpression>
 			</textField>
 		</band>
 	</columnHeader>
@@ -141,30 +136,36 @@
 		<band height="125" splitType="Stretch"/>
 	</detail>
 	<columnFooter>
-		<band height="45" splitType="Stretch"/>
+		<band height="45" splitType="Stretch">
+			<line>
+				<reportElement x="22" y="10" width="762" height="1" uuid="0a96d2e9-117c-42f3-bbe4-eeabc7d3bdb3"/>
+			</line>
+			<staticText>
+				<reportElement x="19" y="25" width="100" height="20" uuid="74dd80dd-0961-4fea-bb00-7364e5c6c1f2"/>
+				<text><![CDATA[Total de Registros]]></text>
+			</staticText>
+			<textField evaluationTime="Report">
+				<reportElement x="690" y="19" width="100" height="20" uuid="4bb8692c-f645-45f0-9739-ed70e1743ca9"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="134" y="23" width="100" height="20" uuid="26d71cba-f7aa-4fca-824e-34cb52042714"/>
+				<textFieldExpression><![CDATA[$F{totalRegistros}]]></textFieldExpression>
+			</textField>
+		</band>
 	</columnFooter>
 	<pageFooter>
 		<band height="54" splitType="Stretch">
-			<line>
-				<reportElement x="0" y="49" width="811" height="5" uuid="a548bbc2-78eb-42ed-b2ed-3e32f4b3d63f"/>
-			</line>
+			<staticText>
+				<reportElement x="321" y="31" width="225" height="20" uuid="71b469e8-06a2-45e3-b61b-5c30af478dd2"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Derechos Reservados UES/FIA/EISI]]></text>
+			</staticText>
 		</band>
 	</pageFooter>
 	<summary>
-		<band height="42" splitType="Stretch">
-			<textField>
-				<reportElement x="649" y="17" width="80" height="20" uuid="414c12b5-bf5e-47e4-846d-607e2c1626a0"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
-			</textField>
-			<textField evaluationTime="Report">
-				<reportElement x="729" y="17" width="40" height="20" uuid="316ce86a-a98a-43ff-8585-bc1380d26aac"/>
-				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
-			</textField>
-			<staticText>
-				<reportElement x="19" y="16" width="100" height="20" uuid="b4d2a374-0ef3-492f-99d2-ae1e1d29c79c"/>
-				<text><![CDATA[Total Registros]]></text>
-			</staticText>
-		</band>
+		<band height="42" splitType="Stretch"/>
 	</summary>
 </jasperReport>

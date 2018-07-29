@@ -102,8 +102,11 @@
    </div>
   <div class="col-md-12">
             <th:block th:include="../templates/footer"></th:block>
-        </div>   
-<script>
+        </div>  
+   <script th:replace="factura/js/autocomplete-productos :: javascript"></script>
+<script>th:href="@{/js/validacion_controladores.js}" /></script>
+<script>th:href="@{/js/validacion_controladores2.js}" /></script>
+   <script>
     $(document).ready(function () {
         $('#fechadesdecomite').datepicker({
             dateFormat: 'yy-mm-dd'
@@ -113,6 +116,7 @@
             dateFormat: 'yy-mm-dd'
         });
     });
+    
 </script>
 <script>// funcion para permitir solo numeros
 function valida(e){
@@ -136,7 +140,7 @@ $("#dui").mask("99999999-9");
 $("#nit").mask("9999-999999-999-9");
 });
 </script>
->
+
 		
                 
 </body>	

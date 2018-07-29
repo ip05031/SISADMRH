@@ -139,7 +139,9 @@ create table CONTRATO
 (
    CODIGOCONTRATO       int not null,
    CODIGOEMPLEADO       int not null,
-   SALARIOACTUAL        float,
+   SALARIOACTUAL      float,
+   PLAZANOMINAL          varchar(100),
+   SISTEMAPAGO           varchar(50),
    UNIDADPRECIDE        varchar(100),
    LINEATRABAJO         varchar(100),
    PARTIDACONTRATO      varchar(9),

@@ -49,7 +49,7 @@ public class CapacitadorController extends UtilsController{
     }
      @RequestMapping(value = "capacitador")
     public String saveCapacitador(@Valid Capacitador capacitador, BindingResult result, Model model) {
-//        try {
+
              try{
                  if (result.hasErrors()) {
 

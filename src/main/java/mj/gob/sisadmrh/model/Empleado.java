@@ -101,6 +101,7 @@ public class Empleado implements Serializable {
     @Size(max = 1)
     @Column(name = "SEXOEMPLEADO")
     private String sexoempleado;
+   // private List<Descuento> descuentoList;
     @JoinTable(name = "EMPLEADOMISION", joinColumns = {
         @JoinColumn(name = "CODIGOEMPLEADO", referencedColumnName = "CODIGOEMPLEADO")}, inverseJoinColumns = {
         @JoinColumn(name = "CODIGOMISION", referencedColumnName = "CODIGOMISION")})
@@ -108,6 +109,8 @@ public class Empleado implements Serializable {
     private List<Mision> misionList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "codigoempleado")
     private List<Ubicacionfisica> ubicacionfisicaList;
+    
+    
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
@@ -149,6 +152,15 @@ public class Empleado implements Serializable {
     private List<Comite> comiteList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "codigoempleado")
     private List<CuadroDirectivo> cuadrodirectivoList;
+    
+    //private List<Descuento> descuentoList;
+
+@JoinTable(name = "empleadodescuento", joinColumns = {
+        @JoinColumn(name = "CODIGOEMPLEADO", referencedColumnName = "CODIGOEMPLEADO")}, inverseJoinColumns = {
+        @JoinColumn(name = "CODIGODESCUENTO", referencedColumnName = "CODIGODESCUENTO")})
+    @ManyToMany
+    private List<Descuento> descuentoList;
+
 
     public Empleado() {
     }
@@ -255,6 +267,16 @@ public class Empleado implements Serializable {
 
     public void setCuadrodirectivoList(List<CuadroDirectivo> cuadrodirectivoList) {
         this.cuadrodirectivoList = cuadrodirectivoList;
+    }
+    
+    
+
+public List<Descuento> getDescuentoList() {
+        return descuentoList;
+    }
+
+    public void setDescuentoList(List<Descuento> descuentoList) {
+        this.descuentoList = descuentoList;
     }
 
     @Override
