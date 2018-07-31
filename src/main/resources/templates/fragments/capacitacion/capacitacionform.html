@@ -16,7 +16,7 @@
             <th:block th:include="../templates/menu"></th:block>
         </div> 
         <div class="col-md-8">
-            <h3>Detalle de Capacitacion</h3>
+            <h3>Nueva Capacitacion</h3>
             <div>
                 <form class="form-horizontal" th:object="${capacitacion}" th:action="@{../capacitacion}" method="post">
 
@@ -26,13 +26,13 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Nombre de Capacitacion:</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" th:field="*{nombrecapacitacion}"/>
+                            <input type="text" size="50" maxlength="50"  class="form-control" required="true" th:field="*{nombrecapacitacion}"/>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Descripcion Capacitacion:</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" th:field="*{descripcioncapacitacion}"/>
+                            <input type="text" class="form-control" size="500" maxlength="500"  required="true" th:field="*{descripcioncapacitacion}"/>
                         </div>
                     </div>
 
@@ -40,7 +40,7 @@
                         <label class="col-sm-2 control-label">Categoria Capacitacion(*):</label>
                         <div class="col-sm-7">
                             <!--<input type="text" class="form-control" th:field="*{categoriapuesto}"/>-->
-                            <select class="form-control" name="categoriacapacitacion" >
+                            <select class="form-control"   required="true "name="categoriacapacitacion" >
                                 <option>Desarrollo laboral</option>
                                 <option>Desarrollo Personal</option>
                                 <option>Desarrollo Social</option>
@@ -52,7 +52,7 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Descripcion Categoria:</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" th:field="*{descripcioncategoria}"/>
+                            <input type="text" class="form-control" size="500" maxlength="500"  required="true" th:field="*{descripcioncategoria}"/>
                         </div>
                     </div>
 
@@ -61,7 +61,7 @@
                         <label class="col-sm-2 control-label">Departamento Responsable(*):</label>
                         <div class="col-sm-7">
                             <!--<input type="text" class="form-control" th:field="*{categoriapuesto}"/>-->
-                            <select class="form-control" name="departamentoresponsable" >
+                            <select class="form-control" required="true"  name="departamentoresponsable" >
                                 <option>Recursos humanos</option>
                                 <option>Finanzas</option>
                                 <option>Contabilidad</option>
@@ -73,83 +73,76 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Duracion de Capacitacion en Horas:</label>
                         <div class="col-sm-10">
-                            <input type="number" class="form-control" th:field="*{duracionhoracapacitacion}"/>
+                            <input type="number" class="form-control numeros" required="true" th:field="*{duracionhoracapacitacion}"/>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Duracion de Capacitacion en Dias:</label>
                         <div class="col-sm-10">
-                            <input type="number" class="form-control" th:field="*{duraciondiacapacitacion}"/>
+                            <input type="text" class="form-control numeros" required="true" th:field="*{duraciondiacapacitacion}"/>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Organismo Patrocianador:</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" th:field="*{organismopatrocinador}"/>
+                            <input type="text" class="form-control"size="200" maxlength="200"  required="true" th:field="*{organismopatrocinador}"/>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Tipo Evento:</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" th:field="*{tipoevento}"/>
+                            <input type="text" class="form-control"required="true" size="200" maxlength="200"  th:field="*{tipoevento}"/>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Especialidad de Evento:</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" th:field="*{especialidadevento}"/>
+                            <input type="text" class="form-control" required="true" size="200" maxlength="200"  th:field="*{especialidadevento}"/>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Pais de realizacion de Capacitacion:</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" th:field="*{paiscapacitacion}"/>
+                            <input type="text" class="form-control" required="true" size="50" maxlength="50"  th:field="*{paiscapacitacion}"/>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Fecha Desde:</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" th:field="*{fechacapacitaciondesde}"/>
+                            <input type="text" class="form-control" required="true" th:field="*{fechacapacitaciondesde}"/>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Fecha  Hasta:</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" th:field="*{fechacapacitacionhasta}"/>
+                            <input type="text" class="form-control" required="true" th:field="*{fechacapacitacionhasta}"/>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Tipo de Capacitacion:</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" th:field="*{tipocapacitacion}"/>
+                            <input type="text" class="form-control" size="20" maxlength="20"  required="true"th:field="*{tipocapacitacion}"/>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Estado de la Capacitacion:</label>
                         <div class="col-sm-10">
-                            <input type="number" class="form-control" th:field="*{estadocapacitacion}"/>
+                            <input type="text" class="form-control numeros" th:field="*{estadocapacitacion}"/>
                         </div>
                     </div>
                     
+                  
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">Buscar Capacitador:</label>
-                        <div class="col-sm-10">
-                            
-                            <input type="text" name="buscar_capacitador" id="buscar_producto"
-								class="form-control" />
-                        </div>
-                    </div>
-<!--                    <div class="form-group">
                         <label class="col-sm-2 control-label">Capacitador:</label>
                         <div class="col-sm-10">
-                                                    <input type="number" class="form-control" th:field="*{codigocapacitador.codigocapacitador}"/>
+                                                    <!--<input type="number" class="form-control" th:field="*{codigocapacitador.codigocapacitador}"/>-->
 
                             <select class="form-control" th:field="*{codigocapacitador.codigocapacitador}" >
                                 <option th:each="c:${capacitadores}" th:value="${c.codigocapacitador}" th:text="${c.nombrecapacitador}"></option>
                             </select>
                         </div>
-                    </div>-->
+                    </div>
 
 
                     <div class="col-md-12">
@@ -170,6 +163,29 @@
         <th:block th:include="../templates/footer"></th:block>
         
     </div>  
+    <script th:inline="javascript">
+    $(document).ready(function () {
+    if([[${msg}]]===0){
+       swal({
+                title: "Exito!",
+                text: "Registro agregado correctamente",
+                type: "success",
+                icon: "success"
+       }).then(function() {
+                location.href = '../capacitaciones/';
+       }); 
+}
+    
+    if([[${msg}]]===1){
+        swal({
+                title: "ERROR!",
+                text: "Ocurrio un error en el proceso",
+                type: "error",
+                icon: "error"
+       });
+    }
+    });
+</script>    
     <script>
         $(document).ready(function () {
             $('#fechacapacitaciondesde').datepicker({
@@ -181,10 +197,7 @@
             });
         });
     </script>
-    <script>th:href="@{/css/bootstrap.min.css}" /></script>
-<script>th:href="@{/css/jquery-ui.min.css}" /></script>
-<script>th:href="@{/js/validacion_controladores.js}" /></script>
-<script>th:href="@{/js/validacion_controladores2.js}" /></script>
+    
 
 </body>	
 </html>

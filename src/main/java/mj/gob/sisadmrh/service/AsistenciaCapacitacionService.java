@@ -21,5 +21,6 @@ public interface AsistenciaCapacitacionService {
     AsistenciaCapacitacion saveAsistenciaCapacitacion(AsistenciaCapacitacion asistenciaCapacitacion);
 
     void deleteAsistenciaCapacitacion(Integer id);
+    Iterable<AsistenciaCapacitacion> findByDato(String dato);
     
 }

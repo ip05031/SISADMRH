@@ -6,12 +6,20 @@
 package mj.gob.sisadmrh.repository;
 
 import mj.gob.sisadmrh.model.AsistenciaCapacitacion;
+import mj.gob.sisadmrh.model.Capacitacion;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
 
 /**
  *
  * @author daniel
  */
 public interface AsistenciaCapacitacionRepository extends CrudRepository<AsistenciaCapacitacion, Integer>{
-    
+   
+    @Query(value = "SELECT ac.* FROM capacitacion ac "
+            + "WHERE c.nombrecapacitacion LIKE :nom ", nativeQuery = true)
+
+    Iterable<AsistenciaCapacitacion> findByDato(@Param("nom") String dato);
+      
 }

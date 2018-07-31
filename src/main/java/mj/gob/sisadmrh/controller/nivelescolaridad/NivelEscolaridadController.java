@@ -49,9 +49,17 @@ public class NivelEscolaridadController {
     }
     
     @RequestMapping(value = "nivelescolaridad")
-    public String saveNivelEscolaridad(NivelEscolaridad nivelEscolaridad) {
-        nivelEscolaridadService.saveNivelEscolaridad(nivelEscolaridad);
-        return "redirect:./show/" + nivelEscolaridad.getCodigonivelnivelescolaridad();
+    public String saveNivelEscolaridad(NivelEscolaridad nivelEscolaridad,Model model) {
+        try{
+         nivelEscolaridadService.saveNivelEscolaridad(nivelEscolaridad);
+          model.addAttribute("msg", 0);
+        } catch(Exception e){
+             model.addAttribute("msg", 1);
+        }
+        
+       return "redirect:/nivelescolaridades/"; 
+       // return PREFIX + "nivelescolaridades";
+        //return "redirect:./show/" + nivelEscolaridad.getCodigonivelnivelescolaridad();
     }
     
     
@@ -61,8 +69,15 @@ public class NivelEscolaridadController {
         return PREFIX +"nivelescolaridadshow";
     }
      @RequestMapping("delete/{id}")
-    public String delete(@PathVariable Integer id) {
-        nivelEscolaridadService.deleteNivelEscolaridad(id);
+    public String delete(@PathVariable Integer id, Model model) {
+        try{
+         nivelEscolaridadService.deleteNivelEscolaridad(id);
+          model.addAttribute("msg", 3);
+        }
+        catch(Exception e){
+         model.addAttribute("msg", 4);
+        }
+     
         return "redirect:/nivelescolaridades/";
     }
 }

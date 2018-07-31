@@ -69,10 +69,17 @@ public class CapacitacionController extends UtilsController{
     }
     
     @RequestMapping(value = "capacitacion")
-    public String saveCapacitacion(Capacitacion capacitacion) {
-        capacitacionService.saveCapacitacion(capacitacion);
+    public String saveCapacitacion(Capacitacion capacitacion,Model model) {
+        try{
+           capacitacionService.saveCapacitacion(capacitacion);
+           model.addAttribute("msg", 0);
+        }
+        catch(Exception e){
+           model.addAttribute("msg", 1);
+        }
+       return PREFIX + "capacitacionform";
        
-        return "redirect:./show/" + capacitacion.getCodigocapacitacion();
+        //return "redirect:./show/" + capacitacion.getCodigocapacitacion();
     }
     
 //      @RequestMapping(value = "comite",method=RequestMethod.POST)
@@ -91,8 +98,17 @@ public class CapacitacionController extends UtilsController{
         return PREFIX +"capacitacionshow";
     }
      @RequestMapping("delete/{id}")
-    public String delete(@PathVariable Integer id) {
+    public String delete(@PathVariable Integer id,Model model) {
+        try{
+       
         capacitacionService.deleteCapacitacion(id);
+         model.addAttribute("msg", 3);
+        }
+        catch(Exception e)
+        {
+        model.addAttribute("msg", 4);
+        }
+   
         return "redirect:/capacitaciones/";
     }
     

@@ -10,9 +10,13 @@ import java.util.Map;
 import javax.servlet.http.HttpServletResponse;
 import mj.gob.sisadmrh.controller.UtilsController;
 import mj.gob.sisadmrh.model.AsistenciaCapacitacion;
+import mj.gob.sisadmrh.model.Capacitacion;
 import mj.gob.sisadmrh.model.Comite;
+import mj.gob.sisadmrh.model.Empleado;
 import mj.gob.sisadmrh.service.AsistenciaCapacitacionService;
+import mj.gob.sisadmrh.service.CapacitacionService;
 import mj.gob.sisadmrh.service.ComiteService;
+import mj.gob.sisadmrh.service.EmpleadoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -31,6 +35,19 @@ public class AsistenciaCapacitacionController extends UtilsController{
     public void SetAsistenciaCapacitacionService(AsistenciaCapacitacionService asistenciaCapacitacionService){
     this.asistenciaCapacitacionService=asistenciaCapacitacionService;
     }
+    
+     private CapacitacionService capacitacionService; 
+      @Autowired
+    public void SetCapacitacionService(CapacitacionService capacitacionService){
+    this.capacitacionService=capacitacionService;
+    }
+    
+     private EmpleadoService empleadoService; 
+      @Autowired
+    public void SetCapacitacionService(EmpleadoService empleadoService){
+    this.empleadoService=empleadoService;
+    }
+    
  
     
   
@@ -50,8 +67,15 @@ public class AsistenciaCapacitacionController extends UtilsController{
     @RequestMapping("new/asistenciacapacitacion")
     public String newAsistenciaCapacitacion(Model model) {
         model.addAttribute("asistenciacapacitacion", new AsistenciaCapacitacion());
-       // model.addAttribute("comite", new Comite());
+        //para jalar el nombre de capacitaciones
+       Iterable<Capacitacion> capacitaciones = capacitacionService.listAllCapacitacion();
+             model.addAttribute("capacitaciones", capacitaciones);
+             //para jalar los nombres de los empleados
+             Iterable<Empleado> empleados= empleadoService.listAllEmpleado();
+             model.addAttribute("empleados", empleados);
+             
         return PREFIX + "asistenciacapacitacionform";
+        
     }
     
     @RequestMapping(value = "asistenciacapacitacion")

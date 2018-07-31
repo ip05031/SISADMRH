@@ -5,13 +5,18 @@
  */
 package mj.gob.sisadmrh.repository;
 
+import mj.gob.sisadmrh.model.Capacitador;
 import mj.gob.sisadmrh.model.Comite;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
 
 /**
  *
  * @author daniel
  */
 public interface ComiteRepository extends CrudRepository<Comite, Integer>{
+       @Query(value = "SELECT c.* FROM comite c WHERE c.nombreempleado LIKE :nom ", nativeQuery = true)
+    Iterable<Comite> findByDato(@Param("nom") String dato);
     
 }

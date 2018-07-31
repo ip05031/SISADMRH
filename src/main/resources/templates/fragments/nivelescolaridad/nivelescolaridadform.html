@@ -12,7 +12,7 @@
     </div> 
         <div class="col-md-8">
             
-            <h3 align="center">Detalle niveles de escolaridad</h3>
+            <h3 align="center">Nuevo Nivel de Escolaridad</h3>
     <div>
         <form class="form-horizontal" th:object="${nivelescolaridad}" th:action="@{../nivelescolaridad}" method="post">
           
@@ -22,61 +22,68 @@
                     <input type="text" class="form-control" th:field="*{codigonivelnivelescolaridad}"/>
                 </div>
             </div>-->
-            <div class="form-group">
-                <label class="col-sm-2 control-label">Nombre de Centro educativo:</label>
+<div class="form-group">
+                <label class="col-sm-2 control-label">Estudios realizados:(*)</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" th:field="*{centroeducativo}"/>
+                    <input type="text" class="form-control" required="true" size="100" maxlength="100" th:field="*{estudiorealizado}"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Nombre de Centro educativo:(*)</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" required="true" size="100" maxlength="100" th:field="*{centroeducativo}"/>
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-sm-2 control-label">Anos aprobados:</label>
                 <div class="col-sm-10">
-                    <input type="number" class="form-control" th:field="*{aniosaprobados}"/>
+                    <input type="text" class="form-control numeros" th:field="*{aniosaprobados}"/>
                 </div>
             </div>
-            
-            <div class="form-group">
-                <label class="col-sm-2 control-label">Estudios realizados:</label>
+             <div class="form-group">
+                <label class="col-sm-2 control-label">Pais Nivel escolaridad:</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" th:field="*{estudiorealizado}"/>
+                    <input type="text" class="form-control" required="true" size="50" maxlength="50" th:field="*{paisnivelescolaridad}"/>
                 </div>
             </div>
-            
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Fecha desde nivel escolar:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control " required="true" th:field="*{fechadesdenivelescolaridad}"/>
+                </div>
+            </div>
+             <div class="form-group">
+                <label class="col-sm-2 control-label">fecha hasta nivel escolaridad:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control " th:field="*{fechahastanivelescolaridad}"/>
+                </div>
+            </div>
              <div class="form-group">
                 <label class="col-sm-2 control-label">Finalizado:</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" th:field="*{finalizado}"/>
+                    <select class="form-control"  required="true" name="finalizado" >
+                        <option>Si</option>
+                        <option>No</option>
+                       
+
+                    </select>
+                    <!--<input type="text" class="form-control" th:field="*{finalizado}"/>-->
                 </div>
             </div>
             
              <div class="form-group">
                 <label class="col-sm-2 control-label">Titulo Obtenido:</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" th:field="*{tituloobtenido}"/>
-                </div>
-            </div>
-            
-             <div class="form-group">
-                <label class="col-sm-2 control-label">Pais Nivel escolaridad:</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" th:field="*{paisnivelescolaridad}"/>
-                </div>
-            </div>
-            
-            <div class="form-group">
-                <label class="col-sm-2 control-label">Fecha desde nivel escolar:</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" th:field="*{fechadesdenivelescolaridad}"/>
+                    <input type="text" class="form-control" required="true" size="50" maxlength="50" th:field="*{tituloobtenido}"/>
                 </div>
             </div>
             
             
-             <div class="form-group">
-                <label class="col-sm-2 control-label">fecha hasta nivel escolaridad:</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" th:field="*{fechahastanivelescolaridad}"/>
-                </div>
-            </div>
+            
+            
+            
+            
+            
             
             <div class="col-md-12">
             <div class="row" align="center">
@@ -106,4 +113,27 @@
 </script>
 
 </body>
+<script th:inline="javascript">
+    $(document).ready(function () {
+    if([[${msg}]]===0){
+       swal({
+                title: "Exito!",
+                text: "Registro agregado correctamente",
+                type: "success",
+                icon: "success"
+       }).then(function() {
+                location.href = '../nivelescolaridades/';
+       }); 
+}
+    
+    if([[${msg}]]===1){
+        swal({
+                title: "ERROR!",
+                text: "Ocurrio un error en el proceso",
+                type: "error",
+                icon: "error"
+       });
+    }
+    });
+</script>  
 </html>

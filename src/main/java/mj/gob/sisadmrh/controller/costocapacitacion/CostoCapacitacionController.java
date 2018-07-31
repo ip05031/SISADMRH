@@ -11,6 +11,8 @@ import java.util.Map;
 import javax.servlet.http.HttpServletResponse;
 import mj.gob.sisadmrh.model.Capacitacion;
 import mj.gob.sisadmrh.model.CostoCapacitacion;
+import mj.gob.sisadmrh.model.Empleado;
+import mj.gob.sisadmrh.service.CapacitacionService;
 import mj.gob.sisadmrh.service.CostoCapacitacionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -28,7 +30,11 @@ public class CostoCapacitacionController extends UtilsController{
     public void SetCostoCapasitacionService(CostoCapacitacionService costoCapacitacionService){
     this.costoCapacitacionService=costoCapacitacionService;
     }
-    
+     private CapacitacionService capacitacionService;
+     @Autowired
+    public void setCapacitacionService (CapacitacionService  capacitacionService) {
+        this.capacitacionService = capacitacionService;
+    }
     
     private final String PREFIX = "fragments/costocapacitacion/";
     @RequestMapping(value = "/", method=RequestMethod.GET)
@@ -46,15 +52,26 @@ public class CostoCapacitacionController extends UtilsController{
     @RequestMapping("new/costocapacitacion")
     public String newCostoCapacitacion(Model model) {
         model.addAttribute("costocapacitacion", new CostoCapacitacion());
+//        manda a la vista las apacitaciones
+         Iterable<Capacitacion> capacitaciones = capacitacionService.listAllCapacitacion();
+       
+      model.addAttribute("capacitaciones", capacitaciones);
      //   model.addAttribute("capacitacion", new Capacitacion());
         return PREFIX + "costocapacitacionform";
     }
     
     @RequestMapping(value = "costocapacitacion")
-    public String saveCostoCapacitacion(CostoCapacitacion costoCapacitacion) {
-        costoCapacitacionService.saveCostoCapacitacion(costoCapacitacion);
+    public String saveCostoCapacitacion(CostoCapacitacion costoCapacitacion, Model model) {
+        try{
+         costoCapacitacionService.saveCostoCapacitacion(costoCapacitacion);
+          model.addAttribute("msg", 0);
+        }
+        catch(Exception e){
+         model.addAttribute("msg", 1);
+        }
+         return PREFIX + "costocapacitacionform";
        
-        return "redirect:./show/" + costoCapacitacion.getCodigocostocapacitacion();
+       // return "redirect:./show/" + costoCapacitacion.getCodigocostocapacitacion();
     }
     
 //      @RequestMapping(value = "comite",method=RequestMethod.POST)
@@ -71,9 +88,16 @@ public class CostoCapacitacionController extends UtilsController{
         return PREFIX +"costocapacitacionshow";
     }
      @RequestMapping("delete/{id}")
-    public String delete(@PathVariable Integer id) {
-        costoCapacitacionService.deleteCostoCapacitacion(id);
-        return "redirect:/costocapacitaciones/";
+    public String delete(@PathVariable Integer id,Model model) {
+        try{
+              costoCapacitacionService.deleteCostoCapacitacion(id);
+                model.addAttribute("msg", 3);
+        }
+       
+        catch(Exception e){
+  model.addAttribute("msg", 4);
+        }
+          return "redirect:/costocapacitaciones/";
     }
     
     @RequestMapping("report/")

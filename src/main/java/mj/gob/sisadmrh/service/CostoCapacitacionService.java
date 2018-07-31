@@ -19,4 +19,5 @@ public interface CostoCapacitacionService {
 
     void deleteCostoCapacitacion(Integer id);
     
+     Iterable<CostoCapacitacion> findByDato(String dato) ;
 }

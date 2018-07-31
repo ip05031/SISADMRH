@@ -30,11 +30,28 @@
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
 			<ul class="nav navbar-nav">
-				<li class="active"><a  href="#" th:href="@{/}">Inicio<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-home"></span></a></li>
+				
+                            
+                                <li class="active"><a  href="#" th:href="@{/}">Inicio<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-home"></span></a></li>
 				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Generar Reportes <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a>
+					
+                                        <ul class="dropdown-menu forAnimate" role="menu">
+						li><a href="#" th:href="@{/otherreports/otherreports/}">Reporte Comites</a></li> 
+                                              
+					</ul>
+                                        
+                                        
+                               
+				</li>
+                            
+                          
+                                
+                               <li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Gestionar Usuarios <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a>
-					<ul class="dropdown-menu forAnimate" role="menu">
-						 <li><a href="#" th:href="@{/usuarios/}">Consultar Usuarios</a></li>
+					
+                                        <ul class="dropdown-menu forAnimate" role="menu">
+						 <li><a href="#" th:href="@{/usuarios/}">Generar Reportes</a></li>
                                                  <li><a href="#" th:href="@{/usuarios/new/usuario}">Crear Usuario</a></li>
                                                  <li><a href="#" th:href="@{/roles/}">Consultar Roles</a></li>
                                                 <li><a href="#" th:href="@{/roles/new/rol}">Crear Rol</a></li>
@@ -43,7 +60,8 @@
                                         
                                         
                                
-				</li>
+				</li> 
+                                
                                 <li ><a href="#">Carga de Archivos Fuentes<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-cog"></span></a></li>
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Gestionar Beneficios <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-cog"></span></a>
@@ -68,12 +86,13 @@
                                             <li><a href="#" th:href="@{/capacitaciones/buscar/}">Buscar Capacitaciones</a></li>
 						<li><a href="#" th:href="@{/capacitaciones/}">Consultar Capacitaciones</a></li>
                                                 <li><a href="#" th:href="@{/capacitaciones/new/capacitacion}">Crear Capacitaciones</a></li>
-                                                <li><a href="#" th:href="@{/capacitaciones/reporte/}">Reporte de Capacitaciones</a></li>
+                                                <li><a href="#" th:href="@{/capacitaciones/report/}">Reporte de Capacitaciones</a></li>
 					</ul>
 				</li>
                                 <li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Gestionar Capacitador <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-cog"></span></a>
 					<ul class="dropdown-menu forAnimate" role="menu">
+                                             <li><a href="#" th:href="@{/capacitadores/buscar/}">Buscar Capacitador</a></li>
 						<li><a href="#" th:href="@{/capacitadores/}">Consultar Capacitador</a></li>
                                                  <li><a href="#" th:href="@{/capacitadores/new/capacitador}">Crear Capacitador</a></li>
                                                  <li><a href="#" th:href="@{/capacitadores/report/}">Reporte Capacitador</a></li>
@@ -182,6 +201,9 @@
 						<li><a href="#" th:href="@{/otherreports/motoristas}">Reporte de Motoristas</a></li>
 						<li><a href="#" th:href="@{/otherreports/notarios}">Reporte de Notarios</a></li>
 						<li><a href="#" th:href="@{/otherreports/renuncias}">Reporte de renuncias</a></li>
+                                                <li><a href="#" th:href="@{/otherreports/comites/}">Reporte de comites</a></li>
+                                                <!--aqui segui zampando tus hace eso proba y mandas el deverge si te da aqui esta cagado begon lo importante es que waches la logica
+                                                parecen cagaditas triviales jejeje jajapajeajjrao no son triviales webos jaajaj hace tus pruebas ahi que ya no tengo carga en la laptop vaya pero necesitaba usar los js solo para un campo dui-->
                                                 
                                                   
 					</ul>
