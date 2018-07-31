@@ -37,39 +37,52 @@ import org.springframework.format.annotation.DateTimeFormat;
 @NamedQueries({
 @NamedQuery(name = "Capacitacion.findAll", query = "SELECT c FROM Capacitacion c")})
 public class Capacitacion implements Serializable {
+    
     @Size(max = 50)
     @Column(name = "NOMBRECAPACITACION")
     private String nombrecapacitacion;
+    
     @Size(max = 500)
     @Column(name = "DESCRIPCIONCAPACITACION")
     private String descripcioncapacitacion;
+    
     @Size(max = 30)
     @Column(name = "CATEGORIACAPACITACION")
     private String categoriacapacitacion;
+    
     @Size(max = 500)
     @Column(name = "DESCRIPCIONCATEGORIA")
     private String descripcioncategoria;
+    
     @Size(max = 100)
     @Column(name = "DEPARTAMENTORESPONSABLE")
     private String departamentoresponsable;
+    
     @Size(max = 200)
     @Column(name = "ORGANISMOPATROCINADOR")
     private String organismopatrocinador;
+    
     @Size(max = 200)
     @Column(name = "TIPOEVENTO")
     private String tipoevento;
+    
     @Size(max = 200)
     @Column(name = "ESPECIALIDADEVENTO")
     private String especialidadevento;
+    
     @Size(max = 50)
     @Column(name = "PAISCAPACITACION")
     private String paiscapacitacion;
+    
     @Column(name = "FECHACAPACITACIONDESDE")
     @DateTimeFormat(pattern = "YYYY-MM-dd")
     private Date fechacapacitaciondesde;
+    
     @Column(name = "FECHACAPACITACIONHASTA")
    @DateTimeFormat(pattern = "YYYY-MM-dd")
     private Date fechacapacitacionhasta;
+    
+    
     @Size(max = 20)
     @Column(name = "TIPOCAPACITACION")
     private String tipocapacitacion;
