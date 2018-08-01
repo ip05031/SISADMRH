@@ -69,10 +69,10 @@ public class AsistenciaCapacitacionController extends UtilsController{
         model.addAttribute("asistenciacapacitacion", new AsistenciaCapacitacion());
         //para jalar el nombre de capacitaciones
        Iterable<Capacitacion> capacitaciones = capacitacionService.listAllCapacitacion();
-             model.addAttribute("capacitaciones", capacitaciones);
+                model.addAttribute("capacitaciones", capacitaciones);
              //para jalar los nombres de los empleados
-             Iterable<Empleado> empleados= empleadoService.listAllEmpleado();
-             model.addAttribute("empleados", empleados);
+//             Iterable<Empleado> empleados= empleadoService.listAllEmpleado();
+//             model.addAttribute("empleados", empleados);
              
         return PREFIX + "asistenciacapacitacionform";
         

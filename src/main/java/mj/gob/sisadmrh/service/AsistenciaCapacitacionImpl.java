@@ -8,6 +8,7 @@ package mj.gob.sisadmrh.service;
 import java.util.Optional;
 import mj.gob.sisadmrh.model.AsistenciaCapacitacion;
 import mj.gob.sisadmrh.model.Capacitacion;
+import mj.gob.sisadmrh.model.Comite;
 import mj.gob.sisadmrh.repository.AsistenciaCapacitacionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -43,9 +44,9 @@ return asistenciaCapacitacionRep.findById(id);
      asistenciaCapacitacionRep.deleteById(id);
         //  throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-     @Override
-     public Iterable<AsistenciaCapacitacion> findByDato(String dato) {
-        return  asistenciaCapacitacionRep.findByDato("%"+dato+"%");
+    @Override
+    public Iterable<AsistenciaCapacitacion> findByDato(String dato) {
+        return asistenciaCapacitacionRep.findByDato("%"+dato+"%");
         
     }
 }

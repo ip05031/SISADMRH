@@ -24,14 +24,14 @@ import javax.validation.constraints.Size;
 
 /**
  *
- * @author daniel
+ * @author jorge
  */
 @Entity
-@Table(name = "ASISTENCIACAPACITACION")
+@Table(name = "asistenciacapacitacion")
 @NamedQueries({
-@NamedQuery(name = "AsistenciaCapacitacion.findAll", query = "SELECT ac FROM AsistenciaCapacitacion ac")})
-
+    @NamedQuery(name = "AsistenciaCapacitacion.findAll", query = "SELECT a FROM AsistenciaCapacitacion a")})
 public class AsistenciaCapacitacion implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
@@ -46,6 +46,13 @@ public class AsistenciaCapacitacion implements Serializable {
     @Size(max = 50)
     @Column(name = "UBICACIONASISTENCIACAPACITACION")
     private String ubicacionasistenciacapacitacion;
+    @Size(max = 11)
+    @Column(name = "TELEFONO")
+    private String telefono;
+    // @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="Correo electrónico no válido")//if the field contains email address consider using this annotation to enforce field validation
+    @Size(max = 50)
+    @Column(name = "EMAIL")
+    private String email;
     @ManyToMany(mappedBy = "asistenciacapacitacionList")
     private List<Empleado> empleadoList;
     @JoinColumn(name = "CODIGOCAPACITACION", referencedColumnName = "CODIGOCAPACITACION")
@@ -86,6 +93,22 @@ public class AsistenciaCapacitacion implements Serializable {
 
     public void setUbicacionasistenciacapacitacion(String ubicacionasistenciacapacitacion) {
         this.ubicacionasistenciacapacitacion = ubicacionasistenciacapacitacion;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public List<Empleado> getEmpleadoList() {
