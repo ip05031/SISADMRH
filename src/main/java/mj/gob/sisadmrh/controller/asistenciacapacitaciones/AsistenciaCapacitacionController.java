@@ -80,6 +80,12 @@ public class AsistenciaCapacitacionController extends UtilsController{
         return "redirect:/asistenciacapacitaciones/";
     }
     
+    @RequestMapping("llenadocombo/{cemp}")
+    public String llenacombo(@PathVariable String cemp, Model model) {
+        model.addAttribute("asistenciacapacitacion", asistenciaCapacitacionService.findnamesBycemp(cemp));
+        return PREFIX + "asistenciacapacitacionform";
+    }
+    
     @RequestMapping("report/")
     public String reporte() {
         return PREFIX + "asistenciacapacitacionesreport";

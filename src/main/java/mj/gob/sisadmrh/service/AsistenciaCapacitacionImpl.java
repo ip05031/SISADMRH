@@ -43,4 +43,10 @@ return asistenciaCapacitacionRep.findById(id);
         //  throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
+    @Override
+    public Object[] findnamesBycemp(String emp) {
+        
+    return  asistenciaCapacitacionRep.findnamesBycemp(emp);
+    }
+    
 }
