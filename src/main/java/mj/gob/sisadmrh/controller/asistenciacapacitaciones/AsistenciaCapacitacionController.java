@@ -71,8 +71,8 @@ public class AsistenciaCapacitacionController extends UtilsController{
        Iterable<Capacitacion> capacitaciones = capacitacionService.listAllCapacitacion();
                 model.addAttribute("capacitaciones", capacitaciones);
              //para jalar los nombres de los empleados
-//             Iterable<Empleado> empleados= empleadoService.listAllEmpleado();
-//             model.addAttribute("empleados", empleados);
+             Iterable<Empleado> empleados= empleadoService.listAllEmpleado();
+            model.addAttribute("empleados", empleados);
              
         return PREFIX + "asistenciacapacitacionform";
         
@@ -85,14 +85,7 @@ public class AsistenciaCapacitacionController extends UtilsController{
         return "redirect:./show/" + asistenciaCapacitacion.getCodigoasistenciacapacitacion();
     }
     
-//      @RequestMapping(value = "comite",method=RequestMethod.POST)
-//    public String saveComite(@Valid @ModelAttribute(name = "comite") Comite comite) {
-//        comiteService.saveComite(comite);
-//       
-//        return "redirect:./show/" + comite.getCodigocomite();
-//    }
-//    
-//    
+   
      @RequestMapping("show/{id}")
     public String showAsistenciaCapacitacion(@PathVariable Integer id, Model model) {
         model.addAttribute("asistenciacapacitacion", asistenciaCapacitacionService.getAsistenciaCapacitacionById(id).get());

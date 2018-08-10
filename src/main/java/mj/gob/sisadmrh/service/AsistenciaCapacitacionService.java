@@ -21,8 +21,8 @@ public interface AsistenciaCapacitacionService {
     AsistenciaCapacitacion saveAsistenciaCapacitacion(AsistenciaCapacitacion asistenciaCapacitacion);
 
     void deleteAsistenciaCapacitacion(Integer id);
-    Iterable<AsistenciaCapacitacion> findByDato(String dato);
-    
+    Iterable<AsistenciaCapacitacion> findByCapacitacion(String dato);
+   // servira para jalar el empleado,puesto y ubicacionfisica 
     Object[] findnamesBycemp(String emp);
     
 }

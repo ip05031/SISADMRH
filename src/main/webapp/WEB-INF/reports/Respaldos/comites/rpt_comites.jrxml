@@ -11,14 +11,10 @@
 	</parameter>
 	<parameter name="FECHAFIN" class="java.lang.String"/>
 	<queryString>
-		<![CDATA[SELECT
-     empleado.`nombreempleado` AS empleado_nombreempleado,
-     comite.`numeroacuerdocomite` AS acuerdo,
-     comite.`fechahastacomite` AS comite_fechahastacomite,
-     comite.`nombrecomite` AS comite_nombrecomite,
-     comite.`fechadesdecomite` AS comite_fechadesdecomite
-FROM
-     `empleado` empleado INNER JOIN `comite` comite ON empleado.`codigoempleado` = comite.`codigoempleado`
+		<![CDATA[SELECT count(e.codigoempleado)as totalRegistros, concat(DAY(e.fechanacimientoempleado)," / ", MONTH(e.fechanacimientoempleado)) AS Fecha,
+p.nombrepuesto,uf.nombreubicacion,e.nombreempleado,c.numeroacuerdocomite,c.nombrecomite,c.fechadesdecomite,c.fechahastacomite from SISADMRH.empleado e 
+INNER JOIN SISADMRH.puesto p ON e.codigoempleado=p.codigoempleado 
+INNER JOIN SISADMRH.ubicacionfisica uf on uf.codigoempleado=e.codigoempleado inner join comite c on e.codigoempleado=c.codigoempleado
 WHERE
      comite.codigocomite = $P{CODIGO}
      and comite.fechadesdecomite >= $P{FECHAINICIO}
@@ -36,30 +32,64 @@ WHERE
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="79" splitType="Stretch">
+		<band height="93" splitType="Stretch">
 			<staticText>
-				<reportElement x="117" y="10" width="475" height="30" uuid="d221db1a-67a0-457b-9304-a3886e020f64"/>
+				<reportElement x="256" y="5" width="290" height="30" uuid="d221db1a-67a0-457b-9304-a3886e020f64"/>
 				<textElement>
-					<font size="16" isBold="true"/>
+					<font fontName="Times New Roman" size="14" isBold="true"/>
 				</textElement>
-				<text><![CDATA[MINISTERIO DE JUSTICIA Y SEGURIDAD PUBLICA]]></text>
+				<text><![CDATA[Ministerio de Justicia y Seguridad Publica]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="224" y="40" width="297" height="20" uuid="2edc3e00-7b11-45d4-be87-7568cf6023d7"/>
-				<text><![CDATA[REPORTE DE COMITES]]></text>
+				<reportElement x="301" y="36" width="201" height="20" uuid="2edc3e00-7b11-45d4-be87-7568cf6023d7"/>
+				<textElement>
+					<font fontName="Times New Roman" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Direccion de Recuros Humanos]]></text>
+			</staticText>
+			<image>
+				<reportElement x="20" y="10" width="140" height="70" uuid="2e98faf6-d9ec-4c59-b572-dfd518bf28a9"/>
+				<imageExpression><![CDATA["C:\\Users\\jorge\\Documents\\NetBeansProjects\\SISADMRH\\src\\main\\resources\\static\\image\\GOES.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="624" y="10" width="205" height="70" uuid="66e7c37b-8054-4465-833b-f43bcaa504fc"/>
+				<imageExpression><![CDATA["C:\\Users\\jorge\\Documents\\NetBeansProjects\\SISADMRH\\src\\main\\resources\\static\\image\\LOGOMJ.jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="337" y="60" width="93" height="20" uuid="77ceefa8-0ff8-42fb-a254-64df36c16dc5"/>
+				<textElement>
+					<font fontName="Times New Roman" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SISADMRH]]></text>
 			</staticText>
 		</band>
 	</title>
 	<pageHeader>
-		<band height="35" splitType="Stretch">
+		<band height="56" splitType="Stretch">
 			<textField pattern="dd/MM/yyyy">
 				<reportElement x="679" y="15" width="100" height="20" uuid="ad9bca51-794c-4f34-a164-d4abe4f40d07"/>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="610" y="15" width="100" height="20" uuid="bd2b85a5-659c-435b-bd0a-8d277005d97e"/>
+				<reportElement x="643" y="15" width="67" height="20" uuid="bd2b85a5-659c-435b-bd0a-8d277005d97e"/>
 				<text><![CDATA[Fecha:]]></text>
 			</staticText>
+			<staticText>
+				<reportElement x="336" y="3" width="100" height="20" uuid="0f7451bb-29d8-443e-b0b8-ea63d10be83e"/>
+				<textElement>
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<text><![CDATA[Reporte de Comites]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="624" y="33" width="70" height="20" uuid="60e1cef8-adce-415b-9169-4d8478c97441"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Paginas "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="707" y="33" width="40" height="20" uuid="cb907302-f7d8-44ef-8653-09860453640a"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
 		</band>
 	</pageHeader>
 	<columnHeader>
@@ -91,7 +121,7 @@ WHERE
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="46" splitType="Stretch">
+		<band height="77" splitType="Stretch">
 			<textField>
 				<reportElement x="180" y="0" width="100" height="20" uuid="69c6644a-c56c-439b-b242-61f430a98c99"/>
 				<textFieldExpression><![CDATA[$F{empleado_nombreempleado}]]></textFieldExpression>

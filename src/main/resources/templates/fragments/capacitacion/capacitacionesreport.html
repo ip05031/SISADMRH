@@ -10,12 +10,12 @@
             <th:block th:include="../templates/menu"></th:block>
         </div>
         <div class="col-md-8">
-            <h3>GENERACION DE REPORTE DE COMITES</h3>
+            <h3>GENERACION DE REPORTE DE CAPACITACIONES</h3>
             <div>
-                <form class="form-horizontal" id="formcomite">
+                <form class="form-horizontal" id="formcapacitacion">
 
                     <div class="form-group">
-                        <label class="col-sm-3 control-label" >Codigo de comite:</label>
+                        <label class="col-sm-3 control-label" >Codigo de capacitacion:</label>
                         <div class="col-sm-8">
                             <input type="text" class="form-control" id="codigo" name="codigo"/>
                         </div>
@@ -51,8 +51,8 @@
             dateFormat: 'yy-mm-dd'
         });
         $('#generar').click(function(){
-            $("#formcomite").attr('action', '../pdf/'+ $("#codigo").val().toString());
-            $("form#formcomite").submit();
+            $("#formcapacitacion").attr('action', '../pdf/'+ $("#codigo").val().toString());
+            $("form#formcapacitacion").submit();
             
         });
     });

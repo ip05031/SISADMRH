@@ -52,8 +52,8 @@ return asistenciaCapacitacionRep.findById(id);
     
 
     @Override
-    public Iterable<AsistenciaCapacitacion> findByDato(String dato) {
-        return asistenciaCapacitacionRep.findByDato("%"+dato+"%");
+    public Iterable<AsistenciaCapacitacion> findByCapacitacion(String dato) {
+        return asistenciaCapacitacionRep.findByCapacitacion("%"+dato+"%");
         
     }
 
