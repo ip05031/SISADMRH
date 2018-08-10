@@ -56,8 +56,8 @@ public class EstadoController {
         catch(Exception e){
         model.addAttribute("msg", 1);
         }
-    //    return PREFIX+"estadoform";
-       return PREFIX+"estadoform";  
+       return PREFIX+"estadoform";
+        
       // return "redirect:./show/" + estado.getCodigoestado();
     }
     
@@ -68,8 +68,17 @@ public class EstadoController {
     }
 
     @RequestMapping("delete/{id}")
-    public String delete(@PathVariable Integer id) {
+    
+    public String delete(@PathVariable Integer id,Model model) {
+        try{
         estadoService.deleteEstado(id);
+        model.addAttribute("msg", 3);
+        }
+        catch(Exception e)
+        {
+        model.addAttribute("msg", 4);
+        }
+        
         return "redirect:/estados/";
     }
 }

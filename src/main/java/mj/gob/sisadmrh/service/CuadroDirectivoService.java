@@ -7,6 +7,7 @@ package mj.gob.sisadmrh.service;
 
 import java.util.Optional;
 import mj.gob.sisadmrh.model.Beneficio;
+import mj.gob.sisadmrh.model.Capacitador;
 import mj.gob.sisadmrh.model.CuadroDirectivo;
 import org.springframework.stereotype.Service;
 
@@ -19,5 +20,6 @@ public interface CuadroDirectivoService {
     CuadroDirectivo saveCuadroDirectivo(CuadroDirectivo cuadroDirectivo);
 
     void deleteCuadroDirectivo(Integer id);
+    Iterable<CuadroDirectivo> findByDato(String dato);
     
 }

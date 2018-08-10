@@ -6,6 +6,7 @@
 package mj.gob.sisadmrh.service;
 
 import java.util.Optional;
+import mj.gob.sisadmrh.model.Capacitacion;
 import mj.gob.sisadmrh.model.Capacitador;
 import mj.gob.sisadmrh.repository.CapacitadorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +20,7 @@ import org.springframework.stereotype.Service;
 public class CapacitadorServiceImpl implements CapacitadorService{
     private CapacitadorRepository capacitadorRep;
     @Autowired
-    public void SetEstadoRepositorio(CapacitadorRepository capacitadorRepository){
+    public void SetCapacitadorRepositorio(CapacitadorRepository capacitadorRepository){
     this.capacitadorRep=capacitadorRepository;
     }
 
@@ -46,6 +47,12 @@ return capacitadorRep.save(capacitador);
     public void deleteCapacitador(Integer id) {
       capacitadorRep.deleteById(id);
         // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+   
+    @Override
+    public Iterable<Capacitador> findByDato(String dato) {
+        return capacitadorRep.findByDato("%"+dato+"%");
+        
     }
     
 }

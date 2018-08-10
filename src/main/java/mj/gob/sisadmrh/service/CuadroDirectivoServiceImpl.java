@@ -44,5 +44,12 @@ public class CuadroDirectivoServiceImpl implements CuadroDirectivoService{
      cuadroDirectivoRep.deleteById(id);
         //  throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    @Override
+    public Iterable<CuadroDirectivo> findByDato(String dato) {
+    return cuadroDirectivoRep.findByDato("%"+dato+"%");
+// throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    
+    }
     
 }

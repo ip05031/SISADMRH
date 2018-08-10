@@ -50,35 +50,35 @@ public class Capacitador implements Serializable {
     
     @Size(max = 10)
     @Column(name = "DUICAPACITADOR")
-    @NotEmpty
+    
     private String duicapacitador;
     
     
     @Size(max = 17)
     @Column(name = "NITCAPACITADOR")
-    @NotEmpty
+    
     private String nitcapacitador;
     
     
     @Size(max = 11)
     @Column(name = "TELEFONOCAPACITADOR")
-    @NotEmpty
+ 
     private String telefonocapacitador;
     
     
     @Size(max = 11)
     @Column(name = "TELEFONOMOVILCAPACITADOR")
-    @NotEmpty
+    
     private String telefonomovilcapacitador;
     
     
     @Size(max = 50)
-    @NotEmpty
+   
     @Column(name = "EMAILCAPACITADOR")
     private String emailcapacitador;
     
     @Size(max = 100)
-    @NotEmpty
+    
     @Column(name = "NOMBRECAPACITADOR")
     private String nombrecapacitador;
     

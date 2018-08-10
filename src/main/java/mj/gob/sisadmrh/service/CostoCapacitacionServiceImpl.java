@@ -6,6 +6,7 @@
 package mj.gob.sisadmrh.service;
 
 import java.util.Optional;
+import mj.gob.sisadmrh.model.Capacitacion;
 import mj.gob.sisadmrh.model.CostoCapacitacion;
 import mj.gob.sisadmrh.repository.CostoCapacitacionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,6 +43,11 @@ return costoCapacitacionRep.findById(id);
     public void deleteCostoCapacitacion(Integer id) {
 costoCapacitacionRep.deleteById(id);
 //hrow new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+     @Override
+    public Iterable<CostoCapacitacion> findByDato(String dato) {
+        return costoCapacitacionRep.findByDato("%"+dato+"%");
+        
     }
     
 }

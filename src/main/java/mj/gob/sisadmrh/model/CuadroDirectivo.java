@@ -45,16 +45,16 @@ public class CuadroDirectivo implements Serializable {
     private Integer codigocuadrodirectivo;
     @Size(max = 30)
    @Column(name = "RESPONSABLECUADRODIRECTIVO")
-    @NotEmpty
+    
     private String responsablecuadrodirectivo;
 
     @Size(max = 30)
     @Column(name = "AREA")
-     @NotEmpty
+    
     private String area;
     @Size(max = 100)
     @Column(name = "DESRIPCIONCUADRODIRECTIVO")
-     @NotEmpty
+     
     private String desripcioncuadrodirectivo;
     @Column(name = "FECHAPRESENTACION")
    @DateTimeFormat(pattern = "YYYY-MM-dd")

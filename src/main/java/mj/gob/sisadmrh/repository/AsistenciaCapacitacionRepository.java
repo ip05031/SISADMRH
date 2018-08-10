@@ -7,6 +7,8 @@ package mj.gob.sisadmrh.repository;
 
 import java.util.List;
 import mj.gob.sisadmrh.model.AsistenciaCapacitacion;
+import mj.gob.sisadmrh.model.Capacitacion;
+import mj.gob.sisadmrh.model.Comite;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;

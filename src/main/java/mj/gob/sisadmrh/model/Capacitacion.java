@@ -37,42 +37,59 @@ import org.springframework.format.annotation.DateTimeFormat;
 @NamedQueries({
 @NamedQuery(name = "Capacitacion.findAll", query = "SELECT c FROM Capacitacion c")})
 public class Capacitacion implements Serializable {
+    
     @Size(max = 50)
     @Column(name = "NOMBRECAPACITACION")
     private String nombrecapacitacion;
+    
     @Size(max = 500)
     @Column(name = "DESCRIPCIONCAPACITACION")
     private String descripcioncapacitacion;
+    
     @Size(max = 30)
     @Column(name = "CATEGORIACAPACITACION")
     private String categoriacapacitacion;
+    
     @Size(max = 500)
     @Column(name = "DESCRIPCIONCATEGORIA")
     private String descripcioncategoria;
+    
     @Size(max = 100)
     @Column(name = "DEPARTAMENTORESPONSABLE")
     private String departamentoresponsable;
+    
     @Size(max = 200)
     @Column(name = "ORGANISMOPATROCINADOR")
     private String organismopatrocinador;
+    
     @Size(max = 200)
     @Column(name = "TIPOEVENTO")
     private String tipoevento;
+    
     @Size(max = 200)
     @Column(name = "ESPECIALIDADEVENTO")
     private String especialidadevento;
+    
     @Size(max = 50)
     @Column(name = "PAISCAPACITACION")
     private String paiscapacitacion;
-    @Column(name = "FECHACAPACITACIONDESDE")
-    @DateTimeFormat(pattern = "YYYY-MM-dd")
-    private Date fechacapacitaciondesde;
-    @Column(name = "FECHACAPACITACIONHASTA")
-   @DateTimeFormat(pattern = "YYYY-MM-dd")
-    private Date fechacapacitacionhasta;
     @Size(max = 20)
     @Column(name = "TIPOCAPACITACION")
     private String tipocapacitacion;
+  //  @ManyToMany(mappedBy = "capacitacionList")
+   // private List<Empleado> empleadoList;
+   // @OneToMany(cascade = CascadeType.ALL, mappedBy = "codigocapacitacion")
+    //private List<AsistenciaCapacitacion> asistenciacapacitacionList;
+    
+    @Column(name = "FECHACAPACITACIONDESDE")
+    @DateTimeFormat(pattern = "YYYY-MM-dd")
+    private Date fechacapacitaciondesde;
+    
+    @Column(name = "FECHACAPACITACIONHASTA")
+   @DateTimeFormat(pattern = "YYYY-MM-dd")
+    private Date fechacapacitacionhasta;
+    
+    
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
@@ -225,6 +242,18 @@ public class Capacitacion implements Serializable {
     public String toString() {
         return "mj.gob.sisadmrh.model.Capacitacion[ codigocapacitacion=" + codigocapacitacion + " ]";
     }
+    public Date getFechacapacitaciondesde() {
+        return fechacapacitaciondesde;
+    }
+    public void setFechacapacitaciondesde(Date fechacapacitaciondesde) {
+        this.fechacapacitaciondesde = fechacapacitaciondesde;
+    }
+    public Date getFechacapacitacionhasta() {
+        return fechacapacitacionhasta;
+    }
+    public void setFechacapacitacionhasta(Date fechacapacitacionhasta) {
+        this.fechacapacitacionhasta = fechacapacitacionhasta;
+    }
 
     public String getNombrecapacitacion() {
         return nombrecapacitacion;
@@ -298,22 +327,6 @@ public class Capacitacion implements Serializable {
         this.paiscapacitacion = paiscapacitacion;
     }
 
-    public Date getFechacapacitaciondesde() {
-        return fechacapacitaciondesde;
-    }
-
-    public void setFechacapacitaciondesde(Date fechacapacitaciondesde) {
-        this.fechacapacitaciondesde = fechacapacitaciondesde;
-    }
-
-    public Date getFechacapacitacionhasta() {
-        return fechacapacitacionhasta;
-    }
-
-    public void setFechacapacitacionhasta(Date fechacapacitacionhasta) {
-        this.fechacapacitacionhasta = fechacapacitacionhasta;
-    }
-
     public String getTipocapacitacion() {
         return tipocapacitacion;
     }
@@ -321,5 +334,21 @@ public class Capacitacion implements Serializable {
     public void setTipocapacitacion(String tipocapacitacion) {
         this.tipocapacitacion = tipocapacitacion;
     }
-    
+
+//    public List<Empleado> getEmpleadoList() {
+//        return empleadoList;
+//    }
+
+//    public void setEmpleadoList(List<Empleado> empleadoList) {
+//        this.empleadoList = empleadoList;
+//    }
+
+//    public List<AsistenciaCapacitacion> getAsistenciacapacitacionList() {
+//        return asistenciacapacitacionList;
+//    }
+
+//    public void setAsistenciacapacitacionList(List<AsistenciaCapacitacion> asistenciacapacitacionList) {
+//        this.asistenciacapacitacionList = asistenciacapacitacionList;
+//    }
+//    
 }

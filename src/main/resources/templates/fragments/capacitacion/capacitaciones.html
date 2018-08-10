@@ -35,7 +35,7 @@
                 <th>Fecha Capacitacion Hasta</th>
                 <th>Tipo Capacitacion</th>
                 <th>Estado Capacitacion</th>
-                <th>Codigo Capacitador</th>
+                <th>Nombre Capacitador</th>
                <th>Acciones</th>
                 
             </tr>
@@ -56,12 +56,14 @@
                 <td th:text="${capacitacion.fechacapacitacionhasta}">Fecha Capacitacion Hasta</td>
                 <td th:text="${capacitacion.tipocapacitacion}">Tipo Capacitacion</td>
                 <td th:text="${capacitacion.estadocapacitacion}">Estado Capacitacion</td>
-                <td th:text="${capacitacion.codigocapacitador.codigocapacitador}">Codigo Capacitador</td>
+                <td th:text="${capacitacion.codigocapacitador.nombrecapacitador}">Nombre Capacitador</td>
                 
                 <td>
                     <a th:href="${'./show/' + capacitacion.codigocapacitacion}" class="btn btn-default">Mostrar</a>
                 <a th:href="${'./edit/' + capacitacion.codigocapacitacion}" class="btn btn-default">Edit</a>
-                <a th:href="${'./delete/' + capacitacion.codigocapacitacion}" class="btn btn-danger">Delete</a></td>
+               <!--<td><a th:href="${'./delete/' + capacitacion.codigocapacitacion}" class="btn btn-danger">Delete</a></td>-->
+                    <td><a  class="btn btn-danger" th:onclick="'eliminar(\'' + ${capacitacion.codigocapacitacion} + '\');'" >Delete</a></td>  
+                </td>
             </tr>
         </table>
             
@@ -74,9 +76,46 @@
    
    
    
-       
+    <script th:inline="javascript">
+        $(document).ready(function () {
+    if([[${msg}]]===3){
+       swal({
+           
+                title: "Exito!",
+                text: "Registro Eliminado correctamente",
+                type: "success",
+                icon: "success",
+       }).then(function() {
+                location.href = '../../capacitaciones/';
+       }); 
+}
+    
+    if([[${msg}]]===4){
+        swal({
+                title: "ERROR!",
+                text: "Ocurrio un error al eliminar el registro",
+                type: "error",
+                icon: "error"
+       });
+    }
+    });
         
-   
-
+        function eliminar(id) {
+            swal({
+                title: "Desea Eliminar?",
+                text: "favor confirme que desea eliminar este registro!",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+                    .then((willDelete) => {
+                        if (willDelete) {
+                            location.href = './delete/' + id;
+                        } else {
+                            swal("Accion cancelada", "se ha cancelado la operaacion de eliminado", "error");
+                        }
+                    });
+        }
+    </script>
 </body>
 </html>

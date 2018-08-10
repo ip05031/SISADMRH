@@ -5,13 +5,17 @@
  */
 package mj.gob.sisadmrh.repository;
 
+import mj.gob.sisadmrh.model.Capacitador;
 import mj.gob.sisadmrh.model.CuadroDirectivo;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
 
 /**
  *
  * @author daniel
  */
 public interface CuadroDirectivoRepository extends CrudRepository<CuadroDirectivo, Integer>{
-    
+     @Query(value = "SELECT cd.* FROM Cuadrodirectivo capacitador cd WHERE cd.responsablecuadrodirectivo LIKE :nom ", nativeQuery = true)
+    Iterable<CuadroDirectivo> findByDato(@Param("nom") String dato); 
 }
