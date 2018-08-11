@@ -5,6 +5,7 @@
  */
 package mj.gob.sisadmrh.service;
 
+import java.util.List;
 import java.util.Optional;
 import mj.gob.sisadmrh.model.AsistenciaCapacitacion;
 
@@ -23,6 +24,6 @@ public interface AsistenciaCapacitacionService {
     void deleteAsistenciaCapacitacion(Integer id);
     Iterable<AsistenciaCapacitacion> findByCapacitacion(String dato);
    // servira para jalar el empleado,puesto y ubicacionfisica 
-    Object[] findnamesBycemp(String emp);
+    List<Object[]> findnamesBycemp(String emp);
     
 }
