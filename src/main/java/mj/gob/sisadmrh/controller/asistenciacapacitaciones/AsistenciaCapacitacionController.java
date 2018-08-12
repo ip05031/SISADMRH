@@ -77,10 +77,10 @@ public class AsistenciaCapacitacionController extends UtilsController{
     }
     
     @RequestMapping(value = "asistenciacapacitacion")
-    public String saveAsistenciaCapacitacion(AsistenciaCapacitacion asistenciaCapacitacion) {
-        asistenciaCapacitacionService.saveAsistenciaCapacitacion(asistenciaCapacitacion);
+    public String saveAsistenciaCapacitacion(AsistenciaCapacitacion asistencia) {
+        asistenciaCapacitacionService.saveAsistenciaCapacitacion(asistencia);
        
-        return "redirect:./show/" + asistenciaCapacitacion.getCodigoasistenciacapacitacion();
+        return "redirect:./show/" + asistencia.getCodigoasistenciacapacitacion();
     }
     
    
