@@ -16,7 +16,7 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Capacitacion:</label>
                         <div class="col-sm-10" >
-                            <select class="form-control"  th:field="*{asistenciaCapacitacion.codigocapacitacion.codigocapacitacion}" >
+                            <select class="form-control" name="codigocapacitacion.codigocapacitacion" >
                                 <option th:each="c:${formasistenciacapacitancion.capacitaciones}" th:value="${c.codigocapacitacion}" th:text="${c.nombrecapacitacion}"></option>
                             </select>
                             <!--<input type="text" class="form-control" onkeypress="return valida(event)" th:field="*{codigoempleado.codigoempleado}"/>-->
@@ -28,7 +28,7 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label ">Horas Recibidas:</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control numeros" required="true" th:field="*{asistenciaCapacitacion.horasrecibidas}"/>
+                            <input type="text" class="form-control numeros" required="true" name="horasrecibidas"/>
                         </div>
                     </div>
                                  <div class="form-group">
@@ -81,7 +81,7 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label ">Telefono:</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control num_telefono" required="true" th:field="*{asistenciaCapacitacion.telefono}"/>
+                            <input type="text" class="form-control num_telefono" required="true" name="telefono"/>
                         </div>
                     </div>
 
@@ -89,7 +89,7 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Correo:</label>
                         <div class="col-sm-10">
-                            <input type="email" class="form-control" required="true" th:field="*{asistenciaCapacitacion.email}"/>
+                            <input type="email" class="form-control" required="true" name="email"/>
                         </div>
                     </div>
 
