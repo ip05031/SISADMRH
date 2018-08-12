@@ -32,13 +32,6 @@ import javax.validation.constraints.Size;
     @NamedQuery(name = "AsistenciaCapacitacion.findAll", query = "SELECT a FROM AsistenciaCapacitacion a")})
 public class AsistenciaCapacitacion implements Serializable {
 
-    private static final long serialVersionUID = 1L;
-    @Id
-    @Basic(optional = false)
-    @NotNull
-    @Column(name = "CODIGOASISTENCIACAPACITACION")
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer codigoasistenciacapacitacion;
     @Basic(optional = false)
     @NotNull
     @Column(name = "HORASRECIBIDAS")
@@ -53,6 +46,18 @@ public class AsistenciaCapacitacion implements Serializable {
     @Size(max = 50)
     @Column(name = "EMAIL")
     private String email;
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "codigoempleado")
+    private int codigoempleado;
+
+    private static final long serialVersionUID = 1L;
+    @Id
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "CODIGOASISTENCIACAPACITACION")
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer codigoasistenciacapacitacion;
     @ManyToMany(mappedBy = "asistenciacapacitacionList")
     private List<Empleado> empleadoList;
     @JoinColumn(name = "CODIGOCAPACITACION", referencedColumnName = "CODIGOCAPACITACION")
@@ -79,37 +84,6 @@ public class AsistenciaCapacitacion implements Serializable {
         this.codigoasistenciacapacitacion = codigoasistenciacapacitacion;
     }
 
-    public int getHorasrecibidas() {
-        return horasrecibidas;
-    }
-
-    public void setHorasrecibidas(int horasrecibidas) {
-        this.horasrecibidas = horasrecibidas;
-    }
-
-    public String getUbicacionasistenciacapacitacion() {
-        return ubicacionasistenciacapacitacion;
-    }
-
-    public void setUbicacionasistenciacapacitacion(String ubicacionasistenciacapacitacion) {
-        this.ubicacionasistenciacapacitacion = ubicacionasistenciacapacitacion;
-    }
-
-    public String getTelefono() {
-        return telefono;
-    }
-
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
 
     public List<Empleado> getEmpleadoList() {
         return empleadoList;
@@ -150,6 +124,46 @@ public class AsistenciaCapacitacion implements Serializable {
     @Override
     public String toString() {
         return "mj.gob.sisadmrh.model.Asistenciacapacitacion[ codigoasistenciacapacitacion=" + codigoasistenciacapacitacion + " ]";
+    }
+
+    public int getHorasrecibidas() {
+        return horasrecibidas;
+    }
+
+    public void setHorasrecibidas(int horasrecibidas) {
+        this.horasrecibidas = horasrecibidas;
+    }
+
+    public String getUbicacionasistenciacapacitacion() {
+        return ubicacionasistenciacapacitacion;
+    }
+
+    public void setUbicacionasistenciacapacitacion(String ubicacionasistenciacapacitacion) {
+        this.ubicacionasistenciacapacitacion = ubicacionasistenciacapacitacion;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public int getCodigoempleado() {
+        return codigoempleado;
+    }
+
+    public void setCodigoempleado(int codigoempleado) {
+        this.codigoempleado = codigoempleado;
     }
     
 }
