@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0b5b5867-a333-4221-8d51-8566c397df3b">
 	<property name="ireport.zoom" value="1.0"/>
-	<property name="ireport.x" value="17"/>
+	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
-	<queryString language="SQL">
-		<![CDATA[SELECT count(e.codigoempleado),concat(DAY(e.fechanacimientoempleado)," / ", MONTH(e.fechanacimientoempleado)) AS Fecha,p.nombrepuesto,uf.nombreubicacion,e.nombreempleado from SISADMRH.empleado e INNER JOIN SISADMRH.puesto p ON e.codigoempleado=p.codigoempleado INNER JOIN SISADMRH.ubicacionfisica uf on uf.codigoempleado=e.codigoempleado]]>
+	<parameter name="CODIGO" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT count(e.codigoempleado),concat(DAY(e.fechanacimientoempleado)," / ", MONTH(e.fechanacimientoempleado)) AS Fecha,p.nombrepuesto,uf.nombreubicacion,e.nombreempleado from SISADMRH.empleado e INNER JOIN SISADMRH.puesto p ON e.codigoempleado=p.codigoempleado INNER JOIN SISADMRH.ubicacionfisica uf on uf.codigoempleado=e.codigoempleado  where codigoempleado=$P{CODIGO}]]>
 	</queryString>
 	<field name="count(e.codigoempleado)" class="java.lang.Long"/>
 	<field name="Fecha" class="java.lang.String"/>
@@ -57,11 +60,11 @@
 			</staticText>
 			<image>
 				<reportElement x="15" y="7" width="197" height="67" uuid="fa24e492-000e-4830-a73d-2a5ec005e6ac"/>
-				<imageExpression><![CDATA["C:\\Users\\gladiador\\Documents\\NetBeansProjects\\SISADMRH\\src\\main\\resources\\static\\image\\GOES.jpg"]]></imageExpression>
+				<imageExpression><![CDATA[$P{IMAGE_PATH}.concat("GOES.jpg")]]></imageExpression>
 			</image>
 			<image>
 				<reportElement x="636" y="4" width="152" height="70" uuid="c33f9abf-414f-4f18-be19-cb9f312cf1c5"/>
-				<imageExpression><![CDATA["C:\\Users\\gladiador\\Documents\\NetBeansProjects\\SISADMRH\\src\\main\\resources\\static\\image\\LOGOMJ.jpg"]]></imageExpression>
+				<imageExpression><![CDATA[$P{IMAGE_PATH}.concat("LOGOMJ.jpg")]]></imageExpression>
 			</image>
 		</band>
 	</title>
@@ -76,14 +79,26 @@
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="671" y="32" width="80" height="20" uuid="6f6aebf2-4c7e-4217-8dc3-90c3d50130ff"/>
+				<reportElement x="645" y="30" width="80" height="20" uuid="6f6aebf2-4c7e-4217-8dc3-90c3d50130ff"/>
 				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Pagina "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
 			</textField>
 			<textField evaluationTime="Report">
-				<reportElement x="751" y="32" width="40" height="20" uuid="486ff6df-1cbf-462d-be15-3c2767941e91"/>
+				<reportElement x="725" y="30" width="40" height="20" uuid="486ff6df-1cbf-462d-be15-3c2767941e91"/>
 				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
+			<staticText>
+				<reportElement x="184" y="32" width="31" height="20" uuid="693417d2-1902-44e2-a088-75fedf081d9f"/>
+				<text><![CDATA[Desde]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="504" y="36" width="27" height="20" uuid="8b0e59e9-92de-4eed-8013-bc7b4ab47d78"/>
+				<text><![CDATA[Hasta]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="650" y="6" width="40" height="20" uuid="9dc228c1-34a5-4f11-9680-f0e147d6ca16"/>
+				<text><![CDATA[Fecha:]]></text>
+			</staticText>
 		</band>
 	</pageHeader>
 	<columnHeader>

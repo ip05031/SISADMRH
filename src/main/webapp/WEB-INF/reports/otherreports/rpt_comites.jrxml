@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="2dd95c23-a901-4825-84cf-a86c211e4391">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="178"/>
+	<property name="ireport.y" value="0"/>
 	<parameter name="FECHAFIN" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
@@ -75,7 +75,7 @@ where  c.codigocomite=$P{CODIGO} and
 			</staticText>
 			<image>
 				<reportElement x="614" y="15" width="205" height="70" uuid="b19cb428-1a67-4312-b001-d078fe4d9034"/>
-				<imageExpression><![CDATA["C:\\Users\\jorge\\Documents\\NetBeansProjects\\SISADMRH\\src\\main\\resources\\static\\image\\LOGOMJ.jpg"]]></imageExpression>
+				<imageExpression><![CDATA[$P{IMAGE_PATH}.concat("LOGOMJ.jpg")]]></imageExpression>
 			</image>
 			<staticText>
 				<reportElement x="246" y="10" width="290" height="21" uuid="90dd409e-640a-4a12-b66d-6f5fdda431d3"/>
@@ -86,7 +86,7 @@ where  c.codigocomite=$P{CODIGO} and
 			</staticText>
 			<image>
 				<reportElement x="10" y="15" width="140" height="70" uuid="c52b3494-02ab-43e1-b9b1-0c7517a598f3"/>
-				<imageExpression><![CDATA["C:\\Users\\jorge\\Documents\\NetBeansProjects\\SISADMRH\\src\\main\\resources\\static\\image\\GOES.jpg"]]></imageExpression>
+				<imageExpression><![CDATA[$P{IMAGE_PATH}.concat("GOES.jpg")]]></imageExpression>
 			</image>
 			<staticText>
 				<reportElement x="327" y="51" width="93" height="20" uuid="d32383c8-662a-41a3-834a-908d85b616ce"/>

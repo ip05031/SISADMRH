@@ -231,7 +231,7 @@ public class OtherreportController extends UtilsController{
 		params.put("CODIGO", indice.toString());
 		params.put("FECHAINICIO", fechainicio);
 		params.put("FECHAFIN", fechafin);
-        	generatePdf("otherreports", "rpt_constanciaservicios", params, download,response);
+        	generatePdf("otherreports", "constanciaservicios", params, download,response);
     }
     
     @RequestMapping(value = "misionesinternas/{indice}", method = { RequestMethod.POST, RequestMethod.GET })
