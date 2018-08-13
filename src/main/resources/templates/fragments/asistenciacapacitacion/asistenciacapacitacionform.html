@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-
     <head lang="en">
-
-        <title>Nueva Asistencia Capacitacion</title>
+    <title>Nueva Asistencia Capacitacion</title>
     <th:block th:include="../templates/header"></th:block>
 </head>
 <body>
@@ -12,39 +10,47 @@
             <th:block th:include="../templates/menu"></th:block>
         </div> 
         <div class="col-md-8">
-
             <h3 align="center">Nueva Asistencias de Capacitacion</h3>
             <div>
-                <form class="form-horizontal" th:object="${asistenciacapacitacion}" th:action="@{../asistenciacapacitacion}" method="post">
-
-
+                <form class="form-horizontal" id="formascap" th:object="${formasistenciacapacitancion}" th:action="@{../asistenciacapacitacion}" method="post">
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Capacitacion:</label>
                         <div class="col-sm-10" >
-                            <select class="form-control"  th:field="*{codigocapacitacion.codigocapacitacion}" >
-                                <option th:each="c:${capacitaciones}" th:value="${c.codigocapacitacion}" th:text="${c.nombrecapacitacion}"></option>
+                            <select class="form-control" name="codigocapacitacion.codigocapacitacion" >
+                                <option th:each="c:${formasistenciacapacitancion.capacitaciones}" th:value="${c.codigocapacitacion}" th:text="${c.nombrecapacitacion}"></option>
                             </select>
                             <!--<input type="text" class="form-control" onkeypress="return valida(event)" th:field="*{codigoempleado.codigoempleado}"/>-->
                         </div>
                     </div>
 
-
-
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label ">Horas Recibidas:</label>
+ 
+                     <div class="form-group">
+                        <label class="col-sm-2 control-label ">codigo empleado:</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control numeros" required="true" th:field="*{horasrecibidas}"/>
+                            <input type="text" class="form-control numeros" required="true" name="codigoempleado"/>
                         </div>
                     </div>
+
+                   
                                  <div class="form-group">
                         <label class="col-sm-2 control-label">Empleado:</label>
-                                             <div class="col-sm-10">
-                                                 <select class="form-control" th:field="*{codigoempleado.codigoempleado}" >
-                                        <option th:each="c:${empleados}" placeholder="Seleccionar empleado" th:value="${c.codigoempleado" th:text="${c. nombrecapacitacion}"></option>
-                                    </select>
-                       <input type="text" class="form-control" th:field="*{codigoempleado.codigoempleado}"/>
-                                                  </div>
+                        <div class="col-sm-10">
+                            <!--<select class="form-control" id="combo" th:field="*{asistenciaCapacitacion.codigoempleado.codigoempleado}" >-->
+                            <select class="form-control" id="combo"  >
+                            <option value="0">-- Seleccione un empleado --</option>
+                            <option th:each="d:${formasistenciacapacitancion.empleados}" th:value="${d.codigoempleado}" th:text="${d.nombreempleado}"></option>
+                            </select>
+                            <!--<input type="text" class="form-control" th:field="*{formasistenciacapacitancion.codigoempleado.codigoempleado}"/>-->
+                            <!--<input type="text" class="form-control" th:field="*{formasistenciacapacitancion.codigoempleado.codigoempleado}"/>-->
+                        </div>
                                         </div>
+                     <div class="form-group">
+                        <label class="col-sm-2 control-label ">Horas Recibidas:</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control numeros" required="true" name="horasrecibidas"/>
+                        </div>
+                    </div>
+                   
 
                     <!--             <div class="form-group">
                          <label class="col-sm-2 control-label">Ubicacion:</label>
@@ -69,9 +75,21 @@
 
                    
                     <div class="form-group">
+                        <label class="col-sm-2 control-label ">puesto:</label>
+                        <div class="col-sm-10">
+                            <input type="text" id="puesto" class="form-control" required="true"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label ">ubicacion fisica:</label>
+                        <div class="col-sm-10">
+                            <input type="text" id="ubicacion" class="form-control " required="true" name="ubicacionasistenciacapacitacion" />
+                        </div>
+                    </div>
+                    <div class="form-group">
                         <label class="col-sm-2 control-label ">Telefono:</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control num_telefono" required="true" th:field="*{telefono}"/>
+                            <input type="text" class="form-control num_telefono" required="true" name="telefono"/>
                         </div>
                     </div>
 
@@ -79,7 +97,7 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Correo:</label>
                         <div class="col-sm-10">
-                            <input type="email" class="form-control" required="true" th:field="*{email}"/>
+                            <input type="email" class="form-control" required="true" name="email"/>
                         </div>
                     </div>
 
@@ -107,7 +125,7 @@
         </div>
     </div>
 
-    <script>
+    <script th:inline="javascript">
         $(document).ready(function () {
             $('#fechadesdecomite').datepicker({
                 dateFormat: 'yy-mm-dd'
@@ -116,6 +134,19 @@
             $('#fechahastacomite').datepicker({
                 dateFormat: 'yy-mm-dd'
             });
+            $('#combo').change(function(){
+                 $.ajax({
+                    url : '../llenadocombo/' + $( this ).val().toString(),
+                    success : function(data) {
+                        $('#ubicacion').val(data[1]);
+                        $('#puesto').val(data[0]);
+                    },
+                    error: function() {
+                        $('#ubicacion').val("");
+                        $('#puesto').val("");
+                    }
+        });
+        });
         });
     </script>
 

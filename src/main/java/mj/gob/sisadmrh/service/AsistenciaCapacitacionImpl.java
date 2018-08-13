@@ -5,6 +5,7 @@
  */
 package mj.gob.sisadmrh.service;
 
+import java.util.List;
 import java.util.Optional;
 import mj.gob.sisadmrh.model.AsistenciaCapacitacion;
 import mj.gob.sisadmrh.model.Capacitacion;
@@ -45,7 +46,7 @@ return asistenciaCapacitacionRep.findById(id);
         //  throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     @Override
-    public Object[] findnamesBycemp(String emp) {
+    public List<Object[]> findnamesBycemp(String emp) {
         
     return  asistenciaCapacitacionRep.findnamesBycemp(emp);
     }

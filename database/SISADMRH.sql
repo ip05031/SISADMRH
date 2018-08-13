@@ -16,6 +16,7 @@ create table ASISTENCIACAPACITACION
    UBICACIONASISTENCIACAPACITACION varchar(50),
 TELEFONO varchar(11),
 EMAIL varchar(50),
+codigoempleado int not null,
 
    primary key (CODIGOASISTENCIACAPACITACION)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

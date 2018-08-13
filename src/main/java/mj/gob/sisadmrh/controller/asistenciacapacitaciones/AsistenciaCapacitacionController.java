@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 @RequestMapping(value = "asistenciacapacitaciones")
@@ -49,8 +50,6 @@ public class AsistenciaCapacitacionController extends UtilsController{
     }
     
  
-    
-  
     private final String PREFIX = "fragments/asistenciacapacitacion/";
     @RequestMapping(value = "/", method=RequestMethod.GET)
     public String list(Model model){
@@ -66,23 +65,22 @@ public class AsistenciaCapacitacionController extends UtilsController{
     
     @RequestMapping("new/asistenciacapacitacion")
     public String newAsistenciaCapacitacion(Model model) {
-        model.addAttribute("asistenciacapacitacion", new AsistenciaCapacitacion());
+        //model.addAttribute("asistenciacapacitacion", new AsistenciaCapacitacion());
+        AsistenciaCapacitacionForm form = new AsistenciaCapacitacionForm();
         //para jalar el nombre de capacitaciones
-       Iterable<Capacitacion> capacitaciones = capacitacionService.listAllCapacitacion();
-                model.addAttribute("capacitaciones", capacitaciones);
-             //para jalar los nombres de los empleados
-             Iterable<Empleado> empleados= empleadoService.listAllEmpleado();
-            model.addAttribute("empleados", empleados);
-             
+        form.setCapacitaciones(capacitacionService.listAllCapacitacion());
+        form.setEmpleados(empleadoService.listAllEmpleado());
+        //para jalar los nombres de los empleados 
+        model.addAttribute("formasistenciacapacitancion", form);
         return PREFIX + "asistenciacapacitacionform";
         
     }
     
     @RequestMapping(value = "asistenciacapacitacion")
-    public String saveAsistenciaCapacitacion(AsistenciaCapacitacion asistenciaCapacitacion) {
-        asistenciaCapacitacionService.saveAsistenciaCapacitacion(asistenciaCapacitacion);
+    public String saveAsistenciaCapacitacion(AsistenciaCapacitacion asistencia) {
+        asistenciaCapacitacionService.saveAsistenciaCapacitacion(asistencia);
        
-        return "redirect:./show/" + asistenciaCapacitacion.getCodigoasistenciacapacitacion();
+        return "redirect:./show/" + asistencia.getCodigoasistenciacapacitacion();
     }
     
    
@@ -98,9 +96,9 @@ public class AsistenciaCapacitacionController extends UtilsController{
     }
     
     @RequestMapping("llenadocombo/{cemp}")
-    public String llenacombo(@PathVariable String cemp, Model model) {
-        model.addAttribute("asistenciacapacitacion", asistenciaCapacitacionService.findnamesBycemp(cemp));
-        return PREFIX + "asistenciacapacitacionform";
+    public @ResponseBody
+        Object[] llenacombo(@PathVariable String cemp, Model model) {
+        return asistenciaCapacitacionService.findnamesBycemp(cemp).get(0);
     }
     
     @RequestMapping("report/")
