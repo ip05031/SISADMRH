@@ -69,11 +69,11 @@
 			</staticText>
 			<image>
 				<reportElement x="5" y="5" width="131" height="65" uuid="b3b54792-5d81-4335-9f03-a46026bea76f"/>
-				<imageExpression><![CDATA["C:\\Users\\gladiador\\Documents\\NetBeansProjects\\SISADMRH\\src\\main\\resources\\static\\image\\GOES.jpg"]]></imageExpression>
+				<imageExpression><![CDATA[$P{IMAGE_PATH}.concat("GOES.jpg")]]></imageExpression>
 			</image>
 			<image>
 				<reportElement x="441" y="6" width="111" height="64" uuid="e8e7012b-1152-46c5-be3a-544c627bb173"/>
-				<imageExpression><![CDATA["C:\\Users\\gladiador\\Documents\\NetBeansProjects\\SISADMRH\\src\\main\\resources\\static\\image\\LOGOMJ.jpg"]]></imageExpression>
+				<imageExpression><![CDATA[$P{IMAGE_PATH}.concat("LOGOMJ.jpg")]]></imageExpression>
 			</image>
 		</band>
 	</title>

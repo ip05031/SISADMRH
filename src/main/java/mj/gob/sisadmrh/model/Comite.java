@@ -65,10 +65,12 @@ public class Comite implements Serializable {
     
     @Column(name = "FECHADESDECOMITE")
     @DateTimeFormat(pattern = "YYYY-MM-dd")
+   // @DateTimeFormat(pattern = "dd-MM-YYYY")
     private Date fechadesdecomite;
     
-    @Column(name = "FECHAHASTACOMITE")
+   // @Column(name = "FECHAHASTACOMITE")
     @DateTimeFormat(pattern = "YYYY-MM-dd")
+   //  @DateTimeFormat(pattern = "dd-MM-YYYY")
     private Date fechahastacomite;
     
     @JoinColumn(name = "CODIGOEMPLEADO", referencedColumnName = "CODIGOEMPLEADO")

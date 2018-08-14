@@ -257,7 +257,7 @@ public class OtherreportController extends UtilsController{
 		params.put("CODIGO", indice.toString());
 		params.put("FECHAINICIO", fechainicio);
 		params.put("FECHAFIN", fechafin);
-        	generatePdf("otherreports", "rpt_misionesexternas2", params, download,response);
+        	generatePdf("otherreports", "misionesexternas2", params, download,response);// adebio llamarse rpt_misionesexternas2
     }
     
     

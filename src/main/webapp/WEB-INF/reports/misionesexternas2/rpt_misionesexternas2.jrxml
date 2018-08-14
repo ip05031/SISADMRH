@@ -1,18 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="5044a052-c652-4266-a8b7-0fc9972df883">
 	<property name="ireport.zoom" value="1.0"/>
-	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="47"/>
+	<property name="ireport.x" value="78"/>
+	<property name="ireport.y" value="0"/>
 	<parameter name="FECHAINICIO" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<parameter name="FECHAFIN" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
+	<parameter name="CODIGO" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
 	<queryString>
 		<![CDATA[SELECT COUNT(e.codigoempleado) as totalRegistros, m.fechasalidamision,m.fecharegresomision,m.gastoviaje,m.numeroacuerdo,m.boleto,m.viaticos,m.organismopatrocinador,m.organismoinvita FROM empleado e INNER JOIN empleadomision em on e.codigoempleado=em.codigoempleado INNER JOIN mision m on em.codigomision=m.codigomision INNER JOIN puesto p on e.codigoempleado=p.codigoempleado
 where m.fechasalidamision>=$P{FECHAINICIO} AND
-m.fecharegresomision<=$P{FECHAFIN}]]>
+m.fecharegresomision<=$P{FECHAFIN} and e.codigoempleado=$P{CODIGO}]]>
 	</queryString>
 	<field name="totalRegistros" class="java.lang.Long"/>
 	<field name="fechasalidamision" class="java.sql.Date">
@@ -45,33 +48,33 @@ m.fecharegresomision<=$P{FECHAFIN}]]>
 	<title>
 		<band height="97" splitType="Stretch">
 			<staticText>
-				<reportElement x="370" y="59" width="64" height="20" uuid="74e6228a-73e8-4310-b746-45a676b50a40"/>
+				<reportElement x="448" y="59" width="64" height="20" uuid="74e6228a-73e8-4310-b746-45a676b50a40"/>
 				<textElement>
 					<font fontName="Times New Roman" size="12"/>
 				</textElement>
 				<text><![CDATA[SISADMRH]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="317" y="38" width="173" height="20" uuid="04c2b4c6-21d7-46d8-af72-3bdd01bc9166"/>
+				<reportElement x="395" y="38" width="173" height="20" uuid="04c2b4c6-21d7-46d8-af72-3bdd01bc9166"/>
 				<textElement>
 					<font fontName="Times New Roman" size="12"/>
 				</textElement>
 				<text><![CDATA[Direccion de Recursos Humanos]]></text>
 			</staticText>
 			<image>
-				<reportElement x="615" y="10" width="178" height="75" uuid="6cd77234-7ecb-46ab-b6fb-264a1a26516d"/>
-				<imageExpression><![CDATA["C:\\Users\\gladiador\\Documents\\NetBeansProjects\\SISADMRH\\src\\main\\resources\\static\\image\\LOGOMJ.jpg"]]></imageExpression>
+				<reportElement x="693" y="10" width="178" height="75" uuid="6cd77234-7ecb-46ab-b6fb-264a1a26516d"/>
+				<imageExpression><![CDATA[$P{IMAGE_PATH}.concat("LOGOMJ.jpg")]]></imageExpression>
 			</image>
 			<staticText>
-				<reportElement x="316" y="15" width="173" height="20" uuid="2cf42a51-1a78-4698-bc68-8c809ce9d21b"/>
+				<reportElement x="394" y="15" width="173" height="20" uuid="2cf42a51-1a78-4698-bc68-8c809ce9d21b"/>
 				<textElement>
 					<font fontName="Times New Roman" size="12"/>
 				</textElement>
 				<text><![CDATA[Ministrio de Justicia y Segruridad Publica]]></text>
 			</staticText>
 			<image>
-				<reportElement x="10" y="15" width="178" height="70" uuid="b0a6f4cf-e728-4a66-92af-33583eabf308"/>
-				<imageExpression><![CDATA["C:\\Users\\gladiador\\Documents\\NetBeansProjects\\SISADMRH\\src\\main\\resources\\static\\image\\GOES.jpg"]]></imageExpression>
+				<reportElement x="88" y="15" width="178" height="70" uuid="b0a6f4cf-e728-4a66-92af-33583eabf308"/>
+				<imageExpression><![CDATA[$P{IMAGE_PATH}.concat("GOES.jpg")]]></imageExpression>
 			</image>
 		</band>
 	</title>
@@ -150,51 +153,51 @@ m.fecharegresomision<=$P{FECHAFIN}]]>
 		</band>
 	</pageHeader>
 	<columnHeader>
-		<band height="61" splitType="Stretch">
+		<band height="44" splitType="Stretch">
 			<staticText>
-				<reportElement x="0" y="2" width="100" height="20" uuid="39585b48-1225-408d-8512-0a136c44d691"/>
+				<reportElement x="5" y="16" width="100" height="20" uuid="39585b48-1225-408d-8512-0a136c44d691"/>
 				<textElement>
 					<font fontName="Times New Roman" size="12"/>
 				</textElement>
 				<text><![CDATA[Desde]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="116" y="0" width="100" height="20" uuid="7582c2df-f410-48dc-812c-3fa06cc6cbd6"/>
+				<reportElement x="117" y="14" width="100" height="20" uuid="7582c2df-f410-48dc-812c-3fa06cc6cbd6"/>
 				<textElement>
 					<font fontName="Times New Roman" size="12"/>
 				</textElement>
 				<text><![CDATA[Hasta]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="234" y="2" width="100" height="20" uuid="3e1bd846-d9db-4b5f-870a-249abfdfcda4"/>
+				<reportElement x="228" y="16" width="100" height="20" uuid="3e1bd846-d9db-4b5f-870a-249abfdfcda4"/>
 				<textElement>
 					<font fontName="Times New Roman" size="12"/>
 				</textElement>
 				<text><![CDATA[Gastos]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="334" y="2" width="100" height="20" uuid="49a56007-5640-4ce6-9169-028328b2c4a5"/>
+				<reportElement x="334" y="16" width="100" height="20" uuid="49a56007-5640-4ce6-9169-028328b2c4a5"/>
 				<textElement>
 					<font fontName="Times New Roman" size="12"/>
 				</textElement>
 				<text><![CDATA[Numero de Acuerdo]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="434" y="2" width="100" height="20" uuid="462abf1b-32b7-4c19-9f7a-fdfd328617db"/>
+				<reportElement x="444" y="15" width="100" height="20" uuid="462abf1b-32b7-4c19-9f7a-fdfd328617db"/>
 				<textElement>
 					<font fontName="Times New Roman" size="12"/>
 				</textElement>
 				<text><![CDATA[boleto]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="534" y="2" width="100" height="20" uuid="472822e3-8b31-48fd-a42f-7722f812329d"/>
+				<reportElement x="572" y="16" width="100" height="20" uuid="472822e3-8b31-48fd-a42f-7722f812329d"/>
 				<textElement>
 					<font fontName="Times New Roman" size="12"/>
 				</textElement>
 				<text><![CDATA[viaticos]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="655" y="0" width="100" height="20" uuid="ae7c879a-9236-41f1-a01c-02fa2e5ea304"/>
+				<reportElement x="693" y="14" width="100" height="20" uuid="ae7c879a-9236-41f1-a01c-02fa2e5ea304"/>
 				<textElement>
 					<font fontName="Times New Roman" size="12"/>
 				</textElement>
@@ -203,7 +206,7 @@ m.fecharegresomision<=$P{FECHAFIN}]]>
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="125" splitType="Stretch">
+		<band height="25" splitType="Stretch">
 			<textField>
 				<reportElement x="0" y="4" width="100" height="20" uuid="8674338c-0378-4e1b-b539-2772dbc7768e"/>
 				<textElement>
@@ -247,7 +250,7 @@ m.fecharegresomision<=$P{FECHAFIN}]]>
 				<textFieldExpression><![CDATA[$F{viaticos}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="679" y="4" width="100" height="20" uuid="87dd4c55-bc7b-4c72-aaf1-37b2571e51a8"/>
+				<reportElement x="687" y="4" width="100" height="20" uuid="87dd4c55-bc7b-4c72-aaf1-37b2571e51a8"/>
 				<textElement>
 					<font fontName="Times New Roman" size="12"/>
 				</textElement>
