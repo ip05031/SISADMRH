@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c79f703b-bf01-4865-bd2b-701eb356ba3a">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="41"/>
+	<property name="ireport.y" value="5"/>
 	<queryString language="SQL">
 		<![CDATA[select COUNT(c.codigocomite), e.nombreempleado,p.nombrepuesto,c.numeroacuerdocomite,c.nombrecomite,c.fechadesdecomite,c.fechahastacomite from empleado e 
 	 inner join empleadopuesto ep ON ep.codigoempleado=ep.codigoempleado inner join puesto p on ep.codigopuesto=p.codigopuesto INNER join comite c on e.codigoempleado=c.codigoempleado]]>
@@ -56,8 +56,8 @@
 	<pageHeader>
 		<band height="41" splitType="Stretch">
 			<staticText>
-				<reportElement x="334" y="8" width="100" height="20" uuid="d2820ed1-563c-4556-97e7-7f9324cc9b90"/>
-				<text><![CDATA[Reporte de Comites]]></text>
+				<reportElement x="334" y="8" width="130" height="20" uuid="d2820ed1-563c-4556-97e7-7f9324cc9b90"/>
+				<text><![CDATA[Reporte de Comites lol]]></text>
 			</staticText>
 			<textField pattern="dd/MM/yyyy">
 				<reportElement x="710" y="3" width="100" height="20" uuid="04e4df16-4b67-4340-8a24-945fe1331771"/>

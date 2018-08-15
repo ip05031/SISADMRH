@@ -12,37 +12,37 @@
         <form class="form-horizontal" th:object="${usuario}" th:action="@{../usuario}" method="post" >
             <input type="hidden" th:field="*{codigousuario}"/>
             <input type="hidden" th:field="*{nombreusuario}"/>
-            <div class="form-group">
-                <label class="col-sm-2 control-label">COdigo de Usuario:</label>
+<!--            <div class="form-group">
+                <label class="col-sm-2 control-label">Codigo de Usuario:</label>
                 <div class="col-sm-10">
                     <input type="text" class="form-control" th:field="*{codigousuario}"/>
                 </div>
-            </div>
+            </div>-->
             <div class="form-group">
                 <label class="col-sm-2 control-label">Nombre de Usuario:</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" th:field="*{nombreusuario}"/>
+                    <input type="text" class="form-control" required="true" size="50" maxlength="50" th:field="*{nombreusuario}"/>
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-sm-2 control-label">Contraseña de usuario:</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" th:field="*{contraseniausuario}"/>
+                    <input type="text" class="form-control" required="true" size="100" maxlength="50" th:field="*{contraseniausuario}"/>
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-sm-2 control-label">contorl contraseña:</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" th:field="*{controlcontrasenia}"/>
+                    <input type="text" class="form-control numeros " required="true" size="11" maxlength="11" th:field="*{controlcontrasenia}"/>
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-sm-2 control-label">estado:</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" th:field="*{estadousuario}"/>
+                    <input type="text" class="form-control numeros" size="11" maxlength="11" th:field="*{estadousuario}"/>
                 </div>
             </div>
-<!--            <div class="form-group">
+            <div class="form-group">
                 <label class="col-sm-2 control-label">Fecha ingreso:</label>
                 <div class="col-sm-10">
                     <input type="text" class="form-control" th:field="*{fechaingreso}"/>
@@ -59,7 +59,7 @@
                 <div class="col-sm-10">
                     <input type="text" class="form-control" th:field="*{fechabaja}"/>
                 </div>
-            </div>-->
+            </div>
 
             <div class="row">
                 <button type="submit" class="btn btn-default">Agregar</button>
@@ -69,4 +69,43 @@
 </div>
 
 </body>
+ <script>
+    $(document).ready(function () {
+        $('#fechaingreso').datepicker({
+            dateFormat: 'yy-mm-dd'
+        });
+
+        $('#fechacaducidad').datepicker({
+            dateFormat: 'yy-mm-dd'
+        });
+        $('#fechabaja').datepicker({
+            dateFormat: 'yy-mm-dd'
+        });
+    });
+</script>
+
+</body>
+<script th:inline="javascript">
+    $(document).ready(function () {
+    if([[${msg}]]===0){
+       swal({
+                title: "Exito!",
+                text: "Registro agregado correctamente",
+                type: "success",
+                icon: "success"
+       }).then(function() {
+                location.href = '../usuarios/';
+       }); 
+}
+    
+    if([[${msg}]]===1){
+        swal({
+                title: "ERROR!",
+                text: "Ocurrio un error en el proceso",
+                type: "error",
+                icon: "error"
+       });
+    }
+    });
+</script> 
 </html>

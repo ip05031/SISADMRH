@@ -53,21 +53,36 @@ public class ComisionController extends UtilsController{
     }
 
     @RequestMapping(value = "comision")
-    public String saveComision(Comision comision) {
+    public String saveComision(Comision comision,Model model) {
+        try{
         comisionService.saveComision(comision);
-        return "redirect:./show/" + comision.getCodigocomision();
+          model.addAttribute("msg", 0);
+        }
+        catch(Exception e){
+          model.addAttribute("msg", 1);
+        }
+         return PREFIX+"comisionform";
+       // return "redirect:./show/" + comision.getCodigocomision();
     }
     
     @RequestMapping("show/{id}")
     public String showComision(@PathVariable Integer id, Model model) {
         model.addAttribute("comision", comisionService.getComisionById(id).get());
-        return PREFIX +"comisioneshow";
+        return PREFIX +"comisionshow";
     }
 
     @RequestMapping("delete/{id}")
-    public String delete(@PathVariable Integer id) {
+    public String delete(@PathVariable Integer id,Model model) {
+        try{
         comisionService.deleteComision(id);
-        return "redirect:/comisiones/";
+         model.addAttribute("msg", 3);
+        }
+        catch(Exception e){
+        model.addAttribute("msg", 4);
+         
+        }
+         return PREFIX + "comisiones";
+        //return "redirect:/comisiones/";
     }
     
     @RequestMapping("report/")

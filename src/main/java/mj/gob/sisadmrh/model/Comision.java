@@ -18,6 +18,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  *
@@ -33,7 +34,7 @@ public class Comision implements Serializable {
     @Id
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 10)
+   
     @Column(name = "CODIGOCOMISION")
     private String codigocomision;
     @Size(max = 50)
@@ -42,10 +43,12 @@ public class Comision implements Serializable {
     @Column(name = "NUMEROACUERDOCOMISION")
     private Integer numeroacuerdocomision;
     @Column(name = "FECHADESDECOMISION")
-    @Temporal(TemporalType.DATE)
+   // @Temporal(TemporalType.DATE)
+     @DateTimeFormat(pattern = "YYYY-MM-dd")
     private Date fechadesdecomision;
     @Column(name = "FECHAHASTACOMISION")
-    @Temporal(TemporalType.DATE)
+   // @Temporal(TemporalType.DATE)
+     @DateTimeFormat(pattern = "YYYY-MM-dd")
     private Date fechahastacomision;
     @Column(name = "NIVELCOMISION")
     private Integer nivelcomision;

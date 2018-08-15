@@ -10,7 +10,7 @@
 </head>
 <body>
 <div class="container">
-    <h2>Datos de Usuario</h2>
+    <h2>Detalle de Beneficios</h2>
         <div>
             <form class="form-horizontal">
                 
@@ -32,7 +32,27 @@
                     </div>
                 </div>
                 
+                 <div class="form-group">
+                    <label class="col-sm-2 control-label">Fecha de Inicio de Beneficio:</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static" th:text="${beneficio.fechainiciobeneficio}">descripcion</p>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Fecha Fin de Beneficio:</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static" th:text="${beneficio.fechafinalizarbeneficio}">descripcion</p>
+                    </div>
+                </div>
+                
             </form>
+             <div class="col-md-12">
+                    <div class="row" align="center">
+                        <button type="button" class="btn btn-default"><a href="#" th:href="@{/beneficios/}">Regresar</a></button>
+
+                    </div>
+                </div>
     </div>
 </div>
 
