@@ -14,6 +14,8 @@ create table ASISTENCIACAPACITACION
    CODIGOCAPACITACION   int not null,
    HORASRECIBIDAS       int not null,
    UBICACIONASISTENCIACAPACITACION varchar(50),
+   EMPLEADO VARCHAR(50),
+   NOMBREPUESTO VARCHAR(50),
 TELEFONO varchar(11),
 EMAIL varchar(50),
 codigoempleado int not null,

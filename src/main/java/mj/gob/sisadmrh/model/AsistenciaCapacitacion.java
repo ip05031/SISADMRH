@@ -43,6 +43,7 @@ public class AsistenciaCapacitacion implements Serializable {
     @Column(name = "TELEFONO")
     private String telefono;
     // @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="Correo electrónico no válido")//if the field contains email address consider using this annotation to enforce field validation
+    // @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="Correo electrónico no válido")//if the field contains email address consider using this annotation to enforce field validation
     @Size(max = 50)
     @Column(name = "EMAIL")
     private String email;
@@ -125,6 +126,12 @@ public class AsistenciaCapacitacion implements Serializable {
     public String toString() {
         return "mj.gob.sisadmrh.model.Asistenciacapacitacion[ codigoasistenciacapacitacion=" + codigoasistenciacapacitacion + " ]";
     }
+    public int getCodigoempleado() {
+        return codigoempleado;
+    }
+    public void setCodigoempleado(int codigoempleado) {
+        this.codigoempleado = codigoempleado;
+    }
 
     public int getHorasrecibidas() {
         return horasrecibidas;
@@ -156,14 +163,6 @@ public class AsistenciaCapacitacion implements Serializable {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public int getCodigoempleado() {
-        return codigoempleado;
-    }
-
-    public void setCodigoempleado(int codigoempleado) {
-        this.codigoempleado = codigoempleado;
     }
     
 }

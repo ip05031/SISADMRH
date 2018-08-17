@@ -40,7 +40,7 @@
                         <label class="col-sm-2 control-label">Categoria Capacitacion(*):</label>
                         <div class="col-sm-7">
                             <!--<input type="text" class="form-control" th:field="*{categoriapuesto}"/>-->
-                            <select class="form-control"   required="true "name="categoriacapacitacion" >
+                            <select class="form-control"   required="true"  name="categoriacapacitacion" >
                                 <option>Desarrollo laboral</option>
                                 <option>Desarrollo Personal</option>
                                 <option>Desarrollo Social</option>
@@ -73,13 +73,13 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Duracion de Capacitacion en Horas:</label>
                         <div class="col-sm-10">
-                            <input type="number" class="form-control numeros" required="true" th:field="*{duracionhoracapacitacion}"/>
+                            <input type="text" class="form-control numeros" required="true" maxlength="4" th:field="*{duracionhoracapacitacion}"/>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Duracion de Capacitacion en Dias:</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control numeros" required="true" th:field="*{duraciondiacapacitacion}"/>
+                            <input type="text" class="form-control numeros" required="true" maxlength="3" th:field="*{duraciondiacapacitacion}"/>
                         </div>
                     </div>
                     <div class="form-group">
@@ -103,7 +103,7 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Pais de realizacion de Capacitacion:</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" required="true" size="50" maxlength="50"  th:field="*{paiscapacitacion}"/>
+                            <input type="text" class="form-control" required="true" size="100" maxlength="100"  th:field="*{paiscapacitacion}"/>
                         </div>
                     </div>
                     <div class="form-group">

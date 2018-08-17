@@ -11,7 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 import mj.gob.sisadmrh.controller.UtilsController;
 import mj.gob.sisadmrh.model.Beneficio;
+import mj.gob.sisadmrh.model.Comite;
 import mj.gob.sisadmrh.service.BeneficioService;
+import mj.gob.sisadmrh.service.ComiteService;
 import mj.gob.sisadmrh.service.EmpleadoBeneficioService;
 import net.sf.jasperreports.engine.JRException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,8 +32,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 @RequestMapping(value = "otherreports")
 public class OtherreportController extends UtilsController{
-    
-   
+ 
+@Autowired
+private ComiteService comiteService;
     private final String PREFIX = "fragments/otherreports/";
 
     @RequestMapping("abogados/")
@@ -73,7 +76,8 @@ public class OtherreportController extends UtilsController{
         return PREFIX + "capacitacionesreport";
     }
      @RequestMapping("comites/")
-    public String reportecomites() {
+    public String reportecomites(Model model) {
+        model.addAttribute("comites", comiteService.listAllComite() );
         return PREFIX + "comitesreport";
     }
      @RequestMapping("constanciasalariales/")
