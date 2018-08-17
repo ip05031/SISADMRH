@@ -1,12 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0b5b5867-a333-4221-8d51-8566c397df3b">
 	<property name="ireport.zoom" value="1.0"/>
-	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="121"/>
+	<property name="ireport.x" value="58"/>
+	<property name="ireport.y" value="127"/>
+	<parameter name="FECHAINICIO" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="FECHAFIN" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="CODIGO" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="IMAGE_PATH" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
 	<queryString>
 		<![CDATA[SELECT count(e.codigoempleado),concat(DAY(e.fechanacimientoempleado)," / ", MONTH(e.fechanacimientoempleado)) AS Fecha,p.nombrepuesto,uf.nombreubicacion,e.nombreempleado from SISADMRH.empleado e
 INNER JOIN empleadopuesto ep on e.codigopuesto=ep.codigopuesto
- INNER JOIN SISADMRH.puesto p ON e.codigopuesto=p.codigopuesto INNER JOIN SISADMRH.ubicacionfisica uf on uf.codigoempleado=e.codigoempleado]]>
+ INNER JOIN SISADMRH.puesto p ON e.codigopuesto=p.codigopuesto INNER JOIN SISADMRH.ubicacionfisica uf on uf.codigoempleado=e.codigoempleado
+Where DAY(e.fechanacimientoempleado)=$P{FECHAINICIO}
+and MONTH(e.fechanacimientoempleado)<=$P{FECHAFIN}
+and e.codigoempleado=$P{CODIGO}]]>
 	</queryString>
 	<field name="count(e.codigoempleado)" class="java.lang.Long"/>
 	<field name="Fecha" class="java.lang.String"/>
@@ -39,30 +54,41 @@ INNER JOIN empleadopuesto ep on e.codigopuesto=ep.codigopuesto
 			<staticText>
 				<reportElement x="298" y="4" width="207" height="20" uuid="41fb355e-2593-43fd-bce2-2c750274fa21"/>
 				<textElement>
-					<font fontName="Times New Roman" size="14"/>
+					<font fontName="Times New Roman" size="14" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Ministrio de Justicia y Seguridad Pública]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="298" y="27" width="207" height="20" uuid="899bfa73-d18f-438c-962f-3734ac945ac9"/>
 				<textElement>
-					<font fontName="Times New Roman" size="14"/>
+					<font fontName="Times New Roman" size="14" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Dirección de Recursos Humanos]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="358" y="50" width="86" height="20" uuid="c00dbbf8-4aeb-4a34-9450-34713d1be106"/>
 				<textElement>
-					<font fontName="Times New Roman" size="14"/>
+					<font fontName="Times New Roman" size="14" isBold="true"/>
 				</textElement>
 				<text><![CDATA[SISADMRH]]></text>
 			</staticText>
+			<image>
+				<reportElement x="20" y="10" width="175" height="65" uuid="4480b97a-a6d9-4922-94b3-9c34571a3f54"/>
+				<imageExpression><![CDATA[$P{IMAGE_PATH}.concat("/GOES.jpg")]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="610" y="10" width="180" height="65" uuid="a1d1dd88-a053-4585-aa7f-9f0eceb800c9"/>
+				<imageExpression><![CDATA[$P{IMAGE_PATH}.concat("/LOGOMJ.jpg")]]></imageExpression>
+			</image>
 		</band>
 	</title>
 	<pageHeader>
 		<band height="61" splitType="Stretch">
 			<staticText>
 				<reportElement x="326" y="12" width="150" height="20" uuid="1c242fc5-d4af-4367-858c-26bfa7d0de2c"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
 				<text><![CDATA[Reporte deCumpleañeros]]></text>
 			</staticText>
 			<textField pattern="dd/MM/yyyy">
@@ -70,13 +96,29 @@ INNER JOIN empleadopuesto ep on e.codigopuesto=ep.codigopuesto
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="671" y="32" width="80" height="20" uuid="6f6aebf2-4c7e-4217-8dc3-90c3d50130ff"/>
+				<reportElement x="663" y="32" width="80" height="20" uuid="6f6aebf2-4c7e-4217-8dc3-90c3d50130ff"/>
 				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Pagina "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
 			</textField>
 			<textField evaluationTime="Report">
-				<reportElement x="751" y="32" width="40" height="20" uuid="486ff6df-1cbf-462d-be15-3c2767941e91"/>
+				<reportElement x="743" y="32" width="40" height="20" uuid="486ff6df-1cbf-462d-be15-3c2767941e91"/>
 				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="247" y="38" width="40" height="20" uuid="c7e12a67-cbab-476f-bda6-3d9087ae23f5"/>
+				<text><![CDATA[Desde]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="477" y="41" width="28" height="20" uuid="4c99e8b2-8874-4a18-afb0-3906485cf0ff"/>
+				<text><![CDATA[Hasta:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="295" y="38" width="100" height="20" uuid="c170dcb4-ac6e-4601-ad7f-5774d64d756f"/>
+				<textFieldExpression><![CDATA[$P{FECHAINICIO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="514" y="39" width="100" height="20" uuid="2e3b8af9-cc84-476d-9eb3-3f71f3476424"/>
+				<textFieldExpression><![CDATA[$P{FECHAFIN}]]></textFieldExpression>
 			</textField>
 		</band>
 	</pageHeader>
@@ -84,21 +126,21 @@ INNER JOIN empleadopuesto ep on e.codigopuesto=ep.codigopuesto
 		<band height="35" splitType="Stretch">
 			<staticText>
 				<reportElement x="36" y="0" width="100" height="20" uuid="f267bdee-809f-4ecd-8859-bce9719d477a"/>
-				<textElement>
+				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Fecha]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="211" y="0" width="100" height="20" uuid="abb7e9ab-271f-4609-b978-941e037990d6"/>
-				<textElement>
+				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Nombre Puesto]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="393" y="0" width="155" height="20" uuid="a1fe59e5-b00f-4d13-96e1-349e5f4009ad"/>
-				<textElement>
+				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Nombre de Ubicación Fisica]]></text>
@@ -116,7 +158,7 @@ INNER JOIN empleadopuesto ep on e.codigopuesto=ep.codigopuesto
 		<band height="125" splitType="Stretch">
 			<textField>
 				<reportElement x="34" y="0" width="100" height="20" uuid="7ced5003-2994-4cb8-a099-24d350c02225"/>
-				<textElement>
+				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Fecha}]]></textFieldExpression>
@@ -129,15 +171,15 @@ INNER JOIN empleadopuesto ep on e.codigopuesto=ep.codigopuesto
 				<textFieldExpression><![CDATA[$F{nombrepuesto}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="421" y="0" width="100" height="20" uuid="2090b7eb-6dcf-41d0-8778-03a521abd540"/>
-				<textElement>
+				<reportElement x="399" y="0" width="100" height="20" uuid="2090b7eb-6dcf-41d0-8778-03a521abd540"/>
+				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{nombreubicacion}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="632" y="0" width="100" height="20" uuid="a8fb9aad-5708-4d42-bc43-50fdbbc03e3c"/>
-				<textElement>
+				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{nombreempleado}]]></textFieldExpression>
@@ -158,13 +200,8 @@ INNER JOIN empleadopuesto ep on e.codigopuesto=ep.codigopuesto
 				<text><![CDATA[Total de Registros]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="673" y="25" width="80" height="20" uuid="52e72622-1373-4021-b120-1daf8eaf4786"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
-			</textField>
-			<textField evaluationTime="Report">
-				<reportElement x="753" y="25" width="40" height="20" uuid="51b8ade6-b27b-41d2-a854-a78cdf9105cf"/>
-				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				<reportElement x="735" y="19" width="100" height="20" uuid="205a37f2-5a28-424d-b709-1d22bf6a530a"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
 		</band>
 	</columnFooter>

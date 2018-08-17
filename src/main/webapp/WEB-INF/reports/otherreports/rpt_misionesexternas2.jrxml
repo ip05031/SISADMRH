@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="5c97d53c-6c6d-4cd7-8205-e7d0bdf541e2">
 	<property name="ireport.zoom" value="1.0"/>
-	<property name="ireport.x" value="0"/>
+	<property name="ireport.x" value="58"/>
 	<property name="ireport.y" value="0"/>
 	<parameter name="CODIGO" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
@@ -10,6 +10,9 @@
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<parameter name="FECHAFIN" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="IMAGE_PATH" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<queryString>
@@ -65,12 +68,20 @@ AND m.fecharegresomision<=$P{FECHAFIN}]]>
 				<text><![CDATA[Ministerio de Justicia  y Segurdiad Pública]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="343" y="23" width="126" height="20" uuid="387a90a2-a84c-4be3-abaa-22bc4b08ca80"/>
+				<reportElement x="306" y="24" width="191" height="20" uuid="387a90a2-a84c-4be3-abaa-22bc4b08ca80"/>
 				<textElement>
 					<font size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Direccion de Recursos Humanos]]></text>
 			</staticText>
+			<image>
+				<reportElement x="27" y="8" width="160" height="52" uuid="62ab98e5-16d8-45bf-bae8-6eb98ff1fb48"/>
+				<imageExpression><![CDATA[$P{IMAGE_PATH}.concat("/GOES.jpg")]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="646" y="2" width="144" height="60" uuid="72ee3888-0064-48f9-8803-deda823af38b"/>
+				<imageExpression><![CDATA[$P{IMAGE_PATH}.concat("/LOGOMJ.jpg")]]></imageExpression>
+			</image>
 		</band>
 	</title>
 	<pageHeader>
@@ -83,7 +94,7 @@ AND m.fecharegresomision<=$P{FECHAFIN}]]>
 				<text><![CDATA[Reporte de Misiones Externas 2]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="238" y="25" width="35" height="20" uuid="5ae09e3c-4d04-4aa4-8d66-5b2dd48c27b7"/>
+				<reportElement x="193" y="25" width="35" height="20" uuid="5ae09e3c-4d04-4aa4-8d66-5b2dd48c27b7"/>
 				<text><![CDATA[Desde]]></text>
 			</staticText>
 			<staticText>
@@ -104,12 +115,12 @@ AND m.fecharegresomision<=$P{FECHAFIN}]]>
 				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="275" y="26" width="100" height="20" uuid="c7240493-273a-49fd-a8d7-4ef5ad1edfaa"/>
-				<textFieldExpression><![CDATA[$F{fechasalidamision}]]></textFieldExpression>
+				<reportElement x="230" y="26" width="100" height="20" uuid="c7240493-273a-49fd-a8d7-4ef5ad1edfaa"/>
+				<textFieldExpression><![CDATA[$P{FECHAINICIO}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="536" y="26" width="100" height="20" uuid="b82db202-2306-4820-8467-03e8f4ebc231"/>
-				<textFieldExpression><![CDATA[$F{fecharegresomision}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{FECHAFIN}]]></textFieldExpression>
 			</textField>
 		</band>
 	</pageHeader>
@@ -132,12 +143,13 @@ AND m.fecharegresomision<=$P{FECHAFIN}]]>
 			</staticText>
 			<staticText>
 				<reportElement x="317" y="2" width="100" height="20" uuid="544233b5-c405-4b1a-9bbe-0a7b06bda63f"/>
-				<text><![CDATA[numeroacuerdo]]></text>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Acuerdo]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="422" y="2" width="100" height="20" uuid="cc0f0862-0b00-401c-8751-053a34bfc7c5"/>
 				<textElement textAlignment="Center"/>
-				<text><![CDATA[boleto]]></text>
+				<text><![CDATA[Boleto]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="524" y="2" width="100" height="20" uuid="cadd1413-9292-4f0e-b937-cc285eb09ef0"/>
