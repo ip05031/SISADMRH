@@ -108,12 +108,13 @@ public class CapacitacionController extends UtilsController{
         {
         model.addAttribute("msg", 4);
         }
-   
-        return "redirect:/capacitaciones/";
+   return PREFIX + "capacitaciones";
+        //return "redirect:/capacitaciones/";
     }
     
     @RequestMapping("report/")
-    public String reporte() {
+    public String reporte(Model model) {
+        model.addAttribute("capacitaciones", capacitacionService.listAllCapacitacion());
         return PREFIX + "capacitacionesreport";
     }
     

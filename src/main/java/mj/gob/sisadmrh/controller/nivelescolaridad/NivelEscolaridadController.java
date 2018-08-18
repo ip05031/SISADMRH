@@ -6,6 +6,7 @@
 package mj.gob.sisadmrh.controller.nivelescolaridad;
 
 import mj.gob.sisadmrh.model.NivelEscolaridad;
+import mj.gob.sisadmrh.service.EmpleadoService;
 
 import mj.gob.sisadmrh.service.NivelEscolaridadService;
 
@@ -22,6 +23,8 @@ public class NivelEscolaridadController {
     
     
     private NivelEscolaridadService nivelEscolaridadService;
+    @Autowired
+    private EmpleadoService empleadoService;
      
        @Autowired
     public void setNivelEscolaridadService(NivelEscolaridadService nivelEscolaridadService) {
@@ -44,7 +47,9 @@ public class NivelEscolaridadController {
     
     @RequestMapping("new/nivelescolaridad")
     public String newNivelEscolaridad(Model model) {
+        
         model.addAttribute("nivelescolaridad", new NivelEscolaridad());
+        model.addAttribute("empleados", empleadoService.listAllEmpleado());
         return PREFIX + "nivelescolaridadform";
     }
     
@@ -53,16 +58,16 @@ public class NivelEscolaridadController {
         try{
             nivelEscolaridadService.saveNivelEscolaridad(nivelEscolaridad);
             model.addAttribute("msg", 0);
-            model.addAttribute("nivelescolaridades", nivelEscolaridadService.listAllNivelEscolaridad());
-            return PREFIX + "nivelescolaridades";
+           // model.addAttribute("nivelescolaridades", nivelEscolaridadService.listAllNivelEscolaridad());
+            
 
         } catch(Exception e){
              model.addAttribute("msg", 1);
         }
-        return PREFIX + "nivelescolaridadform";//
+       // return PREFIX + "nivelescolaridadform";//
       // return "redirect:/nivelescolaridades/"; 
        // return PREFIX + "nivelescolaridades";
-        //return "redirect:./show/" + nivelEscolaridad.getCodigonivelnivelescolaridad();
+        return "redirect:./show/" + nivelEscolaridad.getCodigonivelnivelescolaridad();
     }
     
     

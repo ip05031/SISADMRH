@@ -13,8 +13,10 @@ import mj.gob.sisadmrh.controller.UtilsController;
 import mj.gob.sisadmrh.model.Beneficio;
 import mj.gob.sisadmrh.model.Comite;
 import mj.gob.sisadmrh.service.BeneficioService;
+import mj.gob.sisadmrh.service.CapacitacionService;
 import mj.gob.sisadmrh.service.ComiteService;
 import mj.gob.sisadmrh.service.EmpleadoBeneficioService;
+import mj.gob.sisadmrh.service.EmpleadoService;
 import net.sf.jasperreports.engine.JRException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -34,7 +36,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class OtherreportController extends UtilsController{
  
 @Autowired
-private ComiteService comiteService;
+private ComiteService comiteService;// instancia para jalar los comites
+@Autowired
+private EmpleadoService empleadoService;// instancia para listar empleados como filtro de reporte
+@Autowired
+private CapacitacionService capacitacionSerice;// instancia para jalar las capacitaciones
     private final String PREFIX = "fragments/otherreports/";
 
     @RequestMapping("abogados/")
@@ -72,7 +78,8 @@ private ComiteService comiteService;
     }
     
      @RequestMapping("capacitaciones/")
-    public String reportecapacitaciones() {
+    public String reportecapacitaciones(Model model) {
+        model.addAttribute("capacitaciones", capacitacionSerice.listAllCapacitacion());
         return PREFIX + "capacitacionesreport";
     }
      @RequestMapping("comites/")
@@ -81,12 +88,14 @@ private ComiteService comiteService;
         return PREFIX + "comitesreport";
     }
      @RequestMapping("constanciasalariales/")
-    public String reporteconstanciasalariales() {
+    public String reporteconstanciasalariales(Model model) {
+        model.addAttribute("empleados", empleadoService.listAllEmpleado());
         return PREFIX + "constanciasalarialesreport";
     }
     
       @RequestMapping("constanciaservicios/")
-    public String reporteconstanciaservicios() {
+    public String reporteconstanciaservicios(Model model) {
+        model.addAttribute("empleados", empleadoService.listAllEmpleado());
         return PREFIX + "constanciaserviciosreport";
     }
     

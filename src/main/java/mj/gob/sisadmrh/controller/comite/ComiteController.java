@@ -116,7 +116,8 @@ public class ComiteController extends UtilsController{
     }
     
     @RequestMapping("report/")
-    public String reporte() {
+    public String reporte(Model model) {
+        model.addAttribute("comites", comiteService.listAllComite());
         return PREFIX + "comitesreport";
     }
     

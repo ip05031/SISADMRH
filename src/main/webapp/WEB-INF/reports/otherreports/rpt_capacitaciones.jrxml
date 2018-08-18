@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="3efb06ae-db0d-441a-8882-24e35fcd8a5a">
 	<property name="ireport.zoom" value="1.0"/>
-	<property name="ireport.x" value="147"/>
+	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<parameter name="IMAGE_PATH" class="java.lang.String" isForPrompting="false">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
@@ -17,7 +17,10 @@
 	</parameter>
 	<queryString>
 		<![CDATA[SELECT count(ca.codigocapacitacion), e.nombreempleado,p.nombrepuesto,ca.duracionhoracapacitacion,c.nombrecapacitador,ca.nombrecapacitacion,
-ca.departamentoresponsable,ca.fechacapacitaciondesde,ca.fechacapacitacionhasta from empleado e INNER JOIN puesto p on e.codigoempleado=p.codigoempleado inner join capacitador c on e.codigoempleado=c.codigoempleado INNER JOIN capacitacion ca on c.codigocapacitador=c.codigocapacitador
+ca.departamentoresponsable,ca.fechacapacitaciondesde,ca.fechacapacitacionhasta from empleado e 
+inner join empleadopuesto ep on e.codigopuesto=ep.codigopuesto
+ inner join puesto p on ep.codigopuesto=p.codigopuesto 
+ inner join capacitador c on e.codigoempleado=c.codigoempleado INNER JOIN capacitacion ca on c.codigocapacitador=c.codigocapacitador
 where ca.codigocapacitacion=$P{CODIGO}
 and fechacapacitaciondesde>=$P{FECHAINICIO}
 and ca.fechacapacitacionhasta<=$P{FECHAFIN}]]>
@@ -66,13 +69,13 @@ and ca.fechacapacitacionhasta<=$P{FECHAFIN}]]>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="133" splitType="Stretch">
+		<band height="89" splitType="Stretch">
 			<image>
 				<reportElement x="614" y="15" width="205" height="70" uuid="af190678-1ec9-436d-8e71-580e51e9ac38"/>
 				<imageExpression><![CDATA[$P{IMAGE_PATH}.concat("LOGOMJ.jpg")]]></imageExpression>
 			</image>
 			<staticText>
-				<reportElement x="246" y="10" width="290" height="21" uuid="d4179ad2-eb92-499f-9b87-5f0c0b21182b"/>
+				<reportElement x="275" y="5" width="253" height="21" uuid="d4179ad2-eb92-499f-9b87-5f0c0b21182b"/>
 				<textElement>
 					<font size="14" isBold="true"/>
 				</textElement>
@@ -83,14 +86,14 @@ and ca.fechacapacitacionhasta<=$P{FECHAFIN}]]>
 				<imageExpression><![CDATA[$P{IMAGE_PATH}.concat("GOES.jpg")]]></imageExpression>
 			</image>
 			<staticText>
-				<reportElement x="291" y="29" width="201" height="20" uuid="caf94bec-5f08-4951-bb40-8e96cdcc5fe0"/>
+				<reportElement x="319" y="26" width="165" height="20" uuid="caf94bec-5f08-4951-bb40-8e96cdcc5fe0"/>
 				<textElement>
 					<font size="14" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Direccion de Recuros Humanos]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="327" y="51" width="93" height="20" uuid="8ad40864-15db-4092-911f-a58a88621a6c"/>
+				<reportElement x="359" y="50" width="84" height="20" uuid="8ad40864-15db-4092-911f-a58a88621a6c"/>
 				<textElement>
 					<font size="14" isBold="true"/>
 				</textElement>
@@ -99,19 +102,25 @@ and ca.fechacapacitacionhasta<=$P{FECHAFIN}]]>
 		</band>
 	</title>
 	<pageHeader>
-		<band height="65" splitType="Stretch">
+		<band height="75" splitType="Stretch">
 			<staticText>
-				<reportElement x="181" y="36" width="34" height="20" uuid="c0c00fd5-156a-4c50-aef7-365a799f6b30"/>
+				<reportElement x="243" y="36" width="34" height="20" uuid="c0c00fd5-156a-4c50-aef7-365a799f6b30"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
 				<text><![CDATA[Desde]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="456" y="36" width="31" height="20" uuid="2099c35a-3732-46ab-af8c-f8f352398d7c"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
 				<text><![CDATA[Hasta]]></text>
 			</staticText>
 			<textField>
 				<reportElement x="637" y="36" width="80" height="20" uuid="f9ab1773-cdd0-4b9a-836d-789683b76c78"/>
 				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA["Pagina "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Pagina "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="661" y="18" width="33" height="20" uuid="024f8444-2a05-4618-8734-3bedca39387b"/>
@@ -126,15 +135,15 @@ and ca.fechacapacitacionhasta<=$P{FECHAFIN}]]>
 				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="227" y="34" width="100" height="20" uuid="b5211f58-5943-483b-a28b-6237897a9fdd"/>
-				<textFieldExpression><![CDATA[$F{fechacapacitaciondesde}]]></textFieldExpression>
+				<reportElement x="282" y="35" width="92" height="20" uuid="b5211f58-5943-483b-a28b-6237897a9fdd"/>
+				<textFieldExpression><![CDATA[$P{FECHAINICIO}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="509" y="34" width="100" height="20" uuid="1f3e9bec-e3fb-4144-9085-e4c6e59841e3"/>
-				<textFieldExpression><![CDATA[$F{fechacapacitacionhasta}]]></textFieldExpression>
+				<reportElement x="491" y="34" width="100" height="20" uuid="1f3e9bec-e3fb-4144-9085-e4c6e59841e3"/>
+				<textFieldExpression><![CDATA[$P{FECHAFIN}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="336" y="11" width="156" height="20" uuid="3a9ad8ac-75a4-409e-bc01-ce39cbfcabb1"/>
+				<reportElement x="323" y="6" width="156" height="20" uuid="3a9ad8ac-75a4-409e-bc01-ce39cbfcabb1"/>
 				<textElement>
 					<font size="12" isBold="true"/>
 				</textElement>
@@ -143,51 +152,54 @@ and ca.fechacapacitacionhasta<=$P{FECHAFIN}]]>
 		</band>
 	</pageHeader>
 	<columnHeader>
-		<band height="61" splitType="Stretch">
+		<band height="26" splitType="Stretch">
+			<rectangle>
+				<reportElement x="10" y="0" width="788" height="20" uuid="04f3be39-f661-4d6b-858a-c3f7c3474335"/>
+			</rectangle>
 			<staticText>
-				<reportElement x="12" y="34" width="100" height="20" uuid="db4def3b-df76-478d-9fab-55f1effade07"/>
-				<textElement>
+				<reportElement x="12" y="0" width="100" height="20" uuid="db4def3b-df76-478d-9fab-55f1effade07"/>
+				<textElement textAlignment="Center">
 					<font size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Empleado]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="129" y="34" width="100" height="20" uuid="a231cc83-c2d1-41f3-a2fa-03158a3d35c3"/>
-				<textElement>
+				<reportElement x="129" y="0" width="100" height="20" uuid="a231cc83-c2d1-41f3-a2fa-03158a3d35c3"/>
+				<textElement textAlignment="Center">
 					<font size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Puesto]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="254" y="34" width="100" height="20" uuid="7718e582-8633-4afa-818b-ca60e522e406"/>
-				<textElement>
+				<reportElement x="254" y="0" width="100" height="20" uuid="7718e582-8633-4afa-818b-ca60e522e406"/>
+				<textElement textAlignment="Center">
 					<font size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Horas]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="370" y="34" width="100" height="20" uuid="582ff30d-c86e-43e1-bea2-574d48a1fcfe"/>
-				<textElement>
+				<reportElement x="370" y="0" width="100" height="20" uuid="582ff30d-c86e-43e1-bea2-574d48a1fcfe"/>
+				<textElement textAlignment="Center">
 					<font size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Capacitacion]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="487" y="34" width="100" height="20" uuid="d1efa746-ff31-49b9-b359-8776e5267773"/>
-				<textElement>
+				<reportElement x="487" y="0" width="100" height="20" uuid="d1efa746-ff31-49b9-b359-8776e5267773"/>
+				<textElement textAlignment="Center">
 					<font size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Depto Resposable]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="609" y="34" width="100" height="20" uuid="71e63620-3be4-4465-9340-d422eab94726"/>
-				<textElement>
+				<reportElement x="609" y="0" width="100" height="20" uuid="71e63620-3be4-4465-9340-d422eab94726"/>
+				<textElement textAlignment="Center">
 					<font size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Fecha Desde]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="726" y="34" width="100" height="20" uuid="00152fde-9097-4374-87d7-3d9f121f897d"/>
+				<reportElement x="719" y="0" width="100" height="20" uuid="00152fde-9097-4374-87d7-3d9f121f897d"/>
 				<textElement>
 					<font size="12" isBold="true"/>
 				</textElement>
@@ -199,30 +211,39 @@ and ca.fechacapacitacionhasta<=$P{FECHAFIN}]]>
 		<band height="25" splitType="Stretch">
 			<textField>
 				<reportElement x="12" y="0" width="100" height="20" uuid="1748ebf9-0a45-4a7c-b32a-c7d5e14c7d0f"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{nombreempleado}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="129" y="0" width="100" height="20" uuid="f4ae7cc1-6b28-4d72-a801-7f6cd0cd4606"/>
+				<textElement textAlignment="Center"/>
 				<textFieldExpression><![CDATA[$F{nombrepuesto}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="254" y="0" width="100" height="20" uuid="08c4f942-8efb-4034-9574-815d33d0cc9a"/>
+				<textElement textAlignment="Center"/>
 				<textFieldExpression><![CDATA[$F{duracionhoracapacitacion}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="370" y="0" width="100" height="20" uuid="415de10f-638b-4733-a1ed-4b4f04cf8454"/>
+				<textElement textAlignment="Center"/>
 				<textFieldExpression><![CDATA[$F{nombrecapacitacion}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="487" y="0" width="100" height="20" uuid="e37c0619-51bd-42f9-8b35-0d9f4900630f"/>
+				<textElement textAlignment="Center"/>
 				<textFieldExpression><![CDATA[$F{departamentoresponsable}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="609" y="0" width="100" height="20" uuid="8f448549-2f0a-4e9a-a9d4-0ffcfd8d2488"/>
+				<textElement textAlignment="Center"/>
 				<textFieldExpression><![CDATA[$F{fechacapacitaciondesde}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="726" y="0" width="100" height="20" uuid="b7945dda-3755-41cd-88bf-c01e81148f0e"/>
+				<reportElement x="714" y="-1" width="100" height="20" uuid="b7945dda-3755-41cd-88bf-c01e81148f0e"/>
+				<textElement textAlignment="Center"/>
 				<textFieldExpression><![CDATA[$F{fechacapacitacionhasta}]]></textFieldExpression>
 			</textField>
 		</band>
@@ -233,10 +254,6 @@ and ca.fechacapacitacionhasta<=$P{FECHAFIN}]]>
 				<reportElement x="12" y="24" width="100" height="20" uuid="58650a5e-b159-453b-b0ca-b86b0277c141"/>
 				<text><![CDATA[Total Registros]]></text>
 			</staticText>
-			<textField>
-				<reportElement x="561" y="24" width="100" height="20" uuid="e50b5ccf-4940-4bc1-a440-42c968391d07"/>
-				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
-			</textField>
 			<textField evaluationTime="Report">
 				<reportElement x="683" y="24" width="100" height="20" uuid="71862321-0afd-4c0d-b156-dfd0df409d2a"/>
 				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>

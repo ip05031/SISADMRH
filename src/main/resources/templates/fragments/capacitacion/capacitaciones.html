@@ -61,8 +61,9 @@
                 <td>
                     <a th:href="${'./show/' + capacitacion.codigocapacitacion}" class="btn btn-default">Mostrar</a>
                 <a th:href="${'./edit/' + capacitacion.codigocapacitacion}" class="btn btn-default">Edit</a>
+                 <a  class="btn btn-danger" th:onclick="'eliminar(\'' + ${capacitacion.codigocapacitacion} + '\');'" >Delete</a>
                <!--<td><a th:href="${'./delete/' + capacitacion.codigocapacitacion}" class="btn btn-danger">Delete</a></td>-->
-                    <td><a  class="btn btn-danger" th:onclick="'eliminar(\'' + ${capacitacion.codigocapacitacion} + '\');'" >Delete</a></td>  
+                    <!--<td><a  class="btn btn-danger" th:onclick="'eliminar(\'' + ${capacitacion.codigocapacitacion} + '\');'" >Delete</a></td>-->  
                 </td>
             </tr>
         </table>
@@ -76,7 +77,7 @@
    
    
    
-    <script th:inline="javascript">
+     <script th:inline="javascript">
         $(document).ready(function () {
     if([[${msg}]]===3){
        swal({
