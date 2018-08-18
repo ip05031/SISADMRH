@@ -65,6 +65,9 @@ public class CostoCapacitacionController extends UtilsController{
         try{
          costoCapacitacionService.saveCostoCapacitacion(costoCapacitacion);
           model.addAttribute("msg", 0);
+          model.addAttribute("", costoCapacitacionService.listAllCostoCapacitacion());
+        // return PREFIX + "costocapacitacionform";
+         return PREFIX + "costocapacitaciones";
         }
         catch(Exception e){
          model.addAttribute("msg", 1);
