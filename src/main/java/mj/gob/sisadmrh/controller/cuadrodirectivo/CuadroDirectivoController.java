@@ -69,12 +69,14 @@ public class CuadroDirectivoController extends UtilsController{
         try{
          cuadroDirectivoService.saveCuadroDirectivo(cuadroDirectivo);
          model.addAttribute("msg", 0);
+         model.addAttribute("cuadrodirectivos", cuadroDirectivoService.listAllCuadroDirectivo());
+         return PREFIX + "cuadrodirectivos";
         }
         catch(Exception e){
         model.addAttribute("msg", 1);
         }
-        //return PREFIX + "cuadrodirectivoform";
-        return "redirect:/cuadrodirectivos/";  
+        return PREFIX + "cuadrodirectivoform";
+        //return "redirect:/cuadrodirectivos/";  
   
     // return "redirect:./show/" + cuadroDirectivo.getCodigocuadrodirectivo();
     }

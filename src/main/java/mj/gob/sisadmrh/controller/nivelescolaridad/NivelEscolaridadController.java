@@ -58,16 +58,16 @@ public class NivelEscolaridadController {
         try{
             nivelEscolaridadService.saveNivelEscolaridad(nivelEscolaridad);
             model.addAttribute("msg", 0);
-           // model.addAttribute("nivelescolaridades", nivelEscolaridadService.listAllNivelEscolaridad());
-            
+            model.addAttribute("nivelescolaridades", nivelEscolaridadService.listAllNivelEscolaridad());
+            return PREFIX + "nivelescolaridades";
 
         } catch(Exception e){
              model.addAttribute("msg", 1);
         }
-       // return PREFIX + "nivelescolaridadform";//
+       return PREFIX + "nivelescolaridadform";//
       // return "redirect:/nivelescolaridades/"; 
        // return PREFIX + "nivelescolaridades";
-        return "redirect:./show/" + nivelEscolaridad.getCodigonivelnivelescolaridad();
+        //return "redirect:./show/" + nivelEscolaridad.getCodigonivelnivelescolaridad();
     }
     
     
