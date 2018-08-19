@@ -178,7 +178,7 @@ jQuery(document).ready(function() {
     jQuery('.num_nit').mask('0000-000000-000-0');
     jQuery('.num_telefono').mask('0000-0000');
     jQuery('.num_dui').mask('00000000-0');
-    jQuery('.num_decimal').mask('00.00');
+    jQuery('.num_decimal').mask('000.00');
     jQuery('.fecha_dies').mask('00/00/0000');
 
 });

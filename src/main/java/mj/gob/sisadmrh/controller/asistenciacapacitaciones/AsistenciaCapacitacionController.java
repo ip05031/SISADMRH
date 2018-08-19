@@ -77,10 +77,17 @@ public class AsistenciaCapacitacionController extends UtilsController{
     }
     
     @RequestMapping(value = "asistenciacapacitacion")
-    public String saveAsistenciaCapacitacion(AsistenciaCapacitacion asistencia) {
-        asistenciaCapacitacionService.saveAsistenciaCapacitacion(asistencia);
+    public String saveAsistenciaCapacitacion(AsistenciaCapacitacion asistencia,Model model) {
+        try{
+         asistenciaCapacitacionService.saveAsistenciaCapacitacion(asistencia);
+        model.addAttribute("msg", 0);
+         
+        }
+        catch(Exception e){}
+       model.addAttribute("msg", 1);
+       return PREFIX + "asistenciacapacitaciones";
        
-        return "redirect:./show/" + asistencia.getCodigoasistenciacapacitacion();
+       // return "redirect:./show/" + asistencia.getCodigoasistenciacapacitacion();
     }
     
    
@@ -90,9 +97,16 @@ public class AsistenciaCapacitacionController extends UtilsController{
         return PREFIX +"asistenciacapacitacionshow";
     }
      @RequestMapping("delete/{id}")
-    public String delete(@PathVariable Integer id) {
+    public String delete(@PathVariable Integer id,Model model) {
+        try{
         asistenciaCapacitacionService.deleteAsistenciaCapacitacion(id);
-        return "redirect:/asistenciacapacitaciones/";
+        model.addAttribute("msg", 3);
+        }
+        catch(Exception e){
+         model.addAttribute("msg", 4);
+        }
+           return "redirect:/asistenciacapacitaciones/";
+        //return "redirect:/asistenciacapacitaciones/";
     }
     
     @RequestMapping("llenadocombo/{cemp}")
