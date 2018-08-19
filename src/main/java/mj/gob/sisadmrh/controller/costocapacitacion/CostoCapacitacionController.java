@@ -65,26 +65,19 @@ public class CostoCapacitacionController extends UtilsController{
         try{
          costoCapacitacionService.saveCostoCapacitacion(costoCapacitacion);
           model.addAttribute("msg", 0);
-          model.addAttribute("", costoCapacitacionService.listAllCostoCapacitacion());
+      //   model.addAttribute("costocapacitaciones", costoCapacitacionService.listAllCostoCapacitacion());
         // return PREFIX + "costocapacitacionform";
-         return PREFIX + "costocapacitaciones";
+        // return PREFIX + "costocapacitaciones";
         }
         catch(Exception e){
          model.addAttribute("msg", 1);
         }
-         return PREFIX + "costocapacitacionform";
+        return PREFIX + "costocapacitaciones";
        
        // return "redirect:./show/" + costoCapacitacion.getCodigocostocapacitacion();
     }
     
-//      @RequestMapping(value = "comite",method=RequestMethod.POST)
-//    public String saveComite(@Valid @ModelAttribute(name = "comite") Comite comite) {
-//        comiteService.saveComite(comite);
-//       
-//        return "redirect:./show/" + comite.getCodigocomite();
-//    }
-//    
-//    
+ 
      @RequestMapping("show/{id}")
     public String showCostoCapacitacion(@PathVariable Integer id, Model model) {
         model.addAttribute("costocapacitacion", costoCapacitacionService.getCostoCapacitacionById(id).get());

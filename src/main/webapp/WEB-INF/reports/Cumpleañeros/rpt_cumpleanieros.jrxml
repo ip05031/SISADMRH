@@ -3,8 +3,16 @@
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="17"/>
 	<property name="ireport.y" value="0"/>
-	<queryString language="SQL">
-		<![CDATA[SELECT count(e.codigoempleado),concat(DAY(e.fechanacimientoempleado)," / ", MONTH(e.fechanacimientoempleado)) AS Fecha,p.nombrepuesto,uf.nombreubicacion,e.nombreempleado from SISADMRH.empleado e INNER JOIN SISADMRH.puesto p ON e.codigoempleado=p.codigoempleado INNER JOIN SISADMRH.ubicacionfisica uf on uf.codigoempleado=e.codigoempleado]]>
+	<parameter name="FECHAINICIO" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="FECHAFIN" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT count(e.codigoempleado),concat(DAY(e.fechanacimientoempleado)," / ", MONTH(e.fechanacimientoempleado)) AS Fecha,p.nombrepuesto,uf.nombreubicacion,e.nombreempleado from SISADMRH.empleado e inner join empleadopuesto ep on e.codigopuesto=ep.codigopuesto inner join puesto p on ep.codigopuesto=p.codigopuesto  INNER JOIN SISADMRH.ubicacionfisica uf on uf.codigoempleado=e.codigoempleado
+where e.fechanacimientoempleado>=$P{FECHAINICIO}
+and e.fechanacimientoempleado<=$P{FECHAFIN}]]>
 	</queryString>
 	<field name="count(e.codigoempleado)" class="java.lang.Long"/>
 	<field name="Fecha" class="java.lang.String"/>
