@@ -40,30 +40,31 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
  
         // The pages does not require login
         http.authorizeRequests().antMatchers("/", "/login", "/logout").permitAll();
+        http.authorizeRequests().antMatchers("/index").authenticated();
  
         // /userInfo page requires login as ROLE_USER or ROLE_ADMIN.
         // If no login, it will redirect to /login page.
         http.authorizeRequests().antMatchers("/userInfo").access("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')");
         //For users only
-//        http.authorizeRequests().antMatchers("/beneficios/").access("hasRole('ROLE_USER')");
-//        http.authorizeRequests().antMatchers("/beneficios/**").access("hasRole('ROLE_USER')");
-//        http.authorizeRequests().antMatchers("/cuadrodirectivos/").access("hasRole('ROLE_USER')");
-//        http.authorizeRequests().antMatchers("/cuadrodirectivos/**").access("hasRole('ROLE_USER')");
-//        http.authorizeRequests().antMatchers("/capacitaciones/").access("hasRole('ROLE_USER')");
-//        http.authorizeRequests().antMatchers("/capacitaciones/**").access("hasRole('ROLE_USER')");
-//        http.authorizeRequests().antMatchers("/capacitadores/").access("hasRole('ROLE_USER')");
-//        http.authorizeRequests().antMatchers("/capacitadores/**").access("hasRole('ROLE_USER')");
-//        http.authorizeRequests().antMatchers("/comites/").access("hasRole('ROLE_USER')");
-//        http.authorizeRequests().antMatchers("/comites/**").access("hasRole('ROLE_USER')");
-//        http.authorizeRequests().antMatchers("/costocapacitaciones/").access("hasRole('ROLE_USER')");
-//        http.authorizeRequests().antMatchers("/costocapacitaciones/**").access("hasRole('ROLE_USER')");
+        http.authorizeRequests().antMatchers("/beneficios/").access("hasRole('ROLE_USER')");
+        http.authorizeRequests().antMatchers("/beneficios/**").access("hasRole('ROLE_USER')");
+        http.authorizeRequests().antMatchers("/cuadrodirectivos/").access("hasRole('ROLE_USER')");
+        http.authorizeRequests().antMatchers("/cuadrodirectivos/**").access("hasRole('ROLE_USER')");
+        http.authorizeRequests().antMatchers("/capacitaciones/").access("hasRole('ROLE_USER')");
+        http.authorizeRequests().antMatchers("/capacitaciones/**").access("hasRole('ROLE_USER')");
+        http.authorizeRequests().antMatchers("/capacitadores/").access("hasRole('ROLE_USER')");
+        http.authorizeRequests().antMatchers("/capacitadores/**").access("hasRole('ROLE_USER')");
+        http.authorizeRequests().antMatchers("/comites/").access("hasRole('ROLE_USER')");
+        http.authorizeRequests().antMatchers("/comites/**").access("hasRole('ROLE_USER')");
+        http.authorizeRequests().antMatchers("/costocapacitaciones/").access("hasRole('ROLE_USER')");
+        http.authorizeRequests().antMatchers("/costocapacitaciones/**").access("hasRole('ROLE_USER')");
 //        
         // For ADMIN only.
-//        http.authorizeRequests().antMatchers("/admin").access("hasRole('ROLE_ADMIN')");
-//        http.authorizeRequests().antMatchers("/usuarios/").access("hasRole('ROLE_ADMIN')");
-//        http.authorizeRequests().antMatchers("/usuarios/**").access("hasRole('ROLE_ADMIN')");
-//        http.authorizeRequests().antMatchers("/roles/**").access("hasRole('ROLE_ADMIN')");
-//        http.authorizeRequests().antMatchers("/roles/**").access("hasRole('ROLE_ADMIN')");
+        http.authorizeRequests().antMatchers("/admin").access("hasRole('ROLE_ADMIN')");
+        http.authorizeRequests().antMatchers("/usuarios/").access("hasRole('ROLE_ADMIN')");
+        http.authorizeRequests().antMatchers("/usuarios/**").access("hasRole('ROLE_ADMIN')");
+        http.authorizeRequests().antMatchers("/roles/**").access("hasRole('ROLE_ADMIN')");
+        http.authorizeRequests().antMatchers("/roles/**").access("hasRole('ROLE_ADMIN')");
 // 
         // When the user has logged in as XX.
         // But access a page that requires role YY,
