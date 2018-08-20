@@ -115,17 +115,30 @@ private CapacitacionService capacitacionSerice;// instancia para jalar las capac
     }
     
     
-    @RequestMapping(value = "abogados/{indice}", method = { RequestMethod.POST, RequestMethod.GET })
+    @RequestMapping(value = "abogados/", method = { RequestMethod.POST, RequestMethod.GET })
     public void pdfabogados(@PathVariable("indice") Long indice, 
             @RequestParam(required = false) Boolean download, 
             @RequestParam(value="fechainicial",required = false) String fechainicio, 
             @RequestParam(value="fechafinal", required = false) String fechafin, 
                 HttpServletResponse response) throws Exception {
                 Map<String, Object> params = new HashMap<>();
-		params.put("CODIGO", indice.toString());
+//		params.put("CODIGO", indice.toString());
 		params.put("FECHAINICIO", fechainicio);
 		params.put("FECHAFIN", fechafin);
         	generatePdf("otherreports", "rpt_abogados", params, download,response);
+    }
+    
+    @RequestMapping(value = "motoristas/", method = { RequestMethod.POST, RequestMethod.GET })
+    public void pdfmotoristas(/*@PathVariable("indice") Long indice,*/ 
+            @RequestParam(required = false) Boolean download, 
+            @RequestParam(value="fechainicial",required = false) String fechainicio, 
+            @RequestParam(value="fechafinal", required = false) String fechafin, 
+                HttpServletResponse response) throws Exception {
+                Map<String, Object> params = new HashMap<>();
+//		params.put("CODIGO", indice.toString());
+		params.put("FECHAINICIO", fechainicio);
+		params.put("FECHAFIN", fechafin);
+        	generatePdf("otherreports", "rpt_motoristas", params, download,response);
     }
 
     @RequestMapping(value = "empleadoincapacidad/{indice}", method = { RequestMethod.POST, RequestMethod.GET })
@@ -169,14 +182,14 @@ private CapacitacionService capacitacionSerice;// instancia para jalar las capac
 
 
 
-    @RequestMapping(value = "notarios/{indice}", method = { RequestMethod.POST, RequestMethod.GET })
-    public void pdfnotarios(@PathVariable("indice") Long indice, 
+    @RequestMapping(value = "notarios/", method = { RequestMethod.POST, RequestMethod.GET })
+    public void pdfnotarios(/*@PathVariable("indice") Long indice, */
             @RequestParam(required = false) Boolean download, 
             @RequestParam(value="fechainicial",required = false) String fechainicio, 
             @RequestParam(value="fechafinal", required = false) String fechafin, 
                 HttpServletResponse response) throws Exception {
                 Map<String, Object> params = new HashMap<>();
-		params.put("CODIGO", indice.toString());
+//		params.put("CODIGO", indice.toString());
 		params.put("FECHAINICIO", fechainicio);
 		params.put("FECHAFIN", fechafin);
         	generatePdf("otherreports", "rpt_notarios", params, download,response);
