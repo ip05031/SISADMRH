@@ -10,6 +10,8 @@ import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -34,9 +36,9 @@ public class Comision implements Serializable {
     @Id
     @Basic(optional = false)
     @NotNull
-   
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "CODIGOCOMISION")
-    private String codigocomision;
+    private Integer codigocomision;
     @Size(max = 50)
     @Column(name = "NOMBRECOMISION")
     private String nombrecomision;
@@ -56,15 +58,15 @@ public class Comision implements Serializable {
     public Comision() {
     }
 
-    public Comision(String codigocomision) {
+    public Comision(Integer codigocomision) {
         this.codigocomision = codigocomision;
     }
 
-    public String getCodigocomision() {
+    public Integer getCodigocomision() {
         return codigocomision;
     }
 
-    public void setCodigocomision(String codigocomision) {
+    public void setCodigocomision(Integer codigocomision) {
         this.codigocomision = codigocomision;
     }
 
