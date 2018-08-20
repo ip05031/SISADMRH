@@ -51,7 +51,7 @@
             dateFormat: 'yy-mm-dd'
         });
         $('#generar').click(function(){
-            $("#formreport").attr('action', '../pdf/'+ $("#codigo").val().toString());
+            $("#formreport").attr('action', '../notarios/'+ $("#codigo").val().toString());
             $("form#formreport").submit();
             
         });

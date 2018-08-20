@@ -48,19 +48,24 @@ private CapacitacionService capacitacionSerice;// instancia para jalar las capac
         return PREFIX + "abogadosreport";
     }
     @RequestMapping("empleadoincapacidad/")
-    public String reporteempleadoincapacidad() {
+    public String reporteempleadoincapacidad(Model model) {
+         model.addAttribute("empleados", empleadoService.listAllEmpleado());
         return PREFIX + "empleadoincapacidadreport";
     }
     @RequestMapping("hijoscapesp/")
-    public String reportehijoscapesp() {
+    public String reportehijoscapesp(Model model) {
+        model.addAttribute("empleados", empleadoService.listAllEmpleado());
         return PREFIX + "hijoscapespreport";
     }
     @RequestMapping("historial/")
-    public String reportehistorial() {
+    public String reportehistorial(Model model) {
+         model.addAttribute("empleados", empleadoService.listAllEmpleado());
+     //   return PREFIX + "constanciasalarialesreport";
         return PREFIX + "historialreport";
     }
     @RequestMapping("motoristas/")
     public String reportemotoristas() {
+        
         return PREFIX + "motoristasreport";
     }
     @RequestMapping("notarios/")
@@ -68,7 +73,8 @@ private CapacitacionService capacitacionSerice;// instancia para jalar las capac
         return PREFIX + "notariosreport";
     }
     @RequestMapping("renuncias/")
-    public String reporterenuncias() {
+    public String reporterenuncias(Model model) {
+         model.addAttribute("empleados", empleadoService.listAllEmpleado());
         return PREFIX + "renunciasreport";
     }
 //    de aqui para abjo reportes de beto ha vergon
