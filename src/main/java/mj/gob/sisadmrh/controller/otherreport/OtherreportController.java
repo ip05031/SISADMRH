@@ -257,7 +257,7 @@ private CapacitacionService capacitacionSerice;// instancia para jalar las capac
 		params.put("CODIGO", indice.toString());
 		params.put("FECHAINICIO", fechainicio);
 		params.put("FECHAFIN", fechafin);
-        	generatePdf("otherreports", "constanciaservicios", params, download,response);
+        	generatePdf("otherreports", "rpt_constanciaservicios", params, download,response);
     }
     
     @RequestMapping(value = "misionesinternas/{indice}", method = { RequestMethod.POST, RequestMethod.GET })
