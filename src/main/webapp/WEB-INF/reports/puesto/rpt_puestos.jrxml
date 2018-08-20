@@ -76,55 +76,65 @@ WHERE
 				<reportElement x="-13" y="70" width="568" height="1" uuid="8573895e-c343-42e9-9a8d-a90562d7abe1"/>
 			</line>
 			<textField>
-				<reportElement x="464" y="30" width="74" height="20" uuid="6aaf2a70-8623-4efb-81a8-4d09ded974f4"/>
-				<textElement textAlignment="Right"/>
+				<reportElement x="461" y="30" width="74" height="20" uuid="f4875a20-b391-4cba-80cb-2079473e6623"/>
+				<textElement textAlignment="Right">
+					<font fontName="Times New Roman"/>
+				</textElement>
 				<textFieldExpression><![CDATA["Pàgina "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
 			</textField>
-			<textField evaluationTime="Report">
-				<reportElement x="538" y="30" width="26" height="20" uuid="d37d7200-bcd9-40d9-8801-8cf978751fec"/>
-				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
-			</textField>
 			<textField pattern="dd/MM/yyyy">
-				<reportElement x="495" y="50" width="70" height="20" uuid="b8b36ba1-871e-4651-875a-d8da76e4f677"/>
-				<textElement textAlignment="Right"/>
+				<reportElement x="492" y="55" width="70" height="20" uuid="320a2c28-9ed6-48ea-af77-544e59523db3"/>
+				<textElement textAlignment="Right">
+					<font fontName="Times New Roman"/>
+				</textElement>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="170" y="50" width="182" height="20" uuid="6693b54d-1c8b-42e9-acbe-211507d3a81b"/>
-				<textElement textAlignment="Justified">
-					<font isBold="true"/>
+				<reportElement x="405" y="55" width="114" height="20" uuid="467a36eb-b284-4938-ad6d-22baab60df06"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
 				</textElement>
-				<text><![CDATA[REPORTE DE PUESTOS A CADUCAR]]></text>
+				<text><![CDATA[Fecha de Generacion:]]></text>
 			</staticText>
-			<image>
-				<reportElement x="0" y="0" width="105" height="50" uuid="c995a476-8778-43a9-9a78-2d53f20376ad"/>
-				<imageExpression><![CDATA["C:\\Users\\developer\\Documents\\NetBeansProjectsE\\SISADMRH\\target\\classes\\static\\image\\mjsp.png"]]></imageExpression>
-			</image>
 			<staticText>
-				<reportElement x="143" y="0" width="265" height="20" uuid="31d689a4-ca57-4a25-bd58-2c845d56d6b6"/>
-				<textElement textAlignment="Justified">
-					<font isBold="true"/>
+				<reportElement x="140" y="0" width="265" height="20" uuid="da6edacc-9ca7-4da3-afd2-10accc682e3f"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" isBold="true"/>
 				</textElement>
 				<text><![CDATA[MINISTERIO DE JSUTICIA Y SEGURIDAD PUBLICA]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="170" y="20" width="211" height="20" uuid="660b0ca1-88a4-4271-a940-c8baf80a7c2c"/>
-				<textElement textAlignment="Justified">
-					<font isBold="true"/>
+				<reportElement x="140" y="40" width="265" height="20" uuid="f7035aa6-9932-4ea4-8ddc-38dc84744e1d"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ESTADISTICO DE PERSONAL CAPACITADO]]></text>
+			</staticText>
+			<image>
+				<reportElement x="-3" y="0" width="105" height="50" uuid="30dc5a3f-b426-4831-be47-6e2b783f5a72"/>
+				<imageExpression><![CDATA["C:\\Users\\developer\\Documents\\NetBeansProjectsE\\SISADMRH\\target\\classes\\static\\image\\mjsp.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="140" y="20" width="265" height="20" uuid="3b2d7ed9-f941-4081-b7ce-18c56d7123c6"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" isBold="true"/>
 				</textElement>
 				<text><![CDATA[DIRECCION DE RECURSOS HUMANOS]]></text>
 			</staticText>
-			<staticText>
-				<reportElement x="408" y="50" width="114" height="20" uuid="788b00d6-16f2-4348-b3d3-4e42268c96ec"/>
-				<text><![CDATA[Fecha de Generacion:]]></text>
-			</staticText>
+			<textField evaluationTime="Report">
+				<reportElement x="535" y="30" width="26" height="20" uuid="3f2fadaa-99c6-4323-b47e-deb5e9a7e22f"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
 		</band>
 	</title>
 	<pageHeader>
 		<band splitType="Stretch"/>
 	</pageHeader>
 	<columnHeader>
-		<band height="41" splitType="Stretch">
+		<band height="28" splitType="Stretch">
 			<line>
 				<reportElement x="-13" y="21" width="568" height="1" uuid="56bdbc96-4986-4749-b88d-03034e3fbb51"/>
 			</line>
@@ -209,7 +219,7 @@ WHERE
 		</band>
 	</detail>
 	<columnFooter>
-		<band height="45" splitType="Stretch"/>
+		<band height="5" splitType="Stretch"/>
 	</columnFooter>
 	<pageFooter>
 		<band height="54" splitType="Stretch">

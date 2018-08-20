@@ -69,6 +69,9 @@
 						<li><a href="#" th:href="@{/capacitaciones/}">Consultar Capacitaciones</a></li>
                                                 <li><a href="#" th:href="@{/capacitaciones/new/capacitacion}">Crear Capacitaciones</a></li>
                                                 <li><a href="#" th:href="@{/capacitaciones/reporte/}">Reporte de Capacitaciones</a></li>
+                                                <li><a href="#" th:href="@{/capacitaciones/reporte/diagnostico}">Reporte de Temas de Diagnostico</a></li>
+                                                <li><a href="#" th:href="@{/capacitaciones/reporte/capacitador}">Reporte de Capacitadores</a></li>
+                                                <li><a href="#" th:href="@{/capacitaciones/reporte/personalcapacitado}">REstadistico de Personal Capacitado</a></li>
 					</ul>
 				</li>
                                 <li class="dropdown">
@@ -136,8 +139,10 @@
                                 <li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Gestionar Empleados <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-cog"></span></a>
 					<ul class="dropdown-menu forAnimate" role="menu">
-						<li><a href="#"></a></li>
-						<li><a href="#"></a></li>
+						<li><a href="#" th:href="@{/empleado/crear/empleados}">Crear Empleado</a></li>
+                                                <li><a href="#" th:href="@{/empleado/reporte/contrataciones}">Reporte Contrataciones</a></li>
+                                                <li><a href="#" th:href="@{/empleado/reporte/despidos}">Reporte de Despidos</a></li>
+                                                <li><a href="#" th:href="@{/empleado/reporte/estadisticoactivo}">Estadistico de Personal Activo</a></li>
 					</ul>
 				</li>
                                 

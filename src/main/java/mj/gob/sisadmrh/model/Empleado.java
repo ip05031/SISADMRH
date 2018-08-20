@@ -7,18 +7,14 @@ package mj.gob.sisadmrh.model;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -27,69 +23,65 @@ import javax.validation.constraints.Size;
 
 /**
  *
- * @author daniel
+ * @author developer
  */
 @Entity
-@Table(name = "EMPLEADO")
+@Table(name = "empleado", catalog = "SISADMRH", schema = "")
 @NamedQueries({
-@NamedQuery(name = "Empleado.findAll", query = "SELECT e FROM Empleado e")})
+    @NamedQuery(name = "Empleado_1.findAll", query = "SELECT e FROM Empleado_1 e")})
 public class Empleado implements Serializable {
+
     private static final long serialVersionUID = 1L;
-    @Id
-    @Basic(optional = false)
-    @NotNull
-    @Column(name = "CODIGOEMPLEADO")
-    private Integer codigoempleado;
     @Size(max = 50)
-    @Column(name = "NOMBREEMPLEADO")
+    @Column(name = "NOMBREEMPLEADO", length = 50)
     private String nombreempleado;
     @Size(max = 50)
-    @Column(name = "APELLIDOEMPLEADO")
+    @Column(name = "APELLIDOEMPLEADO", length = 50)
     private String apellidoempleado;
     @Column(name = "FECHANACIMIENTOEMPLEADO")
     @Temporal(TemporalType.DATE)
     private Date fechanacimientoempleado;
     @Size(max = 50)
-    @Column(name = "NACIONALIDAD")
+    @Column(name = "NACIONALIDAD", length = 50)
     private String nacionalidad;
     @Size(max = 50)
-    @Column(name = "TIPONACIONALIDAD")
+    @Column(name = "TIPONACIONALIDAD", length = 50)
     private String tiponacionalidad;
     @Size(max = 50)
-    @Column(name = "DEPARTAMENTONACIMIENTO")
+    @Column(name = "DEPARTAMENTONACIMIENTO", length = 50)
     private String departamentonacimiento;
     @Size(max = 50)
-    @Column(name = "MUNICIPIONACIMIENTO")
+    @Column(name = "MUNICIPIONACIMIENTO", length = 50)
     private String municipionacimiento;
     @Size(max = 20)
-    @Column(name = "GRUPOSANQUINEO")
+    @Column(name = "GRUPOSANQUINEO", length = 20)
     private String gruposanquineo;
     @Size(max = 11)
-    @Column(name = "TELEFONOMOVILEMPLEADO")
+    @Column(name = "TELEFONOMOVILEMPLEADO", length = 11)
     private String telefonomovilempleado;
     @Size(max = 11)
-    @Column(name = "TELEFONOFIJOEMPLEADO")
+    @Column(name = "TELEFONOFIJOEMPLEADO", length = 11)
     private String telefonofijoempleado;
     @Size(max = 50)
-    @Column(name = "RECIDENCIAPERMANENTE")
-    private String recidenciapermanente;
+    @Column(name = "RESIDENCIAPERMANENTE", length = 50)
+    private String residenciapermanente;
     @Size(max = 50)
-    @Column(name = "ESTADOFAMILIAR")
+    @Column(name = "ESTADOFAMILIAR", length = 50)
     private String estadofamiliar;
     @Size(max = 50)
-    @Column(name = "DEPARTAMENTORECIDENCIA")
+    @Column(name = "DEPARTAMENTORECIDENCIA", length = 50)
     private String departamentorecidencia;
     @Size(max = 50)
-    @Column(name = "MUNICIPIORESIDENCIA")
+    @Column(name = "MUNICIPIORESIDENCIA", length = 50)
     private String municipioresidencia;
     @Size(max = 10)
-    @Column(name = "DUIEMPLEADO")
+    @Column(name = "DUIEMPLEADO", length = 10)
     private String duiempleado;
     @Size(max = 17)
-    @Column(name = "NITEMPLEADOR")
+    @Column(name = "NITEMPLEADOR", length = 17)
     private String nitempleador;
     @Size(max = 9)
-    @Column(name = "ISSSEMPLEADO")
+    @Column(name = "ISSSEMPLEADO", length = 9)
     private String isssempleado;
     @Column(name = "FECHAINGRESOSECPUB")
     @Temporal(TemporalType.DATE)
@@ -101,46 +93,37 @@ public class Empleado implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date fechaingresoministerio;
     @Size(max = 6)
-    @Column(name = "AFILIACIONPENSION")
+    @Column(name = "AFILIACIONPENSION", length = 6)
     private String afiliacionpension;
     @Size(max = 12)
-    @Column(name = "NUMEROAFILIACION")
+    @Column(name = "NUMEROAFILIACION", length = 12)
     private String numeroafiliacion;
     @Size(max = 2)
-    @Column(name = "TIPOCUENTA")
+    @Column(name = "TIPOCUENTA", length = 2)
     private String tipocuenta;
     @Size(max = 50)
-    @Column(name = "NOMBREINSTIUCIONDEPOSITAR")
+    @Column(name = "NOMBREINSTIUCIONDEPOSITAR", length = 50)
     private String nombreinstiuciondepositar;
     @Size(max = 50)
-    @Column(name = "EMAILEMPLEADO")
+    @Column(name = "EMAILEMPLEADO", length = 50)
     private String emailempleado;
     @Column(name = "ESTADOEMPLEADO")
     private Integer estadoempleado;
     @Size(max = 1)
-    @Column(name = "SEXOEMPLEADO")
+    @Column(name = "SEXOEMPLEADO", length = 1)
     private String sexoempleado;
-    @JoinTable(name = "EMPLEADONIVELESCOLARIDAD", joinColumns = {
-        @JoinColumn(name = "CODIGOEMPLEADO", referencedColumnName = "CODIGOEMPLEADO")}, inverseJoinColumns = {
-        @JoinColumn(name = "CODIGONIVELNIVELESCOLARIDAD", referencedColumnName = "CODIGONIVELNIVELESCOLARIDAD")})
-    @ManyToMany
-    private List<NivelEscolaridad> nivelescolaridadList;
-    @JoinTable(name = "EMPLEADOASISTENCIACAPACITACION", joinColumns = {
-        @JoinColumn(name = "CODIGOEMPLEADO", referencedColumnName = "CODIGOEMPLEADO")}, inverseJoinColumns = {
-        @JoinColumn(name = "CODIGOASISTENCIACAPACITACION", referencedColumnName = "CODIGOASISTENCIACAPACITACION")})
-    @ManyToMany
-    private List<AsistenciaCapacitacion> asistenciacapacitacionList;
-    @JoinTable(name = "EMPLEADOCAPACITACION", joinColumns = {
-        @JoinColumn(name = "CODIGOEMPLEADO", referencedColumnName = "CODIGOEMPLEADO")}, inverseJoinColumns = {
-        @JoinColumn(name = "CODIGOCAPACITACION", referencedColumnName = "CODIGOCAPACITACION")})
-    @ManyToMany
-    private List<Capacitacion> capacitacionList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "codigoempleado")
-    private List<Capacitador> capacitadorList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "codigoempleado")
-    private List<Comite> comiteList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "codigoempleado")
-    private List<CuadroDirectivo> cuadrodirectivoList;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
+    @Column(name = "CODIGOEMPLEADO", nullable = false)
+    private Integer codigoempleado;
+    @Size(max = 50)
+    @Column(name = "recidenciapermanente", length = 50)
+    private String recidenciapermanente;
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "codigopuesto", nullable = false)
+    private int codigopuesto;
 
     public Empleado() {
     }
@@ -149,12 +132,9 @@ public class Empleado implements Serializable {
         this.codigoempleado = codigoempleado;
     }
 
-    public Integer getCodigoempleado() {
-        return codigoempleado;
-    }
-
-    public void setCodigoempleado(Integer codigoempleado) {
+    public Empleado(Integer codigoempleado, int codigopuesto) {
         this.codigoempleado = codigoempleado;
+        this.codigopuesto = codigopuesto;
     }
 
     public String getNombreempleado() {
@@ -237,12 +217,12 @@ public class Empleado implements Serializable {
         this.telefonofijoempleado = telefonofijoempleado;
     }
 
-    public String getRecidenciapermanente() {
-        return recidenciapermanente;
+    public String getResidenciapermanente() {
+        return residenciapermanente;
     }
 
-    public void setRecidenciapermanente(String recidenciapermanente) {
-        this.recidenciapermanente = recidenciapermanente;
+    public void setResidenciapermanente(String residenciapermanente) {
+        this.residenciapermanente = residenciapermanente;
     }
 
     public String getEstadofamiliar() {
@@ -373,52 +353,28 @@ public class Empleado implements Serializable {
         this.sexoempleado = sexoempleado;
     }
 
-    public List<NivelEscolaridad> getNivelescolaridadList() {
-        return nivelescolaridadList;
+    public Integer getCodigoempleado() {
+        return codigoempleado;
     }
 
-    public void setNivelescolaridadList(List<NivelEscolaridad> nivelescolaridadList) {
-        this.nivelescolaridadList = nivelescolaridadList;
+    public void setCodigoempleado(Integer codigoempleado) {
+        this.codigoempleado = codigoempleado;
     }
 
-    public List<AsistenciaCapacitacion> getAsistenciacapacitacionList() {
-        return asistenciacapacitacionList;
+    public String getRecidenciapermanente() {
+        return recidenciapermanente;
     }
 
-    public void setAsistenciacapacitacionList(List<AsistenciaCapacitacion> asistenciacapacitacionList) {
-        this.asistenciacapacitacionList = asistenciacapacitacionList;
+    public void setRecidenciapermanente(String recidenciapermanente) {
+        this.recidenciapermanente = recidenciapermanente;
     }
 
-    public List<Capacitacion> getCapacitacionList() {
-        return capacitacionList;
+    public int getCodigopuesto() {
+        return codigopuesto;
     }
 
-    public void setCapacitacionList(List<Capacitacion> capacitacionList) {
-        this.capacitacionList = capacitacionList;
-    }
-
-    public List<Capacitador> getCapacitadorList() {
-        return capacitadorList;
-    }
-
-    public void setCapacitadorList(List<Capacitador> capacitadorList) {
-        this.capacitadorList = capacitadorList;
-    }
-
-    public List<Comite> getComiteList() {
-        return comiteList;
-    }
-
-    public void setComiteList(List<Comite> comiteList) {
-        this.comiteList = comiteList;
-    }
-
-    public List<CuadroDirectivo> getCuadrodirectivoList() {
-        return cuadrodirectivoList;
-    }
-
-    public void setCuadrodirectivoList(List<CuadroDirectivo> cuadrodirectivoList) {
-        this.cuadrodirectivoList = cuadrodirectivoList;
+    public void setCodigopuesto(int codigopuesto) {
+        this.codigopuesto = codigopuesto;
     }
 
     @Override
@@ -443,7 +399,7 @@ public class Empleado implements Serializable {
 
     @Override
     public String toString() {
-        return "mj.gob.sisadmrh.model.Empleado[ codigoempleado=" + codigoempleado + " ]";
+        return "mj.gob.sisadmrh.model.Empleado_1[ codigoempleado=" + codigoempleado + " ]";
     }
     
 }
