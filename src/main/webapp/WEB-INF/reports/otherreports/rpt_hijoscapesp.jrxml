@@ -1,39 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1ef4d0a4-db8a-4cc6-81ad-b4ec81f2231d">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1ef4d0a4-db8a-4cc6-81ad-b4ec81f2231d">
 	<property name="ireport.zoom" value="1.0"/>
-	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.x" value="102"/>
+	<property name="ireport.y" value="96"/>
 	<parameter name="FECHAINICIO" class="java.lang.String"/>
-	<parameter name="parameter1" class="java.lang.String"/>
 	<parameter name="FECHAFIN" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
+	<parameter name="IMAGE_PATH" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
 	<queryString>
-		<![CDATA[SELECT e.nombreempleado,p.nombrepuesto,c.numeroacuerdocomite,c.nombrecomite,c.fechadesdecomite,c.fechahastacomite FROM empleado e INNER JOIN puesto p on e.codigoempleado=p.codigoempleado INNER JOIN comite c on e.codigoempleado=c.codigoempleado where c.fechadesdecomite >= $P{FECHAINICIO} and c.fechahastacomite <=$P{FECHAFIN}]]>
+		<![CDATA[select  e.codigoempleado, e.nombreempleado, p.nombrepuesto from empleadohijodiscapacidad h
+inner join empleado e on e.codigoempleado=h.codigoempleado
+inner join puesto p on e.codigopuesto = p.codigopuesto]]>
 	</queryString>
+	<field name="codigoempleado" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
 	<field name="nombreempleado" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="nombrepuesto" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="numeroacuerdocomite" class="java.lang.Integer">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="nombrecomite" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="fechadesdecomite" class="java.sql.Date">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="fechahastacomite" class="java.sql.Date">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
 	<group name="nombreempleado">
 		<groupExpression><![CDATA[$F{nombreempleado}]]></groupExpression>
 	</group>
 	<group name="nombrepuesto">
-		<groupExpression><![CDATA[$F{nombrepuesto}]]></groupExpression>
+		<groupExpression><![CDATA[]]></groupExpression>
 	</group>
 	<group name="nombremision">
 		<groupExpression><![CDATA[]]></groupExpression>
@@ -63,11 +58,11 @@
 			</staticText>
 			<image>
 				<reportElement uuid="0a53ebdf-f527-4f3d-a4d9-5ebcd1482402" x="697" y="0" width="105" height="60"/>
-				<imageExpression><![CDATA["../../resources/static/image/GOES.jpg"]]></imageExpression>
+				<imageExpression><![CDATA[$P{IMAGE_PATH}.concat("/GOES.jpg")]]></imageExpression>
 			</image>
 			<image>
 				<reportElement uuid="00dcc53f-b5c6-4f41-bd93-d625f80b347c" x="0" y="0" width="193" height="105"/>
-				<imageExpression><![CDATA["../../resources/static/image/LOGOMJ.jpg"]]></imageExpression>
+				<imageExpression><![CDATA[$P{IMAGE_PATH}.concat("/LOGOMJ.jpg")]]></imageExpression>
 			</image>
 		</band>
 	</title>
@@ -84,9 +79,9 @@
 				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement uuid="deab7866-efc6-4654-b9e0-af062f2ca3ce" x="322" y="7" width="175" height="20"/>
+				<reportElement uuid="deab7866-efc6-4654-b9e0-af062f2ca3ce" x="236" y="7" width="382" height="20"/>
 				<textElement/>
-				<text><![CDATA[Reporte de Empleados con Hijos con Capacidades especiales]]></text>
+				<text><![CDATA[Reporte de Empleados con Hijos con Capacidades Especiales]]></text>
 			</staticText>
 			<staticText>
 				<reportElement uuid="1ba3c303-1161-4e5d-8141-8f4747ee1c73" x="251" y="42" width="100" height="20"/>
@@ -99,27 +94,64 @@
 				<text><![CDATA[Hasta]]></text>
 			</staticText>
 			<textField>
-				<reportElement uuid="59271047-626e-4fd6-94f2-bf1b30e293a5" x="357" y="42" width="100" height="20"/>
-				<textElement/>
-				<textFieldExpression><![CDATA[$F{fechadesdecomite}]]></textFieldExpression>
-			</textField>
-			<textField>
 				<reportElement uuid="8ab75876-80ee-4d3e-8042-58f322695998" x="575" y="42" width="100" height="20"/>
 				<textElement/>
-				<textFieldExpression><![CDATA[$F{fechahastacomite}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{FECHAFIN}]]></textFieldExpression>
 			</textField>
 			<textField pattern="dd/MM/yyyy">
 				<reportElement uuid="defd1f57-b9e1-4411-9a1b-4f605b930187" x="629" y="7" width="100" height="20"/>
 				<textElement/>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
+			<textField>
+				<reportElement uuid="444789e4-36d6-48a7-aa94-5a0d710aad34" x="357" y="42" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{FECHAINICIO}]]></textFieldExpression>
+			</textField>
 		</band>
 	</pageHeader>
 	<columnHeader>
-		<band height="61" splitType="Stretch"/>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="45933b9f-8ac2-4df1-a559-c0d867795b56" x="119" y="22" width="132" height="20"/>
+				<textElement/>
+				<text><![CDATA[Codigo de Empleado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="42e93400-ab2e-4d3a-b579-c5c1dba947a6" x="335" y="22" width="122" height="20"/>
+				<textElement/>
+				<text><![CDATA[Nombre de Empleado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="9346201c-9115-461c-86a7-ff61f8be41da" x="547" y="22" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[nombre de puesto]]></text>
+			</staticText>
+		</band>
 	</columnHeader>
 	<detail>
-		<band height="125" splitType="Stretch"/>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement uuid="536d7998-9fb0-42ae-92e5-f92c51b2a4d3" x="119" y="24" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{codigoempleado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="1a8282f8-9255-4a06-9e33-7690f1ed0c42" x="335" y="24" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{nombreempleado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="78bf1c6b-2f0b-438d-8ea6-9ef4e5d264c0" x="622" y="41" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{nombrepuesto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="ec5ad86d-9f86-417f-9d41-e6fc9b22f9af" x="547" y="24" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{nombrepuesto}]]></textFieldExpression>
+			</textField>
+		</band>
 	</detail>
 	<columnFooter>
 		<band height="45" splitType="Stretch"/>
