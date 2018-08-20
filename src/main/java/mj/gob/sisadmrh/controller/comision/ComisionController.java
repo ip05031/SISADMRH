@@ -56,7 +56,10 @@ public class ComisionController extends UtilsController{
     public String saveComision(Comision comision,Model model) {
         try{
         comisionService.saveComision(comision);
-          model.addAttribute("msg", 0);
+        
+        model.addAttribute("msg", 0);
+        model.addAttribute("comisiones", comisionService.listAllComisiones());
+        return PREFIX+"comisiones";
         }
         catch(Exception e){
           model.addAttribute("msg", 1);
