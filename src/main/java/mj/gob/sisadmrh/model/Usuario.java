@@ -24,6 +24,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  *
@@ -52,14 +53,17 @@ public class Usuario implements Serializable {
     private Integer controlcontrasenia;
     @Column(name = "ESTADOUSUARIO")
     private Integer estadousuario;
-    @Column(name = "FECHAINGRESO")
-    @Temporal(TemporalType.DATE)
+   @Column(name = "FECHAINGRESO")
+    @DateTimeFormat(pattern = "YYYY-MM-dd")
+   // @Temporal(TemporalType.DATE)
     private Date fechaingreso;
     @Column(name = "FECHACADUCIDAD")
-    @Temporal(TemporalType.DATE)
+    //@Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "YYYY-MM-dd")
     private Date fechacaducidad;
     @Column(name = "FECHABAJA")
-    @Temporal(TemporalType.DATE)
+  //  @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "YYYY-MM-dd")
     private Date fechabaja;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "usuario", fetch = FetchType.LAZY)
     private List<Usuariorol> usuariorolList;

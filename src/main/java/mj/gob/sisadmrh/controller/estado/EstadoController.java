@@ -48,9 +48,17 @@ public class EstadoController {
     }
 
     @RequestMapping(value = "estado")
-    public String saveEstado(Estado estado) {
+    public String saveEstado(Estado estado,Model model) {
+         try{
         estadoService.saveEstado(estado);
-        return "redirect:./show/" + estado.getCodigoestado();
+        model.addAttribute("msg", 0);
+        }
+        catch(Exception e){
+        model.addAttribute("msg", 1);
+        }
+       return PREFIX+"estadoform";
+        
+      // return "redirect:./show/" + estado.getCodigoestado();
     }
     
     @RequestMapping("show/{id}")
@@ -60,8 +68,17 @@ public class EstadoController {
     }
 
     @RequestMapping("delete/{id}")
-    public String delete(@PathVariable Integer id) {
+    
+    public String delete(@PathVariable Integer id,Model model) {
+        try{
         estadoService.deleteEstado(id);
+        model.addAttribute("msg", 3);
+        }
+        catch(Exception e)
+        {
+        model.addAttribute("msg", 4);
+        }
+        
         return "redirect:/estados/";
     }
 }

@@ -6,35 +6,113 @@
 </head>
 <body>
 <div class="container">
-    e aqui
+   
     <div th:if="${not #lists.isEmpty(costocapacitaciones)}">
-        <h2>Listado de costos de Capacitaciones</h2>
+        <h3 align="center">Listado de costos de Capacitaciones</h3>
         <table class="table table-striped">
             <tr>
                 <th>Codigo de costo de Capacitacion</th>
                 <th>Costo Persona</th>
                 <th>Numero de Personas</th>
                 <th>Costo de Capacitador</th>
-<!--                <th>Codigo Capacitacion</th>-->
+                <th>Nombre Capacitacion</th>
                 
                 <th>Acciones</th>
                 
             </tr>
             <tr th:each="costocapacitacion : ${costocapacitaciones}">
-                <td th:text="${costocapacitacion.codigocostocapacitacion}">Codigo Capacitacion</td>
-                <td  th:text="${costocapacitacion.costopersona}">Costo Persona</td>
-                <td  th:text="${costocapacitacion.numeropersona}">Numero de Personas</td>
-               <td   th:text="${costocapacitacion.costocapacitador}">Costo de Capactador</td>
+                <td align="center" th:text="${costocapacitacion.codigocostocapacitacion}">Codigo Capacitacion</td>
+                <td align="center" th:text="${costocapacitacion.costopersona}">Costo Persona</td>
+                <td align="center" th:text="${costocapacitacion.numeropersona}">Numero de Personas</td>
+               <td  align="center" th:text="${costocapacitacion.costocapacitador}">Costo de Capactador</td>
+               <!--imprimo el nombre de la capacitaion de la tabla capacitacion-->
+                <td  th:text="${costocapacitacion.codigocapacitacion.nombrecapacitacion}">Codigo Capacitacion</td>
 <!--               <td  th:text="${costocapacitacion.codigocapacitacion}">Codigo Capacitacion</td>-->
                
                 
                 
                 <td><a th:href="${'./show/' + costocapacitacion.codigocostocapacitacion}" class="btn btn-default">Mostrar</a>
                 <a th:href="${'./edit/' + costocapacitacion.codigocostocapacitacion}" class="btn btn-default">Edit</a>
-                <a th:href="${'./delete/' + costocapacitacion.codigocostocapacitacion}" class="btn btn-danger">Delete</a></td>
+               <td><a  class="btn btn-danger" th:onclick="'eliminar(\'' + ${costocapacitacion.codigocostocapacitacion} + '\');'" >Delete</a></td>
+                <!--<a th:href="${'./delete/' + costocapacitacion.codigocostocapacitacion}" class="btn btn-danger">Delete</a></td>-->
             </tr>
         </table>
     </div>
 </div>
+    <script th:inline="javascript">
+    $(document).ready(function () {
+    if([[${msg}]]===0){
+       swal({
+                title: "Exito!",
+                text: "Registro agregado correctamente",
+                type: "success",
+                icon: "success"
+       }).then(function() {
+                location.href = '../costocapacitaciones/';
+       }); 
+}
+    
+    if([[${msg}]]===1){
+        swal({
+                title: "ERROR!",
+                text: "Ocurrio un error en el proceso",
+                type: "error",
+                icon: "error"
+       });
+    }
+    });
+</script> 
+<script>
+    $(document).ready(function () {
+        $('#fechapresentacion').datepicker({
+            dateFormat: 'yy-mm-dd'
+        });
+
+        
+        
+    });
+</script>
+  
+     <script th:inline="javascript">
+        $(document).ready(function () {
+    if([[${msg}]]===3){
+       swal({
+           
+                title: "Exito!",
+                text: "Registro Eliminado correctamente",
+                type: "success",
+                icon: "success",
+       }).then(function() {
+                location.href = '../../costocapacitaciones/';
+       }); 
+}
+    
+    if([[${msg}]]===4){
+        swal({
+                title: "ERROR!",
+                text: "Ocurrio un error al eliminar el registro",
+                type: "error",
+                icon: "error"
+       });
+    }
+    });
+        
+        function eliminar(id) {
+            swal({
+                title: "Desea Eliminar?",
+                text: "favor confirme que desea eliminar este registro!",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+                    .then((willDelete) => {
+                        if (willDelete) {
+                            location.href = './delete/' + id;
+                        } else {
+                            swal("Accion cancelada", "se ha cancelado la operaacion de eliminado", "error");
+                        }
+                    });
+        }
+    </script>
 </body>
 </html>

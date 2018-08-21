@@ -24,6 +24,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  *
@@ -49,10 +50,12 @@ public class Beneficio implements Serializable {
     @Column(name = "DESCRIPCIONBENEFICIO")
     private String descripcionbeneficio;
     @Column(name = "FECHAINICIOBENEFICIO")
-    @Temporal(TemporalType.DATE)
+   // @Temporal(TemporalType.DATE)
+     @DateTimeFormat(pattern = "YYYY-MM-dd")
     private Date fechainiciobeneficio;
     @Column(name = "FECHAFINALIZARBENEFICIO")
-    @Temporal(TemporalType.DATE)
+   // @Temporal(TemporalType.DATE)
+     @DateTimeFormat(pattern = "YYYY-MM-dd")
     private Date fechafinalizarbeneficio;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "beneficio", fetch = FetchType.LAZY)
     private List<Empleadobeneficio> empleadobeneficioList;

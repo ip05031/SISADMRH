@@ -44,6 +44,12 @@ public class HomeController {
         return "loginPage";
     }
  
+    @RequestMapping(value = "/index", method = RequestMethod.GET)
+    public String homePage(Model model) {
+ 
+        return "index";
+    }
+ 
     @RequestMapping(value = "/logoutSuccessful", method = RequestMethod.GET)
     public String logoutSuccessfulPage(Model model) {
         model.addAttribute("title", "Logout");

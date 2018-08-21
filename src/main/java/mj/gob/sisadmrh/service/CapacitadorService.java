@@ -6,6 +6,7 @@
 package mj.gob.sisadmrh.service;
 
 import java.util.Optional;
+import mj.gob.sisadmrh.model.Capacitacion;
 import mj.gob.sisadmrh.model.Capacitador;
 
 
@@ -14,8 +15,10 @@ public interface CapacitadorService {
     
     Optional<Capacitador> getCapacitadorById(Integer id);
 
-    Capacitador saveCapacaitador(Capacitador capacitador);
+    Capacitador saveCapacitador(Capacitador capacitador);
 
     void deleteCapacitador(Integer id);
+     Iterable<Capacitador> findByDato(String dato);
+    
     
 }

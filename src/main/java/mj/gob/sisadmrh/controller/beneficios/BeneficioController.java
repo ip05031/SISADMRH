@@ -62,9 +62,17 @@ public class BeneficioController extends UtilsController{
     }
 
     @RequestMapping(value = "beneficio")
-    public String saveBeneficio(Beneficio beneficio) {
-        beneficioService.saveBeneficio(beneficio);
-        return "redirect:./show/" + beneficio.getCodigobeneficio();
+    public String saveBeneficio(Beneficio beneficio,Model model) {
+        try{
+         beneficioService.saveBeneficio(beneficio);
+         model.addAttribute("msg", 0);
+        }
+        catch(Exception e){
+         model.addAttribute("msg", 1);
+        }
+       return PREFIX+"beneficioform";
+        
+       // return "redirect:./show/" + beneficio.getCodigobeneficio();
     }
     
     @RequestMapping("show/{id}")
@@ -74,9 +82,16 @@ public class BeneficioController extends UtilsController{
     }
 
     @RequestMapping("delete/{id}")
-    public String delete(@PathVariable Integer id) {
-        beneficioService.deleteBeneficio(id);
-        return "redirect:/beneficios/";
+    public String delete(@PathVariable Integer id,Model model) {
+        try{
+         beneficioService.deleteBeneficio(id);
+          model.addAttribute("msg", 3);
+        }
+        catch(Exception e){
+         model.addAttribute("msg", 4);
+        }
+       return PREFIX + "beneficios";
+       // return "redirect:/beneficios/";
     }
     
     @RequestMapping("report/")

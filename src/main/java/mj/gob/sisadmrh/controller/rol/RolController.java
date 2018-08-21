@@ -1,5 +1,7 @@
 package mj.gob.sisadmrh.controller.rol;
 
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
 import mj.gob.sisadmrh.model.Rol;
 import mj.gob.sisadmrh.service.RolService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,9 +47,16 @@ public class RolController {
     }
 
     @RequestMapping(value = "rol")
-    public String saveRol(Rol rol) {
+    public String saveRol(Rol rol, Model model) {
+        try{
         rolService.saveRol(rol);
-        return "redirect:./show/" + rol.getCodigorol();
+        model.addAttribute("msg", 0);
+        }
+        catch(Exception e){
+        model.addAttribute("msg", 1);
+        }
+        return PREFIX+"rolform";
+//        return "redirect:./show/" + rol.getCodigorol();
     }
     
     @RequestMapping("show/{id}")
@@ -57,8 +66,15 @@ public class RolController {
     }
 
     @RequestMapping("delete/{id}")
-    public String delete(@PathVariable Integer id) {
+    public String delete(@PathVariable Integer id, Model model) {
+         try{
         rolService.deleteRol(id);
-        return "redirect:/roles/";
+        model.addAttribute("msg", 3);
+        }
+        catch(Exception e){
+        model.addAttribute("msg", 4);
+        }
+        return PREFIX + "roles";
+//        return "redirect:/roles/";
     }
 }

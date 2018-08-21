@@ -6,6 +6,7 @@
 package mj.gob.sisadmrh.controller.nivelescolaridad;
 
 import mj.gob.sisadmrh.model.NivelEscolaridad;
+import mj.gob.sisadmrh.service.EmpleadoService;
 
 import mj.gob.sisadmrh.service.NivelEscolaridadService;
 
@@ -22,6 +23,8 @@ public class NivelEscolaridadController {
     
     
     private NivelEscolaridadService nivelEscolaridadService;
+    @Autowired
+    private EmpleadoService empleadoService;
      
        @Autowired
     public void setNivelEscolaridadService(NivelEscolaridadService nivelEscolaridadService) {
@@ -44,14 +47,27 @@ public class NivelEscolaridadController {
     
     @RequestMapping("new/nivelescolaridad")
     public String newNivelEscolaridad(Model model) {
+        
         model.addAttribute("nivelescolaridad", new NivelEscolaridad());
+        model.addAttribute("empleados", empleadoService.listAllEmpleado());
         return PREFIX + "nivelescolaridadform";
     }
     
     @RequestMapping(value = "nivelescolaridad")
-    public String saveNivelEscolaridad(NivelEscolaridad nivelEscolaridad) {
-        nivelEscolaridadService.saveNivelEscolaridad(nivelEscolaridad);
-        return "redirect:./show/" + nivelEscolaridad.getCodigonivelnivelescolaridad();
+    public String saveNivelEscolaridad(NivelEscolaridad nivelEscolaridad,Model model) {
+        try{
+            nivelEscolaridadService.saveNivelEscolaridad(nivelEscolaridad);
+            model.addAttribute("msg", 0);
+            model.addAttribute("nivelescolaridades", nivelEscolaridadService.listAllNivelEscolaridad());
+            return PREFIX + "nivelescolaridades";
+
+        } catch(Exception e){
+             model.addAttribute("msg", 1);
+        }
+       return PREFIX + "nivelescolaridadform";//
+      // return "redirect:/nivelescolaridades/"; 
+       // return PREFIX + "nivelescolaridades";
+        //return "redirect:./show/" + nivelEscolaridad.getCodigonivelnivelescolaridad();
     }
     
     
@@ -61,8 +77,15 @@ public class NivelEscolaridadController {
         return PREFIX +"nivelescolaridadshow";
     }
      @RequestMapping("delete/{id}")
-    public String delete(@PathVariable Integer id) {
-        nivelEscolaridadService.deleteNivelEscolaridad(id);
+    public String delete(@PathVariable Integer id, Model model) {
+        try{
+         nivelEscolaridadService.deleteNivelEscolaridad(id);
+          model.addAttribute("msg", 3);
+        }
+        catch(Exception e){
+         model.addAttribute("msg", 4);
+        }
+     
         return "redirect:/nivelescolaridades/";
     }
 }

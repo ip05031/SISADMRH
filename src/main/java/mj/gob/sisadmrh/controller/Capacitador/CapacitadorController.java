@@ -8,16 +8,22 @@ package mj.gob.sisadmrh.controller.Capacitador;
 import java.util.HashMap;
 import java.util.Map;
 import javax.servlet.http.HttpServletResponse;
+import javax.validation.Valid;
 import mj.gob.sisadmrh.controller.UtilsController;
+import mj.gob.sisadmrh.model.Capacitacion;
 import mj.gob.sisadmrh.model.Capacitador;
+import mj.gob.sisadmrh.model.Empleado;
 import mj.gob.sisadmrh.service.CapacitadorService;
+import mj.gob.sisadmrh.service.EmpleadoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 @RequestMapping(value = "capacitadores")
@@ -27,7 +33,17 @@ public class CapacitadorController extends UtilsController{
     @Autowired
     public void SetCapacitadorService(CapacitadorService capacitadorService){
     this.capacitadorService=capacitadorService;
+   
     }
+    //se invoca el servie para traer los empleados
+     private EmpleadoService empleadoService;
+    @Autowired
+    public void SetEmpleadoService(EmpleadoService empleadoService){
+    this.empleadoService=empleadoService;
+    }
+    
+    
+    
     private final String PREFIX="fragments/capacitador/";
     @RequestMapping(value = "/", method=RequestMethod.GET)
     public String list(Model model){
@@ -42,15 +58,38 @@ public class CapacitadorController extends UtilsController{
      @RequestMapping("new/capacitador")
     public String newCapacitador(Model model) {
         model.addAttribute("capacitador", new Capacitador());
-        model.addAttribute("capacitador", new Capacitador());
+        
+        // -----------Manda a la vista los empleados
+       Iterable<Empleado> empleados = empleadoService.listAllEmpleado();
+//         
+      model.addAttribute("empleados", empleados);
         return PREFIX + "capacitadorform";
+       //   model.addAttribute("capacitador", new Capacitador());
+      //   return PREFIX + "capacitadorform";
     }
+    
+    
      @RequestMapping(value = "capacitador")
-    public String saveCapacitador(Capacitador capacitador) {
-        capacitadorService.saveCapacaitador(capacitador);
-       
-        return "redirect:./show/" + capacitador.getCodigocapacitador();
-    }
+    public String saveCapacitador(@Valid Capacitador capacitador, BindingResult result, Model model) {
+try{
+ capacitadorService.saveCapacitador(capacitador);
+  model.addAttribute("msg", 0);
+} catch(Exception e){
+  model.addAttribute("msg", 1);
+}
+
+        return PREFIX + "capacitadorform";
+
+        }
+  
+
+
+      
+       // return "redirect:./show/" + capacitador.getCodigocapacitador();
+
+    
+   // }
+
      @RequestMapping("show/{id}")
     public String showCapacitador(@PathVariable Integer id, Model model) {
         model.addAttribute("capacitador", capacitadorService.getCapacitadorById(id).get());
@@ -58,6 +97,7 @@ public class CapacitadorController extends UtilsController{
     }
     @RequestMapping("delete/{id}")
     public String delete(@PathVariable Integer id) {
+        try{} catch(Exception e){}
         capacitadorService.deleteCapacitador(id);
         return "redirect:/capacitadores/";
     }
@@ -75,4 +115,25 @@ public class CapacitadorController extends UtilsController{
 		params.put("FECHAFIN", fechafin);
         	generatePdf("capacitadores", "rpt_capacitadores", params, download,response);
     }
+    
+     @RequestMapping("buscar/")
+    public String buscar() {
+             
+        return PREFIX +"buscar";
+    }
+    
+//    para buscar capacaitadores con jquery
+      @RequestMapping(value="buscar/listar/{dato}",method = { RequestMethod.GET})
+    public ModelAndView listCapacitador(@PathVariable("dato") String dato) {
+        
+          ModelAndView mv = new ModelAndView(PREFIX +"listCapacitador");
+          
+       Iterable<Capacitador> lista =  capacitadorService.findByDato(dato);
+          
+          
+           mv.addObject("capacitadores", lista);
+           mv.addObject("dato", dato);
+        return mv;
+    }
+    
 }

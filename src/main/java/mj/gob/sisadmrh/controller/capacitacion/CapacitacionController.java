@@ -11,7 +11,9 @@ import java.util.Optional;
 import javax.servlet.http.HttpServletResponse;
 import mj.gob.sisadmrh.controller.UtilsController;
 import mj.gob.sisadmrh.model.Capacitacion;
+import mj.gob.sisadmrh.model.Capacitador;
 import mj.gob.sisadmrh.service.CapacitacionService;
+import mj.gob.sisadmrh.service.CapacitadorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -36,6 +38,12 @@ public class CapacitacionController extends UtilsController{
     }
     
     
+    private CapacitadorService capacitadorService;
+    @Autowired
+    public void SetCapacitadorService(CapacitadorService capacitadorService){
+    this.capacitadorService=capacitadorService;
+    }
+    
   
     private final String PREFIX = "fragments/capacitacion/";
     @RequestMapping(value = "/", method=RequestMethod.GET)
@@ -53,15 +61,25 @@ public class CapacitacionController extends UtilsController{
     @RequestMapping("new/capacitacion")
     public String newCapacitacion(Model model) {
         model.addAttribute("capacitacion", new Capacitacion());
-     //   model.addAttribute("capacitacion", new Capacitacion());
+        
+          Iterable<Capacitador> capacitadores = capacitadorService.listAllCapacitador();
+         // System.out.println("numero:"+capacitadores);
+        model.addAttribute("capacitadores", capacitadores);
         return PREFIX + "capacitacionform";
     }
     
     @RequestMapping(value = "capacitacion")
-    public String saveCapacitacion(Capacitacion capacitacion) {
-        capacitacionService.saveCapacitacion(capacitacion);
+    public String saveCapacitacion(Capacitacion capacitacion,Model model) {
+        try{
+           capacitacionService.saveCapacitacion(capacitacion);
+           model.addAttribute("msg", 0);
+        }
+        catch(Exception e){
+           model.addAttribute("msg", 1);
+        }
+       return PREFIX + "capacitacionform";
        
-        return "redirect:./show/" + capacitacion.getCodigocapacitacion();
+        //return "redirect:./show/" + capacitacion.getCodigocapacitacion();
     }
     
 //      @RequestMapping(value = "comite",method=RequestMethod.POST)
@@ -80,13 +98,23 @@ public class CapacitacionController extends UtilsController{
         return PREFIX +"capacitacionshow";
     }
      @RequestMapping("delete/{id}")
-    public String delete(@PathVariable Integer id) {
+    public String delete(@PathVariable Integer id,Model model) {
+        try{
+       
         capacitacionService.deleteCapacitacion(id);
-        return "redirect:/capacitaciones/";
+         model.addAttribute("msg", 3);
+        }
+        catch(Exception e)
+        {
+        model.addAttribute("msg", 4);
+        }
+   return PREFIX + "capacitaciones";
+        //return "redirect:/capacitaciones/";
     }
     
     @RequestMapping("report/")
-    public String reporte() {
+    public String reporte(Model model) {
+        model.addAttribute("capacitaciones", capacitacionService.listAllCapacitacion());
         return PREFIX + "capacitacionesreport";
     }
     
@@ -125,60 +153,5 @@ public class CapacitacionController extends UtilsController{
         return mv;
     }
     
-     @RequestMapping("report/diagnostico")
-    public String reportediagnostico() {
-        return PREFIX + "diagnosticoreporte";
-    }
     
-    @RequestMapping(value = "pdfdiagnostico/", method = { RequestMethod.POST, RequestMethod.GET })
-    public void pdfdiagnostico(
-//            @PathVariable("indice") Long indice, 
-            @RequestParam(required = false) Boolean download, 
-            @RequestParam(value="fechainicial",required = false) String fechainicio, 
-            @RequestParam(value="fechafinal", required = false) String fechafin, 
-                HttpServletResponse response) throws Exception {
-                Map<String, Object> params = new HashMap<>();
-//		params.put("CODIGO", indice.toString());
-//		params.put("FECHAINICIO", fechainicio);
-//		params.put("FECHAFIN", fechafin);
-        	generatePdf("diagnostico", "rpt_diagnostico", params, download,response);
-    }
-    
-     @RequestMapping("report/capacitador")
-    public String reportecapacitador() {
-        return PREFIX + "capacitadorreporte";
-    }
-    
-    @RequestMapping(value = "pdfcapacitador/", method = { RequestMethod.POST, RequestMethod.GET })
-    public void pdfcapacitador(
-//            @PathVariable("indice") Long indice, 
-            @RequestParam(required = false) Boolean download, 
-            @RequestParam(value="fechainicial",required = false) String fechainicio, 
-            @RequestParam(value="fechafinal", required = false) String fechafin, 
-                HttpServletResponse response) throws Exception {
-                Map<String, Object> params = new HashMap<>();
-//		params.put("CODIGO", indice.toString());
-//		params.put("FECHAINICIO", fechainicio);
-//		params.put("FECHAFIN", fechafin);
-        	generatePdf("capacitador", "rpt_capacitador", params, download,response);
-    }
-    
-    @RequestMapping("report/personalcapacitado")
-    public String reportepersonalcapacitado() {
-        return PREFIX + "personalcapacitadoreporte";
-    }
-    
-    @RequestMapping(value = "pdfpersonalcapacitado/", method = { RequestMethod.POST, RequestMethod.GET })
-    public void pdfpersonalcapacitado(
-//            @PathVariable("indice") Long indice, 
-            @RequestParam(required = false) Boolean download, 
-            @RequestParam(value="fechainicial",required = false) String fechainicio, 
-            @RequestParam(value="fechafinal", required = false) String fechafin, 
-                HttpServletResponse response) throws Exception {
-                Map<String, Object> params = new HashMap<>();
-//		params.put("CODIGO", indice.toString());
-//		params.put("FECHAINICIO", fechainicio);
-//		params.put("FECHAFIN", fechafin);
-        	generatePdf("personalcapacitado", "rpt_personalcapacitado", params, download,response);
-    }
 }

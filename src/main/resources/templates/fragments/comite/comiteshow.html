@@ -19,9 +19,21 @@
                 <form class="form-horizontal">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">codigo:</label>
+                            <label class="col-sm-5 control-label">codigo de Comite:</label>
                             <div class="col-sm-7">
                                 <p class="form-control-static" th:text="${comite.codigocomite}">codigo de comite</p></div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-5 control-label">DUI:</label>
+                            <div class="col-sm-7">
+                                <p class="form-control-static" th:text="${comite.dui}">DUI</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-5 control-label">NIT:</label>
+                            <div class="col-sm-7">
+                                <p class="form-control-static" th:text="${comite.nit}">NIT</p>
+                            </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-5 control-label">Nombre de comite:</label>
@@ -68,13 +80,21 @@
                                 <p class="form-control-static" th:text="${comite.fechahastacomite}">Fecha hasta </p>
                             </div>
                         </div>
+                        
+                        <div class="form-group">
+                            <label class="col-sm-7 control-label">Empleado:</label>
+                            <div class="col-sm-5">
+                                <p class="form-control-static" th:text="${comite.codigoempleado.nombreempleado}">Fecha hasta </p>
+                            </div>
+                        </div>
+                        
                     </div> 
 
 
                 </form>
                 <div class="col-md-12">
                     <div class="row" align="center">
-                        <button type="submit" class="btn btn-default"><a href="#" th:href="@{/comites/}">Regresar</a></button>
+                        <button type="button" class="btn btn-default"><a href="#" th:href="@{/comites/}">Regresar</a></button>
 
                     </div>
                 </div>

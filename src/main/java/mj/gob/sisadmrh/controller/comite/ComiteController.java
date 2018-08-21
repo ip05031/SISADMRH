@@ -12,10 +12,13 @@ import mj.gob.sisadmrh.controller.UtilsController;
 import javax.servlet.http.HttpServletResponse;
 
 import javax.validation.Valid;
+import mj.gob.sisadmrh.model.Capacitador;
 
 import mj.gob.sisadmrh.model.Comite;
+import mj.gob.sisadmrh.model.Empleado;
 import mj.gob.sisadmrh.service.ComiteService;
 import mj.gob.sisadmrh.service.EmpleadoBeneficioServiceImpl;
+import mj.gob.sisadmrh.service.EmpleadoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -39,6 +42,12 @@ public class ComiteController extends UtilsController{
         this.comiteService = comiteService;
     }
     
+     private EmpleadoService empleadoService;
+     
+       @Autowired
+    public void setEmpleadoService(EmpleadoService empleadoService) {
+        this.empleadoService = empleadoService;
+    }
     
   
     private final String PREFIX = "fragments/comite/";
@@ -57,15 +66,26 @@ public class ComiteController extends UtilsController{
     @RequestMapping("new/comite")
     public String newComite(Model model) {
         model.addAttribute("comite", new Comite());
+        Iterable<Empleado> empleados = empleadoService.listAllEmpleado();
+         // System.out.println("numero:"+capacitadores);
+        model.addAttribute("empleados", empleados);
        // model.addAttribute("comite", new Comite());
         return PREFIX + "comiteform";
     }
     
     @RequestMapping(value = "comite")
-    public String saveComite(Comite comite) {
-        comiteService.saveComite(comite);
-       
-        return "redirect:./show/" + comite.getCodigocomite();
+    public String saveComite(Comite comite, Model model) {
+        try{
+         comiteService.saveComite(comite);
+         model.addAttribute("msg", 0);
+        }
+        catch(Exception e)
+        {
+        model.addAttribute("msg", 0);
+        }
+      
+        return PREFIX + "comiteform";
+        //return "redirect:./show/" + comite.getCodigocomite();
     }
     
 //      @RequestMapping(value = "comite",method=RequestMethod.POST)
@@ -82,13 +102,22 @@ public class ComiteController extends UtilsController{
         return PREFIX +"comiteshow";
     }
      @RequestMapping("delete/{id}")
-    public String delete(@PathVariable Integer id) {
-        comiteService.deleteComite(id);
-        return "redirect:/comites/";
+    public String delete(@PathVariable Integer id, Model model) {
+         try{
+           comiteService.deleteComite(id);;
+        model.addAttribute("msg", 3);
+        }
+        catch(Exception e){
+        model.addAttribute("msg", 4);
+        }
+        return PREFIX + "comites";
+     
+       // return "redirect:/comites/";
     }
     
     @RequestMapping("report/")
-    public String reporte() {
+    public String reporte(Model model) {
+        model.addAttribute("comites", comiteService.listAllComite());
         return PREFIX + "comitesreport";
     }
     

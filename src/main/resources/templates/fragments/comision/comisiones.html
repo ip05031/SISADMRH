@@ -8,7 +8,9 @@
 <div class="container">
     
     <div th:if="${not #lists.isEmpty(comisiones)}">
-        <h2 align="center">Listado de Comisiones</h2>
+        div th:if="${not #lists.isEmpty(beneficios)}">
+        <img src="/sisadmrh/image/lupa.png" class="img-responsive" alt="Cinque Terre" width="80" height="80">
+    <p class="text-center" style="font-size: 25px;">Listado de Comisiones</p>
         <table class="table table-striped">
             <tr>
                 <th>Codigo</th>

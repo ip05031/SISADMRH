@@ -46,9 +46,16 @@ public class UsuarioController {
     }
 
     @RequestMapping(value = "usuario")
-    public String saveUsuario(Usuario usuario) {
+    public String saveUsuario(Usuario usuario,Model model) {
+        try{
         usuarioService.saveUsuario(usuario);
-        return "redirect:./show/" + usuario.getCodigousuario();
+         model.addAttribute("msg", 0);
+        }
+        catch(Exception e){
+         model.addAttribute("msg", 1);
+        }
+        return PREFIX+"usuarioform";
+       // return "redirect:./show/" + usuario.getCodigousuario();
     }
     
     @RequestMapping("show/{id}")
@@ -58,8 +65,15 @@ public class UsuarioController {
     }
 
     @RequestMapping("delete/{id}")
-    public String delete(@PathVariable Integer id) {
+    public String delete(@PathVariable Integer id,Model model) {
+        try{
         usuarioService.deleteUsuario(id);
-        return "redirect:/usuarios/";
+         model.addAttribute("msg", 3);}
+        
+        catch(Exception e){
+        model.addAttribute("msg", 4);
+        }
+        return PREFIX + "usuarios";
+       // return "redirect:/usuarios/";
     }
 }

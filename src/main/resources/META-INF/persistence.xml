@@ -15,20 +15,20 @@
     <class>mj.gob.sisadmrh.model.EvualuacionCapacitacion</class>
     <class>mj.gob.sisadmrh.model.AsistenciaCapacitacion</class>
     <class>mj.gob.sisadmrh.model.Puesto</class>
-    <class>mj.gob.sisadmrh.model.Contrato</class>
-    <class>mj.gob.sisadmrh.model.Experiencialaboral</class>
-    <class>mj.gob.sisadmrh.model.Dependiente</class>
     <class>mj.gob.sisadmrh.model.Ubicacionfisica</class>
-    <class>mj.gob.sisadmrh.model.Hijodiscapacidad</class>
-    <class>mj.gob.sisadmrh.model.Formacionacademica</class>
-    <class>mj.gob.sisadmrh.model.Caparecibidas</class>
-    <class>mj.gob.sisadmrh.model.Contacto</class>
+    <class>mj.gob.sisadmrh.model.Mision</class>
+    <class>mj.gob.sisadmrh.model.Contrato</class>
+    <class>mj.gob.sisadmrh.model.Empleado_1</class>
+    <class>mj.gob.sisadmrh.Contrato</class>
+    <class>mj.gob.sisadmrh.Empleado</class>
+    <class>mj.gob.sisadmrh.model.Descuento</class>
+    <class>mj.gob.sisadmrh.model.Capacitador_1</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
-      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://46.101.33.208:3306/SISADMRH"/>
+      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/SISADMRH?zeroDateTimeBehavior=convertToNull"/>
       <property name="javax.persistence.jdbc.user" value="root"/>
       <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
-      <property name="javax.persistence.jdbc.password" value="avasacreer"/>
+      <property name="javax.persistence.jdbc.password" value="Password$$12"/>
     </properties>
   </persistence-unit>
 </persistence>

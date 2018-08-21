@@ -5,13 +5,18 @@
  */
 package mj.gob.sisadmrh.repository;
 
+import mj.gob.sisadmrh.model.Capacitacion;
 import mj.gob.sisadmrh.model.Capacitador;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
 
 /**
  *
  * @author daniel
  */
 public interface CapacitadorRepository extends CrudRepository<Capacitador, Integer>{
+      @Query(value = "SELECT c.* FROM capacitador c WHERE c.nombrecapacitador LIKE :nom ", nativeQuery = true)
+    Iterable<Capacitador> findByDato(@Param("nom") String dato);
     
 }

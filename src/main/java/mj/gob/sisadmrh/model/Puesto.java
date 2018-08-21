@@ -59,13 +59,10 @@ import org.springframework.format.annotation.DateTimeFormat;
 //    @NamedQuery(name = "Puesto.findByUltimoempleado", query = "SELECT p FROM Puesto p WHERE p.ultimoempleado = :ultimoempleado"),
 //    @NamedQuery(name = "Puesto.findByAcuerdo", query = "SELECT p FROM Puesto p WHERE p.acuerdo = :acuerdo")})
 public class Puesto implements Serializable {
-    private static final long serialVersionUID = 1L;
-    @Id
     @Basic(optional = false)
     @NotNull
-     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "codigopuesto")
-    private Integer codigopuesto;
+    @Column(name = "acuerdo")
+    private short acuerdo;
     @Size(max = 50)
     @Column(name = "categoriapuesto")
     private String categoriapuesto;
@@ -78,6 +75,43 @@ public class Puesto implements Serializable {
     @Size(max = 10)
     @Column(name = "estadoplanilla")
     private String estadoplanilla;
+    @Size(max = 20)
+    @Column(name = "formapago")
+    private String formapago;
+    @Size(max = 25)
+    @Column(name = "nivelpuesto")
+    private String nivelpuesto;
+    @Size(max = 50)
+    @Column(name = "nombrejerarquia")
+    private String nombrejerarquia;
+    @Size(max = 50)
+    @Column(name = "nombrepuesto")
+    private String nombrepuesto;
+    @Size(max = 10)
+    @Column(name = "numeropartidapuesto")
+    private String numeropartidapuesto;
+    @Size(max = 10)
+    @Column(name = "numerosubpartidapuesto")
+    private String numerosubpartidapuesto;
+    @Size(max = 75)
+    @Column(name = "sublinea")
+    private String sublinea;
+    @Size(max = 50)
+    @Column(name = "tipofinanza")
+    private String tipofinanza;
+    @Size(max = 50)
+    @Column(name = "ubicacionpuesto")
+    private String ubicacionpuesto;
+    @Size(max = 50)
+    @Column(name = "ultimoempleado")
+    private String ultimoempleado;
+    private static final long serialVersionUID = 1L;
+    @Id
+    @Basic(optional = false)
+    @NotNull
+     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "codigopuesto")
+    private Integer codigopuesto;
     @Column(name = "estadopuesto")
     private Integer estadopuesto;
     @Column(name = "fechaaprobacion")
@@ -107,45 +141,11 @@ public class Puesto implements Serializable {
     @Column(name = "fechavacante")
     @DateTimeFormat(pattern = "YYYY-MM-dd")
     private Date fechavacante;
-    @Size(max = 20)
-    @Column(name = "formapago")
-    private String formapago;
-    @Size(max = 25)
-    @Column(name = "nivelpuesto")
-    private String nivelpuesto;
-    @Size(max = 50)
-    @Column(name = "nombrejerarquia")
-    private String nombrejerarquia;
-    @Size(max = 50)
-    @Column(name = "nombrepuesto")
-    private String nombrepuesto;
-    @Size(max = 10)
-    @Column(name = "numeropartidapuesto")
-    private String numeropartidapuesto;
-    @Size(max = 10)
-    @Column(name = "numerosubpartidapuesto")
-    private String numerosubpartidapuesto;
-    @Size(max = 75)
-    @Column(name = "sublinea")
-    private String sublinea;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Column(name = "sueldobase")
     private Float sueldobase;
     @Column(name = "sueldotopepuesto")
     private Float sueldotopepuesto;
-    @Size(max = 50)
-    @Column(name = "tipofinanza")
-    private String tipofinanza;
-    @Size(max = 50)
-    @Column(name = "ubicacionpuesto")
-    private String ubicacionpuesto;
-    @Size(max = 50)
-    @Column(name = "ultimoempleado")
-    private String ultimoempleado;
-    @Basic(optional = false)
-    @NotNull
-    @Column(name = "acuerdo")
-    private short acuerdo;
 
     public Puesto() {
     }
@@ -167,37 +167,6 @@ public class Puesto implements Serializable {
         this.codigopuesto = codigopuesto;
     }
 
-    public String getCategoriapuesto() {
-        return categoriapuesto;
-    }
-
-    public void setCategoriapuesto(String categoriapuesto) {
-        this.categoriapuesto = categoriapuesto;
-    }
-
-    public String getCategoriasueldo() {
-        return categoriasueldo;
-    }
-
-    public void setCategoriasueldo(String categoriasueldo) {
-        this.categoriasueldo = categoriasueldo;
-    }
-
-    public String getCodigocargopuesto() {
-        return codigocargopuesto;
-    }
-
-    public void setCodigocargopuesto(String codigocargopuesto) {
-        this.codigocargopuesto = codigocargopuesto;
-    }
-
-    public String getEstadoplanilla() {
-        return estadoplanilla;
-    }
-
-    public void setEstadoplanilla(String estadoplanilla) {
-        this.estadoplanilla = estadoplanilla;
-    }
 
     public Integer getEstadopuesto() {
         return estadopuesto;
@@ -278,6 +247,80 @@ public class Puesto implements Serializable {
     public void setFechavacante(Date fechavacante) {
         this.fechavacante = fechavacante;
     }
+    public Float getSueldobase() {
+        return sueldobase;
+    }
+    public void setSueldobase(Float sueldobase) {
+        this.sueldobase = sueldobase;
+    }
+    public Float getSueldotopepuesto() {
+        return sueldotopepuesto;
+    }
+    public void setSueldotopepuesto(Float sueldotopepuesto) {
+        this.sueldotopepuesto = sueldotopepuesto;
+    }
+    @Override
+    public int hashCode() {
+        int hash = 0;
+        hash += (codigopuesto != null ? codigopuesto.hashCode() : 0);
+        return hash;
+    }
+    @Override
+    public boolean equals(Object object) {
+        // TODO: Warning - this method won't work in the case the id fields are not set
+        if (!(object instanceof Puesto)) {
+            return false;
+        }
+        Puesto other = (Puesto) object;
+        if ((this.codigopuesto == null && other.codigopuesto != null) || (this.codigopuesto != null && !this.codigopuesto.equals(other.codigopuesto))) {
+            return false;
+        }
+        return true;
+    }
+    @Override
+    public String toString() {
+        return "mj.gob.sisadmrh.model.Puesto[ codigopuesto=" + codigopuesto + " ]";
+    }
+
+    public short getAcuerdo() {
+        return acuerdo;
+    }
+
+    public void setAcuerdo(short acuerdo) {
+        this.acuerdo = acuerdo;
+    }
+
+    public String getCategoriapuesto() {
+        return categoriapuesto;
+    }
+
+    public void setCategoriapuesto(String categoriapuesto) {
+        this.categoriapuesto = categoriapuesto;
+    }
+
+    public String getCategoriasueldo() {
+        return categoriasueldo;
+    }
+
+    public void setCategoriasueldo(String categoriasueldo) {
+        this.categoriasueldo = categoriasueldo;
+    }
+
+    public String getCodigocargopuesto() {
+        return codigocargopuesto;
+    }
+
+    public void setCodigocargopuesto(String codigocargopuesto) {
+        this.codigocargopuesto = codigocargopuesto;
+    }
+
+    public String getEstadoplanilla() {
+        return estadoplanilla;
+    }
+
+    public void setEstadoplanilla(String estadoplanilla) {
+        this.estadoplanilla = estadoplanilla;
+    }
 
     public String getFormapago() {
         return formapago;
@@ -335,22 +378,6 @@ public class Puesto implements Serializable {
         this.sublinea = sublinea;
     }
 
-    public Float getSueldobase() {
-        return sueldobase;
-    }
-
-    public void setSueldobase(Float sueldobase) {
-        this.sueldobase = sueldobase;
-    }
-
-    public Float getSueldotopepuesto() {
-        return sueldotopepuesto;
-    }
-
-    public void setSueldotopepuesto(Float sueldotopepuesto) {
-        this.sueldotopepuesto = sueldotopepuesto;
-    }
-
     public String getTipofinanza() {
         return tipofinanza;
     }
@@ -373,39 +400,6 @@ public class Puesto implements Serializable {
 
     public void setUltimoempleado(String ultimoempleado) {
         this.ultimoempleado = ultimoempleado;
-    }
-
-    public short getAcuerdo() {
-        return acuerdo;
-    }
-
-    public void setAcuerdo(short acuerdo) {
-        this.acuerdo = acuerdo;
-    }
-
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (codigopuesto != null ? codigopuesto.hashCode() : 0);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Puesto)) {
-            return false;
-        }
-        Puesto other = (Puesto) object;
-        if ((this.codigopuesto == null && other.codigopuesto != null) || (this.codigopuesto != null && !this.codigopuesto.equals(other.codigopuesto))) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return "mj.gob.sisadmrh.model.Puesto[ codigopuesto=" + codigopuesto + " ]";
     }
     
 }

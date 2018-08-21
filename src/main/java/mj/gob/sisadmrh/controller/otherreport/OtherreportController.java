@@ -49,17 +49,17 @@ private CapacitacionService capacitacionSerice;// instancia para jalar las capac
     }
     @RequestMapping("empleadoincapacidad/")
     public String reporteempleadoincapacidad(Model model) {
-         model.addAttribute("empleados", empleadoService.listAllEmpleados());
+         model.addAttribute("empleados", empleadoService.listAllEmpleado());
         return PREFIX + "empleadoincapacidadreport";
     }
     @RequestMapping("hijoscapesp/")
     public String reportehijoscapesp(Model model) {
-        model.addAttribute("empleados", empleadoService.listAllEmpleados());
+        model.addAttribute("empleados", empleadoService.listAllEmpleado());
         return PREFIX + "hijoscapespreport";
     }
     @RequestMapping("historial/")
     public String reportehistorial(Model model) {
-         model.addAttribute("empleados", empleadoService.listAllEmpleados());
+         model.addAttribute("empleados", empleadoService.listAllEmpleado());
      //   return PREFIX + "constanciasalarialesreport";
         return PREFIX + "historialreport";
     }
@@ -74,7 +74,7 @@ private CapacitacionService capacitacionSerice;// instancia para jalar las capac
     }
     @RequestMapping("renuncias/")
     public String reporterenuncias(Model model) {
-         model.addAttribute("empleados", empleadoService.listAllEmpleados());
+         model.addAttribute("empleados", empleadoService.listAllEmpleado());
         return PREFIX + "renunciasreport";
     }
 //    de aqui para abjo reportes de beto ha vergon
@@ -95,13 +95,13 @@ private CapacitacionService capacitacionSerice;// instancia para jalar las capac
     }
      @RequestMapping("constanciasalariales/")
     public String reporteconstanciasalariales(Model model) {
-        model.addAttribute("empleados", empleadoService.listAllEmpleados());
+        model.addAttribute("empleados", empleadoService.listAllEmpleado());
         return PREFIX + "constanciasalarialesreport";
     }
     
       @RequestMapping("constanciaservicios/")
     public String reporteconstanciaservicios(Model model) {
-        model.addAttribute("empleados", empleadoService.listAllEmpleados());
+        model.addAttribute("empleados", empleadoService.listAllEmpleado());
         return PREFIX + "constanciaserviciosreport";
     }
     

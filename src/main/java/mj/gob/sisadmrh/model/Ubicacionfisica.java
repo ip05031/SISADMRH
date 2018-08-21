@@ -9,58 +9,54 @@ import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author developer
+ * @author daniel
  */
 @Entity
-@Table(name = "ubicacionfisica")
+@Table(name = "UBICACIONFISICA")
+@XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Ubicacionfisica.findAll", query = "SELECT u FROM Ubicacionfisica u")})
+    @NamedQuery(name = "Ubicacionfisica.findAll", query = "SELECT u FROM Ubicacionfisica u")
+   })
 public class Ubicacionfisica implements Serializable {
-
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Basic(optional = false)
-    @Column(name = "codigoubicacion", nullable = false)
-    private Integer codigoubicacion;
-    @Size(max = 50)
-    @Column(name = "cargofuncional", length = 50)
-    private String cargofuncional;
-    @Size(max = 50)
-    @Column(name = "jefeinmediato", length = 50)
-    private String jefeinmediato;
-    @Size(max = 50)
-    @Column(name = "nombreubicacion", length = 50)
-    private String nombreubicacion;
-    @Size(max = 500)
-    @Column(name = "teareadesempenia", length = 500)
-    private String teareadesempenia;
     @Basic(optional = false)
     @NotNull
-    @Column(name = "codigoempleado", nullable = false)
-    private int codigoempleado;
+    @Column(name = "CODIGOUBICACION")
+    private Integer codigoubicacion;
+    @Size(max = 50)
+    @Column(name = "NOMBREUBICACION")
+    private String nombreubicacion;
+    @Size(max = 50)
+    @Column(name = "JEFEINMEDIATO")
+    private String jefeinmediato;
+    @Size(max = 50)
+    @Column(name = "CARGOFUNCIONAL")
+    private String cargofuncional;
+    @Size(max = 500)
+    @Column(name = "TEAREADESEMPENIA")
+    private String teareadesempenia;
+    @JoinColumn(name = "CODIGOEMPLEADO", referencedColumnName = "CODIGOEMPLEADO")
+    @ManyToOne(optional = false)
+    private Empleado codigoempleado;
 
     public Ubicacionfisica() {
     }
 
     public Ubicacionfisica(Integer codigoubicacion) {
         this.codigoubicacion = codigoubicacion;
-    }
-
-    public Ubicacionfisica(Integer codigoubicacion, int codigoempleado) {
-        this.codigoubicacion = codigoubicacion;
-        this.codigoempleado = codigoempleado;
     }
 
     public Integer getCodigoubicacion() {
@@ -71,12 +67,12 @@ public class Ubicacionfisica implements Serializable {
         this.codigoubicacion = codigoubicacion;
     }
 
-    public String getCargofuncional() {
-        return cargofuncional;
+    public String getNombreubicacion() {
+        return nombreubicacion;
     }
 
-    public void setCargofuncional(String cargofuncional) {
-        this.cargofuncional = cargofuncional;
+    public void setNombreubicacion(String nombreubicacion) {
+        this.nombreubicacion = nombreubicacion;
     }
 
     public String getJefeinmediato() {
@@ -87,12 +83,12 @@ public class Ubicacionfisica implements Serializable {
         this.jefeinmediato = jefeinmediato;
     }
 
-    public String getNombreubicacion() {
-        return nombreubicacion;
+    public String getCargofuncional() {
+        return cargofuncional;
     }
 
-    public void setNombreubicacion(String nombreubicacion) {
-        this.nombreubicacion = nombreubicacion;
+    public void setCargofuncional(String cargofuncional) {
+        this.cargofuncional = cargofuncional;
     }
 
     public String getTeareadesempenia() {
@@ -103,11 +99,11 @@ public class Ubicacionfisica implements Serializable {
         this.teareadesempenia = teareadesempenia;
     }
 
-    public int getCodigoempleado() {
+    public Empleado getCodigoempleado() {
         return codigoempleado;
     }
 
-    public void setCodigoempleado(int codigoempleado) {
+    public void setCodigoempleado(Empleado codigoempleado) {
         this.codigoempleado = codigoempleado;
     }
 

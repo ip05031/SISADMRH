@@ -6,58 +6,93 @@
   <th:block th:include="../templates/header"></th:block>
   </head>
 <body>
-<div class="container">
-    <h2>Detalle cuadro directivos</h2>
+     <div class="row">
+        <div class="col-md-3">
+         <th:block th:include="../templates/menu"></th:block>
+    </div> 
+        <div class="col-md-8">
+            <h3>Detalle cuadro directivos</h3>
     <div>
         <form class="form-horizontal" th:object="${cuadrodirectivo}" th:action="@{../cuadrodirectivo}" method="post">
-<!--            <input type="hidden" th:field="*{codigocuadrodirectivo}"/>
-            <input type="hidden" th:field="*{responsablecuadrodirectivo}"/>-->
+
 <!--            <div class="form-group">
-                <label class="col-sm-2 control-label">Codigo de Beneficio:</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" th:field="*{codigocuadrodirectivo}"/>
-                </div>
-            </div>-->
-            <div class="form-group">
                 <label class="col-sm-2 control-label">Responsaable:</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" th:field="*{responsablecuadrodirectivo}"/>
+                    <input type="text" class="form-control" required="true" size="30" maxlength="30" th:field="*{responsablecuadrodirectivo}"/>
+                </div>
+            </div>-->
+ <div class="form-group">
+                <label class="col-sm-2 control-label">Responsable Directo:(*):</label>
+                <div class="col-sm-10">
+                     <select class="form-control" th:field="*{codigoempleado.codigoempleado}" >
+                                <option th:each="c:${empleados}" th:value="${c.codigoempleado}" th:text="${c.nombreempleado}"></option>
+                            </select>
+                   <!--<input type="text" class="form-control" th:field="*{codigoempleado.codigoempleado}"/>-->
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-2 control-label">area:</label>
+                <label class="col-sm-2 control-label">area:(*)</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" th:field="*{area}"/>
+                    <input type="text" class="form-control" required="true" size="30" maxlength="30" th:field="*{area}"/>
                 </div>
             </div>
             
             <div class="form-group">
-                <label class="col-sm-2 control-label">Descripcion:</label>
+                <label class="col-sm-2 control-label">Descripcion:(*)</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" th:field="*{desripcioncuadrodirectivo}"/>
+                    <input type="text" class="form-control" required="true" size="100"maxlength="100" th:field="*{desripcioncuadrodirectivo}"/>
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-2 control-label">fecha presentacion:</label>
+                <label class="col-sm-2 control-label">fecha presentacion:(*)</label>
                 <div class="col-sm-10">
                     <input type="text" class="form-control" th:field="*{fechapresentacion}"/>
                 </div>
             </div>
-  <div class="form-group">
-                <label class="col-sm-2 control-label">codigo emppleado:</label>
-                <div class="col-sm-10">
-                   <input type="text" class="form-control" th:field="*{codigoempleado.codigoempleado}"/>
-                </div>
-            </div>
+ <!--aca sirve para jalar los nombres de los empleados-->
+ 
             
-            <div class="row">
-                <button type="submit" class="btn btn-default">Agregar</button>
+                      
+<div class="col-md-12">
+            <div class="row" align="center">
+                <button type="button" class="btn btn-default"><a href="#" th:href="@{/cuadrodirectivos/}">Regresar</a></button>
+                <button type="submit" class="btn btn-default">Guardar</button>
+                <button type="reset" class="btn btn-default">Limpiar</button>
             </div>
+    </div>
         </form>
     </div>
-</div>
+            
+        </div>
+    </div>
+<!--<div class="container">-->
+    
+<!--</div>-->
 
 </body>
+<script th:inline="javascript">
+    $(document).ready(function () {
+    if([[${msg}]]===0){
+       swal({
+                title: "Exito!",
+                text: "Registro agregado correctamente",
+                type: "success",
+                icon: "success"
+       }).then(function() {
+                location.href = '../cuadrodirectivos/';
+       }); 
+}
+    
+    if([[${msg}]]===1){
+        swal({
+                title: "ERROR!",
+                text: "Ocurrio un error en el proceso",
+                type: "error",
+                icon: "error"
+       });
+    }
+    });
+</script> 
 <script>
     $(document).ready(function () {
         $('#fechapresentacion').datepicker({
@@ -68,4 +103,5 @@
         
     });
 </script>
+  
 </html>
