@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f3437bb1-7b5b-4e71-9370-31f0c09403d0">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="CODIGO" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="FECHAINICIO" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="FECHAFIN" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT count(e.codigoempleado)as totalRegistros, concat(DAY(e.fechanacimientoempleado)," / ", MONTH(e.fechanacimientoempleado)) AS Fecha,
+p.nombrepuesto,uf.nombreubicacion,e.nombreempleado,c.numeroacuerdocomite,c.nombrecomite,c.fechadesdecomite,c.fechahastacomite from SISADMRH.empleado e 
+INNER JOIN SISADMRH.puesto p ON e.codigoempleado=p.codigoempleado 
+INNER JOIN SISADMRH.ubicacionfisica uf on uf.codigoempleado=e.codigoempleado inner join comite c on e.codigoempleado=c.codigoempleado
+WHERE
+     comite.codigocomite = $P{CODIGO}
+     and comite.fechadesdecomite >= $P{FECHAINICIO}
+     and comite.fechahastacomite <= $P{FECHAFIN}]]>
+	</queryString>
+	<field name="empleado_nombreempleado" class="java.lang.String"/>
+	<field name="acuerdo" class="java.lang.Integer"/>
+	<field name="comite_fechahastacomite" class="java.sql.Date"/>
+	<field name="comite_nombrecomite" class="java.lang.String"/>
+	<field name="comite_fechadesdecomite" class="java.sql.Date"/>
+	<group name="empleado_nombreempleado">
+		<groupExpression><![CDATA[$F{empleado_nombreempleado}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="93" splitType="Stretch">
+			<staticText>
+				<reportElement x="256" y="5" width="290" height="30" uuid="d221db1a-67a0-457b-9304-a3886e020f64"/>
+				<textElement>
+					<font fontName="Times New Roman" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Ministerio de Justicia y Seguridad Publica]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="301" y="36" width="201" height="20" uuid="2edc3e00-7b11-45d4-be87-7568cf6023d7"/>
+				<textElement>
+					<font fontName="Times New Roman" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Direccion de Recuros Humanos]]></text>
+			</staticText>
+			<image>
+				<reportElement x="20" y="10" width="140" height="70" uuid="2e98faf6-d9ec-4c59-b572-dfd518bf28a9"/>
+				<imageExpression><![CDATA["C:\\Users\\jorge\\Documents\\NetBeansProjects\\SISADMRH\\src\\main\\resources\\static\\image\\GOES.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="624" y="10" width="205" height="70" uuid="66e7c37b-8054-4465-833b-f43bcaa504fc"/>
+				<imageExpression><![CDATA["C:\\Users\\jorge\\Documents\\NetBeansProjects\\SISADMRH\\src\\main\\resources\\static\\image\\LOGOMJ.jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="337" y="60" width="93" height="20" uuid="77ceefa8-0ff8-42fb-a254-64df36c16dc5"/>
+				<textElement>
+					<font fontName="Times New Roman" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SISADMRH]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="56" splitType="Stretch">
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="679" y="15" width="100" height="20" uuid="ad9bca51-794c-4f34-a164-d4abe4f40d07"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="643" y="15" width="67" height="20" uuid="bd2b85a5-659c-435b-bd0a-8d277005d97e"/>
+				<text><![CDATA[Fecha:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="336" y="3" width="100" height="20" uuid="0f7451bb-29d8-443e-b0b8-ea63d10be83e"/>
+				<textElement>
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<text><![CDATA[Reporte de Comites]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="624" y="33" width="70" height="20" uuid="60e1cef8-adce-415b-9169-4d8478c97441"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Paginas "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="707" y="33" width="40" height="20" uuid="cb907302-f7d8-44ef-8653-09860453640a"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="180" y="41" width="100" height="20" uuid="0bf94cae-17da-49d7-9d40-3600b4ca9f75"/>
+				<text><![CDATA[Empleado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="280" y="41" width="100" height="20" uuid="fc5b296f-2080-4d1d-98d3-51de97f44014"/>
+				<text><![CDATA[Puesto]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="380" y="41" width="100" height="20" uuid="4d12fbca-beb1-4208-87d1-9952001ec525"/>
+				<text><![CDATA[N acuerdo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="480" y="40" width="99" height="21" uuid="f9ad448e-5df9-4ad8-b7a4-8678f4566c1f"/>
+				<text><![CDATA[Comite]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="579" y="41" width="100" height="20" uuid="945c39b5-d321-429e-81ce-4e490368ad2e"/>
+				<text><![CDATA[Desde]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="679" y="41" width="100" height="20" uuid="9b31384d-4ee6-40a0-a49a-ce46cc215b7f"/>
+				<text><![CDATA[Hasta]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="77" splitType="Stretch">
+			<textField>
+				<reportElement x="180" y="0" width="100" height="20" uuid="69c6644a-c56c-439b-b242-61f430a98c99"/>
+				<textFieldExpression><![CDATA[$F{empleado_nombreempleado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="280" y="0" width="100" height="20" uuid="78305bdd-89f2-4e6d-b656-0156c0a706c3"/>
+				<textFieldExpression><![CDATA[$F{empleado_nombreempleado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="380" y="0" width="100" height="20" uuid="b0f3ddce-6150-459c-9567-4e1448dd04d5"/>
+				<textFieldExpression><![CDATA[$F{acuerdo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="480" y="0" width="100" height="20" uuid="d555774f-c17e-4cb8-a046-11638f343afe"/>
+				<textFieldExpression><![CDATA[$F{comite_nombrecomite}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="579" y="0" width="100" height="20" uuid="217d6c2f-c00f-4be4-afa8-099a1f0b92f4"/>
+				<textFieldExpression><![CDATA[$F{comite_fechadesdecomite}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="679" y="0" width="100" height="20" uuid="e5cacc08-98e1-45f5-8b02-f71f202c55ee"/>
+				<textFieldExpression><![CDATA[$F{comite_fechahastacomite}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch">
+			<textField>
+				<reportElement x="563" y="22" width="80" height="20" uuid="a6e1415f-14f3-47da-96b3-b6fafa72f046"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Pagina "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="643" y="22" width="114" height="20" uuid="06724156-11f5-4148-8d91-0b63a09fb931"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

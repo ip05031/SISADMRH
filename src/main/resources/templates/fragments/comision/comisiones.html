@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <title>Beneficios</title>
+    <th:block th:include="../templates/header"></th:block>
+</head>
+<body>
+<div class="container">
+    
+    <div th:if="${not #lists.isEmpty(comisiones)}">
+        <h2 align="center">Listado de Comisiones</h2>
+        <table class="table table-striped">
+            <tr>
+                <th>Codigo</th>
+                <th>Nombre</th>
+                
+                 <th>Fecha Inicio</th>
+                  <th>Fecha Fin</th>
+                
+            </tr>
+            <tr th:each="comision : ${comisiones}">
+                <td th:text="${comision.codigocomision}">Codigo</td>
+                <td th:text="${comision.nombrecomision}">Nombre</td>
+                
+                 <td th:text="${comision.fechadesdecomision}">Fecha Inicio</td>
+                  <td th:text="${comision.fechahastacomision}">Fecha Fin</td>
+                
+                <td><a th:href="${'./show/' + comision.codigocomision}" class="btn btn-default">Mostrar</a></td>
+                <td><a th:href="${'./edit/' + comision.codigocomision}" class="btn btn-default">Edit</a></td>
+                 <td><a  class="btn btn-danger" th:onclick="'eliminar(\'' + ${comision.codigocomision} + '\');'" >Delete</a></td>
+                <!--<td><a th:href="${'./delete/' + beneficio.codigobeneficio}" class="btn btn-danger">Delete</a></td>-->
+            </tr>
+        </table>
+    </div>
+</div>
+     <script th:inline="javascript">
+        $(document).ready(function () {
+    if([[${msg}]]===3){
+       swal({
+           
+                title: "Exito!",
+                text: "Registro Eliminado correctamente",
+                type: "success",
+                icon: "success",
+       }).then(function() {
+                location.href = '../../comisiones/';
+       }); 
+}
+    if([[${msg}]]===0){
+       swal({
+           
+                title: "Exito!",
+                text: "Registro Ingresado Exitosamente",
+                type: "success",
+                icon: "success",
+       }); 
+}
+    
+    if([[${msg}]]===4){
+        swal({
+                title: "ERROR!",
+                text: "Ocurrio un error al eliminar el registro",
+                type: "error",
+                icon: "error"
+       });
+    }
+    });
+        
+        function eliminar(id) {
+            swal({
+                title: "Desea Eliminar?",
+                text: "favor confirme que desea eliminar este registro!",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+                    .then((willDelete) => {
+                        if (willDelete) {
+                            location.href = './delete/' + id;
+                        } else {
+                            swal("Accion cancelada", "se ha cancelado la operaacion de eliminado", "error");
+                        }
+                    });
+        }
+    </script>
+</body>
+</html>
