@@ -66,8 +66,8 @@ public class NivelEscolaridad implements Serializable {
     @Temporal(TemporalType.DATE)
      @DateTimeFormat(pattern = "YYYY-MM-dd")
     private Date fechahastanivelescolaridad;
-    @ManyToMany(mappedBy = "nivelescolaridadList")
-    private List<Empleado> empleadoList;
+//    @ManyToMany(mappedBy = "nivelescolaridadList")
+//    private List<Empleado> empleadoList;
 
     public NivelEscolaridad() {
     }
@@ -147,14 +147,14 @@ public class NivelEscolaridad implements Serializable {
     public void setFechahastanivelescolaridad(Date fechahastanivelescolaridad) {
         this.fechahastanivelescolaridad = fechahastanivelescolaridad;
     }
-
-    public List<Empleado> getEmpleadoList() {
-        return empleadoList;
-    }
-
-    public void setEmpleadoList(List<Empleado> empleadoList) {
-        this.empleadoList = empleadoList;
-    }
+//
+//    public List<Empleado> getEmpleadoList() {
+//        return empleadoList;
+//    }
+//
+//    public void setEmpleadoList(List<Empleado> empleadoList) {
+//        this.empleadoList = empleadoList;
+//    }
 
     @Override
     public int hashCode() {

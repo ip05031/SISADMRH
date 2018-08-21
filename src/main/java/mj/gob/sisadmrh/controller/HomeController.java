@@ -24,7 +24,7 @@ public class HomeController {
     public String welcomePage(Model model) {
         model.addAttribute("title", "Welcome");
         model.addAttribute("message", "Bienvenido");
-        return "index";
+        return "loginPage";
     }
  
 //    @RequestMapping(value = "/admin", method = RequestMethod.GET)
