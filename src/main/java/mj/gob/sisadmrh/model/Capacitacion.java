@@ -170,13 +170,13 @@ public class Capacitacion implements Serializable {
         this.estadocapacitacion = estadocapacitacion;
     }
 
-    public List<Empleado> getEmpleadoList() {
-        return empleadoList;
-    }
-
-    public void setEmpleadoList(List<Empleado> empleadoList) {
-        this.empleadoList = empleadoList;
-    }
+//    public List<Empleado> getEmpleadoList() {
+//        return empleadoList;
+//    }
+//
+//    public void setEmpleadoList(List<Empleado> empleadoList) {
+//        this.empleadoList = empleadoList;
+//    }
 
     public Capacitador getCodigocapacitador() {
         return codigocapacitador;

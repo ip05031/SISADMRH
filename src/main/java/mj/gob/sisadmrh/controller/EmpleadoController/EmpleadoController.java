@@ -32,7 +32,7 @@ public class EmpleadoController  extends UtilsController{
     private final String PREFIX = "fragments/empleado/";
     @RequestMapping(value = "/", method=RequestMethod.GET)
     public String list(Model model){
-        model.addAttribute("empleados", empleadoService.listAllEmpleados());
+        model.addAttribute("empleados", empleadoService.listAllEmpleado());
         return PREFIX + "empleados";
     }
     

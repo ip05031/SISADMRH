@@ -22,7 +22,7 @@ public class EmpleadoServiceImpl implements EmpleadoService {
     }
 
     @Override
-    public Iterable<Empleado> listAllEmpleados() {
+    public Iterable<Empleado> listAllEmpleado() {
         return empleadoRep.findAll();
     }
 
