@@ -1,45 +1,67 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
     <head>
-        <link href="../static/css/style.css" th:href="@{css/style.css}" rel="stylesheet" media="screen"/>
-        <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <link th:href="@{/css/login.css}" rel="stylesheet" media="screen"/>
+<!--        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
         <title>Login</title>
-    <th:block th:include="../templates/header"></th:block>
 </head>
 <body>
-    <div class="col-md-3">
-        <th:block th:include="../templates/menu"></th:block>
-    </div>
-    <div class="col-md-8">
-    <h1>Login</h1>
+    <div class="row">
+                   <div  class="col_izq" >
+                         <div class="row text-center">
+                        <img src="../../static/image/gob.png" width="200" th:src="@{/image/GOES.jpg}"/>
+                    </div>
+                   </div>
+                   <div class="col_cen">
+                         <div class="text-center">
+                       
+                            <h2>Ministerio de Justicia y Seguridad Publica</h2>
+                            <h2>Direccion de Recursos Humanos</h2>
+                            <h2>SISADMRH</h2>
+                       
+                    </div>
+                   </div>
+                   <div class="col_der">
+                         <div class="row text-center" align="center">
+                             <img src="../../static/image/mjsp.png" width="210" th:src="@{/image/LOGOMJ.jpg}" />
+                    </div>
+                   </div>
+                </div>
+    
     <!-- /login?error=true -->
-    <div th:if="${#request.getParameter('error') == 'true'}"
-         style="color:red;margin:10px 0px;">
-        ACCESO NO PERMITIDO!!!<br />
-        Razon :
-        <span th:if="${#session!= null and #session.getAttribute('SPRING_SECURITY_LAST_EXCEPTION') != null}"
-              th:utext="${#session.getAttribute('SPRING_SECURITY_LAST_EXCEPTION').message}">
-            Static summary
-        </span>
+    <br>
 
-    </div>
-
-    <h3>Introdusca nombre de usuario y contraseña:</h3>
     <form name='f' th:action="@{/j_spring_security_check}" method='POST'>
-        <table>
-            <tr>
-                <td>User:</td>
-                <td><input type='text' name='username' value='' ></td>
-            </tr>
-            <tr>
-                <td>Password:</td>
-                <td><input type='password' name='password' /></td>
-            </tr>
-            <tr>
-                <td><input name="submit" type="submit" value="Login" /></td>
-            </tr>
-        </table>
-    </form>
+        <h2>Introduzca nombre de usuario y contraseña:</h1>
+        <div class="inset">
+            <p>
+            <div th:if="${#request.getParameter('error') == 'true'}"
+                 style="color:red;margin:10px 0px;">
+                ACCESO NO PERMITIDO!!!<br />
+                Razon :
+                <span th:if="${#session!= null and #session.getAttribute('SPRING_SECURITY_LAST_EXCEPTION') != null}"
+                      th:utext="${#session.getAttribute('SPRING_SECURITY_LAST_EXCEPTION').message}">
+                    Static summary
+                </span>
+
+            </div>
+                <label for="username">USUARIO</label>
+                <input type="text"  name="username" id ="username" >
+            </p>
+            <p>
+                <label for="password">CONTRASEÑA</label>
+                <input type="password" name="password" id="password">
+            </p>
+            <p>
+                <input type="checkbox" name="remember" id="remember">
+                <label for="remember">Recordar mi usuario</label>
+            </p>
+        </div>
+        <p class="p-container">
+            <td><input name="submit" type="submit" value="Login" /></td>
+        </p>
+      </form>
 
     <br>
     Username/pass:
@@ -51,6 +73,7 @@
    <div class="col-md-12">
             <th:block th:include="footer"></th:block>
    </div>
+    
 </body>
 
 </html>

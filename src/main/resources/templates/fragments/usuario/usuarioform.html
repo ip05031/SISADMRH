@@ -7,66 +7,127 @@
   </head>
 <body>
 <div class="container">
-    <h2>Usuario Details</h2>
+    
+    
+    <img src="/sisadmrh/image/images.jpeg" class="img-responsive" alt="Cinque Terre">
+    <p class="text-center" style="font-size: 25px;">Datos de Usuario</p>
+<!--   <div col-sm-12>
+ <img src="/sisadmrh/image/images.jpeg" hspace="50" vspace="10" style="float: left;" />
+Datos de Usuario.
+ </div>-->
     <div>
         <form class="form-horizontal" th:object="${usuario}" th:action="@{../usuario}" method="post" >
             <input type="hidden" th:field="*{codigousuario}"/>
             <input type="hidden" th:field="*{nombreusuario}"/>
-            <div class="form-group">
-                <label class="col-sm-2 control-label">COdigo de Usuario:</label>
+<!--            <div class="form-group">
+                <label class="col-sm-2 control-label">Codigo de Usuario:</label>
                 <div class="col-sm-10">
                     <input type="text" class="form-control" th:field="*{codigousuario}"/>
                 </div>
-            </div>
+            </div>-->
             <div class="form-group">
                 <label class="col-sm-2 control-label">Nombre de Usuario:</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" th:field="*{nombreusuario}"/>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" required="true" size="50" maxlength="50" th:field="*{nombreusuario}"/>
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-2 control-label">Contraseña de usuario:</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" th:field="*{contraseniausuario}"/>
+                <label class="col-sm-2 control-label">Contraseña de Usuario:</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" required="true" size="100" maxlength="50" th:field="*{contraseniausuario}"/>
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-2 control-label">contorl contraseña:</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" th:field="*{controlcontrasenia}"/>
+                <label class="col-sm-2 control-label">Confirmacion de Contraseña:</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control numeros " required="true" size="11" maxlength="11" th:field="*{controlcontrasenia}"/>
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-2 control-label">estado:</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" th:field="*{estadousuario}"/>
+                <label class="col-sm-2 control-label">Estado:</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control numeros" size="11" maxlength="11" th:field="*{estadousuario}"/>
                 </div>
             </div>
-<!--            <div class="form-group">
-                <label class="col-sm-2 control-label">Fecha ingreso:</label>
-                <div class="col-sm-10">
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Fecha Ingreso:</label>
+                <div class="col-sm-8">
                     <input type="text" class="form-control" th:field="*{fechaingreso}"/>
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-2 control-label">fecha de caducidad:</label>
-                <div class="col-sm-10">
+                <label class="col-sm-2 control-label">Fecha de Caducidad:</label>
+                <div class="col-sm-8">
                     <input type="text" class="form-control" th:field="*{fechacaducidad}"/>
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-2 control-label">fecha de baja:</label>
-                <div class="col-sm-10">
+                <label class="col-sm-2 control-label">Fecha de Baja:</label>
+                <div class="col-sm-8">
                     <input type="text" class="form-control" th:field="*{fechabaja}"/>
                 </div>
-            </div>-->
-
-            <div class="row">
-                <button type="submit" class="btn btn-default">Agregar</button>
             </div>
+
+<div class="row">
+    <div class="col-sm-offset-5 col-sm-2 text-center">
+        <div class="btn-group" data-toggle="buttons">
+            <button type="submit" class="btn btn-default">Agregar</button>
+                <button type="submit" class="btn btn-default">Cancelar</button>
+        </div>
+    </div>
+</div>
+
+     
+
+<!--            <div class="row">
+                <button type="submit" class="btn btn-default">Agregar</button>
+                <button type="submit" class="btn btn-default">Cancelar</button>
+            </div>
+            -->
         </form>
     </div>
 </div>
 
 </body>
+ <script>
+    $(document).ready(function () {
+        $('#fechaingreso').datepicker({
+            dateFormat: 'yy-mm-dd'
+        });
+
+        $('#fechacaducidad').datepicker({
+            dateFormat: 'yy-mm-dd'
+        });
+        $('#fechabaja').datepicker({
+            dateFormat: 'yy-mm-dd'
+        });
+    });
+</script>
+
+</body>
+<script th:inline="javascript">
+    $(document).ready(function () {
+    if([[${msg}]]===0){
+       swal({
+                title: "Exito!",
+                text: "Registro agregado correctamente",
+                type: "success",
+                icon: "success"
+       }).then(function() {
+                location.href = '../usuarios/';
+       }); 
+}
+    
+    if([[${msg}]]===1){
+        swal({
+                title: "ERROR!",
+                text: "Ocurrio un error en el proceso",
+                type: "error",
+                icon: "error"
+       });
+    }
+    });
+</script> 
+
+
 </html>

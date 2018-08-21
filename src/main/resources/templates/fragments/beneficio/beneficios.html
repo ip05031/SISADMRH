@@ -1,32 +1,79 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head lang="en">
-    <title>Usuarios</title>
+    <title>Beneficios</title>
     <th:block th:include="../templates/header"></th:block>
 </head>
 <body>
 <div class="container">
-    e aqui
+    
     <div th:if="${not #lists.isEmpty(beneficios)}">
-        <h2>Todos los Usuarios</h2>
+        <img src="/sisadmrh/image/lupa.png" class="img-responsive" alt="Cinque Terre" width="80" height="80">
+    <p class="text-center" style="font-size: 25px;">Beneficios</p>
         <table class="table table-striped">
             <tr>
                 <th>Codigo</th>
                 <th>Nombre</th>
                 <th>descripcion</th>
+                 <th>Fecha Inicio</th>
+                  <th>Fecha Fin</th>
                 
             </tr>
             <tr th:each="beneficio : ${beneficios}">
                 <td th:text="${beneficio.codigobeneficio}">Codigo</td>
                 <td th:text="${beneficio.nombrebeneficio}">Nombre</td>
                 <td th:text="${beneficio.descripcionbeneficio}">descripcion</td>
+                 <td th:text="${beneficio.fechainiciobeneficio}">Fecha Inicio</td>
+                  <td th:text="${beneficio.fechafinalizarbeneficio}">Fecha Fin</td>
                 
                 <td><a th:href="${'./show/' + beneficio.codigobeneficio}" class="btn btn-default">Mostrar</a></td>
-                <td><a th:href="${'./edit/' + beneficio.codigobeneficio}" class="btn btn-default">Edit</a></td>
-                <td><a th:href="${'./delete/' + beneficio.codigobeneficio}" class="btn btn-danger">Delete</a></td>
+                <td><a th:href="${'./edit/' + beneficio.codigobeneficio}" class="btn btn-default">Editar</a></td>
+                 <td><a  class="btn btn-danger" th:onclick="'eliminar(\'' + ${beneficio.codigobeneficio} + '\');'" >Eliminar</a></td>
+                <!--<td><a th:href="${'./delete/' + beneficio.codigobeneficio}" class="btn btn-danger">Delete</a></td>-->
             </tr>
         </table>
     </div>
 </div>
+     <script th:inline="javascript">
+        $(document).ready(function () {
+    if([[${msg}]]===3){
+       swal({
+           
+                title: "Exito!",
+                text: "Registro Eliminado correctamente",
+                type: "success",
+                icon: "success",
+       }).then(function() {
+                location.href = '../../beneficios/';
+       }); 
+}
+    
+    if([[${msg}]]===4){
+        swal({
+                title: "ERROR!",
+                text: "Ocurrio un error al eliminar el registro",
+                type: "error",
+                icon: "error"
+       });
+    }
+    });
+        
+        function eliminar(id) {
+            swal({
+                title: "Desea Eliminar?",
+                text: "favor confirme que desea eliminar este registro!",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+                    .then((willDelete) => {
+                        if (willDelete) {
+                            location.href = './delete/' + id;
+                        } else {
+                            swal("Accion cancelada", "se ha cancelado la operaacion de eliminado", "error");
+                        }
+                    });
+        }
+    </script>
 </body>
 </html>
