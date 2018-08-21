@@ -6,16 +6,12 @@
 package mj.gob.sisadmrh.model;
 
 import java.io.Serializable;
-import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -24,33 +20,43 @@ import javax.validation.constraints.Size;
 
 /**
  *
- * @author daniel
+ * @author root
  */
 @Entity
-@Table(name = "ASISTENCIACAPACITACION")
+@Table(name = "asistenciacapacitacion")
 @NamedQueries({
-@NamedQuery(name = "AsistenciaCapacitacion.findAll", query = "SELECT ac FROM AsistenciaCapacitacion ac")})
-
+    @NamedQuery(name = "AsistenciaCapacitacion.findAll", query = "SELECT a FROM AsistenciaCapacitacion a")})
 public class AsistenciaCapacitacion implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
     @NotNull
-    @Column(name = "CODIGOASISTENCIACAPACITACION")
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "codigoasistenciacapacitacion")
     private Integer codigoasistenciacapacitacion;
     @Basic(optional = false)
     @NotNull
-    @Column(name = "HORASRECIBIDAS")
+    @Column(name = "horasrecibidas")
     private int horasrecibidas;
     @Size(max = 50)
-    @Column(name = "UBICACIONASISTENCIACAPACITACION")
+    @Column(name = "ubicacionasistenciacapacitacion")
     private String ubicacionasistenciacapacitacion;
-    @ManyToMany(mappedBy = "asistenciacapacitacionList")
-    private List<Empleado> empleadoList;
-    @JoinColumn(name = "CODIGOCAPACITACION", referencedColumnName = "CODIGOCAPACITACION")
-    @ManyToOne(optional = false)
-    private Capacitacion codigocapacitacion;
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "codigocapacitacion")
+    private int codigocapacitacion;
+    // @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="Invalid email")//if the field contains email address consider using this annotation to enforce field validation
+    @Size(max = 50)
+    @Column(name = "email")
+    private String email;
+    @Size(max = 11)
+    @Column(name = "telefono")
+    private String telefono;
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "codigoempleado")
+    private int codigoempleado;
 
     public AsistenciaCapacitacion() {
     }
@@ -59,9 +65,11 @@ public class AsistenciaCapacitacion implements Serializable {
         this.codigoasistenciacapacitacion = codigoasistenciacapacitacion;
     }
 
-    public AsistenciaCapacitacion(Integer codigoasistenciacapacitacion, int horasrecibidas) {
+    public AsistenciaCapacitacion(Integer codigoasistenciacapacitacion, int horasrecibidas, int codigocapacitacion, int codigoempleado) {
         this.codigoasistenciacapacitacion = codigoasistenciacapacitacion;
         this.horasrecibidas = horasrecibidas;
+        this.codigocapacitacion = codigocapacitacion;
+        this.codigoempleado = codigoempleado;
     }
 
     public Integer getCodigoasistenciacapacitacion() {
@@ -88,20 +96,36 @@ public class AsistenciaCapacitacion implements Serializable {
         this.ubicacionasistenciacapacitacion = ubicacionasistenciacapacitacion;
     }
 
-    public List<Empleado> getEmpleadoList() {
-        return empleadoList;
-    }
-
-    public void setEmpleadoList(List<Empleado> empleadoList) {
-        this.empleadoList = empleadoList;
-    }
-
-    public Capacitacion getCodigocapacitacion() {
+    public int getCodigocapacitacion() {
         return codigocapacitacion;
     }
 
-    public void setCodigocapacitacion(Capacitacion codigocapacitacion) {
+    public void setCodigocapacitacion(int codigocapacitacion) {
         this.codigocapacitacion = codigocapacitacion;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
+
+    public int getCodigoempleado() {
+        return codigoempleado;
+    }
+
+    public void setCodigoempleado(int codigoempleado) {
+        this.codigoempleado = codigoempleado;
     }
 
     @Override
@@ -126,7 +150,7 @@ public class AsistenciaCapacitacion implements Serializable {
 
     @Override
     public String toString() {
-        return "mj.gob.sisadmrh.model.Asistenciacapacitacion[ codigoasistenciacapacitacion=" + codigoasistenciacapacitacion + " ]";
+        return "mj.gob.sisadmrh.model.AsistenciaCapacitacion[ codigoasistenciacapacitacion=" + codigoasistenciacapacitacion + " ]";
     }
     
 }

@@ -27,8 +27,8 @@ import javax.validation.constraints.Size;
  */
 @Entity
 @Table(name = "empleado", catalog = "SISADMRH", schema = "")
-@NamedQueries({
-    @NamedQuery(name = "Empleado_1.findAll", query = "SELECT e FROM Empleado_1 e")})
+//@NamedQueries({
+//    @NamedQuery(name = "Empleado_1.findAll", query = "SELECT e FROM Empleado_1 e")})
 public class Empleado implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -396,10 +396,10 @@ public class Empleado implements Serializable {
         }
         return true;
     }
-
-    @Override
-    public String toString() {
-        return "mj.gob.sisadmrh.model.Empleado_1[ codigoempleado=" + codigoempleado + " ]";
-    }
+//
+//    @Override
+//    public String toString() {
+//        return "mj.gob.sisadmrh.model.Empleado_1[ codigoempleado=" + codigoempleado + " ]";
+//    }
     
 }

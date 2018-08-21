@@ -61,8 +61,8 @@ public class NivelEscolaridad implements Serializable {
     @Column(name = "FECHAHASTANIVELESCOLARIDAD")
     @Temporal(TemporalType.DATE)
     private Date fechahastanivelescolaridad;
-    @ManyToMany(mappedBy = "nivelescolaridadList")
-    private List<Empleado> empleadoList;
+//    @ManyToMany(mappedBy = "nivelescolaridadList")
+//    private List<Empleado> empleadoList;
 
     public NivelEscolaridad() {
     }
@@ -143,13 +143,13 @@ public class NivelEscolaridad implements Serializable {
         this.fechahastanivelescolaridad = fechahastanivelescolaridad;
     }
 
-    public List<Empleado> getEmpleadoList() {
-        return empleadoList;
-    }
-
-    public void setEmpleadoList(List<Empleado> empleadoList) {
-        this.empleadoList = empleadoList;
-    }
+//    public List<Empleado> getEmpleadoList() {
+//        return empleadoList;
+//    }
+//
+//    public void setEmpleadoList(List<Empleado> empleadoList) {
+//        this.empleadoList = empleadoList;
+//    }
 
     @Override
     public int hashCode() {
