@@ -106,7 +106,7 @@ public class Empleado implements Serializable {
         @JoinColumn(name = "CODIGOEMPLEADO", referencedColumnName = "CODIGOEMPLEADO")}, inverseJoinColumns = {
         @JoinColumn(name = "CODIGOMISION", referencedColumnName = "CODIGOMISION")})
     @ManyToMany
-    //private List<Mision> misionList;
+    private List<Mision> misionList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "codigoempleado")
     private List<Ubicacionfisica> ubicacionfisicaList;
     
@@ -487,12 +487,12 @@ public List<Descuento> getDescuentoList() {
         this.sexoempleado = sexoempleado;
     }
 
-//    public List<Mision> getMisionList() {
-//        return misionList;
-//    }
-//
-//    public void setMisionList(List<Mision> misionList) {
-//        this.misionList = misionList;
-//    }
-//    
+    public List<Mision> getMisionList() {
+        return misionList;
+    }
+
+    public void setMisionList(List<Mision> misionList) {
+        this.misionList = misionList;
+    }
+    
 }
