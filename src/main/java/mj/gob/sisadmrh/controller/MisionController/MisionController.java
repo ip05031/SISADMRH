@@ -3,80 +3,65 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package mj.gob.sisadmrh.controller.comite;
-
+package mj.gob.sisadmrh.controller.MisionController;
 
 import java.util.HashMap;
 import java.util.Map;
-import mj.gob.sisadmrh.controller.UtilsController;
 import javax.servlet.http.HttpServletResponse;
-
-import javax.validation.Valid;
-import mj.gob.sisadmrh.model.Capacitador;
-
+import mj.gob.sisadmrh.controller.UtilsController;
 import mj.gob.sisadmrh.model.Comite;
 import mj.gob.sisadmrh.model.Empleado;
-import mj.gob.sisadmrh.service.ComiteService;
-import mj.gob.sisadmrh.service.EmpleadoBeneficioServiceImpl;
+import mj.gob.sisadmrh.model.Mision;
 import mj.gob.sisadmrh.service.EmpleadoService;
+import mj.gob.sisadmrh.service.MisionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-
+/**
+ *
+ * @author jorge
+ */
 @Controller
-@RequestMapping(value = "comites")
-public class ComiteController extends UtilsController{
+@RequestMapping(value = "misiones")
+public class MisionController extends UtilsController{
+ private MisionService misionService;  
+ 
+ private EmpleadoService empleadoService; 
+
+ @Autowired
+    public void setMisionService(MisionService misionService) {
+        this.misionService = misionService;
+    } 
     
-    
-    private ComiteService comiteService;
-     
-       @Autowired
-    public void setComiteService(ComiteService comiteService) {
-        this.comiteService = comiteService;
-    }
-    
-     private EmpleadoService empleadoService;
-     
-       @Autowired
-    public void setEmpleadoService(EmpleadoService empleadoService) {
-        this.empleadoService = empleadoService;
-    }
-    
-  @RequestMapping("edit/{id}")
-    public String edit(@PathVariable Integer id, Model model) {
-        model.addAttribute("comite", comiteService.getComiteById(id));
-        return PREFIX + "comiteform";
-    }
-    private final String PREFIX = "fragments/comite/";
+    private final String PREFIX = "fragments/mision/";
     @RequestMapping(value = "/", method=RequestMethod.GET)
     public String list(Model model){
-        model.addAttribute("comites", comiteService.listAllComite());
-        return PREFIX + "comites";
+        model.addAttribute("misiones", misionService.listAllMision());
+        return PREFIX + "misiones";
     }
     
-     
-    
-    @RequestMapping("new/comite")
-    public String newComite(Model model) {
-        model.addAttribute("comite", new Comite());
+    @RequestMapping("edit/{id}")
+    public String edit(@PathVariable Integer id, Model model) {
+        model.addAttribute("mision", misionService.getMisionById(id));
+        return PREFIX + "misionform";
+    }
+     @RequestMapping("new/mision")
+    public String newMision(Model model) {
+        model.addAttribute("mision", new Mision());
         Iterable<Empleado> empleados = empleadoService.listAllEmpleado();
-         // System.out.println("numero:"+capacitadores);
         model.addAttribute("empleados", empleados);
-       // model.addAttribute("comite", new Comite());
-        return PREFIX + "comiteform";
+       return PREFIX + "misionform";
     }
     
-    @RequestMapping(value = "comite")
-    public String saveComite(Comite comite, Model model) {
+     @RequestMapping(value = "mision")
+    public String saveMision(Mision mision, Model model) {
         try{
-         comiteService.saveComite(comite);
+         misionService.saveMision(mision);
          model.addAttribute("msg", 0);
         }
         catch(Exception e)
@@ -84,7 +69,7 @@ public class ComiteController extends UtilsController{
         model.addAttribute("msg", 0);
         }
       
-        return PREFIX + "comiteform";
+        return PREFIX + "misionform";
         //return "redirect:./show/" + comite.getCodigocomite();
     }
     
@@ -97,28 +82,28 @@ public class ComiteController extends UtilsController{
 //    
 //    
      @RequestMapping("show/{id}")
-    public String showComite(@PathVariable Integer id, Model model) {
-        model.addAttribute("comite", comiteService.getComiteById(id).get());
-        return PREFIX +"comiteshow";
+    public String showMision(@PathVariable Integer id, Model model) {
+        model.addAttribute("mision", misionService.getMisionById(id).get());
+        return PREFIX +"misionshow";
     }
      @RequestMapping("delete/{id}")
     public String delete(@PathVariable Integer id, Model model) {
          try{
-           comiteService.deleteComite(id);;
+           misionService.deleteMision(id);;
         model.addAttribute("msg", 3);
         }
         catch(Exception e){
         model.addAttribute("msg", 4);
         }
-        return PREFIX + "comites";
+        return PREFIX + "misiones";
      
        // return "redirect:/comites/";
     }
     
     @RequestMapping("report/")
     public String reporte(Model model) {
-        model.addAttribute("comites", comiteService.listAllComite());
-        return PREFIX + "comitesreport";
+        model.addAttribute("misiones", misionService.listAllMision());
+        return PREFIX + "misionesreport";
     }
     
     @RequestMapping(value = "pdf/{indice}", method = { RequestMethod.POST, RequestMethod.GET })
@@ -131,7 +116,6 @@ public class ComiteController extends UtilsController{
 		params.put("CODIGO", indice.toString());
 		params.put("FECHAINICIO", fechainicio);
 		params.put("FECHAFIN", fechafin);
-        	generatePdf("comites", "rpt_comites", params, download,response);
+        	generatePdf("misiones", "rpt_misiones", params, download,response);
     }
-    
 }

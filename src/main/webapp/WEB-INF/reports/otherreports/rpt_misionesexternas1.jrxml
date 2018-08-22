@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="792" pageHeight="612" orientation="Landscape" columnWidth="752" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="2dcbe6cb-3379-4a1c-aaae-d0184a031b8a">
 	<property name="ireport.zoom" value="1.0"/>
-	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="4"/>
+	<property name="ireport.x" value="149"/>
+	<property name="ireport.y" value="0"/>
 	<parameter name="CODIGO" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
@@ -127,42 +127,42 @@ AND m.fecharegresomision<=$P{FECHAFIN}]]>
 			<staticText>
 				<reportElement x="104" y="0" width="100" height="20" uuid="c4694226-c427-4e66-afa9-72d194fcb439"/>
 				<textElement textAlignment="Center">
-					<font size="12"/>
+					<font size="10"/>
 				</textElement>
 				<text><![CDATA[Puesto]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="216" y="0" width="100" height="20" uuid="b5e00516-df2f-4df5-b687-3221cf2f5319"/>
 				<textElement textAlignment="Center">
-					<font size="12"/>
+					<font size="10"/>
 				</textElement>
 				<text><![CDATA[Mision]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="325" y="0" width="100" height="20" uuid="d09ab1bc-7338-49fe-a110-1bb7ce53dd38"/>
 				<textElement textAlignment="Center">
-					<font size="12"/>
+					<font size="10"/>
 				</textElement>
 				<text><![CDATA[Objetivo]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="435" y="0" width="100" height="20" uuid="4aeb56b1-60af-4685-838e-947966acda20"/>
 				<textElement textAlignment="Center">
-					<font size="12"/>
+					<font size="10"/>
 				</textElement>
 				<text><![CDATA[Departamento]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="545" y="0" width="100" height="20" uuid="6bbfd49e-22a2-4026-930f-dd9098ca6abd"/>
 				<textElement textAlignment="Center">
-					<font size="12"/>
+					<font size="10"/>
 				</textElement>
 				<text><![CDATA[Pais Destino]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="655" y="0" width="100" height="20" uuid="0f16029b-06e6-4038-a832-80d8095c4959"/>
 				<textElement textAlignment="Center">
-					<font size="12"/>
+					<font size="10"/>
 				</textElement>
 				<text><![CDATA[Ciudad]]></text>
 			</staticText>
