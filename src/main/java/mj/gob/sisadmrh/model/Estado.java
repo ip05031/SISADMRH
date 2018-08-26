@@ -6,22 +6,13 @@
 package mj.gob.sisadmrh.model;
 
 import java.io.Serializable;
-import java.util.Date;
-import java.util.List;
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -31,26 +22,28 @@ import javax.validation.constraints.Size;
  */
 @Entity
 @Table(name = "estado")
-
 @NamedQueries({
     @NamedQuery(name = "Estado.findAll", query = "SELECT e FROM Estado e")})
 public class Estado implements Serializable {
-
-    @Size(max = 50)
-    @Column(name = "NOMBREESTADO")
-    private String nombreestado;
-    @Size(max = 100)
-    @Column(name = "VALORESTADO")
-    private String valorestado;
 
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
     @NotNull
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "CODIGOESTADO")
+    @Column(name = "codigoestado")
     private Integer codigoestado;
-     public Estado() {
+    @Size(max = 50)
+    @Column(name = "nombreestado")
+    private String nombreestado;
+    @Size(max = 100)
+    @Column(name = "codigoestadosuperior")
+    private String codigoestadosuperior;
+
+    public Estado() {
+    }
+
+    public Estado(Integer codigoestado) {
+        this.codigoestado = codigoestado;
     }
 
     public Integer getCodigoestado() {
@@ -61,8 +54,21 @@ public class Estado implements Serializable {
         this.codigoestado = codigoestado;
     }
 
+    public String getNombreestado() {
+        return nombreestado;
+    }
 
+    public void setNombreestado(String nombreestado) {
+        this.nombreestado = nombreestado;
+    }
 
+    public String getCodigoestadosuperior() {
+        return codigoestadosuperior;
+    }
+
+    public void setCodigoestadosuperior(String codigoestadosuperior) {
+        this.codigoestadosuperior = codigoestadosuperior;
+    }
 
     @Override
     public int hashCode() {
@@ -86,23 +92,7 @@ public class Estado implements Serializable {
 
     @Override
     public String toString() {
-        return "mj.gob.sisadmrh.model.Usuario[ codigousuario=" + codigoestado + " ]";
-    }
-
-    public String getNombreestado() {
-        return nombreestado;
-    }
-
-    public void setNombreestado(String nombreestado) {
-        this.nombreestado = nombreestado;
-    }
-
-    public String getValorestado() {
-        return valorestado;
-    }
-
-    public void setValorestado(String valorestado) {
-        this.valorestado = valorestado;
+        return "mj.gob.sisadmrh.model.Estado[ codigoestado=" + codigoestado + " ]";
     }
     
 }
