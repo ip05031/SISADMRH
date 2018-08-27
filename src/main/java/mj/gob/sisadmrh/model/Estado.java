@@ -9,6 +9,8 @@ import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -22,8 +24,6 @@ import javax.validation.constraints.Size;
  */
 @Entity
 @Table(name = "estado")
-@NamedQueries({
-    @NamedQuery(name = "Estado.findAll", query = "SELECT e FROM Estado e")})
 public class Estado implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -31,6 +31,7 @@ public class Estado implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "codigoestado")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer codigoestado;
     @Size(max = 50)
     @Column(name = "nombreestado")
