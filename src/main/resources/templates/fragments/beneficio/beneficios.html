@@ -8,7 +8,8 @@
 <div class="container">
     
     <div th:if="${not #lists.isEmpty(beneficios)}">
-        <h2>Todos los Beneficios</h2>
+        <img src="/sisadmrh/image/lupa.png" class="img-responsive" alt="Cinque Terre" width="80" height="80">
+    <p class="text-center" style="font-size: 25px;">Beneficios</p>
         <table class="table table-striped">
             <tr>
                 <th>Codigo</th>
@@ -26,8 +27,8 @@
                   <td th:text="${beneficio.fechafinalizarbeneficio}">Fecha Fin</td>
                 
                 <td><a th:href="${'./show/' + beneficio.codigobeneficio}" class="btn btn-default">Mostrar</a></td>
-                <td><a th:href="${'./edit/' + beneficio.codigobeneficio}" class="btn btn-default">Edit</a></td>
-                 <td><a  class="btn btn-danger" th:onclick="'eliminar(\'' + ${beneficio.codigobeneficio} + '\');'" >Delete</a></td>
+                <td><a th:href="${'./edit/' + beneficio.codigobeneficio}" class="btn btn-default">Editar</a></td>
+                 <td><a  class="btn btn-danger" th:onclick="'eliminar(\'' + ${beneficio.codigobeneficio} + '\');'" >Eliminar</a></td>
                 <!--<td><a th:href="${'./delete/' + beneficio.codigobeneficio}" class="btn btn-danger">Delete</a></td>-->
             </tr>
         </table>

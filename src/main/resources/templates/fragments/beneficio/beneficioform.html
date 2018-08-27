@@ -7,7 +7,9 @@
   </head>
 <body>
 <div class="container">
-    <h2 align="center">Formulario de Beneficios</h2>
+      <img src="/sisadmrh/image/beneficios.png" class="img-responsive" alt="Cinque Terre" width="200" height="200">
+    <p class="text-center" style="font-size: 25px;">Formulario de Beneficios</p>
+  
     <div>
         <form class="form-horizontal" th:object="${beneficio}" th:action="@{../beneficio}" method="post">
             <input type="hidden" th:field="*{codigobeneficio}"/>
@@ -44,9 +46,19 @@
                 </div>
             </div>
             
-            <div class="row">
+
+<div class="row">
+    <div class="col-sm-offset-5 col-sm-2 text-center">
+        <div class="btn-group" data-toggle="buttons">
+            <button type="submit" class="btn btn-default">Agregar</button>
+                <button type="submit" class="btn btn-default">Cancelar</button>
+        </div>
+    </div>
+</div>
+
+<!--            <div class="row">
                 <button type="submit" class="btn btn-default">Agregar</button>
-            </div>
+            </div>-->
         </form>
     </div>
 </div>
