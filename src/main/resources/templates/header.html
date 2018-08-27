@@ -37,6 +37,8 @@
                         <img src="../../static/image/mjsp.png" width="200" th:src="@{/image/mjsp.png}"/>
                     </div>
                    </div>
+                    <div class="celdauser"> <b th:if="${messageuser != null}" th:utext="${messageuser}" ></b><br>
+                    <a th:if="${#request.userPrincipal != null}" th:href="@{/logout}">Cerrar Session</a></div>
                     
                     <!--
                     <div class="row text-center">

@@ -186,4 +186,19 @@ body {
   text-decoration:none;
   padding:5px 5px 5px 0;
 }
+.celdauser{
+    color: white;
+    float: left;
+    margin-left: 10%;
+    margin-top: 1%;
+}
+.celdauser a{
+    color: white;
+    float: left;
+    margin-left: 10%;
+}
+
+.celdauser a:hover { 
+   color: yellow;
+}
 
