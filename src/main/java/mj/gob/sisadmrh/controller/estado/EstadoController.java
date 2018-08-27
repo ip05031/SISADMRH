@@ -43,22 +43,28 @@ public class EstadoController {
 
     @RequestMapping("new/estado")
     public String newEstado(Model model) {
-        model.addAttribute("estado", new Estado());
+        EstadoForm estadoform = new EstadoForm();
+        estadoform.setEstados(estadoService.listAllEstado());
+        model.addAttribute("formestado", estadoform);
         return PREFIX + "estadoform";
     }
 
     @RequestMapping(value = "estado")
-    public String saveEstado(Estado estado,Model model) {
+    public String saveEstado(EstadoForm estadoform,Model model) {
          try{
-        estadoService.saveEstado(estado);
+        estadoService.saveEstado(estadoform.getEstado());
+        
         model.addAttribute("msg", 0);
-        }
+        model.addAttribute("estados", estadoService.listAllEstado());
+        return PREFIX + "estados";
+         }
         catch(Exception e){
         model.addAttribute("msg", 1);
+         estadoform.setEstados(estadoService.listAllEstado());
+        model.addAttribute("formestado", estadoform);
+        return PREFIX + "estadoform";
         }
-       return PREFIX+"estadoform";
-        
-      // return "redirect:./show/" + estado.getCodigoestado();
+       // return "redirect:./show/" + estado.getCodigoestado();
     }
     
     @RequestMapping("show/{id}")

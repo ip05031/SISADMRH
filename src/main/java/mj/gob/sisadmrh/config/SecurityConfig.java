@@ -44,8 +44,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
  
         // /userInfo page requires login as ROLE_USER or ROLE_ADMIN.
         // If no login, it will redirect to /login page.
-        http.authorizeRequests().antMatchers("/userInfo").access("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')");
-        //For users only
+//        http.authorizeRequests().antMatchers("/userInfo").access("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')");
+//        //For users only
 //        http.authorizeRequests().antMatchers("/beneficios/").access("hasRole('ROLE_USER')");
 //        http.authorizeRequests().antMatchers("/beneficios/**").access("hasRole('ROLE_USER')");
 //        http.authorizeRequests().antMatchers("/cuadrodirectivos/").access("hasRole('ROLE_USER')");
@@ -65,7 +65,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //        http.authorizeRequests().antMatchers("/usuarios/**").access("hasRole('ROLE_ADMIN')");
 //        http.authorizeRequests().antMatchers("/roles/**").access("hasRole('ROLE_ADMIN')");
 //        http.authorizeRequests().antMatchers("/roles/**").access("hasRole('ROLE_ADMIN')");
-// 
+//// 
         // When the user has logged in as XX.
         // But access a page that requires role YY,
         // AccessDeniedException will be thrown.
