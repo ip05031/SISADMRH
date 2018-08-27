@@ -5,36 +5,29 @@
     <th:block th:include="../templates/header"></th:block>
 </head>
 <body>
-    <div class="roles">
-        <div class="col-md-3">
-            <th:block th:include="../templates/menu"></th:block>
-        </div>
-        <div class="col-md-9">
+    <div class="container">
+            
+        <div th:if="${not #lists.isEmpty(roles)}">
+            <img src="/sisadmrh/image/unnamed.png" class="img-responsive" alt="Cinque Terre" width="200" height="200">
+    <p class="text-center" style="font-size: 25px;">Todos los Roles</p>
+           
+            <table class="table table-striped">
+                <tr>
+                    <th>Codigo</th>
+                    <th>Nombre</th>
+                    <th>Desacripcion</th>
 
-              <div class="row text-center">
-                        <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/images.jpeg}"/>
-                    </div>
-        <h3 align="center">Todos los Roles  </h3>
-            <div th:if="${not #lists.isEmpty(roles)}">
-                
-                <table class="table table-striped">
-                    <tr>
-                        <th>Codigo</th>
-                        <th>Nombre</th>
-                        <th>Desacripcion</th>
-
-                    </tr>
-                    <tr th:each="rol : ${roles}">
-                        <td th:text="${rol.codigorol}">Codigo</td>
-                        <td th:text="${rol.nombrerol}">Nombre</td>
-                        <td th:text="${rol.descripcionrol}">contraseña</td>
-                        <td><a th:href="${'./show/' + rol.codigorol}" class="btn btn-default">Mostrar</a></td>
-                        <td><a th:href="${'./edit/' + rol.codigorol}" class="btn btn-default">Edit</a></td>
-                        <!--<td><a th:href="${'./delete/' + rol.codigorol}" class="btn btn-danger">Delete</a></td>-->
-                        <td><a  class="btn btn-danger" th:onclick="'eliminar(\'' + ${rol.codigorol} + '\');'" >Delete</a></td>
-                    </tr>
-                </table>
-            </div>
+                </tr>
+                <tr th:each="rol : ${roles}">
+                    <td th:text="${rol.codigorol}">Codigo</td>
+                    <td th:text="${rol.nombrerol}">Nombre</td>
+                    <td th:text="${rol.descripcionrol}">contraseña</td>
+                    <td><a th:href="${'./show/' + rol.codigorol}" class="btn btn-default">Mostrar</a></td>
+                    <td><a th:href="${'./edit/' + rol.codigorol}" class="btn btn-default">Editar</a></td>
+                    <!--<td><a th:href="${'./delete/' + rol.codigorol}" class="btn btn-danger">Delete</a></td>-->
+                    <td><a  class="btn btn-danger" th:onclick="'eliminar(\'' + ${rol.codigorol} + '\');'" >Borrar</a></td>
+                </tr>
+            </table>
         </div>
     </div>
     <script th:inline="javascript">
