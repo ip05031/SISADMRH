@@ -20,6 +20,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  *
@@ -27,10 +28,11 @@ import javax.validation.constraints.Size;
  */
 @Entity
 @Table(name = "EVUALUACIONCAPACITACION")
+//
 //@NamedQueries({
-//@NamedQuery(name = "Evualuacioncapacitacion.findAll", query = "SELECT ec FROM Evualuacioncapacitacion ec")})
+//@NamedQuery(name = "EvualuacionCapacitacion.findAll", query = "SELECT ec FROM EvualuacionCapacitacion ec")})
 
-public class EvualuacionCapacitacion implements Serializable {
+public class EvaluacionCapacitacion implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
@@ -40,8 +42,10 @@ public class EvualuacionCapacitacion implements Serializable {
     @Size(max = 100)
     @Column(name = "LUGARCAPACITACION")
     private String lugarcapacitacion;
+     
     @Column(name = "HORAEVUALUACIONCAPACITACION")
-    @Temporal(TemporalType.TIMESTAMP)
+    //@Temporal(TemporalType.TIMESTAMP)
+    @DateTimeFormat(pattern = "YYYY-MM-dd")
     private Date horaevualuacioncapacitacion;
     @Size(max = 4)
     @Column(name = "DOMINIOTEMA")
@@ -104,10 +108,10 @@ public class EvualuacionCapacitacion implements Serializable {
     @ManyToOne(optional = false)
     private Capacitacion codigocapacitacion;
 
-    public EvualuacionCapacitacion() {
+    public EvaluacionCapacitacion() {
     }
 
-    public EvualuacionCapacitacion(Integer codigoevaluacioncapacitacion) {
+    public EvaluacionCapacitacion(Integer codigoevaluacioncapacitacion) {
         this.codigoevaluacioncapacitacion = codigoevaluacioncapacitacion;
     }
 
@@ -305,10 +309,10 @@ public class EvualuacionCapacitacion implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof EvualuacionCapacitacion)) {
+        if (!(object instanceof EvaluacionCapacitacion)) {
             return false;
         }
-        EvualuacionCapacitacion other = (EvualuacionCapacitacion) object;
+        EvaluacionCapacitacion other = (EvaluacionCapacitacion) object;
         if ((this.codigoevaluacioncapacitacion == null && other.codigoevaluacioncapacitacion != null) || (this.codigoevaluacioncapacitacion != null && !this.codigoevaluacioncapacitacion.equals(other.codigoevaluacioncapacitacion))) {
             return false;
         }

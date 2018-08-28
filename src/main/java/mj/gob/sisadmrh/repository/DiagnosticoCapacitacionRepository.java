@@ -5,6 +5,7 @@
  */
 package mj.gob.sisadmrh.repository;
 
+import mj.gob.sisadmrh.model.DiagnosticoCapacitacion;
 import mj.gob.sisadmrh.model.Mision;
 import org.springframework.data.repository.CrudRepository;
 
@@ -12,6 +13,6 @@ import org.springframework.data.repository.CrudRepository;
  *
  * @author jorge
  */
-public interface MisionRepository  extends CrudRepository<Mision, Integer>{
+public interface DiagnosticoCapacitacionRepository  extends CrudRepository<DiagnosticoCapacitacion, Integer>{
     
 }
