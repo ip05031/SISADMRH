@@ -2,19 +2,28 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head lang="en">
 
-    <title>Nuevo usuario</title>
+    <title>Crear Usuario</title>
    <th:block th:include="../templates/header"></th:block>
+  
   </head>
 <body>
+      <div class="contenedorizq"><label  >pnt_geus</label>
+    <label  class="der">
+    <script >
+var f = new Date();
+document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
+</script></label>
+</div><br>
 <div class="row">
       <div class="col-md-3">
                         <th:block th:include="../templates/menu"></th:block>
                     </div>
      <div class="col-md-9">
+          <br><br>
           <div class="row text-center">
-                        <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/images.jpeg}"/>
+                        <img src="../../static/image/agregarusuario.png" width="150" th:src="@{/image/agregarusuario.png}"/>
                     </div>
-        <h3 align="center">Detalle de Usuarios</h3>
+        <h3 align="center">Agregar Usuario</h3>
     <div>
         <form class="form-horizontal" th:object="${usuario}" th:action="@{../usuario}" method="post" >
             <input type="hidden" th:field="*{codigousuario}"/>
@@ -28,52 +37,51 @@
             <div class="form-group">
                 <label class="col-sm-2 control-label">Nombre de Usuario:</label>
                 <div class="col-sm-8">
-                    <input type="text" class="form-control" required="true" size="50" maxlength="50" th:field="*{nombreusuario}"/>
+                    <input type="text" class="form-control" required="true" size="50" maxlength="50" th:field="*{nombreusuario}" placeholder="Digite el nombre de Usuario"/>
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-sm-2 control-label">Contraseña de Usuario:</label>
                 <div class="col-sm-8">
-                    <input type="text" class="form-control" required="true" size="100" maxlength="50" th:field="*{contraseniausuario}"/>
+                    <input type="text" class="form-control" required="true" size="100" maxlength="50" th:field="*{contraseniausuario}" placeholder="Digite la contrasena de Usuario"/>
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-sm-2 control-label">Confirmacion de Contraseña:</label>
                 <div class="col-sm-8">
-                    <input type="text" class="form-control numeros " required="true" size="11" maxlength="11" th:field="*{controlcontrasenia}"/>
+                    <input type="text" class="form-control numeros " required="true" size="11" maxlength="11" th:field="*{controlcontrasenia}" placeholder="Digite confirmacion de contrasena de Usuario"/>
                 </div>
             </div>
-            <div class="form-group">
+<!--            <div class="form-group">
                 <label class="col-sm-2 control-label">Estado:</label>
-                <div class="col-sm-10">
+                <div class="col-sm-8">
                     <input type="text" class="form-control numeros" size="11" maxlength="11" th:field="*{estadousuario}"/>
                 </div>
-            </div>
-            <div class="form-group">
+            </div>-->
+<!--            <div class="form-group">
                 <label class="col-sm-2 control-label">Fecha Ingreso:</label>
                 <div class="col-sm-8">
                     <input type="text" class="form-control" th:field="*{fechaingreso}"/>
                 </div>
-            </div>
+            </div>-->
             <div class="form-group">
                 <label class="col-sm-2 control-label">Fecha de caducidad:</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" th:field="*{fechacaducidad}"/>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" th:field="*{fechacaducidad}" placeholder="Seleccione la fecha de caducidad de activacion de Usuario"/>
                 </div>
             </div>
-            <div class="form-group">
+<!--            <div class="form-group">
                 <label class="col-sm-2 control-label">Fecha de baja:</label>
-                <div class="col-sm-10">
+                <div class="col-sm-8">
                     <input type="text" class="form-control" th:field="*{fechabaja}"/>
                 </div>
-            </div>
-
-<div class="row">
-    <div class="col-sm-offset-5 col-sm-2 text-center">
-        <div class="btn-group" data-toggle="buttons">
+            </div>-->
+<div class="col-md-12">
+<div class="row" align="center">
+      
             <button type="submit" class="btn btn-default">Agregar</button>
-                <button type="submit" class="btn btn-default">Cancelar</button>
-        </div>
+            <button type="reset" class="btn btn-default">Limpiar</button>
+        
     </div>
 </div>
 

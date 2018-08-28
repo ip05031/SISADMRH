@@ -3,17 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package mj.gob.sisadmrh.controller.MisionController;
+package mj.gob.sisadmrh.controller.DiagnosticoCapacitacion;
 
 import java.util.HashMap;
 import java.util.Map;
 import javax.servlet.http.HttpServletResponse;
 import mj.gob.sisadmrh.controller.UtilsController;
 import mj.gob.sisadmrh.model.Comite;
+import mj.gob.sisadmrh.model.DiagnosticoCapacitacion;
 import mj.gob.sisadmrh.model.Empleado;
-import mj.gob.sisadmrh.model.Mision;
+
 import mj.gob.sisadmrh.service.EmpleadoService;
-import mj.gob.sisadmrh.service.MisionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,47 +21,48 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import mj.gob.sisadmrh.service.DiagnosticoCapacitacionService;
 
 /**
  *
  * @author jorge
  */
 @Controller
-@RequestMapping(value = "misiones")
-public class MisionController extends UtilsController{
- private MisionService misionService;  
+@RequestMapping(value = "diagnosticos")
+public class DiagnosticoCapacitacionController extends UtilsController{
+ private DiagnosticoCapacitacionService diagnosticoCapacitacionService;  
  
- private EmpleadoService empleadoService; 
+// private EmpleadoService empleadoService; 
 
  @Autowired
-    public void setMisionService(MisionService misionService) {
-        this.misionService = misionService;
+    public void setDiagnosticoCapacitacionService(DiagnosticoCapacitacionService diagnosticoCapacitacionService) {
+        this.diagnosticoCapacitacionService = diagnosticoCapacitacionService;
     } 
     
-    private final String PREFIX = "fragments/mision/";
+    private final String PREFIX = "fragments/diagnostico/";
     @RequestMapping(value = "/", method=RequestMethod.GET)
     public String list(Model model){
-        model.addAttribute("misiones", misionService.listAllMision());
-        return PREFIX + "misiones";
+        model.addAttribute("diagnosticos", diagnosticoCapacitacionService.listAllDiagnosticoCapacitacion());
+        return PREFIX + "diagnosticos";
     }
     
     @RequestMapping("edit/{id}")
     public String edit(@PathVariable Integer id, Model model) {
-        model.addAttribute("mision", misionService.getMisionById(id));
-        return PREFIX + "misionform";
+        model.addAttribute("diagnostico", diagnosticoCapacitacionService.getDiagnosticoCapacitacionById(id));
+        return PREFIX + "diagnosticoform";
     }
-     @RequestMapping("new/mision")
-    public String newMision(Model model) {
-        model.addAttribute("mision", new Mision());
-        Iterable<Empleado> empleados = empleadoService.listAllEmpleado();
-        model.addAttribute("empleados", empleados);
-       return PREFIX + "misionform";
+     @RequestMapping("new/diagnostico")
+    public String newDiagnosticoCapacitacion(Model model) {
+      model.addAttribute("diagnostico", new DiagnosticoCapacitacion());
+//        Iterable<Empleado> empleados = empleadoService.listAllEmpleado();
+//        model.addAttribute("empleados", empleados);
+       return PREFIX + "diagnosticoform";
     }
     
-     @RequestMapping(value = "mision")
-    public String saveMision(Mision mision, Model model) {
+     @RequestMapping(value = "diagnostico")
+    public String saveDiagnosticoCapacitacion(DiagnosticoCapacitacion diagnosticoCapacitacion, Model model) {
         try{
-         misionService.saveMision(mision);
+         diagnosticoCapacitacionService.saveDiagnosticoCapacitacion(diagnosticoCapacitacion);
          model.addAttribute("msg", 0);
         }
         catch(Exception e)
@@ -69,7 +70,7 @@ public class MisionController extends UtilsController{
         model.addAttribute("msg", 0);
         }
       
-        return PREFIX + "misionform";
+        return PREFIX + "diagnosticoform";
         //return "redirect:./show/" + comite.getCodigocomite();
     }
     
@@ -82,28 +83,28 @@ public class MisionController extends UtilsController{
 //    
 //    
      @RequestMapping("show/{id}")
-    public String showMision(@PathVariable Integer id, Model model) {
-        model.addAttribute("mision", misionService.getMisionById(id).get());
-        return PREFIX +"misionshow";
+    public String showDiagnosticoCapacitacion(@PathVariable Integer id, Model model) {
+        model.addAttribute("diagnostico",diagnosticoCapacitacionService.getDiagnosticoCapacitacionById(id));
+        return PREFIX +"diagnosticoshow";
     }
      @RequestMapping("delete/{id}")
     public String delete(@PathVariable Integer id, Model model) {
          try{
-           misionService.deleteMision(id);;
+          diagnosticoCapacitacionService.deleteDiagnosticoCapacitacion(id);
         model.addAttribute("msg", 3);
         }
         catch(Exception e){
         model.addAttribute("msg", 4);
         }
-        return PREFIX + "misiones";
+        return PREFIX + "diagnosticos";
      
        // return "redirect:/comites/";
     }
     
     @RequestMapping("report/")
     public String reporte(Model model) {
-        model.addAttribute("misiones", misionService.listAllMision());
-        return PREFIX + "misionesreport";
+        model.addAttribute("diganosticos", diagnosticoCapacitacionService.listAllDiagnosticoCapacitacion());
+        return PREFIX + "diagnosticoreport";
     }
     
     @RequestMapping(value = "pdf/{indice}", method = { RequestMethod.POST, RequestMethod.GET })
@@ -116,6 +117,6 @@ public class MisionController extends UtilsController{
 		params.put("CODIGO", indice.toString());
 		params.put("FECHAINICIO", fechainicio);
 		params.put("FECHAFIN", fechafin);
-        	generatePdf("misiones", "rpt_misiones", params, download,response);
+        	generatePdf("diagnosticos", "rpt_diagnosticos", params, download,response);
     }
 }

@@ -2,13 +2,31 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head lang="en">
 
-    <title>Nuevo beneficio</title>
+    <title>Crear beneficio</title>
   <th:block th:include="../templates/header"></th:block>
+  
   </head>
+  
 <body>
-<div class="container">
-      <img src="/sisadmrh/image/beneficios.png" class="img-responsive" alt="Cinque Terre" width="200" height="200">
-    <p class="text-center" style="font-size: 25px;">Formulario de Beneficios</p>
+   
+     
+       <div class="contenedorizq"> <label  >pnt_crbe</label> 
+    <label  class="der">
+    <script >
+var f = new Date();
+document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
+</script></label>
+</div>
+<div class="row">
+     <div class="col-md-3">
+                        <th:block th:include="../templates/menu"></th:block>
+                    </div>
+     <div class="col-md-9">
+          <div class="row text-center">
+                        <img src="../../static/image/beneficios.png" width="200" th:src="@{/image/beneficios.png}"/>
+                    </div>
+        <h3 align="center">Formulario de Beneficios</h3>
+  
   
     <div>
         <form class="form-horizontal" th:object="${beneficio}" th:action="@{../beneficio}" method="post">
@@ -62,6 +80,7 @@
         </form>
     </div>
 </div>
+    </div>
 
 </body>
 <script>

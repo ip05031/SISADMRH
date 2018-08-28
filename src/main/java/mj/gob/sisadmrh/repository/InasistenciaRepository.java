@@ -5,13 +5,13 @@
  */
 package mj.gob.sisadmrh.repository;
 
-import mj.gob.sisadmrh.model.Mision;
+import mj.gob.sisadmrh.model.Inasistencia;
 import org.springframework.data.repository.CrudRepository;
 
 /**
  *
  * @author jorge
  */
-public interface MisionRepository  extends CrudRepository<Mision, Integer>{
+public interface InasistenciaRepository  extends CrudRepository<Inasistencia, Integer>{
     
 }

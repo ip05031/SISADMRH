@@ -5,11 +5,17 @@
     <th:block th:include="../templates/header"></th:block>
 </head>
 <body>
-<div class="container">
-    
+<div class="row">
+     <div class="col-md-3">
+                        <th:block th:include="../templates/menu"></th:block>
+                    </div>
+     <div class="col-md-9">
+          <div class="row text-center">
+                        <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/images.jpeg}"/>
+                    </div>
+        <h3 align="center">Beneficios</h3>
     <div th:if="${not #lists.isEmpty(beneficios)}">
-        <img src="/sisadmrh/image/lupa.png" class="img-responsive" alt="Cinque Terre" width="80" height="80">
-    <p class="text-center" style="font-size: 25px;">Beneficios</p>
+       
         <table class="table table-striped">
             <tr>
                 <th>Codigo</th>
@@ -34,6 +40,7 @@
         </table>
     </div>
 </div>
+    </div>
      <script th:inline="javascript">
         $(document).ready(function () {
     if([[${msg}]]===3){

@@ -5,12 +5,16 @@
     <th:block th:include="../templates/header"></th:block>
 </head>
 <body>
-    <div class="container">
-            
+    <div class="row">
+             <div class="col-md-3">
+                        <th:block th:include="../templates/menu"></th:block>
+                    </div>
+     <div class="col-md-9">
+          <div class="row text-center">
+                        <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/images.jpeg}"/>
+                    </div>
+        <h3 align="center">Todos los Roles</h3>
         <div th:if="${not #lists.isEmpty(roles)}">
-            <img src="/sisadmrh/image/unnamed.png" class="img-responsive" alt="Cinque Terre" width="200" height="200">
-    <p class="text-center" style="font-size: 25px;">Todos los Roles</p>
-           
             <table class="table table-striped">
                 <tr>
                     <th>Codigo</th>
@@ -29,6 +33,7 @@
                 </tr>
             </table>
         </div>
+         </div>
     </div>
     <script th:inline="javascript">
         $(document).ready(function () {

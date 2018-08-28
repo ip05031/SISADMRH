@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+     <th:block th:include="../templates/header"></th:block>
+    <title>Capacitaciones</title>
+   
+     
+    
+</head>
+<body>
+    <div th:if="${not #lists.isEmpty(evaluacioncapacitaciones)}">
+        
+       <div class="row">
+        
+        <div class="col-md-3">
+            <th:block th:include="../templates/menu"></th:block>
+        </div>
+        <div class="col-md-9">
+           <h3 align="center">Listado de Evaluaciones de Capacitacion</h3>
+      
+        <table class="table table-striped">
+            <tr>
+                <th>Codigo Capacitacion</th>
+                <th>Lugar Evaluacion</th>
+                <th>Hora</th>
+                <th>Dominio Tema</th>
+                <th>Habilidad Comunicacion</th>
+                <th>Llena sus Espectativas</th>
+                <th>Contenido se desarrolla con claridad</th>
+                <th>Aclara Dudas</th>
+                <th>Mantiene el Interes del Tema</th>
+                <th>Satisfaccion en el Tema</th>
+                <th>Comprension del Tema</th>
+                <th>Planeacion del tema</th>
+                <th>Distribucion de tiempo</th>
+                <th>Contenido Claro</th>
+                <th>Contenido aplicado a su trabajo</th>
+                <th>Satisfecho con el contenido</th>
+                <th>Es necesaria la Capacitacion</th>
+                  <th>Tecnologia Adecuada</th>
+                    <th>Material Apropiado</th>
+                      <th>Tiempo Capacitacion Optimo</th>
+                      <th>Comentario o Sugerencia</th>
+                      <th>Puntualidad en Fecha y Hora</th>
+                      
+               <th>Acciones</th>
+                
+            </tr>
+            <tr th:each="evaluacioncapacitacion : ${evaluacioncapacitaciones}">
+                <!--<td th:text="${capacitador.codigoempleado.nombreempleado}">Codigo</td>-->
+                 <td th:text="${evaluacioncapacitacion.codigoevaluacioncapacitacion}">Codigo Evaluacion Capacitacion</td>
+                <!--<td th:text="${codigocapacitacion.nombrecapacitacion}">Nombre Capacitacion</td>-->
+                <td th:text="${evaluacioncapacitacion.lugarcapacitacion}">Lugar Evaluacion</td>
+                <td th:text="${evaluacioncapacitacion.horaevualuacioncapacitacion}">Hora</td>
+                <td th:text="${evaluacioncapacitacion.dominiotema}">Dominio Tema</td>
+                <td th:text="${evaluacioncapacitacion.habilidadcomunicacion}">Habilidad Comunicacion</td>
+                <td th:text="${evaluacioncapacitacion.espectativa}">Llena sus Espectativas</td>
+                <td th:text="${evaluacioncapacitacion.claridadtema}">Contenido se desarrolla con claridad</td>
+                <td th:text="${evaluacioncapacitacion.alclaradudas}">Aclara Dudas</td>
+                <td th:text="${evaluacioncapacitacion.interestema}">Mantiene el Interes del Tema</td>
+                <td th:text="${evaluacioncapacitacion.satifacciondetema}">Satisfaccion en el Tema</td>
+                <td th:text="${evaluacioncapacitacion.comprenciondetema}">Comprension del Tema</td>
+                <td th:text="${evaluacioncapacitacion.planeaciontiempo}">Planeacion del tiempo</td>
+                <td th:text="${evaluacioncapacitacion.distribuciontiempo}">Distribucion de tiempo</td>
+                <td th:text="${evaluacioncapacitacion.contenidoclaro}">Contenido Claro</td>
+                <td th:text="${evaluacioncapacitacion.contenidoaplicadotrabajo}">Contenido aplicado a su trabajo</td>
+                <td th:text="${evaluacioncapacitacion.satisfechocontenido}">Satisfecho con el contenido</td>
+                  <td th:text="${evaluacioncapacitacion.necesariocapacitacion}">Es necesaria la Capacitacion</td>
+                <td th:text="${evaluacioncapacitacion.equipotecnologico}">Tecnologia Adecuada</td>
+                <td th:text="${evaluacioncapacitacion.materialutilizado}">Material Apropiado</td>
+                <td th:text="${evaluacioncapacitacion.tiempocapacitacionoptimo}">Tiempo Capacitacion Optimo</td>
+                <td th:text="${evaluacioncapacitacion.comentario}">Comentario o Sugerencia</td>
+                <td th:text="${evaluacioncapacitacion.puntualidad}">Puntualidad en Fecha y Horas</td>
+
+                
+                
+                
+                
+                
+                <!--<td th:text="${capacitacion.codigocapacitador.nombrecapacitador}">Nombre Capacitador</td>-->
+                
+                <td>
+                    <a th:href="${'./show/' + evaluacioncapacitacion.codigoevaluacioncapacitacion}" class="btn btn-default">Mostrar</a>
+                <a th:href="${'./edit/' + evaluacioncapacitacion.codigoevaluacioncapacitacion}" class="btn btn-default">Edit</a>
+                 <a  class="btn btn-danger" th:onclick="'eliminar(\'' + ${evaluacioncapacitacion.codigoevaluacioncapacitacion} + '\');'" >Delete</a>
+               <!--<td><a th:href="${'./delete/' + capacitacion.codigocapacitacion}" class="btn btn-danger">Delete</a></td>-->
+                    <!--<td><a  class="btn btn-danger" th:onclick="'eliminar(\'' + ${capacitacion.codigocapacitacion} + '\');'" >Delete</a></td>-->  
+                </td>
+            </tr>
+        </table>
+            
+        </div>
+            <div class="col-md-12">
+                    <th:block th:include="../templates/footer"></th:block>
+                </div>
+    </div>  
+    </div>
+   
+   
+   
+     <script th:inline="javascript">
+        $(document).ready(function () {
+    if([[${msg}]]===3){
+       swal({
+           
+                title: "Exito!",
+                text: "Registro Eliminado correctamente",
+                type: "success",
+                icon: "success",
+       }).then(function() {
+                location.href = '../../capacitaciones/';
+       }); 
+}
+    
+    if([[${msg}]]===4){
+        swal({
+                title: "ERROR!",
+                text: "Ocurrio un error al eliminar el registro",
+                type: "error",
+                icon: "error"
+       });
+    }
+    });
+        
+        function eliminar(id) {
+            swal({
+                title: "Desea Eliminar?",
+                text: "favor confirme que desea eliminar este registro!",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+                    .then((willDelete) => {
+                        if (willDelete) {
+                            location.href = './delete/' + id;
+                        } else {
+                            swal("Accion cancelada", "se ha cancelado la operaacion de eliminado", "error");
+                        }
+                    });
+        }
+    </script>
+     <script th:inline="javascript">
+    $(document).ready(function () {
+    if([[${msg}]]===0){
+       swal({
+                title: "Exito!",
+                text: "Registro agregado correctamente",
+                type: "success",
+                icon: "success"
+       }).then(function() {
+                location.href = '../evaluacioncapacitacion/';
+       }); 
+}
+    
+    if([[${msg}]]===1){
+        swal({
+                title: "ERROR!",
+                text: "Ocurrio un error en el proceso",
+                type: "error",
+                icon: "error"
+       });
+    }
+    });
+</script>  
+</body>
+</html>

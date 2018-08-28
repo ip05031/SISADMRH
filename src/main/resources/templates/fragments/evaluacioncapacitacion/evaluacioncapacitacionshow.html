@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head lang="en">
+
+        <title>Consulta Evaluacion de Capacitacion</title>
+    <th:block th:include="../templates/header"></th:block>
+
+
+
+</head>
+<body>
+    <div class="row">
+        <div class="col-md-3">
+            <th:block th:include="../templates/menu"></th:block>
+        </div>
+        <div class="col-md-8">
+            <h3 align="center">Consulta de Evaluacion de Capacitaciones</h3>
+            <div>
+                <form class="form-horizontal">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="col-sm-5 control-label">codigo de evaluacion capacitacion:</label>
+                            <div class="col-sm-7">
+                                <p class="form-control-static" th:text="${evaluacioncapacitacion.codigoevaluacioncapacitacion}">codigo evaluacion capacitacion</p></div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-5 control-label">Capacitacion:</label>
+                            <div class="col-sm-7">
+                                <p class="form-control-static" th:text="${evaluacioncapacitacion.codigocapacitacion.nombrecapacitacion}">Nombre Capacitacion</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-5 control-label">Lugar de capacitacion:</label>
+                            <div class="col-sm-7">
+                                <p class="form-control-static" th:text="${evaluacioncapacitacion.lugarcapacitacion}">Lugar capacitacion</p></div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-5 control-label">Hora:</label>
+                            <div class="col-sm-7">
+                                <p class="form-control-static" th:text="${evaluacioncapacitacion.horaevualuacioncapacitacion}">Hora</p></div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-5 control-label">Dominio del Tema:</label>
+                            <div class="col-sm-7">
+                                <p class="form-control-static" th:text="${evaluacioncapacitacion.dominiotema}">Dominio del Tema</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-5 control-label">Habilidad de comunicacion:</label>
+                            <div class="col-sm-7">
+                                <p class="form-control-static" th:text="${evaluacioncapacitacion.habilidadcomunicacion}">Habilidad de comunicacion:</p>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-5 control-label">Llena sus espectativas:</label>
+                            <div class="col-sm-7">
+                                <p class="form-control-static" th:text="${evaluacioncapacitacion.espectativa}">Llena sus espectativas</p>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-5 control-label">Contenido se desarrolla con claridad:</label>
+                            <div class="col-sm-7">
+                                <p class="form-control-static" th:text="${evaluacioncapacitacion.claridadtema}">Contenido se desarrolla con claridad</p>
+                                <div class="form-group">
+                                    <label class="col-sm-5 control-label">Aclara dudas con precision:</label>
+                                    <div class="col-sm-7">
+                                        <p class="form-control-static" th:text="${evaluacioncapacitacion.alclaradudas}">Aclara dudas con precision</p>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-5 control-label">Mantiene el Interes del tema:</label>
+                                    <div class="col-sm-7">
+                                        <p class="form-control-static" th:text="${evaluacioncapacitacion.interestema}">Aclara dudas con precision</p>
+                                    </div>
+                                </div>   
+                                <div class="form-group">
+                                    <label class="col-sm-5 control-label">Satisfaccion en el tema:</label>
+                                    <div class="col-sm-7">
+                                        <p class="form-control-static" th:text="${evaluacioncapacitacion.satifacciondetema}">Satisfaccion en el tema</p>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-5 control-label">Comprencion del Tema:</label>
+                                    <div class="col-sm-7">
+                                        <p class="form-control-static" th:text="${evaluacioncapacitacion.comprenciondetema}">Comprencion del Tema</p>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-5 control-label">Planeacion de tiempo:</label>
+                                    <div class="col-sm-7">
+                                        <p class="form-control-static" th:text="${evaluacioncapacitacion.planeaciontiempo}">Planeacion de tiempo</p>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-5 control-label">Distribucion de Tiempo:</label>
+                                    <div class="col-sm-7">
+                                        <p class="form-control-static" th:text="${evaluacioncapacitacion.distribuciontiempo}">Distribucion de Tiempo</p>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-5 control-label">Contenido Calaro:</label>
+                                    <div class="col-sm-7">
+                                        <p class="form-control-static" th:text="${evaluacioncapacitacion.contenidoclaro}">Contenido Calaro</p>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-5 control-label">El Contenido es Aplicable a su trabajo:</label>
+                                    <div class="col-sm-7">
+                                        <p class="form-control-static" th:text="${evaluacioncapacitacion.contenidoaplicadotrabajo}">El Contenido es Aplicable a su trabajo</p>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-5 control-label">Satisfecho con el Contenido:</label>
+                                    <div class="col-sm-7">
+                                        <p class="form-control-static" th:text="${evaluacioncapacitacion.satisfechocontenido}">Satisfecho con el Contenido</p>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-5 control-label">Es necesaria la Capacitacion:</label>
+                                    <div class="col-sm-7">
+                                        <p class="form-control-static" th:text="${evaluacioncapacitacion.necesariocapacitacion}">Es necesaria la Capacitacion</p>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-5 control-label">El Equipo Tecnologico es el Adecuado:</label>
+                                    <div class="col-sm-7">
+                                        <p class="form-control-static" th:text="${evaluacioncapacitacion.equipotecnologico}">El Equipo Tecnologico es el Adecuado</p>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-5 control-label">Material Usado fue el apropiado:</label>
+                                    <div class="col-sm-7">
+                                        <p class="form-control-static" th:text="${evaluacioncapacitacion.materialutilizado}">Material Usado fue el apropiado</p>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-5 control-label">El tiempo de Capacitacion fue Optimo:</label>
+                                    <div class="col-sm-7">
+                                        <p class="form-control-static" th:text="${evaluacioncapacitacion.tiempocapacitacionoptimo}">El tiempo de Capacitacion fue Optimo</p>
+                                    </div>
+                                </div>
+                                
+                                 <div class="form-group">
+                                    <label class="col-sm-5 control-label">Comentario o sugerencia:</label>
+                                    <div class="col-sm-7">
+                                        <p class="form-control-static" th:text="${evaluacioncapacitacion.comentario}">Comentario o sugerencia</p>
+                                    </div>
+                                </div>
+                                
+                                 <div class="form-group">
+                                    <label class="col-sm-5 control-label">Puntalidad en Fecha y Hora:</label>
+                                    <div class="col-sm-7">
+                                        <p class="form-control-static" th:text="${evaluacioncapacitacion.puntualidad}">Puntalidad en Fecha y Hora</p>
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+                        </div>
+
+
+
+
+
+                    </div> 
+
+
+                </form>
+                <div class="col-md-12">
+                    <div class="row" align="center">
+                        <button type="button" class="btn btn-default"><a href="#" th:href="@{/asistenciacapacitaciones/}">Regresar</a></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <th:block th:include="../templates/footer"></th:block>
+        </div>
+    </div>
+
+</body>
+</html>

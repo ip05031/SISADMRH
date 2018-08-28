@@ -104,7 +104,7 @@ public class ComiteController extends UtilsController{
      @RequestMapping("delete/{id}")
     public String delete(@PathVariable Integer id, Model model) {
          try{
-           comiteService.deleteComite(id);;
+           comiteService.deleteComite(id);
         model.addAttribute("msg", 3);
         }
         catch(Exception e){
