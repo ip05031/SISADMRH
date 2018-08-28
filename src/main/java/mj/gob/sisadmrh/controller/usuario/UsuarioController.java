@@ -1,5 +1,6 @@
 package mj.gob.sisadmrh.controller.usuario;
 
+import java.util.Date;
 import mj.gob.sisadmrh.model.Usuario;
 import mj.gob.sisadmrh.repository.UsuarioRepository;
 import mj.gob.sisadmrh.service.UsuarioService;
@@ -48,6 +49,10 @@ public class UsuarioController {
     @RequestMapping(value = "usuario")
     public String saveUsuario(Usuario usuario,Model model) {
         try{
+            
+        Date fecha = new Date();
+        usuario.setFechaingreso(fecha);
+        usuario.setEstadousuario(1);
         usuarioService.saveUsuario(usuario);
          model.addAttribute("msg", 0);
         }

@@ -5,10 +5,18 @@
     <th:block th:include="../templates/header"></th:block>
 </head>
 <body>
-<div class="container">
-   
+<div class="row">
+   <div class="col-md-3">
+                        <th:block th:include="../templates/menu"></th:block>
+                    </div>
+     <div class="col-md-9">
+        
+          <div class="row text-center">
+                        <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/images.jpeg}"/>
+                    </div>
+        <h3 align="center">Listado de Cuadro Directivos</h3>
     <div th:if="${not #lists.isEmpty(cuadrodirectivos)}">
-        <h3  align="center">Listado de Cuadro Directivos</h3>
+       
         <table class="table table-striped">
             <tr>
                 <th>codigocuadrodirectivo</th>
@@ -38,6 +46,7 @@
         </table>
     </div>
 </div>
+    </div>
 </body>
 <script th:inline="javascript">
     $(document).ready(function () {

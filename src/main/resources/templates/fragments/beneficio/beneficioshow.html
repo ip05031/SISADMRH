@@ -9,8 +9,16 @@
   
 </head>
 <body>
-<div class="container">
-    <h2>Detalle de Beneficios</h2>
+<div class="row">
+     <div class="col-md-3">
+                        <th:block th:include="../templates/menu"></th:block>
+                    </div>
+     <div class="col-md-9">
+          <div class="row text-center">
+                        <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/images.jpeg}"/>
+                    </div>
+        <h3 align="center">Detalle de Beneficios</h3>
+    
         <div>
             <form class="form-horizontal">
                 
@@ -55,6 +63,7 @@
                 </div>
     </div>
 </div>
+    </div>
 
 </body>
 </html>
