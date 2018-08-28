@@ -79,15 +79,19 @@ public class EvaluacionCapacitacionController extends UtilsController {
     public String saveEvaluacionCapacitacion(EvaluacionCapacitacion evaluacionCapacitacion,Model model) {
         try{
            evaluacionCapacitacionService.saveEvualuacionCapacitacion(evaluacionCapacitacion);
-           model.addAttribute("msg", 0);
+          model.addAttribute("evaluacioncapacitaciones", evaluacionCapacitacionService.listAllEvualuacionCapacitacion());
+          model.addAttribute("msg", 0);
+          return PREFIX + "evaluacioncapacitaciones";
+        
         }
         catch(Exception e){
            model.addAttribute("msg", 1);
+           return PREFIX + "evaluacioncapacitacionform";
         }
      // return PREFIX + "evaluacioncapacitaciones";
        
         //return "redirect:./show/" + capacitacion.getCodigocapacitacion();
-        return "redirect:./show/" + evaluacionCapacitacion.getCodigoevaluacioncapacitacion();
+        //return "redirect:./show/" + evaluacionCapacitacion.getCodigoevaluacioncapacitacion();
     }
     
   
