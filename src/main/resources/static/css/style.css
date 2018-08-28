@@ -202,3 +202,15 @@ body {
    color: yellow;
 }
 
+
+.contenedorizq{
+  width: 100%;
+  float: left;
+  background-color: #82a77d;
+}
+
+
+.der{
+  float: right;
+  margin: 0% 1%;
+}
