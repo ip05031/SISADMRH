@@ -1,38 +1,63 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head lang="en">
-    <title>Estados</title>
     <th:block th:include="../templates/header"></th:block>
+    <title>Inasistencias</title>
+   
+     
+    
 </head>
 <body>
-<div class="container">
-   
-    <div th:if="${not #lists.isEmpty(estados)}">
-        <h3  align="center">Lista de Estados</h3>
+    <div th:if="${not #lists.isEmpty(inasistencias)}">
+        
+       <div class="row">
+        
+        <div class="col-md-3">
+            <th:block th:include="../templates/menu"></th:block>
+        </div>
+        <div class="col-md-9">
+           <h3 align="center">Listado de Inasistencias</h3>
+      
         <table class="table table-striped">
             <tr>
-                <th>Codigo</th>
-                <th>Nombre</th>
-                <th>valor</th>
-                 <th>Acciones</th>
+                <th>Codigo inasistencia</th>
+                <th>Nombre Empleado</th>
+                <th>Motivo Inasistencia</th>
+                <th>Justificacion</th>
+                <th>Fecha Desde</th>
+                <th>FechaHasta</th>
+               
+               <th>Acciones</th>
                 
             </tr>
-            <tr th:each="estado : ${estados}">
-                <td th:text="${estado.codigoestado}">Codigo</td>
-                <td th:text="${estado.nombreestado}">Nombre</td>
-                <td th:text="${estado.codigoestadosuperior}">superior</td>
+            <tr th:each="inasistencia : ${inasistencias}">
+                <td th:text="${inasistencia.codigoinasistencia}">Codigo</td>
+                <td th:text="${inasistencia.codigoempleado.nombreempleado}">Nombre</td>
+                <td th:text="${inasistencia.motivoinasistencia}">Motivo</td>
+                <td th:text="${inasistencia.constanciainasistencia}">Justificacion</td>
+                <td th:text="${inasistencia.fechadesdeinasistencia}"> Desde</td>
+                <td th:text="${inasistencia.fechahastainasistencia}"> Hasta</td>
+              
                 
-                
-                
-                <td><a th:href="${'./show/' + estado.codigoestado}" class="btn btn-default">Mostrar</a>
-                <a th:href="${'./edit/' + estado.codigoestado}" class="btn btn-default">Editar</a>
-                <td><a  class="btn btn-danger" th:onclick="'eliminar(\'' + ${estado.codigoestado} + '\');'" >Eliminar</a></td>
-                <!--<a th:href="${'./delete/' + estado.codigoestado}" class="btn btn-danger">Delete</a>-->
+                <td>
+                    <a th:href="${'./show/' + inasistencia.codigoinasistencia}" class="btn btn-default">Mostrar</a>
+                <a th:href="${'./edit/' + inasistencia.codigoinasistencia}" class="btn btn-default">Edit</a>
+                 <a  class="btn btn-danger" th:onclick="'eliminar(\'' + ${inasistencia.codigoinasistencia} + '\');'" >Delete</a>
+               <!--<td><a th:href="${'./delete/' + capacitacion.codigocapacitacion}" class="btn btn-danger">Delete</a></td>-->
+                    <!--<td><a  class="btn btn-danger" th:onclick="'eliminar(\'' + ${capacitacion.codigocapacitacion} + '\');'" >Delete</a></td>-->  
                 </td>
             </tr>
         </table>
+            
+        </div>
+            <div class="col-md-12">
+                    <th:block th:include="../templates/footer"></th:block>
+                </div>
+    </div>  
     </div>
-</div>
+   
+   
+   
      <script th:inline="javascript">
         $(document).ready(function () {
     if([[${msg}]]===3){
@@ -43,7 +68,7 @@
                 type: "success",
                 icon: "success",
        }).then(function() {
-                location.href = '../../roles/';
+                location.href = '../../inasistencias/';
        }); 
 }
     

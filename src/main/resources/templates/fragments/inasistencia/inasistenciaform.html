@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
     <head lang="en">
 
-        <title>Crear Comision</title>
+        <title>Crear Inasistencias</title>
     <th:block th:include="../templates/header"></th:block>
     
 </head>
@@ -15,39 +15,44 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 </script></label>
 </div><br>
     <div class="container">
-        <h2 align="center">Crear Comision</h2>
+        <h2 align="center">Crear Inasistencia</h2>
         <div>
-            <form class="form-horizontal" th:object="${comision}" th:action="@{../comision}" method="post">
-                <input type="hidden" th:field="*{codigocomision}"/>
-                <input type="hidden" th:field="*{nombrecomision}"/>
-                <!--            <div class="form-group">
-                                <label class="col-sm-2 control-label">Codigo de Beneficio:</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" th:field="*{codigocomision}"/>
-                                </div>
-                            </div>-->
+            <form class="form-horizontal" th:object="${inasistencia}" th:action="@{../inasistencia}" method="post">
+<!--                <input type="hidden" th:field="*{codigocomision}"/>
+                <input type="hidden" th:field="*{nombrecomision}"/>-->
+                             <div class="form-group">
+                        <label class="col-sm-2 control-label">Empleado :</label>
+                        <div class="col-sm-10" >
+                            <select class="form-control"  th:field="*{codigoempleado.codigoempleado}" >
+                                <option th:each="c:${empleados}" th:value="${c.codigoempleado}" th:text="${c.nombreempleado}"></option>
+                            </select>
+                            <!--<input type="text" class="form-control" onkeypress="return valida(event)" th:field="*{codigoempleado.codigoempleado}"/>-->
+                        </div>
+                    </div>
                 <div class="form-group">
-                    <label class="col-sm-2 control-label">Nombre Comision:</label>
+                    <label class="col-sm-2 control-label">Motivo de Inasistencia:</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" size="50" maxlength="50" required="true" th:field="*{nombrecomision}"/>
+                        <input type="text" class="form-control" size="200" maxlength="200" required="true" th:field="*{motivoinasistencia}"/>
                     </div>
                 </div>
-                <!--            <div class="form-group">
-                                <label class="col-sm-2 control-label">Representa a:</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" th:field="*{descripcioncomision}"/>
-                                </div>
-                            </div>-->
+                
+                
+                 <div class="form-group">
+                    <label class="col-sm-2 control-label">Constancia de Inasistencia:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" size="200" maxlength="200" required="true" th:field="*{constanciainasistencia}"/>
+                    </div>
+                </div>
                 <div class="form-group">
                     <label class="col-sm-2 control-label">Fecha Desde:</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" required="true" th:field="*{fechadesdecomision}"/>
+                        <input type="text" class="form-control" required="true" th:field="*{fechadesdeinasistencia}"/>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-sm-2 control-label">Fecha Hasta:</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" required="true" th:field="*{fechahastacomision}"/>
+                        <input type="text" class="form-control" required="true" th:field="*{fechahastainasistencia}"/>
                     </div>
                 </div>
 
@@ -61,11 +66,11 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 </body>
 <script>
     $(document).ready(function () {
-        $('#fechadesdecomision').datepicker({
+        $('#fechadesdeinasistencia').datepicker({
             dateFormat: 'yy-mm-dd'
         });
 
-        $('#fechahastacomision').datepicker({
+        $('#fechahastainasistencia').datepicker({
             dateFormat: 'yy-mm-dd'
         });
        
