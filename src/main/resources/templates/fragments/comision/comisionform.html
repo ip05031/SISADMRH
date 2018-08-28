@@ -2,13 +2,20 @@
 <html xmlns:th="http://www.thymeleaf.org">
     <head lang="en">
 
-        <title>Nueva Comision</title>
+        <title>Crear Comision</title>
     <th:block th:include="../templates/header"></th:block>
-    <div ><label  >pnt_gecoms</label> </div>
+    
 </head>
 <body>
+      <div class="contenedorizq"><label  >pnt_gecoms</label> 
+    <label  class="der">
+    <script >
+var f = new Date();
+document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
+</script></label>
+</div><br>
     <div class="container">
-        <h2 align="center">Nueva Comision</h2>
+        <h2 align="center">Crear Comision</h2>
         <div>
             <form class="form-horizontal" th:object="${comision}" th:action="@{../comision}" method="post">
                 <input type="hidden" th:field="*{codigocomision}"/>

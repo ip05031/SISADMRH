@@ -102,6 +102,8 @@ public class Empleado implements Serializable {
     @Column(name = "SEXOEMPLEADO")
     private String sexoempleado;
    // private List<Descuento> descuentoList;
+     @OneToMany(cascade = CascadeType.ALL, mappedBy = "codigoempleado")
+    private List<Inasistencia> inasistenciaList;
     @JoinTable(name = "EMPLEADOMISION", joinColumns = {
         @JoinColumn(name = "CODIGOEMPLEADO", referencedColumnName = "CODIGOEMPLEADO")}, inverseJoinColumns = {
         @JoinColumn(name = "CODIGOMISION", referencedColumnName = "CODIGOMISION")})
@@ -338,6 +340,9 @@ public List<Descuento> getDescuentoList() {
     public String getTiponacionalidad() {
         return tiponacionalidad;
     }
+    public List<Inasistencia> getInasistenciaList() {
+        return inasistenciaList;
+    }
 
     public void setTiponacionalidad(String tiponacionalidad) {
         this.tiponacionalidad = tiponacionalidad;
@@ -493,6 +498,10 @@ public List<Descuento> getDescuentoList() {
 
     public void setMisionList(List<Mision> misionList) {
         this.misionList = misionList;
+    }
+    
+     public void setInasistenciaList(List<Inasistencia> inasistenciaList) {
+        this.inasistenciaList = inasistenciaList;
     }
     
 }
