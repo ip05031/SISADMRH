@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head lang="en">
+
+        <title>Crear Comision</title>
+    <th:block th:include="../templates/header"></th:block>
+    
+</head>
+<body>
+      <div class="contenedorizq"><label  >pnt_gecoms</label> 
+    <label  class="der">
+    <script >
+var f = new Date();
+document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
+</script></label>
+</div><br>
+    <div class="container">
+        <h2 align="center">Crear Comision</h2>
+        <div>
+            <form class="form-horizontal" th:object="${comision}" th:action="@{../comision}" method="post">
+                <input type="hidden" th:field="*{codigocomision}"/>
+                <input type="hidden" th:field="*{nombrecomision}"/>
+                <!--            <div class="form-group">
+                                <label class="col-sm-2 control-label">Codigo de Beneficio:</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" th:field="*{codigocomision}"/>
+                                </div>
+                            </div>-->
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Nombre Comision:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" size="50" maxlength="50" required="true" th:field="*{nombrecomision}"/>
+                    </div>
+                </div>
+                <!--            <div class="form-group">
+                                <label class="col-sm-2 control-label">Representa a:</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" th:field="*{descripcioncomision}"/>
+                                </div>
+                            </div>-->
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Fecha Desde:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" required="true" th:field="*{fechadesdecomision}"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Fecha Hasta:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" required="true" th:field="*{fechahastacomision}"/>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <button type="submit" class="btn btn-default">Agregar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</body>
+<script>
+    $(document).ready(function () {
+        $('#fechadesdecomision').datepicker({
+            dateFormat: 'yy-mm-dd'
+        });
+
+        $('#fechahastacomision').datepicker({
+            dateFormat: 'yy-mm-dd'
+        });
+       
+    });
+</script>
+
+</body>
+<script th:inline="javascript">
+    $(document).ready(function () {
+    if([[${msg}]]===0){
+       swal({
+                title: "Exito!",
+                text: "Registro agregado correctamente",
+                type: "success",
+                icon: "success"
+       }).then(function() {
+                location.href = '../comisiones/';
+       }); 
+}
+    
+    if([[${msg}]]===1){
+        swal({
+                title: "ERROR!",
+                text: "Ocurrio un error en el proceso",
+                type: "error",
+                icon: "error"
+       });
+    }
+    });
+</script> 
+</html>

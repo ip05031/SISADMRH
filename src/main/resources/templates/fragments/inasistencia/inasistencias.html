@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <title>Estados</title>
+    <th:block th:include="../templates/header"></th:block>
+</head>
+<body>
+<div class="container">
+   
+    <div th:if="${not #lists.isEmpty(estados)}">
+        <h3  align="center">Lista de Estados</h3>
+        <table class="table table-striped">
+            <tr>
+                <th>Codigo</th>
+                <th>Nombre</th>
+                <th>valor</th>
+                 <th>Acciones</th>
+                
+            </tr>
+            <tr th:each="estado : ${estados}">
+                <td th:text="${estado.codigoestado}">Codigo</td>
+                <td th:text="${estado.nombreestado}">Nombre</td>
+                <td th:text="${estado.codigoestadosuperior}">superior</td>
+                
+                
+                
+                <td><a th:href="${'./show/' + estado.codigoestado}" class="btn btn-default">Mostrar</a>
+                <a th:href="${'./edit/' + estado.codigoestado}" class="btn btn-default">Editar</a>
+                <td><a  class="btn btn-danger" th:onclick="'eliminar(\'' + ${estado.codigoestado} + '\');'" >Eliminar</a></td>
+                <!--<a th:href="${'./delete/' + estado.codigoestado}" class="btn btn-danger">Delete</a>-->
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+     <script th:inline="javascript">
+        $(document).ready(function () {
+    if([[${msg}]]===3){
+       swal({
+           
+                title: "Exito!",
+                text: "Registro Eliminado correctamente",
+                type: "success",
+                icon: "success",
+       }).then(function() {
+                location.href = '../../roles/';
+       }); 
+}
+    
+    if([[${msg}]]===4){
+        swal({
+                title: "ERROR!",
+                text: "Ocurrio un error al eliminar el registro",
+                type: "error",
+                icon: "error"
+       });
+    }
+    });
+        
+        function eliminar(id) {
+            swal({
+                title: "Desea Eliminar?",
+                text: "favor confirme que desea eliminar este registro!",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+                    .then((willDelete) => {
+                        if (willDelete) {
+                            location.href = './delete/' + id;
+                        } else {
+                            swal("Accion cancelada", "se ha cancelado la operaacion de eliminado", "error");
+                        }
+                    });
+        }
+    </script>
+</body>
+</html>
