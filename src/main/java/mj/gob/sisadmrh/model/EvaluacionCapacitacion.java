@@ -13,8 +13,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -22,100 +20,100 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  *
- * @author daniel
+ * @author root
  */
 @Entity
-@Table(name = "EVUALUACIONCAPACITACION")
-//
-//@NamedQueries({
-//@NamedQuery(name = "EvualuacionCapacitacion.findAll", query = "SELECT ec FROM EvualuacionCapacitacion ec")})
-
+@Table(name = "evualuacioncapacitacion")
 public class EvaluacionCapacitacion implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
     @NotNull
-    @Column(name = "CODIGOEVALUACIONCAPACITACION")
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "codigoevaluacioncapacitacion")
     private Integer codigoevaluacioncapacitacion;
-    @Size(max = 100)
-    @Column(name = "LUGARCAPACITACION")
-    private String lugarcapacitacion;
-     
-    @Column(name = "HORAEVUALUACIONCAPACITACION")
-    //@Temporal(TemporalType.TIMESTAMP)
-    @DateTimeFormat(pattern = "YYYY-MM-dd")
-    private Date horaevualuacioncapacitacion;
-    @Size(max = 4)
-    @Column(name = "DOMINIOTEMA")
-    private String dominiotema;
     @Size(max = 2)
-    @Column(name = "HABILIDADCOMUNICACION")
-    private String habilidadcomunicacion;
-    @Size(max = 2)
-    @Column(name = "ESPECTATIVA")
-    private String espectativa;
-    @Size(max = 2)
-    @Column(name = "CLARIDADTEMA")
-    private String claridadtema;
-    @Size(max = 2)
-    @Column(name = "ALCLARADUDAS")
+    @Column(name = "alclaradudas")
     private String alclaradudas;
     @Size(max = 2)
-    @Column(name = "INTERESTEMA")
-    private String interestema;
-    @Size(max = 2)
-    @Column(name = "SATIFACCIONDETEMA")
-    private String satifacciondetema;
-    @Size(max = 2)
-    @Column(name = "COMPRENCIONDETEMA")
-    private String comprenciondetema;
-    @Size(max = 4)
-    @Column(name = "PLANEACIONTIEMPO")
-    private String planeaciontiempo;
-    @Size(max = 4)
-    @Column(name = "DISTRIBUCIONTIEMPO")
-    private String distribuciontiempo;
-    @Size(max = 4)
-    @Column(name = "CONTENIDOCLARO")
-    private String contenidoclaro;
-    @Size(max = 4)
-    @Column(name = "CONTENIDOAPLICADOTRABAJO")
-    private String contenidoaplicadotrabajo;
-    @Size(max = 2)
-    @Column(name = "SATISFECHOCONTENIDO")
-    private String satisfechocontenido;
-    @Size(max = 2)
-    @Column(name = "NECESARIOCAPACITACION")
-    private String necesariocapacitacion;
-    @Size(max = 2)
-    @Column(name = "EQUIPOTECNOLOGICO")
-    private String equipotecnologico;
-    @Size(max = 2)
-    @Column(name = "MATERIALUTILIZADO")
-    private String materialutilizado;
-    @Size(max = 2)
-    @Column(name = "TIEMPOCAPACITACIONOPTIMO")
-    private String tiempocapacitacionoptimo;
+    @Column(name = "claridadtema")
+    private String claridadtema;
     @Size(max = 100)
-    @Column(name = "COMENTARIO")
+    @Column(name = "comentario")
     private String comentario;
     @Size(max = 2)
-    @Column(name = "PUNTUALIDAD")
+    @Column(name = "comprenciondetema")
+    private String comprenciondetema;
+    @Size(max = 4)
+    @Column(name = "contenidoaplicadotrabajo")
+    private String contenidoaplicadotrabajo;
+    @Size(max = 4)
+    @Column(name = "contenidoclaro")
+    private String contenidoclaro;
+    @Size(max = 4)
+    @Column(name = "distribuciontiempo")
+    private String distribuciontiempo;
+    @Size(max = 4)
+    @Column(name = "dominiotema")
+    private String dominiotema;
+    @Size(max = 2)
+    @Column(name = "equipotecnologico")
+    private String equipotecnologico;
+    @Size(max = 2)
+    @Column(name = "espectativa")
+    private String espectativa;
+    @Size(max = 2)
+    @Column(name = "habilidadcomunicacion")
+    private String habilidadcomunicacion;
+    @Column(name = "horaevualuacioncapacitacion")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date horaevualuacioncapacitacion;
+    @Size(max = 2)
+    @Column(name = "interestema")
+    private String interestema;
+    @Size(max = 100)
+    @Column(name = "lugarcapacitacion")
+    private String lugarcapacitacion;
+    @Size(max = 2)
+    @Column(name = "materialutilizado")
+    private String materialutilizado;
+    @Size(max = 2)
+    @Column(name = "necesariocapacitacion")
+    private String necesariocapacitacion;
+    @Size(max = 4)
+    @Column(name = "planeaciontiempo")
+    private String planeaciontiempo;
+    @Size(max = 2)
+    @Column(name = "puntualidad")
     private String puntualidad;
-    @JoinColumn(name = "CODIGOCAPACITACION", referencedColumnName = "CODIGOCAPACITACION")
-    @ManyToOne(optional = false)
-    private Capacitacion codigocapacitacion;
+    @Size(max = 2)
+    @Column(name = "satifacciondetema")
+    private String satifacciondetema;
+    @Size(max = 2)
+    @Column(name = "satisfechocontenido")
+    private String satisfechocontenido;
+    @Size(max = 2)
+    @Column(name = "tiempocapacitacionoptimo")
+    private String tiempocapacitacionoptimo;
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "codigocapacitacion")
+    private int codigocapacitacion;
 
     public EvaluacionCapacitacion() {
     }
 
     public EvaluacionCapacitacion(Integer codigoevaluacioncapacitacion) {
         this.codigoevaluacioncapacitacion = codigoevaluacioncapacitacion;
+    }
+
+    public EvaluacionCapacitacion(Integer codigoevaluacioncapacitacion, int codigocapacitacion) {
+        this.codigoevaluacioncapacitacion = codigoevaluacioncapacitacion;
+        this.codigocapacitacion = codigocapacitacion;
     }
 
     public Integer getCodigoevaluacioncapacitacion() {
@@ -126,44 +124,12 @@ public class EvaluacionCapacitacion implements Serializable {
         this.codigoevaluacioncapacitacion = codigoevaluacioncapacitacion;
     }
 
-    public String getLugarcapacitacion() {
-        return lugarcapacitacion;
+    public String getAlclaradudas() {
+        return alclaradudas;
     }
 
-    public void setLugarcapacitacion(String lugarcapacitacion) {
-        this.lugarcapacitacion = lugarcapacitacion;
-    }
-
-    public Date getHoraevualuacioncapacitacion() {
-        return horaevualuacioncapacitacion;
-    }
-
-    public void setHoraevualuacioncapacitacion(Date horaevualuacioncapacitacion) {
-        this.horaevualuacioncapacitacion = horaevualuacioncapacitacion;
-    }
-
-    public String getDominiotema() {
-        return dominiotema;
-    }
-
-    public void setDominiotema(String dominiotema) {
-        this.dominiotema = dominiotema;
-    }
-
-    public String getHabilidadcomunicacion() {
-        return habilidadcomunicacion;
-    }
-
-    public void setHabilidadcomunicacion(String habilidadcomunicacion) {
-        this.habilidadcomunicacion = habilidadcomunicacion;
-    }
-
-    public String getEspectativa() {
-        return espectativa;
-    }
-
-    public void setEspectativa(String espectativa) {
-        this.espectativa = espectativa;
+    public void setAlclaradudas(String alclaradudas) {
+        this.alclaradudas = alclaradudas;
     }
 
     public String getClaridadtema() {
@@ -174,28 +140,12 @@ public class EvaluacionCapacitacion implements Serializable {
         this.claridadtema = claridadtema;
     }
 
-    public String getAlclaradudas() {
-        return alclaradudas;
+    public String getComentario() {
+        return comentario;
     }
 
-    public void setAlclaradudas(String alclaradudas) {
-        this.alclaradudas = alclaradudas;
-    }
-
-    public String getInterestema() {
-        return interestema;
-    }
-
-    public void setInterestema(String interestema) {
-        this.interestema = interestema;
-    }
-
-    public String getSatifacciondetema() {
-        return satifacciondetema;
-    }
-
-    public void setSatifacciondetema(String satifacciondetema) {
-        this.satifacciondetema = satifacciondetema;
+    public void setComentario(String comentario) {
+        this.comentario = comentario;
     }
 
     public String getComprenciondetema() {
@@ -206,20 +156,12 @@ public class EvaluacionCapacitacion implements Serializable {
         this.comprenciondetema = comprenciondetema;
     }
 
-    public String getPlaneaciontiempo() {
-        return planeaciontiempo;
+    public String getContenidoaplicadotrabajo() {
+        return contenidoaplicadotrabajo;
     }
 
-    public void setPlaneaciontiempo(String planeaciontiempo) {
-        this.planeaciontiempo = planeaciontiempo;
-    }
-
-    public String getDistribuciontiempo() {
-        return distribuciontiempo;
-    }
-
-    public void setDistribuciontiempo(String distribuciontiempo) {
-        this.distribuciontiempo = distribuciontiempo;
+    public void setContenidoaplicadotrabajo(String contenidoaplicadotrabajo) {
+        this.contenidoaplicadotrabajo = contenidoaplicadotrabajo;
     }
 
     public String getContenidoclaro() {
@@ -230,28 +172,20 @@ public class EvaluacionCapacitacion implements Serializable {
         this.contenidoclaro = contenidoclaro;
     }
 
-    public String getContenidoaplicadotrabajo() {
-        return contenidoaplicadotrabajo;
+    public String getDistribuciontiempo() {
+        return distribuciontiempo;
     }
 
-    public void setContenidoaplicadotrabajo(String contenidoaplicadotrabajo) {
-        this.contenidoaplicadotrabajo = contenidoaplicadotrabajo;
+    public void setDistribuciontiempo(String distribuciontiempo) {
+        this.distribuciontiempo = distribuciontiempo;
     }
 
-    public String getSatisfechocontenido() {
-        return satisfechocontenido;
+    public String getDominiotema() {
+        return dominiotema;
     }
 
-    public void setSatisfechocontenido(String satisfechocontenido) {
-        this.satisfechocontenido = satisfechocontenido;
-    }
-
-    public String getNecesariocapacitacion() {
-        return necesariocapacitacion;
-    }
-
-    public void setNecesariocapacitacion(String necesariocapacitacion) {
-        this.necesariocapacitacion = necesariocapacitacion;
+    public void setDominiotema(String dominiotema) {
+        this.dominiotema = dominiotema;
     }
 
     public String getEquipotecnologico() {
@@ -262,6 +196,46 @@ public class EvaluacionCapacitacion implements Serializable {
         this.equipotecnologico = equipotecnologico;
     }
 
+    public String getEspectativa() {
+        return espectativa;
+    }
+
+    public void setEspectativa(String espectativa) {
+        this.espectativa = espectativa;
+    }
+
+    public String getHabilidadcomunicacion() {
+        return habilidadcomunicacion;
+    }
+
+    public void setHabilidadcomunicacion(String habilidadcomunicacion) {
+        this.habilidadcomunicacion = habilidadcomunicacion;
+    }
+
+    public Date getHoraevualuacioncapacitacion() {
+        return horaevualuacioncapacitacion;
+    }
+
+    public void setHoraevualuacioncapacitacion(Date horaevualuacioncapacitacion) {
+        this.horaevualuacioncapacitacion = horaevualuacioncapacitacion;
+    }
+
+    public String getInterestema() {
+        return interestema;
+    }
+
+    public void setInterestema(String interestema) {
+        this.interestema = interestema;
+    }
+
+    public String getLugarcapacitacion() {
+        return lugarcapacitacion;
+    }
+
+    public void setLugarcapacitacion(String lugarcapacitacion) {
+        this.lugarcapacitacion = lugarcapacitacion;
+    }
+
     public String getMaterialutilizado() {
         return materialutilizado;
     }
@@ -270,20 +244,20 @@ public class EvaluacionCapacitacion implements Serializable {
         this.materialutilizado = materialutilizado;
     }
 
-    public String getTiempocapacitacionoptimo() {
-        return tiempocapacitacionoptimo;
+    public String getNecesariocapacitacion() {
+        return necesariocapacitacion;
     }
 
-    public void setTiempocapacitacionoptimo(String tiempocapacitacionoptimo) {
-        this.tiempocapacitacionoptimo = tiempocapacitacionoptimo;
+    public void setNecesariocapacitacion(String necesariocapacitacion) {
+        this.necesariocapacitacion = necesariocapacitacion;
     }
 
-    public String getComentario() {
-        return comentario;
+    public String getPlaneaciontiempo() {
+        return planeaciontiempo;
     }
 
-    public void setComentario(String comentario) {
-        this.comentario = comentario;
+    public void setPlaneaciontiempo(String planeaciontiempo) {
+        this.planeaciontiempo = planeaciontiempo;
     }
 
     public String getPuntualidad() {
@@ -294,11 +268,35 @@ public class EvaluacionCapacitacion implements Serializable {
         this.puntualidad = puntualidad;
     }
 
-    public Capacitacion getCodigocapacitacion() {
+    public String getSatifacciondetema() {
+        return satifacciondetema;
+    }
+
+    public void setSatifacciondetema(String satifacciondetema) {
+        this.satifacciondetema = satifacciondetema;
+    }
+
+    public String getSatisfechocontenido() {
+        return satisfechocontenido;
+    }
+
+    public void setSatisfechocontenido(String satisfechocontenido) {
+        this.satisfechocontenido = satisfechocontenido;
+    }
+
+    public String getTiempocapacitacionoptimo() {
+        return tiempocapacitacionoptimo;
+    }
+
+    public void setTiempocapacitacionoptimo(String tiempocapacitacionoptimo) {
+        this.tiempocapacitacionoptimo = tiempocapacitacionoptimo;
+    }
+
+    public int getCodigocapacitacion() {
         return codigocapacitacion;
     }
 
-    public void setCodigocapacitacion(Capacitacion codigocapacitacion) {
+    public void setCodigocapacitacion(int codigocapacitacion) {
         this.codigocapacitacion = codigocapacitacion;
     }
 

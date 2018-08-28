@@ -67,18 +67,19 @@ public class EvaluacionCapacitacionController extends UtilsController {
     
     @RequestMapping("new/evaluacioncapacitacion")
     public String newEvaluacionCapacitacion(Model model) {
-        model.addAttribute("evaluacioncapacitacion", new EvaluacionCapacitacion());
-        
-          Iterable<Capacitacion> capacitaciones = capacitacionService.listAllCapacitacion();
+        EvaluacionCapacitacionForm evaluacionCapacitacionForm = new EvaluacionCapacitacionForm();
+//        model.addAttribute("evaluacioncapacitacion", new EvaluacionCapacitacion());
+//        
+          evaluacionCapacitacionForm.setCapacitaciones(capacitacionService.listAllCapacitacion()); 
          // System.out.println("numero:"+capacitadores);
-        model.addAttribute("capacitaciones", capacitaciones);
+        model.addAttribute("evaluacioncapacitacionform", evaluacionCapacitacionForm);
         return PREFIX + "evaluacioncapacitacionform";
     }
     
     @RequestMapping(value = "evaluacioncapacitacion")
-    public String saveEvaluacionCapacitacion(EvaluacionCapacitacion evaluacionCapacitacion,Model model) {
+    public String saveEvaluacionCapacitacion(EvaluacionCapacitacionForm evaluacionCapacitacionForm,Model model) {
         try{
-           evaluacionCapacitacionService.saveEvualuacionCapacitacion(evaluacionCapacitacion);
+           evaluacionCapacitacionService.saveEvualuacionCapacitacion(evaluacionCapacitacionForm.getEvaluacioncapacitacion());
           model.addAttribute("evaluacioncapacitaciones", evaluacionCapacitacionService.listAllEvualuacionCapacitacion());
           model.addAttribute("msg", 0);
           return PREFIX + "evaluacioncapacitaciones";
@@ -86,7 +87,10 @@ public class EvaluacionCapacitacionController extends UtilsController {
         }
         catch(Exception e){
            model.addAttribute("msg", 1); 
-           return PREFIX + "evaluacioncapacitacionform";
+           model.addAttribute("evaluacioncapacitacion", new EvaluacionCapacitacion());
+        Iterable<Capacitacion> capacitaciones = capacitacionService.listAllCapacitacion();
+        model.addAttribute("capacitaciones", capacitaciones);
+        return PREFIX + "evaluacioncapacitacionform";
         }
      // return PREFIX + "evaluacioncapacitaciones";
        
