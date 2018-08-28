@@ -2,8 +2,9 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head lang="en">
 
-    <title>Nuevo Cuadro directivo</title>
+    <title>Crear Cuadro directivo</title>
   <th:block th:include="../templates/header"></th:block>
+  <div ><label  >pnt_crcd</label> </div>
   </head>
 <body>
      <div class="row">
@@ -11,7 +12,7 @@
          <th:block th:include="../templates/menu"></th:block>
     </div> 
         <div class="col-md-8">
-            <h3>Detalle cuadro directivos</h3>
+            <h3 align="center">Crear cuadro directivos</h3>
     <div>
         <form class="form-horizontal" th:object="${cuadrodirectivo}" th:action="@{../cuadrodirectivo}" method="post">
 

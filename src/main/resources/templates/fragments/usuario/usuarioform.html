@@ -2,8 +2,9 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head lang="en">
 
-    <title>Nuevo usuario</title>
+    <title>Crear Usuario</title>
    <th:block th:include="../templates/header"></th:block>
+   <div ><label  >pnt_geus</label> </div>
   </head>
 <body>
 <div class="row">
@@ -14,7 +15,7 @@
           <div class="row text-center">
                         <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/images.jpeg}"/>
                     </div>
-        <h3 align="center">Detalle de Usuarios</h3>
+        <h3 align="center">Crear Usuarios</h3>
     <div>
         <form class="form-horizontal" th:object="${usuario}" th:action="@{../usuario}" method="post" >
             <input type="hidden" th:field="*{codigousuario}"/>

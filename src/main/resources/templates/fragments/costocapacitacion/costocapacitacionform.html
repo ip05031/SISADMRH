@@ -3,8 +3,9 @@
   
 <head lang="en">
 
-    <title>Nuevo Costo de Capacitacion</title>
+    <title>Crear Costo de Capacitacion</title>
   <th:block th:include="../templates/header"></th:block>
+  <div ><label  >pnt_cosc</label> </div>
   </head>
 <body>
 <div class="row">
@@ -14,7 +15,7 @@
     </div> 
         <div class="col-md-8">
             
-          <h3 align="center">Costos de Capacitaciones</h3>
+          <h3 align="center"> Crear Costos de Capacitacion</h3>
     <div>
         <form class="form-horizontal" th:object="${costocapacitacion}" th:action="@{../costocapacitacion}" method="post">
           <input type="hidden" th:field="*{codigocostocapacitacion}"/>

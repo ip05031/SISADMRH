@@ -85,7 +85,7 @@ public class EvaluacionCapacitacionController extends UtilsController {
         
         }
         catch(Exception e){
-           model.addAttribute("msg", 1);
+           model.addAttribute("msg", 1); 
            return PREFIX + "evaluacioncapacitacionform";
         }
      // return PREFIX + "evaluacioncapacitaciones";

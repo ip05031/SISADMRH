@@ -2,12 +2,12 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head lang="en">
 
-    <title>Nuevo rol</title>
+    <title>Crear Rol</title>
   <th:block th:include="../templates/header"></th:block>
   </head>
 <body>
 <div class="container">
-    <h2>Rol Detalle</h2>
+    <h2 align="center">Crear Rol</h2>
     <div>
         <form class="form-horizontal" th:object="${rol}" th:action="@{../rol}" method="post">
             <input type="hidden" th:field="*{codigorol}"/>

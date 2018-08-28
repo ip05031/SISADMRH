@@ -2,16 +2,17 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head lang="en">
 
-    <title>Nuevo Estado</title>
+    <title>Crear Estado</title>
   <th:block th:include="../templates/header"></th:block>
   </head>
 <body>
  <div class="row">
         <div class="col-md-3">
          <th:block th:include="../templates/menu"></th:block>
+         <div ><label  >pnt_cstd</label> </div>
     </div> 
         <div class="col-md-8">
-            <h3 align="center" >Detalle de estados</h3>
+            <h3 align="center" >Crear Estado</h3>
     <div>
         <form class="form-horizontal" th:object="${formestado}" th:action="@{../estado}" method="post">
 <!--            <input type="hidden" th:field="*{codigoestado}"/>

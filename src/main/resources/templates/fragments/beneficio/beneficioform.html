@@ -2,13 +2,14 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head lang="en">
 
-    <title>Nuevo beneficio</title>
+    <title>Crear beneficio</title>
   <th:block th:include="../templates/header"></th:block>
+  <div ><label  >pnt_crbe</label> </div>
   </head>
 <body>
 <div class="container">
       <img src="/sisadmrh/image/beneficios.png" class="img-responsive" alt="Cinque Terre" width="200" height="200">
-    <p class="text-center" style="font-size: 25px;">Formulario de Beneficios</p>
+    <p class="text-center" style="font-size: 25px;" >Crear  Beneficios</p>
   
     <div>
         <form class="form-horizontal" th:object="${beneficio}" th:action="@{../beneficio}" method="post">
