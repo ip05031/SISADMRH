@@ -2,8 +2,9 @@
 <html xmlns:th="http://www.thymeleaf.org">
     <head lang="en">
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-        <title>Nuevo Capacitador</title>
+        <title>Crear Capacitador</title>
     <th:block th:include="../templates/header"></th:block>
+    <div ><label  >pnt_ccap</label> </div>
 </head>
 <body>
     <!--<div class="container">-->
@@ -12,7 +13,7 @@
             <th:block th:include="../templates/menu"></th:block>
         </div> 
         <div class="col-md-8">
-            <h3 align="center">Detalle Capacitador</h3>
+            <h3 align="center">Crear Capacitador</h3>
             <div>
                 <form class="form-horizontal" th:object="${capacitador}" th:action="@{/capacitadores/capacitador}" method="post">
                     <!--            <input type="hidden" th:field="*{codigocapacitador}"/>
