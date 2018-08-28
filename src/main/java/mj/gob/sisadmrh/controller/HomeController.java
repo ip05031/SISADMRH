@@ -45,8 +45,8 @@ public class HomeController {
     }
  
     @RequestMapping(value = "/index", method = RequestMethod.GET)
-    public String homePage(Model model) {
- 
+    public String homePage(Model model, Principal principal) {
+            model.addAttribute("messageuser", "Usuario :" + principal.getName());
         return "index";
     }
  
