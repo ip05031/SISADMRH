@@ -83,8 +83,10 @@ public class AsistenciaCapacitacionController extends UtilsController{
         model.addAttribute("msg", 0);
          
         }
-        catch(Exception e){}
-       model.addAttribute("msg", 1);
+        catch(Exception e){
+        model.addAttribute("msg", 1);
+        }
+      // model.addAttribute("msg", 1);
        return PREFIX + "asistenciacapacitaciones";
        
        // return "redirect:./show/" + asistencia.getCodigoasistenciacapacitacion();

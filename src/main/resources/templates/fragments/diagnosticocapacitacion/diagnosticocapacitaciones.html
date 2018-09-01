@@ -6,46 +6,46 @@
 </head>
 <body>
 <!--<div class="container">-->
-<div th:if="${not #lists.isEmpty(comites)}">
+<div th:if="${not #lists.isEmpty(diagnosticocapacitaciones)}">
             <div class="row">
                 <div class="col-md-3">
                         <th:block th:include="../templates/menu"></th:block>
                     </div>
                 <div class="col-md-9">
-                    <h3 align="center">Listado de Comites</h3>
+                    <h3 align="center">Listado de Diagnosticos</h3>
                     <table class="table table-striped">
                         <tr>
-                             <th>Codigo</th>
-                            <th>DUI</th>
-                            <th>Nit</th>
+                             <th>Codigo Diagnostico</th>
+                              <th>Nombre Capacitacion</th>
+                            <th>Nombre Direccion</th>
+                            <th>Necesidad de Capacitacion</th>
                            
-                            <th>Nombre</th>
-                            <th>Responsable</th>
-                            <th>Descripcion</th>
-                            <th>N de acuerdo</th>
-                            <th>Miembros maximos</th>
-                            <th>F. desde</th>
-                            <th>F. hasta</th>
-                            
+                            <th>Que Mes es mas oportuno</th>
+                            <th>Anio dejecucion</th>
+                            <th>Personal que recibira Capacitacion</th>
+                            <th>Resultado que desea Obtener</th>
+                            <th>Nombre de quien Autoriza</th>
+                            <th>Cargo de quien Autoriza</th>
                             <th>Acciones</th>
-
                         </tr>
-                        <tr th:each="comite : ${comites}">
-                            <td th:text="${comite.codigocomite}">Codigo</td>
-                            <td th:text="${comite.nombrecomite}">Nombre</td>
-                            <td th:text="${comite.dui}">DUI</td>
-                            <td th:text="${comite.nit}">NIT</td>
-                            <td th:text="${comite.responsablecomite}">Responsable</td>
-                            <td th:text="${comite.desripcioncomite}">Descripcion</td>
-                            <td th:text="${comite.numeroacuerdocomite}">Numero acuerdo</td>
-                            <td th:text="${comite.miembromaximo}">Miembro maximo</td>
-                            <td th:text="${comite.fechadesdecomite}">F. desde</td>
-                            <td th:text="${comite.fechahastacomite}">fechahastacomite</td>
+                        
+                        <tr th:each="diagnosticocapacitacion : ${diagnosticocapacitaciones}">
+                            <td th:text="${diagnosticocapacitacion.codigodiagnosticocapacitacion}">Codigo de Diagnostico</td>
+                            <td th:text="${diagnosticocapacitacion.codigocapacitacion.nombrecapacitacion}">Codigo de Diagnostico</td>
+                            <td th:text="${diagnosticocapacitacion.direccion}">Direccion</td>
+                            <td th:text="${diagnosticocapacitacion.necesidadcapacitacion}">Nesecidad</td>
+                            <td th:text="${diagnosticocapacitacion.mescapacitacion}">Mes Mas Oportuno</td>
+                            <td th:text="${diagnosticocapacitacion.anioejecucion}">Anio Ejecucion</td>
+                            <td th:text="${diagnosticocapacitacion.personalrecibir}">Personal que recibira Capacitacion</td>
+                            <td th:text="${diagnosticocapacitacion.resultadoobtener}">Resultado que desea Obtener</td>
+                            <td th:text="${diagnosticocapacitacion.nombreautorizadiagnosticocapacitacion}">Nombre de Autorizador</td>
+                            <td th:text="${diagnosticocapacitacion.cargoautorizadiagnosticocapacitacion}">F. desde</td>
+                           
 <!--                              <td th:text="${codigoempleado.codigoempleado}">fechahastacomite</td>-->
 
-                            <td><a th:href="${'./show/' + comite.codigocomite}" class="btn btn-default">Mostrar</a>
-                            <a th:href="${'./edit/' + comite.codigocomite}" class="btn btn-default">Edit</a>
-                           <td><a  class="btn btn-danger" th:onclick="'eliminar(\'' + ${comite.codigocomite} + '\');'" >Delete</a></td>
+                            <td><a th:href="${'./show/' + diagnosticocapacitacion.codigodiagnosticocapacitacion}" class="btn btn-default">Mostrar</a>
+                            <a th:href="${'./edit/' + diagnosticocapacitacion.codigodiagnosticocapacitacion}" class="btn btn-default">Edit</a>
+                           <td><a  class="btn btn-danger" th:onclick="'eliminar(\'' + ${diagnosticocapacitacion.codigodiagnosticocapacitacion} + '\');'" >Delete</a></td>
                             <!--<a th:href="${'./delete/' + comite.codigocomite}" class="btn btn-danger">Delete</a></td>-->
                         </tr>
                     </table>
@@ -56,6 +56,29 @@
             </div>     
     </div>
 <!--</div>-->
+<script th:inline="javascript">
+    $(document).ready(function () {
+    if ([[${msg}]] === 0){
+    swal({
+    title: "Exito!",
+            text: "Registro agregado correctamente",
+            type: "success",
+            icon: "success"
+    }).then(function() {
+    location.href = '../diagnosticocapacitaciones/';
+    });
+    }
+
+    if ([[${msg}]] === 1){
+    swal({
+    title: "ERROR!",
+            text: "Ocurrio un error en el proceso",
+            type: "error",
+            icon: "error"
+    });
+    }
+    });
+</script> 
  <script th:inline="javascript">
         $(document).ready(function () {
     if([[${msg}]]===3){
@@ -66,7 +89,7 @@
                 type: "success",
                 icon: "success",
        }).then(function() {
-                location.href = '../../comites/';
+                location.href = '../../diagnosticocapacitaciones/';
        }); 
 }
     

@@ -22,7 +22,7 @@ public void SetEvaluacionCapacitacionRepository(EvaluacionCapacitacionRepository
 this.evaCapacitacionRep=evaluacionCapacitacionRepository;
 }
     @Override
-    public Iterable<EvaluacionCapacitacion> listAllEvualuacionCapacitacion() {
+    public Iterable<EvaluacionCapacitacion> listAllEvaluacionCapacitacion() {
       return evaCapacitacionRep.findAll();
     }
 

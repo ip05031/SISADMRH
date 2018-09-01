@@ -103,7 +103,29 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
     </div>  
     </div>
    
-   
+    <script th:inline="javascript">
+    $(document).ready(function () {
+    if([[${msg}]]===0){
+       swal({
+                title: "Exito!",
+                text: "Registro agregado correctamente",
+                type: "success",
+                icon: "success"
+       }).then(function() {
+                location.href = '../evaluacioncapacitacion/';
+       }); 
+}
+    
+    if([[${msg}]]===1){
+        swal({
+                title: "ERROR!",
+                text: "Ocurrio un error en el proceso",
+                type: "error",
+                icon: "error"
+       });
+    }
+    });
+</script>  
    
      <script th:inline="javascript">
         $(document).ready(function () {
@@ -146,28 +168,6 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     });
         }
     </script>
-     <script th:inline="javascript">
-    $(document).ready(function () {
-    if([[${msg}]]===0){
-       swal({
-                title: "Exito!",
-                text: "Registro agregado correctamente",
-                type: "success",
-                icon: "success"
-       }).then(function() {
-                location.href = '../evaluacioncapacitacion/';
-       }); 
-}
     
-    if([[${msg}]]===1){
-        swal({
-                title: "ERROR!",
-                text: "Ocurrio un error en el proceso",
-                type: "error",
-                icon: "error"
-       });
-    }
-    });
-</script>  
 </body>
 </html>

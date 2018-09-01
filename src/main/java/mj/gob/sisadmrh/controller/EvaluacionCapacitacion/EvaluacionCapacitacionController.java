@@ -55,7 +55,7 @@ public class EvaluacionCapacitacionController extends UtilsController {
     private final String PREFIX = "fragments/evaluacioncapacitacion/";
     @RequestMapping(value = "/", method=RequestMethod.GET)
     public String list(Model model){
-        model.addAttribute("evaluacioncapacitaciones", evaluacionCapacitacionService.listAllEvualuacionCapacitacion());
+        model.addAttribute("evaluacioncapacitaciones", evaluacionCapacitacionService.listAllEvaluacionCapacitacion());
         return PREFIX + "evaluacioncapacitaciones";
     }
     
@@ -123,7 +123,7 @@ public class EvaluacionCapacitacionController extends UtilsController {
     
     @RequestMapping("report/")
     public String reporte(Model model) {
-        model.addAttribute("evaluacioncapacitaciones", evaluacionCapacitacionService.listAllEvualuacionCapacitacion());
+        model.addAttribute("evaluacioncapacitaciones", evaluacionCapacitacionService.listAllEvaluacionCapacitacion());
         return PREFIX + "evaluacioncapacitacionesreport";
     }
     
