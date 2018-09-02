@@ -112,7 +112,7 @@ public class Capacitacion implements Serializable {
     @ManyToOne(optional = false)
     private Capacitador codigocapacitador;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "codigocapacitacion")
-    private List<EvaluacionCapacitacion> evualuacioncapacitacionList;
+    private List<EvaluacionCapacitacion> evaluacioncapacitacionList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "codigocapacitacion")
     private List<AsistenciaCapacitacion> asistenciacapacitacionList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "codigocapacitacion")
@@ -186,12 +186,12 @@ public class Capacitacion implements Serializable {
         this.codigocapacitador = codigocapacitador;
     }
 
-    public List<EvaluacionCapacitacion> getEvualuacioncapacitacionList() {
-        return evualuacioncapacitacionList;
+    public List<EvaluacionCapacitacion> getEvaluacioncapacitacionList() {
+        return evaluacioncapacitacionList;
     }
 
-    public void setEvualuacioncapacitacionList(List<EvaluacionCapacitacion> evualuacioncapacitacionList) {
-        this.evualuacioncapacitacionList = evualuacioncapacitacionList;
+    public void setEvualuacioncapacitacionList(List<EvaluacionCapacitacion> evaluacioncapacitacionList) {
+        this.evaluacioncapacitacionList = evaluacioncapacitacionList;
     }
 
     public List<AsistenciaCapacitacion> getAsistenciacapacitacionList() {

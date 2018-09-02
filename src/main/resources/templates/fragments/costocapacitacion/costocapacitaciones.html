@@ -13,7 +13,9 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 </script></label>
 </div>
 <div class="container">
-   
+            <br><br>
+          <div class="row text-center">
+                        <img src="../../static/image/costos.png" width="150" th:src="@{/image/costos.png}"/>
     <div th:if="${not #lists.isEmpty(costocapacitaciones)}">
         <h3 align="center">Listado de costos de Capacitaciones</h3>
         <table class="table table-striped">

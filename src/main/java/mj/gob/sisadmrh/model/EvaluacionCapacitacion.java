@@ -22,13 +22,14 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  *
  * @author daniel
  */
 @Entity
-@Table(name = "EVUALUACIONCAPACITACION")
+@Table(name = "EVALUACIONCAPACITACION")
 //@NamedQueries({
 //@NamedQuery(name = "EvualuacionCapacitacion.findAll", query = "SELECT ec FROM EvualuacionCapacitacion ec")})
 
@@ -44,7 +45,8 @@ public class EvaluacionCapacitacion implements Serializable {
     @Column(name = "LUGARCAPACITACION")
     private String lugarcapacitacion;
     @Column(name = "HORAEVUALUACIONCAPACITACION")
-    @Temporal(TemporalType.TIMESTAMP)
+  //  @Temporal(TemporalType.TIMESTAMP)
+     @DateTimeFormat(pattern = "YYYY-MM-dd")
     private Date horaevualuacioncapacitacion;
     @Size(max = 4)
     @Column(name = "DOMINIOTEMA")
