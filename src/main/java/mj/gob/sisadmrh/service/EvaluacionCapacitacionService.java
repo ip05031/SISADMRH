@@ -9,18 +9,18 @@ import java.util.Optional;
 import mj.gob.sisadmrh.model.AsistenciaCapacitacion;
 import mj.gob.sisadmrh.model.Capacitacion;
 
-import mj.gob.sisadmrh.model.EvaluacionCapacitacion;
+import mj.gob.sisadmrh.model.Evaluacioncapacitacion;
 
 /**
  *
  * @author jorge
  */
 public interface EvaluacionCapacitacionService {
-     Iterable <EvaluacionCapacitacion> listAllEvaluacionCapacitacion();
+     Iterable <Evaluacioncapacitacion> listAllEvualuacionCapacitacion();
     
-    Optional<EvaluacionCapacitacion> getEvualuacionCapacitacionById(Integer id);
+    Optional<Evaluacioncapacitacion> getEvualuacionCapacitacionById(Integer id);
 
-    EvaluacionCapacitacion saveEvualuacionCapacitacion(EvaluacionCapacitacion evualuacionCapacitacion);
+    Evaluacioncapacitacion saveEvualuacionCapacitacion(Evaluacioncapacitacion evualuacionCapacitacion);
 
     void deleteEvualuacionCapacitacion(Integer id);
   

@@ -13,7 +13,7 @@ import mj.gob.sisadmrh.model.Capacitacion;
 import mj.gob.sisadmrh.model.Capacitador;
 
 import mj.gob.sisadmrh.model.Empleado;
-import mj.gob.sisadmrh.model.EvaluacionCapacitacion;
+import mj.gob.sisadmrh.model.Evaluacioncapacitacion;
 import mj.gob.sisadmrh.service.CapacitacionService;
 import mj.gob.sisadmrh.service.CapacitadorService;
 
@@ -34,7 +34,9 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 @RequestMapping(value = "evaluacioncapacitaciones")
 public class EvaluacionCapacitacionController extends UtilsController {
- private EvaluacionCapacitacionService evaluacionCapacitacionService;
+
+      
+    private EvaluacionCapacitacionService evaluacionCapacitacionService;
     @Autowired
     public void SetEvaluacionCapacitacionService(EvaluacionCapacitacionService evaluacionCapacitacionService){
     this.evaluacionCapacitacionService=evaluacionCapacitacionService;
@@ -53,7 +55,7 @@ public class EvaluacionCapacitacionController extends UtilsController {
     private final String PREFIX = "fragments/evaluacioncapacitacion/";
     @RequestMapping(value = "/", method=RequestMethod.GET)
     public String list(Model model){
-        model.addAttribute("evaluacioncapacitaciones", evaluacionCapacitacionService.listAllEvaluacionCapacitacion());
+        model.addAttribute("evaluacioncapacitaciones", evaluacionCapacitacionService.listAllEvualuacionCapacitacion());
         return PREFIX + "evaluacioncapacitaciones";
     }
     
@@ -65,31 +67,32 @@ public class EvaluacionCapacitacionController extends UtilsController {
     
     @RequestMapping("new/evaluacioncapacitacion")
     public String newEvaluacionCapacitacion(Model model) {
-        model.addAttribute("evaluacioncapacitacion", new EvaluacionCapacitacion());
-        
-          Iterable<Capacitacion> capacitaciones = capacitacionService.listAllCapacitacion();
+        EvaluacionCapacitacionForm evaluacionCapacitacionForm = new EvaluacionCapacitacionForm();
+//        model.addAttribute("evaluacioncapacitacion", new EvaluacionCapacitacion());
+//        
+          evaluacionCapacitacionForm.setCapacitaciones(capacitacionService.listAllCapacitacion()); 
          // System.out.println("numero:"+capacitadores);
-        model.addAttribute("capacitaciones", capacitaciones);
+        model.addAttribute("evaluacioncapacitacionform", evaluacionCapacitacionForm);
         return PREFIX + "evaluacioncapacitacionform";
     }
     
     @RequestMapping(value = "evaluacioncapacitacion")
-    public String saveEvaluacionCapacitacion(EvaluacionCapacitacion evaluacionCapacitacion,Model model) {
+    public String saveEvaluacionCapacitacion(EvaluacionCapacitacionForm evaluacionCapacitacionForm,Model model) {
         try{
-           evaluacionCapacitacionService.saveEvualuacionCapacitacion(evaluacionCapacitacion);
-        //  model.addAttribute("evaluacioncapacitaciones", evaluacionCapacitacionService.listAllEvaluacionCapacitacion());
+          evaluacionCapacitacionService.saveEvualuacionCapacitacion(evaluacionCapacitacionForm.getEvaluacioncapacitacion());
+          model.addAttribute("evaluacioncapacitaciones", evaluacionCapacitacionService.listAllEvualuacionCapacitacion());
           model.addAttribute("msg", 0);
-        //  return PREFIX + "evaluacioncapacitaciones";
+          return PREFIX + "evaluacioncapacitaciones";
         
         }
         catch(Exception e){
-           model.addAttribute("msg", 1);
-          // return PREFIX + "evaluacioncapacitacionform";
+           model.addAttribute("msg", 1); 
+           model.addAttribute("evaluacioncapacitacion", new Evaluacioncapacitacion());
+        Iterable<Capacitacion> capacitaciones = capacitacionService.listAllCapacitacion();
+        model.addAttribute("capacitaciones", capacitaciones);
         }
-     return PREFIX + "evaluacioncapacitaciones";
+      return PREFIX + "evaluacioncapacitaciones";
        
-        //return "redirect:./show/" + capacitacion.getCodigocapacitacion();
-        //return "redirect:./show/" + evaluacionCapacitacion.getCodigoevaluacioncapacitacion();
     }
     
   
@@ -117,7 +120,7 @@ public class EvaluacionCapacitacionController extends UtilsController {
     
     @RequestMapping("report/")
     public String reporte(Model model) {
-        model.addAttribute("evaluacioncapacitaciones", evaluacionCapacitacionService.listAllEvaluacionCapacitacion());
+        model.addAttribute("evaluacioncapacitaciones", evaluacionCapacitacionService.listAllEvualuacionCapacitacion());
         return PREFIX + "evaluacioncapacitacionesreport";
     }
     
@@ -133,6 +136,7 @@ public class EvaluacionCapacitacionController extends UtilsController {
 		params.put("FECHAFIN", fechafin);
         	generatePdf("evaluacioncapacitaciones", "rpt_evaluacioncapacitaciones", params, download,response);
     }
+    
     
 //    
 //      @RequestMapping("buscar/")
