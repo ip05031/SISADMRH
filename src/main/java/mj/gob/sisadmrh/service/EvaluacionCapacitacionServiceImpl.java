@@ -7,8 +7,9 @@ package mj.gob.sisadmrh.service;
 
 import java.util.Optional;
 import mj.gob.sisadmrh.model.Capacitacion;
-import mj.gob.sisadmrh.model.EvaluacionCapacitacion;
+import mj.gob.sisadmrh.model.Evaluacioncapacitacion;
 import mj.gob.sisadmrh.repository.EvaluacionCapacitacionRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -16,24 +17,22 @@ import org.springframework.stereotype.Service;
  * @author jorge
  */
 @Service
-public class EvaluacionCapacitacionImpl  implements EvaluacionCapacitacionService{
+public class EvaluacionCapacitacionServiceImpl  implements EvaluacionCapacitacionService{
+    
 private EvaluacionCapacitacionRepository evaCapacitacionRep;
+
+@Autowired
 public void SetEvaluacionCapacitacionRepository(EvaluacionCapacitacionRepository evaluacionCapacitacionRepository){
 this.evaCapacitacionRep=evaluacionCapacitacionRepository;
 }
     @Override
-    public Iterable<EvaluacionCapacitacion> listAllEvualuacionCapacitacion() {
+    public Iterable<Evaluacioncapacitacion> listAllEvualuacionCapacitacion() {
       return evaCapacitacionRep.findAll();
     }
 
     @Override
-    public Optional<EvaluacionCapacitacion> getEvualuacionCapacitacionById(Integer id) {
+    public Optional<Evaluacioncapacitacion> getEvualuacionCapacitacionById(Integer id) {
       return evaCapacitacionRep.findById(id);
-    }
-
-    @Override
-    public EvaluacionCapacitacion saveEvualuacionCapacitacion(EvaluacionCapacitacion evualuacionCapacitacion) {
-       return evaCapacitacionRep.save(evualuacionCapacitacion);
     }
 
     @Override
@@ -44,6 +43,11 @@ this.evaCapacitacionRep=evaluacionCapacitacionRepository;
     @Override
     public Iterable<Capacitacion> findByCapacitacion(String dato) {
      return evaCapacitacionRep.findByCapacitacion(dato);
+    }
+
+    @Override
+    public Evaluacioncapacitacion saveEvualuacionCapacitacion(Evaluacioncapacitacion evualuacionCapacitacion) {
+        return evaCapacitacionRep.save(evualuacionCapacitacion);   
     }
 
   

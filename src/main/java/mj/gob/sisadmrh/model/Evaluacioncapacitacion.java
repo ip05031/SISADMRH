@@ -26,8 +26,10 @@ import javax.validation.constraints.Size;
  * @author root
  */
 @Entity
-@Table(name = "evualuacioncapacitacion")
-public class EvaluacionCapacitacion implements Serializable {
+@Table(name = "evaluacioncapacitacion")
+@NamedQueries({
+    @NamedQuery(name = "Evaluacioncapacitacion.findAll", query = "SELECT e FROM Evaluacioncapacitacion e")})
+public class Evaluacioncapacitacion implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -104,14 +106,14 @@ public class EvaluacionCapacitacion implements Serializable {
     @Column(name = "codigocapacitacion")
     private int codigocapacitacion;
 
-    public EvaluacionCapacitacion() {
+    public Evaluacioncapacitacion() {
     }
 
-    public EvaluacionCapacitacion(Integer codigoevaluacioncapacitacion) {
+    public Evaluacioncapacitacion(Integer codigoevaluacioncapacitacion) {
         this.codigoevaluacioncapacitacion = codigoevaluacioncapacitacion;
     }
 
-    public EvaluacionCapacitacion(Integer codigoevaluacioncapacitacion, int codigocapacitacion) {
+    public Evaluacioncapacitacion(Integer codigoevaluacioncapacitacion, int codigocapacitacion) {
         this.codigoevaluacioncapacitacion = codigoevaluacioncapacitacion;
         this.codigocapacitacion = codigocapacitacion;
     }
@@ -310,10 +312,10 @@ public class EvaluacionCapacitacion implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof EvaluacionCapacitacion)) {
+        if (!(object instanceof Evaluacioncapacitacion)) {
             return false;
         }
-        EvaluacionCapacitacion other = (EvaluacionCapacitacion) object;
+        Evaluacioncapacitacion other = (Evaluacioncapacitacion) object;
         if ((this.codigoevaluacioncapacitacion == null && other.codigoevaluacioncapacitacion != null) || (this.codigoevaluacioncapacitacion != null && !this.codigoevaluacioncapacitacion.equals(other.codigoevaluacioncapacitacion))) {
             return false;
         }
@@ -322,7 +324,7 @@ public class EvaluacionCapacitacion implements Serializable {
 
     @Override
     public String toString() {
-        return "mj.gob.sisadmrh.model.Evualuacioncapacitacion[ codigoevaluacioncapacitacion=" + codigoevaluacioncapacitacion + " ]";
+        return "mj.gob.sisadmrh.model.Evaluacioncapacitacion[ codigoevaluacioncapacitacion=" + codigoevaluacioncapacitacion + " ]";
     }
     
 }

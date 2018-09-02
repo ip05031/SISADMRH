@@ -13,7 +13,7 @@ import mj.gob.sisadmrh.model.Capacitacion;
 import mj.gob.sisadmrh.model.Capacitador;
 
 import mj.gob.sisadmrh.model.Empleado;
-import mj.gob.sisadmrh.model.EvaluacionCapacitacion;
+import mj.gob.sisadmrh.model.Evaluacioncapacitacion;
 import mj.gob.sisadmrh.service.CapacitacionService;
 import mj.gob.sisadmrh.service.CapacitadorService;
 
@@ -79,23 +79,20 @@ public class EvaluacionCapacitacionController extends UtilsController {
     @RequestMapping(value = "evaluacioncapacitacion")
     public String saveEvaluacionCapacitacion(EvaluacionCapacitacionForm evaluacionCapacitacionForm,Model model) {
         try{
-           evaluacionCapacitacionService.saveEvualuacionCapacitacion(evaluacionCapacitacionForm.getEvaluacioncapacitacion());
-        //  model.addAttribute("evaluacioncapacitaciones", evaluacionCapacitacionService.listAllEvualuacionCapacitacion());
+          evaluacionCapacitacionService.saveEvualuacionCapacitacion(evaluacionCapacitacionForm.getEvaluacioncapacitacion());
+          model.addAttribute("evaluacioncapacitaciones", evaluacionCapacitacionService.listAllEvualuacionCapacitacion());
           model.addAttribute("msg", 0);
-      //    return PREFIX + "evaluacioncapacitaciones";
+          return PREFIX + "evaluacioncapacitaciones";
         
         }
         catch(Exception e){
            model.addAttribute("msg", 1); 
-           model.addAttribute("evaluacioncapacitacion", new EvaluacionCapacitacion());
+           model.addAttribute("evaluacioncapacitacion", new Evaluacioncapacitacion());
         Iterable<Capacitacion> capacitaciones = capacitacionService.listAllCapacitacion();
         model.addAttribute("capacitaciones", capacitaciones);
-      //  return PREFIX + "evaluacioncapacitacionform";
         }
       return PREFIX + "evaluacioncapacitaciones";
        
-        //return "redirect:./show/" + capacitacion.getCodigocapacitacion();
-        //return "redirect:./show/" + evaluacionCapacitacion.getCodigoevaluacioncapacitacion();
     }
     
   
