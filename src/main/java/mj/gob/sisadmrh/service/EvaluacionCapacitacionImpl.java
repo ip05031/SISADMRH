@@ -7,7 +7,7 @@ package mj.gob.sisadmrh.service;
 
 import java.util.Optional;
 import mj.gob.sisadmrh.model.Capacitacion;
-import mj.gob.sisadmrh.model.Evaluacioncapacitacion;
+import mj.gob.sisadmrh.model.EvaluacionCapacitacion;
 import mj.gob.sisadmrh.repository.EvaluacionCapacitacionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,22 +17,25 @@ import org.springframework.stereotype.Service;
  * @author jorge
  */
 @Service
-public class EvaluacionCapacitacionServiceImpl  implements EvaluacionCapacitacionService{
-    
-private EvaluacionCapacitacionRepository evaCapacitacionRep;
-
+public class EvaluacionCapacitacionImpl  implements EvaluacionCapacitacionService{
 @Autowired
+    private EvaluacionCapacitacionRepository evaCapacitacionRep;
 public void SetEvaluacionCapacitacionRepository(EvaluacionCapacitacionRepository evaluacionCapacitacionRepository){
 this.evaCapacitacionRep=evaluacionCapacitacionRepository;
 }
     @Override
-    public Iterable<Evaluacioncapacitacion> listAllEvualuacionCapacitacion() {
+    public Iterable<EvaluacionCapacitacion> listAllEvaluacionCapacitacion() {
       return evaCapacitacionRep.findAll();
     }
 
     @Override
-    public Optional<Evaluacioncapacitacion> getEvualuacionCapacitacionById(Integer id) {
+    public Optional<EvaluacionCapacitacion> getEvualuacionCapacitacionById(Integer id) {
       return evaCapacitacionRep.findById(id);
+    }
+
+    @Override
+    public EvaluacionCapacitacion saveEvualuacionCapacitacion(EvaluacionCapacitacion evualuacionCapacitacion) {
+       return evaCapacitacionRep.save(evualuacionCapacitacion);
     }
 
     @Override
@@ -43,11 +46,6 @@ this.evaCapacitacionRep=evaluacionCapacitacionRepository;
     @Override
     public Iterable<Capacitacion> findByCapacitacion(String dato) {
      return evaCapacitacionRep.findByCapacitacion(dato);
-    }
-
-    @Override
-    public Evaluacioncapacitacion saveEvualuacionCapacitacion(Evaluacioncapacitacion evualuacionCapacitacion) {
-        return evaCapacitacionRep.save(evualuacionCapacitacion);   
     }
 
   
