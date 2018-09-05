@@ -7,21 +7,21 @@ package mj.gob.sisadmrh.controller.EvaluacionCapacitacion;
 
 import java.io.Serializable;
 import mj.gob.sisadmrh.model.Capacitacion;
-import mj.gob.sisadmrh.model.Evaluacioncapacitacion;
+import mj.gob.sisadmrh.model.EvaluacionCapacitacion;
 
 /**
  *
  * @author root
  */
 public class EvaluacionCapacitacionForm implements Serializable{
-    private Evaluacioncapacitacion evaluacioncapacitacion ;
+    private EvaluacionCapacitacion evaluacioncapacitacion ;
      private Iterable<Capacitacion> capacitaciones ;
 
-    public Evaluacioncapacitacion getEvaluacioncapacitacion() {
+    public EvaluacionCapacitacion getEvaluacioncapacitacion() {
         return evaluacioncapacitacion;
     }
 
-    public void setEvaluacioncapacitacion(Evaluacioncapacitacion evaluacioncapacitacion) {
+    public void setEvaluacioncapacitacion(EvaluacionCapacitacion evaluacioncapacitacion) {
         this.evaluacioncapacitacion = evaluacioncapacitacion;
     }
 

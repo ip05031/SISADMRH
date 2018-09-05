@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class CuadroDirectivoServiceImpl implements CuadroDirectivoService{
+    
     private CuadroDirectivoRepository cuadroDirectivoRep;
     
     @Autowired
