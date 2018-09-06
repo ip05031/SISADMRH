@@ -28,6 +28,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 
 @Controller
@@ -110,9 +111,29 @@ public class ComiteController extends UtilsController{
         catch(Exception e){
         model.addAttribute("msg", 4);
         }
-        return PREFIX + "comites";
+      //  return PREFIX + "comites";
      
-       // return "redirect:/comites/";
+        return "redirect:/comites/";
+    }
+    
+    @RequestMapping("buscar/")
+    public String buscar() {
+             
+        return PREFIX +"buscar";
+    }
+    
+    
+      @RequestMapping(value="buscar/listar/{dato}",method = { RequestMethod.GET})
+    public ModelAndView listComite(@PathVariable("dato") String dato) {
+        
+          ModelAndView mv = new ModelAndView(PREFIX +"listComite");
+          
+       Iterable<Comite> lista =  comiteService.findByComite(dato);
+          
+          
+           mv.addObject("comites", lista);
+           mv.addObject("dato", dato);
+        return mv;
     }
     
     @RequestMapping("report/")

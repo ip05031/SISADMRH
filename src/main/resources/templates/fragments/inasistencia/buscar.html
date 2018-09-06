@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
     <head lang="en">
 
-        <title>SISADMRH-Detalle de capacitaciones</title>
+        <title>Detalle de Inasistencias</title>
     <th:block th:include="../templates/header"></th:block>
 
 
@@ -19,7 +19,7 @@
           <br />
           <div class="input-group col-sm-4">
               <div class="input-group-addon"><span class="glyphicon glyphicon-search"></span></div>
-            <input type="text" name="buscar_capacitador" id="buscar_capacitacion" class="form-control" placeholder="Buscar capacitador" />
+            <input type="text" name="buscar_inasistencia" id="buscar_inasistencia" class="form-control" placeholder="buscar_inasistencia" />
           </div>
           
           
@@ -30,21 +30,17 @@
           <hr />
   
           
-          <div id="list_capacitador">
+          <div id="list_inasistencia">
               <table class="table table-bordered">
                   <thead>
-                      <th>Codigo</th>
-                      <th>Nombre</th>
-                      <th>Tema dominio</th>
-                      <th>Institucion</th>
-                      <th>Tipo Capacitador</th>
-                      <th>agrupacion</th>
-                      <th>dui</th>
-                      <th>nit</th>
-                      <th>carnet</th>
-                      <th>Telefono</th>
-                       <th>celular</th>
-                        <th>email</th>
+                  <th>Codigo inasistencia</th>
+                <th>Nombre Empleado</th>
+                <th>Motivo Inasistencia</th>
+                <th>Justificacion</th>
+                <th>Fecha Desde</th>
+                <th>Fecha Hasta</th>
+               
+<!--               <th>Acciones</th>-->
                          
                       
                   </thead>
@@ -64,9 +60,9 @@
       <script type="text/javascript">
           $(document).ready(function (){
               var content = $("#content_work");
-              Autocompletar_input(content,"buscar_capacitador","/sisadmrh/capacitadores/buscar/listar/",'html',function(result) {
+              Autocompletar_input(content,"buscar_inasistencia","/sisadmrh/inasistencias/buscar/listar/",'html',function(result) {
     
-                        content.find("#list_capacitadores").html(result);
+                        content.find("#list_inasistencia").html(result);
     
                 });
               

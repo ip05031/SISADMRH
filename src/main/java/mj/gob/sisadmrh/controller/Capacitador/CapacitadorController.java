@@ -53,6 +53,8 @@ public class CapacitadorController extends UtilsController{
     @RequestMapping("edit/{id}")
     public String edit(@PathVariable Integer id, Model model) {
         model.addAttribute("capacitador", capacitadorService.getCapacitadorById(id));
+         Iterable<Empleado> empleados = empleadoService.listAllEmpleado();
+      model.addAttribute("empleados", empleados);
         return PREFIX + "capacitadorform";
     }
      @RequestMapping("new/capacitador")
@@ -128,7 +130,7 @@ try{
         
           ModelAndView mv = new ModelAndView(PREFIX +"listCapacitador");
           
-       Iterable<Capacitador> lista =  capacitadorService.findByDato(dato);
+       Iterable<Capacitador> lista =  capacitadorService.findByCapacitador(dato);
           
           
            mv.addObject("capacitadores", lista);

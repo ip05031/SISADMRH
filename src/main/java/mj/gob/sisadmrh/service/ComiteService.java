@@ -22,5 +22,6 @@ public interface ComiteService {
 
     void deleteComite(Integer id);
     Iterable<Comite> findByDato(String dato);
+    Iterable<Comite> findByComite(String dato);
     
 }

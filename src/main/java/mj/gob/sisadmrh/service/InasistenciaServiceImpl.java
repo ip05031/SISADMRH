@@ -49,8 +49,8 @@ public class InasistenciaServiceImpl implements InasistenciaService{
     }
 
     @Override
-    public Iterable<Inasistencia> findByEmpleado(String dato) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Iterable<Inasistencia> findByMotivo(String dato) {
+ return inasistenciaRep.findByMotivo("%"+dato+"%");
     }
     
 }

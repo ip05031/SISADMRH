@@ -16,7 +16,15 @@ import org.springframework.data.repository.query.Param;
  * @author daniel
  */
 public interface ComiteRepository extends CrudRepository<Comite, Integer>{
-       @Query(value = "SELECT c.* FROM comite c WHERE c.nombreempleado LIKE :nom ", nativeQuery = true)
+    //para buscar los empleados en comites  
+    @Query(value = "SELECT c.* FROM comite c WHERE c.nombreempleado LIKE :nom ", nativeQuery = true)
     Iterable<Comite> findByDato(@Param("nom") String dato);
     
+    
+    
+    // para buscar los comites por nombre
+
+    @Query(value = "SELECT c.* FROM comite c "
+            + "WHERE c.nombrecomite LIKE :nom ", nativeQuery = true)
+     Iterable<Comite> findByComite(@Param("nom") String dato);
 }

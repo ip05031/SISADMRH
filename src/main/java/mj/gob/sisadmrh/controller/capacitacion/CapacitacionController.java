@@ -55,6 +55,9 @@ public class CapacitacionController extends UtilsController{
      @RequestMapping("edit/{id}")
     public String edit(@PathVariable Integer id, Model model) {
         model.addAttribute("capacitacion", capacitacionService.getCapacitacionById(id));
+         Iterable<Capacitador> capacitadores = capacitadorService.listAllCapacitador();
+         // System.out.println("numero:"+capacitadores);
+        model.addAttribute("capacitadores", capacitadores);
         return PREFIX + "capacitacionform";
     }
     

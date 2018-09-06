@@ -16,6 +16,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 /**
  *
@@ -86,6 +87,25 @@ public class InasistenciaController extends UtilsController{
         }
          return PREFIX + "inasistencias";
         //return "redirect:/comisiones/";
+    }
+     @RequestMapping("buscar/")
+    public String buscar() {
+             
+        return PREFIX +"buscar";
+    }
+    
+    
+      @RequestMapping(value="buscar/listar/{dato}",method = { RequestMethod.GET})
+    public ModelAndView listInasistencia(@PathVariable("dato") String dato) {
+        
+          ModelAndView mv = new ModelAndView(PREFIX +"listInasistencia");
+          
+       Iterable<Inasistencia> lista =  inasistenciaService.findByMotivo(dato);
+          
+          
+           mv.addObject("inasistencias", lista);
+           mv.addObject("dato", dato);
+        return mv;
     }
     
 }

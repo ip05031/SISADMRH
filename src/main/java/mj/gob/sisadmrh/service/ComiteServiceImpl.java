@@ -56,4 +56,8 @@ comiteRep.deleteById(id);
         return comiteRep.findByDato("%"+dato+"%");
         
     }
+  public  Iterable<Comite> findByComite(String dato){
+  
+  return comiteRep.findByComite("%"+dato+"%");
+          }
 }

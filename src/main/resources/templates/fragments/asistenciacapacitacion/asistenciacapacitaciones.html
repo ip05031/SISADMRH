@@ -22,8 +22,8 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 <tr>
                     <th>Codigo de Asistencia de Capacitacion</th>
                      <th>Capacitacion</th>
-                      <th>Empleado</th>
-                       <th>Puesto</th>
+                      <!--<th>Empleado</th>-->
+                       <!--<th>Puesto</th>-->
                         <th>Ubicacion Fisica</th>
                     <th>Horas Recibidas</th>
                     <th>Ubicacion Asistentes Capacitacion</th>
@@ -37,20 +37,22 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 <tr th:each="asistenciacapacitacion : ${asistenciacapacitaciones}">
                     <td th:text="${asistenciacapacitacion.codigoasistenciacapacitacion}">Codigo</td>
                        <td th:text="${asistenciacapacitacion.codigocapacitacion.nombrecapacitacion}">Capacitacion</td>
-<!--                        <td th:text="${asistenciacapacitacion.nombreempleado}">Empleado</td>
-                         <td th:text="${asistenciacapacitacion.nombrepuesto}">Puesto</td>-->
+                        <!--<td th:text="${asistenciacapacitacion.nombreempleado}">Empleado</td>-->
+                         <!--<td th:text="${asistenciacapacitacion.nombrepuesto}">Puesto</td>-->
                           <td th:text="${asistenciacapacitacion.ubicacionasistenciacapacitacion}">Ubicacion Fisica</td>
                     <td th:text="${asistenciacapacitacion.horasrecibidas}">Horas Recibidas</td>
-                    <!--<td th:text="${asistenciacapacitacion.ubicacionasistenciacapacitacion}">Ubicacion de Capacitacion</td>-->
+                    <td th:text="${asistenciacapacitacion.ubicacionasistenciacapacitacion}">Ubicacion de Capacitacion</td>
                  
                       <td th:text="${asistenciacapacitacion.telefono}">Telefono</td>
                         <td th:text="${asistenciacapacitacion.email}">Correo</td>
 
 
                     <td>
-                        <a th:href="${'./show/' + asistenciacapacitacion.codigoasistenciacapacitacion}" class="btn btn-default">Mostrar</a>
-                        <a th:href="${'./edit/' + asistenciacapacitacion.codigoasistenciacapacitacion}" class="btn btn-default">Edit</a>
-                     <td><a  class="btn btn-danger" th:onclick="'eliminar(\'' + ${asistenciacapacitacion.codigoasistenciacapacitacion} + '\');'" >Eliminar</a></td>
+                             <a th:href="${'./new/asistenciacapacitacion'}" class="btn btn-primary">Nuevo</a>
+                        <a th:href="${'./show/' + asistenciacapacitacion.codigoasistenciacapacitacion}" class="btn btn-info">Mostrar</a>
+                        <a th:href="${'./edit/' + asistenciacapacitacion.codigoasistenciacapacitacion}" class="btn btn-success">Editar</a>
+                     <a  class="btn btn-danger" th:onclick="'eliminar(\'' + ${asistenciacapacitacion.codigoasistenciacapacitacion} + '\');'" >Eliminar</a>
+                    </td>
                         <!--<a th:href="${'./delete/' + asistenciacapacitacion.codigoasistenciacapacitacion}" class="btn btn-danger">Delete</a>-->
                     </td>
                 </tr>

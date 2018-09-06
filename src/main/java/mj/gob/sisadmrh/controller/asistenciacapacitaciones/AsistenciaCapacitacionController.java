@@ -59,7 +59,14 @@ public class AsistenciaCapacitacionController extends UtilsController{
     
      @RequestMapping("edit/{id}")
     public String edit(@PathVariable Integer id, Model model) {
-        model.addAttribute("asistenciacapacitacion", asistenciaCapacitacionService.getAsistenciaCapacitacionById(id));
+         AsistenciaCapacitacionForm form = new AsistenciaCapacitacionForm();
+         model.addAttribute("formasistenciacapacitancion", asistenciaCapacitacionService.getAsistenciaCapacitacionById(id));
+       
+         form.setCapacitaciones(capacitacionService.listAllCapacitacion());
+        form.setEmpleados(empleadoService.listAllEmpleado());
+         model.addAttribute("formasistenciacapacitancion", form);
+        
+       // model.addAttribute("asistenciacapacitacion", asistenciaCapacitacionService.getAsistenciaCapacitacionById(id));
         return PREFIX + "asistenciacapacitacionform";
     }
     

@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 
@@ -52,6 +53,9 @@ public class CuadroDirectivoController extends UtilsController{
     @RequestMapping("edit/{id}")
     public String edit(@PathVariable Integer id, Model model) {
         model.addAttribute("cuadrodirectivo", cuadroDirectivoService.getCuadroDirectivoById(id));
+         Iterable<Empleado> empleados = empleadoService.listAllEmpleado();
+//         
+      model.addAttribute("empleados", empleados);
         return PREFIX + "cuadrodirectivoform";
     }
 
@@ -99,7 +103,25 @@ public class CuadroDirectivoController extends UtilsController{
       // return "redirect:/estados/";
         return "redirect:/cuadrodirectivos/";
     }
+     @RequestMapping("buscar/")
+    public String buscar() {
+             
+        return PREFIX +"buscar";
+    }
     
+    
+      @RequestMapping(value="buscar/listar/{dato}",method = { RequestMethod.GET})
+    public ModelAndView listCuadroDirectivo(@PathVariable("dato") String dato) {
+        
+          ModelAndView mv = new ModelAndView(PREFIX +"listCuadrodirectivo");
+          
+       Iterable<CuadroDirectivo> lista = cuadroDirectivoService.findByCuadro(dato);
+          
+          
+           mv.addObject("cuadrodirectivos", lista);
+           mv.addObject("dato", dato);
+        return mv;
+    }
 
     @RequestMapping("report/")
     public String reporte() {

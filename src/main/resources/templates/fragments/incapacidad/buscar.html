@@ -19,7 +19,7 @@
           <br />
           <div class="input-group col-sm-4">
               <div class="input-group-addon"><span class="glyphicon glyphicon-search"></span></div>
-            <input type="text" name="buscar_capacitador" id="buscar_capacitacion" class="form-control" placeholder="Buscar capacitador" />
+            <input type="text" name="buscar_capacitador" id="buscar_capacitador" class="form-control" placeholder="Buscar capacitador" />
           </div>
           
           
@@ -33,18 +33,21 @@
           <div id="list_capacitador">
               <table class="table table-bordered">
                   <thead>
-                      <th>Codigo</th>
-                      <th>Nombre</th>
-                      <th>Tema dominio</th>
-                      <th>Institucion</th>
-                      <th>Tipo Capacitador</th>
-                      <th>agrupacion</th>
-                      <th>dui</th>
-                      <th>nit</th>
-                      <th>carnet</th>
-                      <th>Telefono</th>
-                       <th>celular</th>
-                        <th>email</th>
+                            <th>Codigo Incapacidad</th>
+                              <th>Nombre Incapacitado</th>
+                            <th>Numero Formulario ISSS</th>
+                            <th>DUI</th>
+                             <th>Numero IISSS</th>
+                            <th>Fecha Desde</th>
+                            <th>Fecha Hasta</th>
+                            <th>Tipo de Incapacidad</th>
+                            <th>Forma Incapacidad</th>
+                            <th>Fondo</th>
+                            <th>Diagnostico</th>
+<!--                            <th>Diagnostico</th>-->
+<!--                            <th>Subir Formulario</th>
+                            <th>Subir Documento</th>-->
+                              <th>Accion</th>
                          
                       
                   </thead>
@@ -66,7 +69,7 @@
               var content = $("#content_work");
               Autocompletar_input(content,"buscar_capacitador","/sisadmrh/capacitadores/buscar/listar/",'html',function(result) {
     
-                        content.find("#list_capacitadores").html(result);
+                        content.find("#list_capacitador").html(result);
     
                 });
               
