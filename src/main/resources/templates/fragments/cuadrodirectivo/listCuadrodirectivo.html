@@ -1,0 +1,23 @@
+
+
+<div th:if="${#lists.size(capacitaciones)} == 0" class="alert alert-success" role="alert">No hay datos...</div>
+
+<table th:if="${#lists.size(capacitaciones)} != 0" class="table table-bordered">
+                  <thead>
+                      <th>Código</th>
+                      <th>Nombre</th>
+                      <th>Descripción</th>
+                      <th>Categoria</th>
+                      <th>Descripción categoria</th>
+                      <th>Fecha</th>
+                  </thead>
+                  
+                  <tbody th:each="c: ${capacitaciones}">
+                      <td th:text="${c.codigocapacitacion}"></td>
+                      <td th:text="${c.nombrecapacitacion}"></td>
+                      <td th:text="${c.descripcioncapacitacion}"></td>
+                      <td ></td>
+                      <td></td>
+                      <td></td>
+                  </tbody>
+        </table>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head lang="en">
+
+        <title>SISADMRH-Detalle de capacitaciones</title>
+    <th:block th:include="../templates/header"></th:block>
+
+
+
+</head>
+<body>
+    <div class="row" id="content_work">
+        <div class="col-md-3">
+            <th:block th:include="../templates/menu"></th:block>
+        </div>
+      <div class="col-md-8">
+          
+          
+          <br />
+          <div class="input-group col-sm-4">
+              <div class="input-group-addon"><span class="glyphicon glyphicon-search"></span></div>
+            <input type="text" name="buscar_capacitador" id="buscar_capacitacion" class="form-control" placeholder="Buscar capacitador" />
+          </div>
+          
+          
+          <br />
+          
+          
+          <h3>Lista de resultados</h3>
+          <hr />
+  
+          
+          <div id="list_capacitador">
+              <table class="table table-bordered">
+                  <thead>
+                      <th>Codigo</th>
+                      <th>Nombre</th>
+                      <th>Tema dominio</th>
+                      <th>Institucion</th>
+                      <th>Tipo Capacitador</th>
+                      <th>agrupacion</th>
+                      <th>dui</th>
+                      <th>nit</th>
+                      <th>carnet</th>
+                      <th>Telefono</th>
+                       <th>celular</th>
+                        <th>email</th>
+                         
+                      
+                  </thead>
+                  
+                  <tbody>
+                  </tbody>
+              </table>
+              
+          </div>
+        
+          
+      </div>
+
+    
+      
+        <script type="text/javascript" th:src="@{/js/helpJs.js}"></script>
+      <script type="text/javascript">
+          $(document).ready(function (){
+              var content = $("#content_work");
+              Autocompletar_input(content,"buscar_capacitador","/sisadmrh/capacitadores/buscar/listar/",'html',function(result) {
+    
+                        content.find("#list_capacitadores").html(result);
+    
+                });
+              
+              
+          });
+      </script>
+   </div>
+
+    <div class="col-md-12">
+        <th:block th:include="../templates/footer"></th:block>
+    </div>
+
+</body>
+</html>
