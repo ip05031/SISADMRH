@@ -65,6 +65,9 @@ private EmpleadoService empleadoService;
      @RequestMapping("edit/{id}")
     public String edit(@PathVariable Integer id, Model model) {
         model.addAttribute("diagnosticocapacitacion", diagnosticoCapacitacionService.getDiagnosticoCapacitacionById(id));
+         Iterable<Capacitacion> capacitaciones= capacitacionService.listAllCapacitacion();
+       model.addAttribute("capacitaciones",capacitaciones);
+        
         return PREFIX + "diagnosticocapacitacionform";
     }
     

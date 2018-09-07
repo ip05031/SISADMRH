@@ -20,12 +20,12 @@
                             <th>Nombre Direccion</th>
                             <th>Necesidad de Capacitacion</th>
                            
-                            <th>Que Mes es mas oportuno</th>
+<!--                            <th>Que Mes es mas oportuno</th>
                             <th>Anio dejecucion</th>
                             <th>Personal que recibira Capacitacion</th>
                             <th>Resultado que desea Obtener</th>
                             <th>Nombre de quien Autoriza</th>
-                            <th>Cargo de quien Autoriza</th>
+                            <th>Cargo de quien Autoriza</th>-->
                             <th>Acciones</th>
                         </tr>
                         
@@ -34,18 +34,18 @@
                             <td th:text="${diagnosticocapacitacion.codigocapacitacion.nombrecapacitacion}">Codigo de Diagnostico</td>
                             <td th:text="${diagnosticocapacitacion.direccion}">Direccion</td>
                             <td th:text="${diagnosticocapacitacion.necesidadcapacitacion}">Nesecidad</td>
-                            <td th:text="${diagnosticocapacitacion.mescapacitacion}">Mes Mas Oportuno</td>
+<!--                            <td th:text="${diagnosticocapacitacion.mescapacitacion}">Mes Mas Oportuno</td>
                             <td th:text="${diagnosticocapacitacion.anioejecucion}">Anio Ejecucion</td>
                             <td th:text="${diagnosticocapacitacion.personalrecibir}">Personal que recibira Capacitacion</td>
                             <td th:text="${diagnosticocapacitacion.resultadoobtener}">Resultado que desea Obtener</td>
                             <td th:text="${diagnosticocapacitacion.nombreautorizadiagnosticocapacitacion}">Nombre de Autorizador</td>
                             <td th:text="${diagnosticocapacitacion.cargoautorizadiagnosticocapacitacion}">F. desde</td>
-                           
+                           -->
 <!--                              <td th:text="${codigoempleado.codigoempleado}">fechahastacomite</td>-->
 
-                            <td><a th:href="${'./show/' + diagnosticocapacitacion.codigodiagnosticocapacitacion}" class="btn btn-default">Mostrar</a>
-                            <a th:href="${'./edit/' + diagnosticocapacitacion.codigodiagnosticocapacitacion}" class="btn btn-default">Edit</a>
-                           <td><a  class="btn btn-danger" th:onclick="'eliminar(\'' + ${diagnosticocapacitacion.codigodiagnosticocapacitacion} + '\');'" >Delete</a></td>
+                            <td><a th:href="${'./show/' + diagnosticocapacitacion.codigodiagnosticocapacitacion}" class="btn btn-info">Mostrar</a>
+                            <a th:href="${'./edit/' + diagnosticocapacitacion.codigodiagnosticocapacitacion}" class="btn btn-primary">Editar</a>
+                           <a  class="btn btn-danger" th:onclick="'eliminar(\'' + ${diagnosticocapacitacion.codigodiagnosticocapacitacion} + '\');'" >Eliminar</a></td>
                             <!--<a th:href="${'./delete/' + comite.codigocomite}" class="btn btn-danger">Delete</a></td>-->
                         </tr>
                     </table>

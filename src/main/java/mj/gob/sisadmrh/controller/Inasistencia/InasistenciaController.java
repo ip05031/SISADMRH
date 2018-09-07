@@ -40,6 +40,10 @@ public class InasistenciaController extends UtilsController{
        @RequestMapping("edit/{id}")
     public String edit(@PathVariable Integer id, Model model) {
         model.addAttribute("inasistencia",inasistenciaService.getInasistenciaById(id));
+         Iterable<Empleado> empleados = empleadoService.listAllEmpleado();
+//         
+      model.addAttribute("empleados", empleados);
+//       return PREFIX + "inasistenciaform";
          return PREFIX + "inasistenciaform";
     }
     

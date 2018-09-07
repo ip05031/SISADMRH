@@ -23,7 +23,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
             <th:block th:include="../templates/menu"></th:block>
         </div>
         <div class="col-md-9">
-           <h3 align="center">Listado de Evaluaciones de Capacitacion</h3>
+           <h3 align="center">Listado de Incapacidades</h3>
       
         <table class="table table-striped">
                <tr>
@@ -36,8 +36,8 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                             <th>Fecha Hasta</th>
                             <th>Tipo de Incapacidad</th>
                             <th>Forma Incapacidad</th>
-                            <th>Fondo</th>
-                            <th>Diagnostico</th>
+                            <!--<th>Fondo</th>-->
+                            <!--<th>Diagnostico</th>-->
 <!--                            <th>Diagnostico</th>-->
 <!--                            <th>Subir Formulario</th>
                             <th>Subir Documento</th>-->
@@ -58,14 +58,14 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                             <td th:text="${incapacidad.formaincapacidad}">Forma Incapacidad</td>
                             <td th:text="${incapacidad.fondoincapacidad}">Fondo</td>
                              <td th:text="${incapacidad.diagnostico}">Diagnostico</td>
-                              <td th:text="${incapacidad.documento1}">Formulario</td>
+<!--                              <td th:text="${incapacidad.documento1}">Formulario</td>
                                <td th:text="${incapacidad.documento2}">Documento Dos</td>
-<!--                              <td th:text="${codigoempleado.codigoempleado}">fechahastacomite</td>-->
+                              <td th:text="${codigoempleado.codigoempleado}">fechahastacomite</td>-->
 
                 <td>
-                    <a th:href="${'./show/' + incapacidad.codigoincapacidad}" class="btn btn-default">Mostrar</a>
-                <a th:href="${'./edit/' +incapacidad.codigoincapacidad}" class="btn btn-default">Edit</a>
-                 <a  class="btn btn-danger" th:onclick="'eliminar(\'' + ${incapacidad.codigoincapacidad} + '\');'" >Delete</a>
+                    <a th:href="${'./show/' + incapacidad.codigoincapacidad}" class="btn btn-info">Mostrar</a>
+                <a th:href="${'./edit/' +incapacidad.codigoincapacidad}" class="btn btn-primary">Edit</a>
+                 <a  class="btn btn-danger" th:onclick="'eliminar(\'' + ${incapacidad.codigoincapacidad} + '\');'" >Eliminar</a>
                <!--<td><a th:href="${'./delete/' + capacitacion.codigocapacitacion}" class="btn btn-danger">Delete</a></td>-->
                     <!--<td><a  class="btn btn-danger" th:onclick="'eliminar(\'' + ${capacitacion.codigocapacitacion} + '\');'" >Delete</a></td>-->  
                 </td>
