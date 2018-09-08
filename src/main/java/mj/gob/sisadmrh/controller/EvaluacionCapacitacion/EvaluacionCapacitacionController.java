@@ -25,6 +25,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
@@ -32,6 +34,7 @@ import org.springframework.web.servlet.ModelAndView;
  * @author jorge
  */
 @Controller
+@SessionAttributes("evaluacioncapacitacion")
 @RequestMapping(value = "evaluacioncapacitaciones")
 public class EvaluacionCapacitacionController extends UtilsController {
  private EvaluacionCapacitacionService evaluacionCapacitacionService;
@@ -76,9 +79,10 @@ public class EvaluacionCapacitacionController extends UtilsController {
     }
     
     @RequestMapping(value = "evaluacioncapacitacion")
-    public String saveEvaluacionCapacitacion(EvaluacionCapacitacion evaluacionCapacitacion,Model model) {
+    public String saveEvaluacionCapacitacion(EvaluacionCapacitacion evaluacionCapacitacion,Model model,SessionStatus status) {
         try{
            evaluacionCapacitacionService.saveEvualuacionCapacitacion(evaluacionCapacitacion);
+           status.setComplete();
         //  model.addAttribute("evaluacioncapacitaciones", evaluacionCapacitacionService.listAllEvaluacionCapacitacion());
           model.addAttribute("msg", 0);
         //  return PREFIX + "evaluacioncapacitaciones";

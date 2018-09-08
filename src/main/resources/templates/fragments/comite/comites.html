@@ -26,11 +26,11 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     <h3 align="center">Listado de Comites</h3>
                     <table class="table table-striped">
                         <tr>
-                             <th>Codigo</th>
+                             <th>Código</th>
                             <th>Nombre</th>
                             <th>Responsable</th>
                             <th>Descripcion</th>
-                            <th>N de acuerdo</th>
+                            <th>Nº de Acuerdo</th>
                             <th>Miembros maximos</th>
                             <th>F. desde</th>
                             <th>F. hasta</th>
@@ -61,8 +61,9 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                             <!--<a th:href="${'./delete/' + comite.codigocomite}" class="btn btn-danger">Delete</a></td>-->
                         </tr>
                     </table>
+                  
                 </div>
-               
+                 <!--<nav th:replace="paginator-nav :: paginator"></nav>-->
             </div>    
              <div class="col-md-12">
                     <th:block th:include="../templates/footer"></th:block>

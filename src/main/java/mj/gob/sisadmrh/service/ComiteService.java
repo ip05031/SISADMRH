@@ -8,6 +8,8 @@ package mj.gob.sisadmrh.service;
 import java.util.Optional;
 
 import mj.gob.sisadmrh.model.Comite;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 /**
  *
@@ -15,6 +17,7 @@ import mj.gob.sisadmrh.model.Comite;
  */
 public interface ComiteService {
           Iterable <Comite> listAllComite();
+          Page <Comite> listAllComite(Pageable pePageable);
     
     Optional<Comite> getComiteById(Integer id);
 

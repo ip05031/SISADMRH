@@ -6,6 +6,7 @@
 package mj.gob.sisadmrh.controller.comite;
 
 
+import com.bolsadeideas.springboot.app.util.paginator.PageRender;
 import java.util.HashMap;
 import java.util.Map;
 import mj.gob.sisadmrh.controller.UtilsController;
@@ -20,6 +21,9 @@ import mj.gob.sisadmrh.service.ComiteService;
 import mj.gob.sisadmrh.service.EmpleadoBeneficioServiceImpl;
 import mj.gob.sisadmrh.service.EmpleadoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -28,10 +32,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.ModelAndView;
 
 
 @Controller
+@SessionAttributes("comite")
 @RequestMapping(value = "comites")
 public class ComiteController extends UtilsController{
     
@@ -53,12 +60,19 @@ public class ComiteController extends UtilsController{
   @RequestMapping("edit/{id}")
     public String edit(@PathVariable Integer id, Model model) {
         model.addAttribute("comite", comiteService.getComiteById(id));
+         Iterable<Empleado> empleados = empleadoService.listAllEmpleado();
+         // System.out.println("numero:"+capacitadores);
+        model.addAttribute("empleados", empleados);
         return PREFIX + "comiteform";
     }
     private final String PREFIX = "fragments/comite/";
     @RequestMapping(value = "/", method=RequestMethod.GET)
-    public String list(Model model){
-        model.addAttribute("comites", comiteService.listAllComite());
+    public String list(@RequestParam(name="page",defaultValue = "0") int page,Model model){
+        Pageable pageRequest=new PageRequest(page, 5);//para el paginado
+        Page<Comite> comites=comiteService.listAllComite(pageRequest);//paginado
+        PageRender<Comite> pageRender = new PageRender<Comite>("comites", comites);//pagninado
+        model.addAttribute("comites", comites);//
+        model.addAttribute("page", pageRender);
         return PREFIX + "comites";
     }
     
@@ -75,9 +89,10 @@ public class ComiteController extends UtilsController{
     }
     
     @RequestMapping(value = "comite")
-    public String saveComite(Comite comite, Model model) {
+    public String saveComite(Comite comite, Model model,SessionStatus status) {
         try{
          comiteService.saveComite(comite);
+         status.setComplete();
          model.addAttribute("msg", 0);
         }
         catch(Exception e)

@@ -25,8 +25,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
 
 @Controller
+@SessionAttributes("asistenciacapacitacion")
 @RequestMapping(value = "asistenciacapacitaciones")
 public class AsistenciaCapacitacionController extends UtilsController{
     
@@ -84,9 +87,10 @@ public class AsistenciaCapacitacionController extends UtilsController{
     }
     
     @RequestMapping(value = "asistenciacapacitacion")
-    public String saveAsistenciaCapacitacion(AsistenciaCapacitacion asistencia,Model model) {
+    public String saveAsistenciaCapacitacion(AsistenciaCapacitacion asistencia,Model model,SessionStatus status) {
         try{
          asistenciaCapacitacionService.saveAsistenciaCapacitacion(asistencia);
+         status.setComplete();
         model.addAttribute("msg", 0);
          
         }

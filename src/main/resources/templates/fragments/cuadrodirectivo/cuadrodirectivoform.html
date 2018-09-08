@@ -22,10 +22,10 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 <br><br>
           <div class="row text-center">
                         <img src="../../static/image/cuadro.png" width="100" th:src="@{/image/cuadro.png}"/>
-            <h3 align="center">Crear cuadro directivos</h3>
+            <h3 align="center">Crear Cuadro Directivos</h3>
     <div>
         <form class="form-horizontal" th:object="${cuadrodirectivo}" th:action="@{../cuadrodirectivo}" method="post">
-
+ <input type="hidden" th:field="*{codigocuadrodirectivo}"/>
 <!--            <div class="form-group">
                 <label class="col-sm-2 control-label">Responsaable:</label>
                 <div class="col-sm-10">
@@ -42,20 +42,20 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-2 control-label">area:(*)</label>
+                <label class="col-sm-2 control-label">Area:(*)</label>
                 <div class="col-sm-10">
                     <input type="text" class="form-control" required="true" size="30" maxlength="30" th:field="*{area}"/>
                 </div>
             </div>
             
             <div class="form-group">
-                <label class="col-sm-2 control-label">Descripcion:(*)</label>
+                <label class="col-sm-2 control-label">Descripción:(*)</label>
                 <div class="col-sm-10">
                     <input type="text" class="form-control" required="true" size="100"maxlength="100" th:field="*{desripcioncuadrodirectivo}"/>
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-2 control-label">fecha presentacion:(*)</label>
+                <label class="col-sm-2 control-label">fecha presentación:(*)</label>
                 <div class="col-sm-10">
                     <input type="text" class="form-control" th:field="*{fechapresentacion}"/>
                 </div>

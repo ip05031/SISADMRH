@@ -29,12 +29,15 @@ import mj.gob.sisadmrh.service.DiagnosticoCapacitacionService;
 import mj.gob.sisadmrh.service.EstadoService;
 import mj.gob.sisadmrh.service.PuestoService;
 import mj.gob.sisadmrh.service.UbicacionFisicaService;
+import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
 
 /**
  *
  * @author jorge
  */
 @Controller
+@SessionAttributes("diagnosticocapacitacion")
 @RequestMapping(value = "diagnosticocapacitaciones")
 public class DiagnosticoCapacitacionController extends UtilsController{
    @Autowired 
@@ -85,9 +88,10 @@ private EmpleadoService empleadoService;
     }
     
     @RequestMapping(value = "diagnosticocapacitacion")
-    public String saveDiagnosticoCapacitacion(DiagnosticoCapacitacion diagnosticoCapacitacion,Model model) {
+    public String saveDiagnosticoCapacitacion(DiagnosticoCapacitacion diagnosticoCapacitacion,Model model,SessionStatus status) {
         try{
           diagnosticoCapacitacionService.saveDiagnosticoCapacitacion(diagnosticoCapacitacion);
+          status.setComplete();
            model.addAttribute("msg", 0);
         }
         catch(Exception e){

@@ -3,7 +3,7 @@
 
     <head lang="en">
 
-        <title>Crear Capacitacion</title>
+        <title>Crear Capacitación</title>
 <!--         <th:block th:include="../templates/header"></th:block>-->
         <link rel="stylesheet"
 	th:href="@{/css/bootstrap.min.css}" />
@@ -31,19 +31,19 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 <form class="form-horizontal" th:object="${evaluacioncapacitacion}" th:action="@{../evaluacioncapacitacion}" method="post">
 
    <div class="col-md-6">
-
+       <input type="hidden" th:field="*{codigoevaluacioncapacitacion}"/>
 
 <div class="form-group">
-                <label class="col-sm-5 control-label">Capacitacion:</label>
+                <label class="col-sm-5 control-label">Capacitación:</label>
                 <div class="col-sm-7">
                     <select class="form-control" name="codigocapacitacion.codigocapacitacion">
-                         <option value="">-- Seleccione la Capacitacion --</option>
+                         <option value="">-- Seleccione la Capacitación --</option>
                                 <option th:each="c:${capacitaciones}" th:value="${c.codigocapacitacion}" th:text="${c.nombrecapacitacion}"></option>
                             </select>
                 </div>
             </div>
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Lugar de la Capacitacion(*):</label>
+                            <label class="col-sm-5 control-label">Lugar de la Capacitación(*):</label>
                             <div class="col-sm-7">
                                 <input type="text" class="form-control" max="100" maxlength="100" required="true" name="lugarcapacitacion"/>
                             </div>
@@ -76,7 +76,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                         </div>
 
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Habilidades de Comunicacion(*):</label>
+                            <label class="col-sm-5 control-label">Habilidades de Comunicación(*):</label>
                             <div class="col-sm-3">
 
                                 <select class="form-control" name="habilidadcomunicacion" >
@@ -110,7 +110,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                         </div>
 
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Aclara dudas con precision(*):</label>
+                            <label class="col-sm-5 control-label">Aclara dudas con precisión(*):</label>
                             <div class="col-sm-3">
 
                                 <select class="form-control" name="alclaradudas" >
@@ -143,7 +143,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                         </div>
 
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Comprension del tema(*):</label>
+                            <label class="col-sm-5 control-label">Comprensión del tema(*):</label>
                             <div class="col-sm-3">
                                 <!--<input type="text" class="form-control" th:field="*{sublinea}"/>-->
                                 <select class="form-control" name="comprenciondetema" >
@@ -155,7 +155,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Planeacion del tiempo(*):</label>
+                            <label class="col-sm-5 control-label">Planeación del tiempo(*):</label>
                             <div class="col-sm-3">
                                 <!--<input type="text" class="form-control" th:field="*{sublinea}"/>-->
                                 <select class="form-control" name="planeaciontiempo" >
@@ -166,7 +166,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                         </div>
 
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Distribucion del Tiempo(*):</label>
+                            <label class="col-sm-5 control-label">Distribución del Tiempo(*):</label>
                             <div class="col-sm-3">
                                 <!--<input type="text" class="form-control" th:field="*{sublinea}"/>-->
                                 <select class="form-control" name="distribuciontiempo" >
@@ -206,7 +206,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Es necesaria la Capacitacion(*):</label>
+                            <label class="col-sm-5 control-label">Es necesaria la Capacitación(*):</label>
                             <div class="col-sm-3">
                                 <!--<input type="text" class="form-control" th:field="*{sublinea}"/>-->
                                 <select class="form-control" name="necesariocapacitacion" >
@@ -236,7 +236,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Tiempo Capacitacion fue optimo(*):</label>
+                            <label class="col-sm-5 control-label">Tiempo Capacitación fue optimo(*):</label>
                             <div class="col-sm-3">
                                 <!--<input type="text" class="form-control" th:field="*{sublinea}"/>-->
                                 <select class="form-control" name="tiempocapacitacionoptimo" >
@@ -267,14 +267,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                         </div>
                     
 
-<!--                    <div class="col-md-12">
-                        <div class="row" align="center">
-                            <button type="button" class="btn btn-info"><a href="#" th:href="@{/evaluacioncapacitaciones/}">Regresar</a></button>
-                            <button type="submit" class="btn btn-primary">Guardar</button>
-                            <button type="reset" class="btn btn-default">Limpiar</button>
-                        </div>
-                         
-                    </div>-->
+
                     
                         </div> 
                      <div class="col-md-12">

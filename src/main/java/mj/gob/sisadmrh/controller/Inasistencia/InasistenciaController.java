@@ -16,6 +16,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
@@ -23,6 +25,7 @@ import org.springframework.web.servlet.ModelAndView;
  * @author jorge
  */
 @Controller
+@SessionAttributes("inasistencia")
 @RequestMapping(value = "inasistencias")
 public class InasistenciaController extends UtilsController{
     @Autowired
@@ -58,9 +61,10 @@ public class InasistenciaController extends UtilsController{
     
     
        @RequestMapping(value = "inasistencia")
-    public String saveInasistencia(Inasistencia inasistencia,Model model) {
+    public String saveInasistencia(Inasistencia inasistencia,Model model,SessionStatus status) {
         try{
         inasistenciaService.saveInasistencia(inasistencia);
+        status.setComplete();
         
         model.addAttribute("msg", 0);
        // model.addAttribute("inasistencias", inasistenciaService.listAllInasistencia());

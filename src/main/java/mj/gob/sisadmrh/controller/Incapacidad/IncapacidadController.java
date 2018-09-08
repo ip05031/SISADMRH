@@ -20,12 +20,15 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
 
 /**
  *
  * @author jorge
  */
 @Controller
+@SessionAttributes("incapacidad")
 @RequestMapping(value = "incapacidades")
 public class IncapacidadController extends UtilsController {
 
@@ -61,9 +64,10 @@ public class IncapacidadController extends UtilsController {
     }
 
     @RequestMapping(value = "incapacidad")
-    public String saveIncapacidad(Incapacidad incapacidad, Model model) {
+    public String saveIncapacidad(Incapacidad incapacidad, Model model,SessionStatus status) {
         try {
             incapacidadService.saveIIncapacidad(incapacidad);
+            status.setComplete();
             model.addAttribute("msg", 0);
         } catch (Exception e) {
             model.addAttribute("msg", 1);

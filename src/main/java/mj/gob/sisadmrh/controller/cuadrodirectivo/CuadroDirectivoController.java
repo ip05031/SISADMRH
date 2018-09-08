@@ -24,10 +24,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-
+@SessionAttributes("cuadrodirectivo")
 @RequestMapping(value = "cuadrodirectivos")
 public class CuadroDirectivoController extends UtilsController{
     private CuadroDirectivoService cuadroDirectivoService;
@@ -69,9 +71,10 @@ public class CuadroDirectivoController extends UtilsController{
     }
 
     @RequestMapping(value = "cuadrodirectivo")//El erorr que te daba era puta el jasPer dice que recibire un int y vos me man
-    public String saveCuadroDirectivo(CuadroDirectivo cuadroDirectivo,Model model) {
+    public String saveCuadroDirectivo(CuadroDirectivo cuadroDirectivo,Model model,SessionStatus status) {
         try{
          cuadroDirectivoService.saveCuadroDirectivo(cuadroDirectivo);
+         status.setComplete();
          model.addAttribute("msg", 0);
          model.addAttribute("cuadrodirectivos", cuadroDirectivoService.listAllCuadroDirectivo());
          return PREFIX + "cuadrodirectivos";

@@ -17,8 +17,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
 //beneficio=nivelescolaridad y beneficios=nivelescolaridades
 @Controller
+@SessionAttributes("nivelescolaridad")
 @RequestMapping(value = "nivelescolaridades")
 public class NivelEscolaridadController {
   
@@ -57,9 +60,10 @@ public class NivelEscolaridadController {
     }
     
     @RequestMapping(value = "nivelescolaridad")
-    public String saveNivelEscolaridad(NivelEscolaridad nivelEscolaridad,Model model) {
+    public String saveNivelEscolaridad(NivelEscolaridad nivelEscolaridad,Model model,SessionStatus status) {
         try{
             nivelEscolaridadService.saveNivelEscolaridad(nivelEscolaridad);
+            status.setComplete();
             model.addAttribute("msg", 0);
             model.addAttribute("nivelescolaridades", nivelEscolaridadService.listAllNivelEscolaridad());
              Iterable<Empleado> empleados = empleadoService.listAllEmpleado();
