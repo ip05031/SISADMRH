@@ -26,7 +26,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
            <h3 align="center">Listado de Evaluaciones de Capacitacion</h3>
       
         <table class="table table-striped">
-            <tr>
+              <tr th:each="evaluacioncapacitacion : ${evaluacioncapacitaciones}">
                 <th>Codigo Capacitación</th>
                 <th>Lugar Evaluacion</th>
                 <th>Hora</th>
@@ -112,7 +112,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 type: "success",
                 icon: "success"
        }).then(function() {
-                location.href = '../evaluacioncapacitacion/';
+                location.href = '../evaluacioncapacitaciones/';
        }); 
 }
     
@@ -137,7 +137,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 type: "success",
                 icon: "success",
        }).then(function() {
-                location.href = '../../capacitaciones/';
+                location.href = '../../evaluacioncapacitaciones/';
        }); 
 }
     

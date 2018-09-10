@@ -36,8 +36,8 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                             <th>Fecha Hasta</th>
                             <th>Tipo de Incapacidad</th>
                             <th>Forma Incapacidad</th>
-                            <!--<th>Fondo</th>-->
-                            <!--<th>Diagnostico</th>-->
+                            <th>Fondo</th>
+                            <th>Diagnostico</th>
 <!--                            <th>Diagnostico</th>-->
 <!--                            <th>Subir Formulario</th>
                             <th>Subir Documento</th>-->
@@ -52,8 +52,10 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                             <td th:text="${incapacidad.dui}">DUI</td>
                           
                             <td th:text="${incapacidad.isss}">Numero ISSS</td>
-                            <td th:text="${incapacidad.fechadesdeincapacidad}">Fecha Desde</td>
-                            <td th:text="${incapacidad.fechahastaincapacidad}">Fecha Hasta</td>
+                             <td th:text="${#calendars.format(incapacidad.fechadesdeincapacidad, 'dd/MM/yyyy')}">Fecha Desde</td>
+                             <td th:text="${#calendars.format(incapacidad.fechahastaincapacidad, 'dd/MM/yyyy')}">Fecha Hasta</td>
+                            <!--<td th:text="${incapacidad.fechadesdeincapacidad}">Fecha Desde</td>-->
+                            <!--<td th:text="${incapacidad.fechahastaincapacidad}">Fecha Hasta</td>-->
                             <td th:text="${incapacidad.tipoincapacidad}">Tipo Incapacidad</td>
                             <td th:text="${incapacidad.formaincapacidad}">Forma Incapacidad</td>
                             <td th:text="${incapacidad.fondoincapacidad}">Fondo</td>

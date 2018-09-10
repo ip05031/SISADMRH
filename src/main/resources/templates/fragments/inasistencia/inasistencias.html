@@ -42,8 +42,10 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 <td th:text="${inasistencia.codigoempleado.nombreempleado}">Nombre</td>
                 <td th:text="${inasistencia.motivoinasistencia}">Motivo</td>
                 <td th:text="${inasistencia.constanciainasistencia}">Justificación</td>
-                <td th:text="${inasistencia.fechadesdeinasistencia}"> Desde</td>
-                <td th:text="${inasistencia.fechahastainasistencia}"> Hasta</td>
+                <!--<td th:text="${inasistencia.fechadesdeinasistencia}"> Desde</td>-->
+                <td th:text="${#calendars.format(inasistencia.fechadesdeinasistencia, 'dd/MM/yyyy')}">Fecha Desde</td>
+                  <td th:text="${#calendars.format(inasistencia.fechahastainasistencia, 'dd/MM/yyyy')}">Fecha Desde</td>
+                <!--<td th:text="${inasistencia.fechahastainasistencia}"> Hasta</td>-->
               
                 
                 <td>
